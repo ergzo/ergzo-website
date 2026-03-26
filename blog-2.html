@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How to Conduct an Ergonomic Assessment Using Just Your Smartphone — Ergzo Blog</title>
+  <meta name="description" content="Step-by-step guide to running a professional ergonomic risk assessment on-site using only your smartphone and the Ergzo app."/>
+  <style>
+    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #F4F7F7; color: #111621; margin: 0; }
+    .blog-nav { background: #111621; padding: 0 6%; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
+    .blog-nav a { color: #d6e2e2; text-decoration: none; font-size: 15px; font-weight: 500; }
+    .blog-nav .logo { font-size: 20px; font-weight: 900; color: white; }
+    .blog-hero { background: #232d42; padding: 80px 6% 60px; text-align: center; }
+    .blog-tag-pill { display: inline-block; background: rgba(255,255,255,0.1); color: #d6e2e2; font-size: 11px; font-weight: 700; padding: 6px 16px; border-radius: 50px; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 20px; }
+    .blog-hero h1 { font-size: clamp(26px, 4vw, 46px); font-weight: 900; color: white; letter-spacing: -1px; line-height: 1.15; max-width: 760px; margin: 0 auto 16px; }
+    .blog-meta { color: rgba(214,226,226,0.5); font-size: 14px; }
+    .blog-content { max-width: 740px; margin: 0 auto; padding: 64px 24px 80px; }
+    .blog-content h2 { font-size: 24px; font-weight: 800; color: #111621; margin: 44px 0 14px; letter-spacing: -0.5px; border-left: 4px solid #354463; padding-left: 16px; }
+    .blog-content h3 { font-size: 18px; font-weight: 700; color: #232d42; margin: 28px 0 10px; }
+    .blog-content p { font-size: 16px; line-height: 1.85; color: #3a4a5a; margin-bottom: 20px; }
+    .blog-content ul, .blog-content ol { padding-left: 24px; margin-bottom: 20px; }
+    .blog-content li { font-size: 16px; line-height: 1.8; color: #3a4a5a; margin-bottom: 10px; }
+    .blog-content strong { color: #111621; }
+    .step-box {
+      background: white; border: 1px solid #d6e2e2;
+      border-radius: 16px; padding: 24px 28px; margin: 20px 0;
+      display: flex; gap: 20px; align-items: flex-start;
+    }
+    .step-number {
+      background: #232d42; color: white;
+      width: 36px; height: 36px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 900; flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step-content h3 { font-size: 17px; font-weight: 700; color: #111621; margin: 0 0 6px; }
+    .step-content p { font-size: 15px; color: #5a6a7a; margin: 0; line-height: 1.7; }
+    .highlight-box { background: #232d42; color: #d6e2e2; padding: 24px 28px; border-radius: 16px; margin: 32px 0; font-size: 16px; line-height: 1.75; }
+    .highlight-box strong { color: white; }
+    .tip-box { background: #eaf7f0; border-left: 4px solid #27AE60; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 20px 0; font-size: 15px; color: #1a4a30; line-height: 1.7; }
+    .tip-box strong { color: #1a5c38; }
+    .warning-box { background: #fff8ee; border-left: 4px solid #F39C12; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 20px 0; font-size: 15px; color: #7a4a00; line-height: 1.7; }
+    .tools-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+    .tool-chip { background: #F4F7F7; border: 1px solid #d6e2e2; color: #354463; font-size: 13px; font-weight: 700; padding: 6px 14px; border-radius: 50px; }
+    .cta-box { background: #354463; border-radius: 20px; padding: 36px; text-align: center; margin-top: 56px; }
+    .cta-box h3 { color: white; font-size: 22px; font-weight: 900; margin-bottom: 10px; letter-spacing: -0.5px; }
+    .cta-box p { color: #d6e2e2; font-size: 15px; margin-bottom: 24px; line-height: 1.65; opacity: 0.85; }
+    .cta-box a { background: white; color: #232d42; padding: 14px 30px; border-radius: 50px; font-weight: 700; text-decoration: none; font-size: 15px; display: inline-block; }
+    .divider { border: none; border-top: 1px solid #d6e2e2; margin: 40px 0; }
+    footer { background: #111621; color: rgba(214,226,226,0.5); text-align: center; padding: 28px; font-size: 13px; }
+    footer a { color: #d6e2e2; text-decoration: none; margin: 0 10px; }
+    @media (max-width: 640px) {
+      .blog-content { padding: 40px 16px 60px; }
+      .step-box { flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="blog-nav">
+  <a href="index.html" class="logo">ergzo</a>
+  <a href="index.html#blog">← All Articles</a>
+</nav>
+
+<div class="blog-hero">
+  <div class="blog-tag-pill">How-To Guide</div>
+  <h1>How to Conduct an Ergonomic Assessment Using Just Your Smartphone</h1>
+  <p class="blog-meta">By Ergzo Team · March 2026 · 7 min read</p>
+</div>
+
+<div class="blog-content">
+
+  <p>Traditional ergonomic assessments have always required trained specialists, paper forms, stopwatches, angle measuring tools, and hours of data entry after the fact. The process was slow, expensive, and inaccessible to most small and mid-sized workplaces that couldn't afford a dedicated ergonomist.</p>
+
+  <p>Today, with AI-powered mobile apps like Ergzo, any safety officer, HR manager, or occupational health professional can conduct a complete, scientifically valid ergonomic risk assessment using nothing more than the smartphone already in their pocket. Here is exactly how to do it.</p>
+
+  <h2>Before You Start: What You Need</h2>
+
+  <ul>
+    <li>A smartphone (iOS or Android) with the Ergzo app installed</li>
+    <li>Access to the worksite or workstation you want to assess</li>
+    <li>Brief verbal consent from the worker being observed</li>
+    <li>A clear line of sight to the worker performing their task</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>💡 Pro Tip:</strong> Always assess workers during a typical, representative task — not while they are aware of being watched and trying to "perform correctly." Natural posture is what reveals real risk.
+  </div>
+
+  <h2>Step-by-Step: Running Your First Assessment</h2>
+
+  <div class="step-box">
+    <div class="step-number">1</div>
+    <div class="step-content">
+      <h3>Choose the right assessment tool for the task</h3>
+      <p>Open Ergzo and tap "New Assessment." You will be asked to select an assessment tool. If the worker performs whole-body physical tasks like lifting, carrying, or bending — choose <strong>REBA</strong>. If the work is primarily upper-limb repetitive work like assembly, data entry, or sewing — choose <strong>RULA</strong>. For office workstation evaluations, choose <strong>ROSA</strong>. For manual lifting tasks with known load weights, use <strong>NIOSH</strong>.</p>
+    </div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-number">2</div>
+    <div class="step-content">
+      <h3>Capture the posture — live camera or gallery upload</h3>
+      <p>You have two options. For <strong>live assessment</strong>, point your phone camera at the worker while they perform the task — Ergzo's AI will automatically detect body landmarks and track joint angles in real time. For <strong>gallery upload</strong>, use any existing photo or video of the worker and upload it directly into the app. The AI processes it automatically. A side-view or 45-degree angle typically gives the most accurate results.</p>
+    </div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-number">3</div>
+    <div class="step-content">
+      <h3>Answer the supplementary questions</h3>
+      <p>After posture detection, Ergzo will ask a few short follow-up questions specific to your chosen tool — such as load weight (for REBA/NIOSH), task duration and frequency (for RULA/OCRA), or grip type and coupling quality. These take under 2 minutes and significantly improve the accuracy of the final risk score.</p>
+    </div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-number">4</div>
+    <div class="step-content">
+      <h3>Review your risk score and body part breakdown</h3>
+      <p>Ergzo instantly generates a colour-coded risk score: <strong style="color:#27AE60">Green (Low)</strong>, <strong style="color:#F39C12">Orange (Medium)</strong>, <strong style="color:#E74C3C">Red (High)</strong>, or <strong style="color:#8B0000">Dark Red (Very High)</strong>. A body map diagram highlights exactly which joints and body segments are at risk — neck, shoulder, elbow, wrist, trunk, or lower back — so you know precisely where to intervene.</p>
+    </div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-number">5</div>
+    <div class="step-content">
+      <h3>Review recommendations and build an action plan</h3>
+      <p>For every high-risk body part, Ergzo provides specific, actionable recommendations — adjusting workstation height, introducing tool modifications, scheduling micro-breaks, or redesigning the task sequence. The app also auto-generates a corrective action plan that can be assigned to a supervisor or shared with management directly.</p>
+    </div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-number">6</div>
+    <div class="step-content">
+      <h3>Export and share your report</h3>
+      <p>Tap "Export" to download a professionally formatted PDF report with the worker's name, task details, posture images, risk scores, body part breakdown, recommendations, and the action plan. You can also export raw data in CSV or Excel format for record-keeping, insurance documentation, or compliance audits.</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <h2>Tips for High-Quality Assessments</h2>
+
+  <h3>Camera angle matters</h3>
+  <p>For the most accurate AI pose detection, position yourself at a 90-degree side angle to the worker (directly to their left or right). This gives Ergzo the clearest view of trunk angle, arm elevation, and knee bend — the three most critical measurements in most assessment tools.</p>
+
+  <div class="warning-box">
+    ⚠️ <strong>Avoid shooting from behind or directly in front.</strong> These angles hide crucial joint positions and can lead to underestimated risk scores. A slight 45-degree angle is also acceptable if a true side view is not possible.
+  </div>
+
+  <h3>Assess multiple tasks, not just one</h3>
+  <p>Most workers perform several different tasks in a single shift. A warehouse worker might lift boxes (REBA), operate a forklift (ROSA), and do repetitive packing (RULA). Assess each task separately — Ergzo organises all sessions under the same worker profile so you can track cumulative risk across their full work day.</p>
+
+  <h3>Reassess after interventions</h3>
+  <p>The most powerful use of Ergzo is measuring whether your ergonomic improvements actually worked. After implementing a change — a new anti-fatigue mat, a height-adjustable workstation, a modified lifting technique — reassess the same task. Ergzo automatically calculates the before-and-after risk score difference so you can quantify the impact and present data-backed results to management.</p>
+
+  <h2>Which Tool Should You Use for Which Industry?</h2>
+
+  <div class="tools-list">
+    <span class="tool-chip">🏭 Manufacturing → REBA, RULA, OCRA</span>
+    <span class="tool-chip">🏗️ Construction → REBA, MAC, WISHA</span>
+    <span class="tool-chip">📦 Warehouse → NIOSH, SNOOK, REBA</span>
+    <span class="tool-chip">👗 Garments → RULA, OCRA, JSI</span>
+    <span class="tool-chip">💻 Office → ROSA, RULA, CMDQ</span>
+    <span class="tool-chip">🏥 Healthcare → REBA, WERA, QEC</span>
+  </div>
+
+  <h2>How Long Does an Assessment Take?</h2>
+  <p>A complete Ergzo assessment — from opening the app to downloading the PDF report — takes between <strong>4 and 8 minutes</strong> per task. Compare this to traditional paper-based REBA/RULA assessments which typically take 20–45 minutes including data entry, scoring calculation, and report writing. Ergzo reduces assessment time by over 80%, making it practical to assess every worker at every workstation rather than just a sample.</p>
+
+  <div class="highlight-box">
+    <strong>The bottom line:</strong> An ergonomic assessment no longer requires a specialist to travel to site, carry equipment, or spend hours on paperwork. With Ergzo on your phone, any safety professional can assess, score, document, and act on ergonomic risk — in the time it takes to drink a cup of tea.
+  </div>
+
+  <div class="cta-box">
+    <h3>Ready to run your first assessment?</h3>
+    <p>Ergzo is launching soon on iOS and Android. Join the waitlist to be first in line and get early access pricing for your team.</p>
+    <a href="index.html#waitlist">Join the Waitlist →</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Ergzo · <a href="index.html">Home</a> <a href="index.html#blog">Blog</a> <a href="index.html#contact">Contact</a></p>
+</footer>
+</body>
+</html>
