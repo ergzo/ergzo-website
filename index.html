@@ -151,9 +151,7 @@
     .iphone-wrap:last-child {
       transform: perspective(800px) rotateY(-14deg) translateY(20px);
     }
-    .iphone-wrap.center-phone {
-      transform: none;
-    }
+    .iphone-wrap.center-phone { transform: none; }
     .iphone-wrap:hover { transform: perspective(800px) rotateY(0deg) translateY(0px) !important; }
     .iphone-wrap.center-phone:hover { transform: none !important; }
     .iphone {
@@ -194,8 +192,7 @@
     }
     .iphone-pill {
       width: 80px; height: 12px;
-      background: #0a0a0a;
-      border-radius: 10px;
+      background: #0a0a0a; border-radius: 10px;
     }
     .iphone-screen {
       width: 100%;
@@ -221,10 +218,7 @@
       height: 20px; background: #1a1a1a;
       display: flex; align-items: center; justify-content: center;
     }
-    .iphone-home-pill {
-      width: 100px; height: 4px;
-      background: #3a3a3a; border-radius: 3px;
-    }
+    .iphone-home-pill { width: 100px; height: 4px; background: #3a3a3a; border-radius: 3px; }
 
     /* ===== SHARED SECTIONS ===== */
     section { padding: 96px 6%; }
@@ -252,13 +246,21 @@
 
     /* ===== INDUSTRIES ===== */
     .industries-section { background: var(--platinum); }
-    .industry-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 40px; }
+    /* ── FIX: 3-column grid, 6 items fill perfectly ── */
+    .industry-grid {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      gap: 12px;
+      justify-content: center;
+      margin-top: 40px;
+    }
     .industry-pill {
       display: flex; align-items: center; gap: 8px;
       background: var(--white); border: 1px solid var(--alabaster);
       padding: 12px 22px; border-radius: 50px;
       font-size: 15px; font-weight: 600; color: var(--indigo);
       transition: all 0.2s; cursor: default;
+      white-space: nowrap;
     }
     .industry-pill:hover { background: var(--indigo); color: var(--white); border-color: var(--indigo); }
 
@@ -270,8 +272,19 @@
     .feature-block.reverse .feature-visual-wrap { order: 1; }
     .feature-content h2 { font-size: clamp(24px, 3vw, 38px); font-weight: 900; letter-spacing: -1px; line-height: 1.2; margin-bottom: 16px; color: var(--ink); }
     .feature-content p { font-size: 16px; color: #5a6a7a; line-height: 1.8; margin-bottom: 24px; }
-    .feature-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .feature-tag { background: var(--platinum); border: 1px solid var(--alabaster); color: var(--twilight); font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 50px; }
+    /* ── FIX: feature tags aligned on desktop ── */
+    .feature-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .feature-tag {
+      flex-shrink: 0;
+      background: var(--platinum); border: 1px solid var(--alabaster);
+      color: var(--twilight); font-size: 13px; font-weight: 600;
+      padding: 6px 14px; border-radius: 50px;
+    }
     .feature-visual-wrap { display: flex; justify-content: center; }
     .feature-iphone {
       width: 240px;
@@ -315,13 +328,39 @@
 
     /* ===== TOOLS ===== */
     .tools-section { background: var(--platinum); }
-    .tools-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 48px; max-width: 900px; margin-left: auto; margin-right: auto; }
-    .tool-badge { background: var(--white); border: 1px solid var(--alabaster); border-radius: 14px; padding: 14px 18px; text-align: center; min-width: 96px; transition: all 0.2s; cursor: default; }
+    /* ── FIX: proper 5-col grid on desktop ── */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      justify-items: center;
+      margin-top: 48px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .tool-badge {
+      width: 100%;
+      background: var(--white);
+      border: 1px solid var(--alabaster);
+      border-radius: 14px;
+      padding: 14px 18px;
+      text-align: center;
+      min-width: unset;
+      transition: all 0.2s;
+      cursor: default;
+    }
     .tool-badge:hover { background: var(--indigo); border-color: var(--indigo); }
     .tool-badge:hover .tool-name { color: var(--white); }
     .tool-badge:hover .tool-full { color: var(--alabaster); }
     .tool-name { font-size: 17px; font-weight: 900; color: var(--indigo); }
     .tool-full { font-size: 10px; color: #8a9aaa; margin-top: 4px; line-height: 1.3; }
+    /* MANTRA (13th) — centred in last row */
+    .tool-badge:last-child:nth-child(5n+3) {
+      grid-column: 2 / 5;
+      width: auto;
+      min-width: 96px;
+    }
 
     /* ===== WAITLIST ===== */
     .waitlist-section { background: var(--indigo); text-align: center; }
@@ -396,6 +435,9 @@
       .users-grid { grid-template-columns: 1fr; }
       .contact-inner { grid-template-columns: 1fr; gap: 48px; }
       .blog-grid { grid-template-columns: 1fr 1fr; }
+      .tools-grid { grid-template-columns: repeat(4, 1fr); }
+      .tool-badge:last-child:nth-child(5n+3) { grid-column: 2 / 4; width: auto; }
+      .industry-grid { grid-template-columns: repeat(2, auto); }
     }
 
     @media (max-width: 640px) {
@@ -456,47 +498,50 @@
         text-align: center;
       }
 
-      /* Phones */
+      /* ── FIX: phones on mobile ── */
       .phones-row {
-        gap: 8px;
+        gap: 6px;
         width: 100%;
         justify-content: center;
         overflow: hidden;
+        align-items: center;
       }
       .iphone-wrap {
-        transform: perspective(800px) rotateY(12deg) translateY(16px) !important;
+        transform: perspective(600px) rotateY(10deg) translateY(12px) !important;
         flex-shrink: 0;
       }
       .iphone-wrap:last-child {
-        transform: perspective(800px) rotateY(-12deg) translateY(16px) !important;
+        transform: perspective(600px) rotateY(-10deg) translateY(12px) !important;
       }
       .iphone-wrap.center-phone {
         transform: none !important;
       }
       .iphone {
-        width: 28vw !important;
-        border-radius: 18px !important;
+        width: 26vw !important;
+        border-radius: 14px !important;
       }
       .iphone.center {
-        width: 32vw !important;
-        border-radius: 20px !important;
+        width: 30vw !important;
+        border-radius: 16px !important;
       }
-      .iphone-notch { height: 24px; }
-      .iphone-pill { width: 50px; height: 8px; }
-      .iphone-home-bar { height: 14px; }
-      .iphone-home-pill { width: 60px; height: 3px; }
+      .iphone-notch { height: 18px; }
+      .iphone-pill { width: 36px; height: 6px; }
+      .iphone-home-bar { height: 10px; }
+      .iphone-home-pill { width: 44px; height: 2px; }
+      .iphone-screen { aspect-ratio: 9/17 !important; }
 
       /* Tools */
       .tools-grid {
-        display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 8px;
       }
       .tool-badge {
-        min-width: unset;
         width: 100%;
         padding: 10px 8px;
         border-radius: 10px;
+      }
+      .tool-badge:last-child:nth-child(5n+3) {
+        grid-column: unset;
       }
       .tool-badge:last-child:nth-child(3n+1) {
         grid-column: 1 / -1;
@@ -512,7 +557,6 @@
 
       /* Industries */
       .industry-grid {
-        display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 8px;
       }
@@ -521,6 +565,8 @@
         padding: 12px 10px;
         font-size: 13px;
         border-radius: 12px;
+        white-space: normal;
+        text-align: center;
       }
       .industry-pill:last-child:nth-child(odd) {
         grid-column: 1 / -1;
@@ -540,33 +586,24 @@
       .contact-form textarea,
       .contact-form select { font-size: 14px; padding: 12px 14px; }
       .iphone {
-        width: 26vw !important;
-        border-radius: 14px !important;
+        width: 24vw !important;
+        border-radius: 12px !important;
       }
       .iphone.center {
-        width: 30vw !important;
-        border-radius: 16px !important;
+        width: 28vw !important;
+        border-radius: 14px !important;
       }
+      .iphone-screen { aspect-ratio: 9/16 !important; }
       .hero h1 { letter-spacing: -1px; }
       .section-title { letter-spacing: -1px; }
-      .industry-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 6px;
-      }
-      .industry-pill {
-        font-size: 12px;
-        padding: 10px 8px;
-        gap: 5px;
-      }
+      .industry-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
+      .industry-pill { font-size: 12px; padding: 10px 8px; gap: 5px; }
       .industry-pill:last-child:nth-child(odd) {
         grid-column: 1 / -1;
         justify-self: center;
         width: 50%;
       }
-      .tools-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 6px;
-      }
+      .tools-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
       .tool-badge { padding: 8px 6px; }
       .tool-badge:last-child:nth-child(3n+1) {
         grid-column: 1 / -1;
