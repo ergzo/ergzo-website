@@ -6,14 +6,11 @@
   <title>Ergzo — AI Ergonomic Assessment App</title>
   <meta name="description" content="Ergzo uses AI and your phone camera to detect ergonomic risks instantly. REBA, RULA, ROSA, NIOSH & 10 more tools. Built for EHS teams, ergonomists & managers."/>
   <style>
-    /* ===== FONT ===== */
     @font-face {
       font-family: 'HelveticaWorld';
       src: local('Helvetica World'), local('HelveticaWorld'), local('Helvetica Neue'), local('Helvetica');
       font-weight: normal;
     }
-
-    /* ===== RESET ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -22,8 +19,6 @@
       color: #111621;
       line-height: 1.6;
     }
-
-    /* ===== VARIABLES ===== */
     :root {
       --ink: #111621;
       --indigo: #232d42;
@@ -46,7 +41,8 @@
       height: 68px;
       border-bottom: 1px solid rgba(214,226,226,0.08);
     }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .nav-logo-icon { height: 28px; width: auto; display: block; }
     .nav-logo-text { font-size: 22px; font-weight: 900; color: var(--white); letter-spacing: -0.5px; }
     .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
     .nav-links a { color: var(--alabaster); text-decoration: none; font-size: 15px; font-weight: 500; transition: color 0.2s; }
@@ -98,8 +94,6 @@
       max-width: 580px; margin-bottom: 40px;
       line-height: 1.75;
     }
-
-    /* Waitlist form in hero */
     .hero-waitlist {
       display: flex; gap: 0; justify-content: center;
       margin-bottom: 16px; max-width: 480px; width: 100%;
@@ -124,19 +118,26 @@
     .hero-waitlist button:hover { opacity: 0.88; }
     .hero-note { color: rgba(214,226,226,0.35); font-size: 13px; margin-bottom: 64px; }
 
-    /* ===== iPHONE FRAME ===== */
+    /* ===== iPHONE FRAMES ===== */
     .phones-row {
       display: flex; justify-content: center;
       align-items: flex-end; gap: 24px;
     }
+    /* ── CHANGE 1: left and right tilt kept, centre phone is now perfectly flat ── */
     .iphone-wrap {
       position: relative;
-      transform: perspective(800px) rotateY(8deg);
+      transform: perspective(800px) rotateY(14deg) translateY(20px);
       transition: transform 0.3s;
     }
-    .iphone-wrap:first-child { transform: perspective(800px) rotateY(14deg) translateY(20px); }
-    .iphone-wrap:last-child { transform: perspective(800px) rotateY(-14deg) translateY(20px); }
-    .iphone-wrap:hover { transform: perspective(800px) rotateY(0deg) !important; }
+    .iphone-wrap:last-child {
+      transform: perspective(800px) rotateY(-14deg) translateY(20px);
+    }
+    .iphone-wrap.center-phone {
+      transform: none; /* flat, no tilt */
+    }
+    .iphone-wrap:hover { transform: perspective(800px) rotateY(0deg) translateY(0px) !important; }
+    .iphone-wrap.center-phone:hover { transform: none !important; }
+
     .iphone {
       width: 200px;
       background: #1a1a1a;
@@ -151,7 +152,6 @@
       overflow: hidden;
     }
     .iphone.center { width: 224px; }
-    /* Side buttons */
     .iphone::before {
       content: '';
       position: absolute; left: -4px; top: 80px;
@@ -165,7 +165,6 @@
       width: 3px; height: 48px;
       background: #2a2a2a; border-radius: 0 2px 2px 0;
     }
-    /* Notch bar */
     .iphone-notch {
       width: 100%; height: 36px;
       background: #1a1a1a;
@@ -252,7 +251,6 @@
     .feature-content p { font-size: 16px; color: #5a6a7a; line-height: 1.8; margin-bottom: 24px; }
     .feature-tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .feature-tag { background: var(--platinum); border: 1px solid var(--alabaster); color: var(--twilight); font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 50px; }
-    /* Feature iPhone */
     .feature-visual-wrap { display: flex; justify-content: center; }
     .feature-iphone {
       width: 240px;
@@ -344,7 +342,8 @@
     footer { background: var(--ink); color: var(--alabaster); padding: 60px 6% 28px; }
     .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; margin-bottom: 48px; }
     .footer-brand p { font-size: 13px; color: rgba(214,226,226,0.5); margin-top: 10px; max-width: 240px; line-height: 1.65; }
-    .footer-logo { font-size: 22px; font-weight: 900; color: var(--white); }
+    .footer-logo { display: flex; align-items: center; gap: 8px; font-size: 22px; font-weight: 900; color: var(--white); }
+    .footer-logo-icon { height: 26px; width: auto; display: block; }
     .footer-links h4 { font-size: 11px; font-weight: 700; color: var(--white); letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 16px; }
     .footer-links ul { list-style: none; }
     .footer-links li { margin-bottom: 10px; }
@@ -385,6 +384,14 @@
 <!-- ===== NAVBAR ===== -->
 <nav>
   <a href="#" class="nav-logo">
+    <!-- ── CHANGE 2: Ergzo icon SVG before wordmark in navbar ── -->
+    <svg class="nav-logo-icon" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="68" cy="28" r="18" stroke="white" stroke-width="5" fill="none"/>
+      <path d="M18 72 Q30 38 68 46 Q106 38 102 72 Q96 118 68 130 Q40 118 18 72Z" stroke="white" stroke-width="5" fill="none" stroke-linejoin="round"/>
+      <path d="M50 120 Q44 138 34 155" stroke="white" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M86 120 Q92 138 102 155" stroke="white" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M68 46 Q100 52 112 38" stroke="white" stroke-width="5" fill="none" stroke-linecap="round"/>
+    </svg>
     <span class="nav-logo-text">ergzo</span>
   </a>
   <ul class="nav-links">
@@ -419,8 +426,8 @@
   </div>
   <p class="hero-note">🚀 App launching soon on iOS & Android · No spam, ever.</p>
 
-  <!-- 3 iPhone mockups -->
   <div class="phones-row">
+    <!-- Left phone — tilted -->
     <div class="iphone-wrap">
       <div class="iphone">
         <div class="iphone-notch"><div class="iphone-pill"></div></div>
@@ -431,7 +438,8 @@
         <div class="iphone-home-bar"><div class="iphone-home-pill"></div></div>
       </div>
     </div>
-    <div class="iphone-wrap">
+    <!-- ── CHANGE 1: Centre phone — class "center-phone" added, no tilt ── -->
+    <div class="iphone-wrap center-phone">
       <div class="iphone center">
         <div class="iphone-notch"><div class="iphone-pill"></div></div>
         <div class="iphone-screen">
@@ -441,7 +449,8 @@
         <div class="iphone-home-bar"><div class="iphone-home-pill"></div></div>
       </div>
     </div>
-    <div class="iphone-wrap">
+    <!-- Right phone — tilted -->
+    <div class="iphone-wrap" style="transform: perspective(800px) rotateY(-14deg) translateY(20px);">
       <div class="iphone">
         <div class="iphone-notch"><div class="iphone-pill"></div></div>
         <div class="iphone-screen">
@@ -717,7 +726,17 @@
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <div class="footer-logo">ergzo</div>
+      <!-- ── CHANGE 2: Ergzo icon SVG before wordmark in footer ── -->
+      <div class="footer-logo">
+        <svg class="footer-logo-icon" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="68" cy="28" r="18" stroke="white" stroke-width="5" fill="none"/>
+          <path d="M18 72 Q30 38 68 46 Q106 38 102 72 Q96 118 68 130 Q40 118 18 72Z" stroke="white" stroke-width="5" fill="none" stroke-linejoin="round"/>
+          <path d="M50 120 Q44 138 34 155" stroke="white" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M86 120 Q92 138 102 155" stroke="white" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M68 46 Q100 52 112 38" stroke="white" stroke-width="5" fill="none" stroke-linecap="round"/>
+        </svg>
+        ergzo
+      </div>
       <p>AI-powered ergonomic assessment app for safety professionals, EHS teams, and managers worldwide.</p>
     </div>
     <div class="footer-links">
@@ -757,7 +776,6 @@
   function toggleMenu() {
     document.getElementById('mobileMenu').classList.toggle('open');
   }
-  // Close mobile menu on outside click
   document.addEventListener('click', function(e) {
     const menu = document.getElementById('mobileMenu');
     const hamburger = document.querySelector('.hamburger');
