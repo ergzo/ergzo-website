@@ -18,6 +18,8 @@
       background: #F4F7F7;
       color: #111621;
       line-height: 1.6;
+      overflow-x: hidden;
+  max-width: 100%;
     }
     :root {
       --ink: #111621;
@@ -398,7 +400,15 @@
   width: 100%;
   text-align: center;
 }
-
+.hero-badge {
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+  padding: 10px 16px;
+}
+.hero-badge .dot {
+  display: none;
+}
 /* Waitlist section form */
 .waitlist-form {
   flex-direction: column;
@@ -420,10 +430,37 @@
   width: 100%;
   text-align: center;
 }
-      .tools-grid { gap: 8px; }
-.tool-badge { min-width: 72px; padding: 10px 12px; border-radius: 10px; }
+      .tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.tool-badge {
+  min-width: unset;
+  width: 100%;
+  padding: 10px 8px;
+  border-radius: 10px;
+}
 .tool-name { font-size: 13px; }
 .tool-full { font-size: 9px; }
+      .feature-tags {
+  gap: 6px;
+}
+.feature-tag {
+  font-size: 12px;
+  padding: 5px 11px;
+}
+      .industry-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.industry-pill {
+  justify-content: center;
+  padding: 12px 10px;
+  font-size: 13px;
+  border-radius: 12px;
+}
     }
     @media (max-width: 400px) {
   section { padding: 64px 4%; }
@@ -440,8 +477,32 @@
   .hero h1 { letter-spacing: -1px; }
   .section-title { letter-spacing: -1px; }
   .industry-pill { padding: 10px 14px; font-size: 13px; }
-  .tool-badge { min-width: 64px; padding: 8px 10px; }
-  .tool-name { font-size: 12px; }
+  .tools-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.tool-badge { padding: 8px 6px; }
+.tool-name { font-size: 12px; }
+.tool-full { font-size: 8px; }
+      .feature-tags {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.feature-tag {
+  text-align: center;
+  font-size: 11px;
+  padding: 6px 8px;
+}
+      .industry-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.industry-pill {
+  font-size: 12px;
+  padding: 10px 8px;
+  gap: 5px;
+}
 }
   </style>
 </head>
