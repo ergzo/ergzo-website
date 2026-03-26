@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Hidden Cost of Ergonomic Injuries in Manufacturing — Ergzo Blog</title>
+  <meta name="description" content="Musculoskeletal disorders are quietly costing Indian manufacturers crores every year. Here is how to calculate your real risk exposure — and stop it."/>
+  <style>
+    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #F4F7F7; color: #111621; margin: 0; }
+    .blog-nav { background: #111621; padding: 0 6%; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
+    .blog-nav a { color: #d6e2e2; text-decoration: none; font-size: 15px; font-weight: 500; }
+    .blog-nav .logo { font-size: 20px; font-weight: 900; color: white; }
+    .blog-hero { background: #111621; padding: 80px 6% 60px; text-align: center; }
+    .blog-tag-pill { display: inline-block; background: rgba(255,255,255,0.08); color: #d6e2e2; font-size: 11px; font-weight: 700; padding: 6px 16px; border-radius: 50px; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 20px; }
+    .blog-hero h1 { font-size: clamp(26px, 4vw, 46px); font-weight: 900; color: white; letter-spacing: -1px; line-height: 1.15; max-width: 760px; margin: 0 auto 16px; }
+    .blog-meta { color: rgba(214,226,226,0.45); font-size: 14px; }
+    .blog-content { max-width: 740px; margin: 0 auto; padding: 64px 24px 80px; }
+    .blog-content h2 { font-size: 24px; font-weight: 800; color: #111621; margin: 44px 0 14px; letter-spacing: -0.5px; border-left: 4px solid #354463; padding-left: 16px; }
+    .blog-content h3 { font-size: 18px; font-weight: 700; color: #232d42; margin: 28px 0 10px; }
+    .blog-content p { font-size: 16px; line-height: 1.85; color: #3a4a5a; margin-bottom: 20px; }
+    .blog-content ul, .blog-content ol { padding-left: 24px; margin-bottom: 20px; }
+    .blog-content li { font-size: 16px; line-height: 1.8; color: #3a4a5a; margin-bottom: 10px; }
+    .blog-content strong { color: #111621; }
+    .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0; }
+    .stat-card { background: #232d42; border-radius: 16px; padding: 24px 20px; text-align: center; }
+    .stat-number { font-size: 32px; font-weight: 900; color: #F39C12; letter-spacing: -1px; line-height: 1; }
+    .stat-label { font-size: 13px; color: #d6e2e2; margin-top: 8px; line-height: 1.5; opacity: 0.8; }
+    .cost-breakdown { background: white; border: 1px solid #d6e2e2; border-radius: 16px; overflow: hidden; margin: 28px 0; }
+    .cost-row { display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; border-bottom: 1px solid #d6e2e2; }
+    .cost-row:last-child { border-bottom: none; background: #F4F7F7; font-weight: 700; }
+    .cost-label { font-size: 15px; color: #3a4a5a; }
+    .cost-label.total { color: #111621; font-weight: 800; }
+    .cost-value { font-size: 15px; font-weight: 700; color: #E74C3C; }
+    .cost-value.total { font-size: 18px; color: #111621; }
+    .highlight-box { background: #232d42; color: #d6e2e2; padding: 24px 28px; border-radius: 16px; margin: 32px 0; font-size: 16px; line-height: 1.75; }
+    .highlight-box strong { color: white; }
+    .tip-box { background: #eaf7f0; border-left: 4px solid #27AE60; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 20px 0; font-size: 15px; color: #1a4a30; line-height: 1.7; }
+    .tip-box strong { color: #1a5c38; }
+    .formula-box { background: #F4F7F7; border: 2px dashed #d6e2e2; border-radius: 16px; padding: 24px 28px; margin: 28px 0; text-align: center; }
+    .formula-box .formula { font-size: 17px; font-weight: 700; color: #232d42; margin-bottom: 8px; line-height: 1.6; }
+    .formula-box .formula-note { font-size: 13px; color: #5a6a7a; }
+    .cta-box { background: #354463; border-radius: 20px; padding: 36px; text-align: center; margin-top: 56px; }
+    .cta-box h3 { color: white; font-size: 22px; font-weight: 900; margin-bottom: 10px; letter-spacing: -0.5px; }
+    .cta-box p { color: #d6e2e2; font-size: 15px; margin-bottom: 24px; line-height: 1.65; opacity: 0.85; }
+    .cta-box a { background: white; color: #232d42; padding: 14px 30px; border-radius: 50px; font-weight: 700; text-decoration: none; font-size: 15px; display: inline-block; }
+    .divider { border: none; border-top: 1px solid #d6e2e2; margin: 40px 0; }
+    footer { background: #111621; color: rgba(214,226,226,0.5); text-align: center; padding: 28px; font-size: 13px; }
+    footer a { color: #d6e2e2; text-decoration: none; margin: 0 10px; }
+    @media (max-width: 640px) {
+      .blog-content { padding: 40px 16px 60px; }
+      .stat-grid { grid-template-columns: 1fr 1fr; }
+      .cost-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="blog-nav">
+  <a href="index.html" class="logo">ergzo</a>
+  <a href="index.html#blog">← All Articles</a>
+</nav>
+
+<div class="blog-hero">
+  <div class="blog-tag-pill">Industry · Cost Analysis</div>
+  <h1>The Hidden Cost of Ergonomic Injuries in Manufacturing</h1>
+  <p class="blog-meta">By Ergzo Team · March 2026 · 8 min read</p>
+</div>
+
+<div class="blog-content">
+
+  <p>When factory managers think about safety costs, they typically think about accidents — falls, machine injuries, burns. These are visible, dramatic, and reported. But the largest category of workplace injury in India and globally is neither dramatic nor highly visible. It is slow, silent, and cumulative: <strong>musculoskeletal disorders (MSDs)</strong> caused by poor ergonomics.</p>
+
+  <p>MSDs — including back pain, shoulder strain, carpal tunnel syndrome, and repetitive strain injuries — account for the majority of occupational illness costs in manufacturing worldwide. And in most Indian factories, they go entirely unmeasured until a worker can no longer do their job.</p>
+
+  <h2>The Scale of the Problem</h2>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-number">38%</div>
+      <div class="stat-label">of all occupational illnesses globally are musculoskeletal disorders</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">1 in 3</div>
+      <div class="stat-label">manufacturing workers will experience a significant MSD in their career</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">4–7×</div>
+      <div class="stat-label">the cost of preventing an injury vs. treating one after it occurs</div>
+    </div>
+  </div>
+
+  <p>The global cost of work-related musculoskeletal disorders is estimated at over $900 billion USD annually when productivity losses, healthcare costs, and absenteeism are combined. In India, where ergonomics programmes are still nascent in most manufacturing facilities, the burden falls almost entirely on the employer — often without them even realising it.</p>
+
+  <h2>What Does an Ergonomic Injury Actually Cost?</h2>
+
+  <p>The costs of a single MSD case are far more extensive than most managers realise. They extend well beyond the immediate medical bill into what are called <strong>"indirect costs"</strong> — which typically run 4 to 10 times higher than the direct medical exp
