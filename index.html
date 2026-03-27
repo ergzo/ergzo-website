@@ -146,7 +146,25 @@ section {
     }
     .hero-waitlist button:hover { opacity: 0.88; }
     .hero-note { color: rgba(214,226,226,0.35); font-size: 13px; margin-bottom: 64px; }
-
+    .waitlist-counter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(214,226,226,0.12);
+  padding: 10px 20px;
+  border-radius: 50px;
+  margin-bottom: 48px;
+}
+.counter-number {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--white);
+}
+.counter-label {
+  font-size: 13px;
+  color: rgba(214,226,226,0.6);
+}
     /* ===== PHONES ROW ===== */
     .phones-row {
       display: flex; justify-content: center;
@@ -655,13 +673,17 @@ section {
   <span class="badge-sep"> · </span>
   <span class="badge-text2">13 Validated Tools</span>
 </div>
-  <h1>Ergonomic Risks.<br/><em>Detected in Minutes.</em></h1>
+  <h1>Stop Guessing.<br/><em>Know Exactly Who's at Risk.</em></h1>
   <p class="hero-sub">Ergzo uses AI and your phone camera to assess musculoskeletal risks using REBA, RULA, ROSA, NIOSH and 9 more validated tools. Instant scores, body-part risk maps, action plans, and team analytics.</p>
   <form class="hero-waitlist" action="https://formspree.io/f/xnjonlry">
   <input type="email" name="email" placeholder="Enter your work email" required/>
   <button type="submit">Get Early Access</button>
 </form>
   <p class="hero-note">🚀 App launching soon on iOS & Android</p>
+  <div class="waitlist-counter">
+  <span class="counter-number">15</span>
+  <span class="counter-label">safety professionals already on the waitlist</span>
+</div>
 
   <div class="phones-row">
     <div class="iphone-wrap">
