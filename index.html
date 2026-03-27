@@ -1050,7 +1050,7 @@ section {
             btn.disabled = false;
           }, 4000);
         } else {
-          btn.textContent = '❌ Something went wrong';
+          btn.textContent = 'Something went wrong';
           btn.style.background = '#E74C3C';
           setTimeout(function() {
             btn.textContent = originalText;
@@ -1059,7 +1059,7 @@ section {
           }, 3000);
         }
       } catch (err) {
-        btn.textContent = '❌ Network error';
+        btn.textContent = 'Network error';
         btn.style.background = '#E74C3C';
         setTimeout(function() {
           btn.textContent = originalText;
@@ -1075,9 +1075,9 @@ section {
   const waitlistForm = document.querySelector('.waitlist-form');
   const contactForm = document.querySelector('.contact-form');
 
-  if (heroForm) handleFormSubmit(heroForm, 'Get Early Access', '✅ You\'re on the list!');
-  if (waitlistForm) handleFormSubmit(waitlistForm, '🚀 Join Waitlist', '✅ You\'re on the list!');
-  if (contactForm) handleFormSubmit(contactForm, 'Send Message →', '✅ Message sent!');
+  if (heroForm) handleFormSubmit(heroForm, 'Get Early Access', 'You\'re on the list!');
+  if (waitlistForm) handleFormSubmit(waitlistForm, '🚀 Join Waitlist', 'You\'re on the list!');
+  if (contactForm) handleFormSubmit(contactForm, 'Send Message →', 'Message sent!');
 </script>
 </body>
 </html>
