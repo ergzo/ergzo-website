@@ -99,6 +99,7 @@
       margin-bottom: 28px;
     }
     .hero-badge .dot { color: var(--success); font-size: 10px; }
+    .badge-text1, .badge-sep, .badge-text2 { display: inline; }
     .hero h1 {
       font-size: clamp(38px, 6vw, 72px);
       font-weight: 900; color: var(--white);
@@ -419,12 +420,14 @@
       .blog-grid { grid-template-columns: 1fr; }
 
       .hero-badge {
-        flex-direction: column;
-        gap: 4px;
-        text-align: center;
-        padding: 10px 16px;
-      }
-      .hero-badge .dot { display: none; }
+  flex-direction: column;
+  gap: 2px;
+  text-align: center;
+  padding: 10px 16px;
+}
+.hero-badge .dot { display: none; }
+.badge-sep { display: none; }
+.badge-text1, .badge-text2 { display: block; }
 
       .hero { padding-bottom: 0; }
 
@@ -638,8 +641,11 @@
 <!-- ===== HERO ===== -->
 <section class="hero" id="home">
   <div class="hero-badge">
-    <span class="dot">●</span> AI-Powered Ergonomic Assessment · 13 Validated Tools
-  </div>
+  <span class="dot">●</span>
+  <span class="badge-text1">AI-Powered Ergonomic Assessment</span>
+  <span class="badge-sep"> · </span>
+  <span class="badge-text2">13 Validated Tools</span>
+</div>
   <h1>Ergonomic Risks.<br/><em>Detected in Minutes.</em></h1>
   <p class="hero-sub">Ergzo uses AI and your phone camera to assess musculoskeletal risks using REBA, RULA, ROSA, NIOSH and 9 more validated tools. Instant scores, body-part risk maps, action plans, and team analytics.</p>
   <div class="hero-waitlist">
