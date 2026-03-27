@@ -337,23 +337,7 @@
     /* ===== TOOLS ===== */
     .tools-section { background: var(--platinum); }
     /* ── FIX: proper 5-col grid on desktop ── */
-    .tools-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 12px;
-  justify-items: stretch;
-  margin-top: 48px;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.tool-badge:last-child:nth-child(5n+3) {
-  grid-column: unset;
-  width: 100%;
-}
-.tool-badge:nth-child(11) { grid-column: 2; }
-.tool-badge:nth-child(12) { grid-column: 3; }
-.tool-badge:nth-child(13) { grid-column: 4; }
+    .tools-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 48px; max-width: 900px; margin-left: auto; margin-right: auto; }
     .tool-badge {
       width: 100%;
       background: var(--white);
