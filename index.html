@@ -12,7 +12,6 @@
       font-weight: normal;
     }
 
-    /* ===== OVERFLOW FIX ===== */
     html {
       scroll-behavior: smooth;
       overflow-x: hidden;
@@ -137,7 +136,7 @@
     .hero-waitlist button:hover { opacity: 0.88; }
     .hero-note { color: rgba(214,226,226,0.35); font-size: 13px; margin-bottom: 64px; }
 
-    /* ===== iPHONE FRAMES ===== */
+    /* ===== UNIFIED iPHONE FRAME ===== */
     .phones-row {
       display: flex; justify-content: center;
       align-items: flex-end; gap: 24px;
@@ -154,16 +153,18 @@
     .iphone-wrap.center-phone { transform: none; }
     .iphone-wrap:hover { transform: perspective(800px) rotateY(0deg) translateY(0px) !important; }
     .iphone-wrap.center-phone:hover { transform: none !important; }
-    /* Mobile tap lift animation */
-.iphone-wrap.tapped {
-  transform: perspective(800px) rotateY(0deg) translateY(-8px) !important;
-  transition: transform 0.3s;
-}
-.iphone-wrap.center-phone.tapped {
-  transform: translateY(-24px) !important;
-}
-    .iphone {
-      width: 200px;
+
+    /* Tap lift animation */
+    .iphone-wrap.tapped {
+      transform: perspective(800px) rotateY(0deg) translateY(-8px) !important;
+      transition: transform 0.3s;
+    }
+    .iphone-wrap.center-phone.tapped {
+      transform: translateY(-24px) !important;
+    }
+
+    /* Shared frame styles */
+    .iphone, .feature-iphone {
       background: #1a1a1a;
       border-radius: 44px;
       border: 2px solid #3a3a3a;
@@ -176,8 +177,12 @@
       overflow: hidden;
       max-width: unset;
     }
+    .iphone { width: 200px; }
     .iphone.center { width: 224px; }
-    .iphone::before {
+    .feature-iphone { width: 240px; }
+
+    /* Side buttons */
+    .iphone::before, .feature-iphone::before {
       content: '';
       position: absolute; left: -4px; top: 80px;
       width: 3px; height: 28px;
@@ -185,26 +190,30 @@
       box-shadow: 0 38px 0 #2a2a2a, 0 72px 0 #2a2a2a;
       max-width: unset;
     }
-    .iphone::after {
+    .iphone::after, .feature-iphone::after {
       content: '';
       position: absolute; right: -4px; top: 100px;
       width: 3px; height: 48px;
       background: #2a2a2a; border-radius: 0 2px 2px 0;
       max-width: unset;
     }
+
+    /* Dynamic Island notch */
     .iphone-notch {
       width: 100%; height: 36px;
       background: #1a1a1a;
       display: flex; align-items: center; justify-content: center;
       position: relative; z-index: 2;
     }
-    .iphone-pill {
-      width: 80px; height: 12px;
-      background: #0a0a0a; border-radius: 10px;
+    .iphone-island {
+      width: 28px; height: 28px;
+      background: #0a0a0a;
+      border-radius: 50px;
     }
+
     .iphone-screen {
       width: 100%;
-      background: var(--ink);
+      background: var(--indigo);
       aspect-ratio: 9/19.5;
       overflow: hidden;
       display: flex; align-items: flex-start; justify-content: center;
@@ -227,6 +236,15 @@
       display: flex; align-items: center; justify-content: center;
     }
     .iphone-home-pill { width: 100px; height: 4px; background: #3a3a3a; border-radius: 3px; }
+
+    .feature-iphone img { width: 100%; display: block; }
+    .feature-iphone .screen-placeholder {
+      aspect-ratio: 9/19.5;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.25); font-size: 13px; text-align: center;
+      padding: 20px; gap: 10px; background: var(--indigo);
+    }
+    .feature-iphone .screen-placeholder span { font-size: 40px; max-width: unset; }
 
     /* ===== SHARED SECTIONS ===== */
     section { padding: 96px 6%; }
@@ -254,7 +272,6 @@
 
     /* ===== INDUSTRIES ===== */
     .industries-section { background: var(--platinum); }
-    /* ── FIX: 3-column grid, 6 items fill perfectly ── */
     .industry-grid {
       display: grid;
       grid-template-columns: repeat(3, auto);
@@ -280,48 +297,9 @@
     .feature-block.reverse .feature-visual-wrap { order: 1; }
     .feature-content h2 { font-size: clamp(24px, 3vw, 38px); font-weight: 900; letter-spacing: -1px; line-height: 1.2; margin-bottom: 16px; color: var(--ink); }
     .feature-content p { font-size: 16px; color: #5a6a7a; line-height: 1.8; margin-bottom: 24px; }
-    /* ── FIX: feature tags aligned on desktop ── */
-    .feature-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: flex-start;
-    }
-    .feature-tag {
-      flex-shrink: 0;
-      background: var(--platinum); border: 1px solid var(--alabaster);
-      color: var(--twilight); font-size: 13px; font-weight: 600;
-      padding: 6px 14px; border-radius: 50px;
-    }
+    .feature-tags { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-start; }
+    .feature-tag { flex-shrink: 0; background: var(--platinum); border: 1px solid var(--alabaster); color: var(--twilight); font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 50px; }
     .feature-visual-wrap { display: flex; justify-content: center; }
-    .feature-iphone {
-      width: 240px;
-      background: #1a1a1a;
-      border-radius: 44px;
-      border: 2px solid #3a3a3a;
-      box-shadow: 0 24px 64px rgba(35,45,66,0.25), 0 0 0 1px #111;
-      overflow: hidden;
-      position: relative;
-      max-width: unset;
-    }
-    .feature-iphone::before {
-      content: ''; position: absolute; left: -4px; top: 80px;
-      width: 3px; height: 28px; background: #2a2a2a; border-radius: 2px 0 0 2px;
-      box-shadow: 0 38px 0 #2a2a2a, 0 72px 0 #2a2a2a; max-width: unset;
-    }
-    .feature-iphone::after {
-      content: ''; position: absolute; right: -4px; top: 100px;
-      width: 3px; height: 48px; background: #2a2a2a; border-radius: 0 2px 2px 0;
-      max-width: unset;
-    }
-    .feature-iphone img { width: 100%; display: block; }
-    .feature-iphone .screen-placeholder {
-      aspect-ratio: 9/19.5;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.25); font-size: 13px; text-align: center;
-      padding: 20px; gap: 10px; background: var(--indigo);
-    }
-    .feature-iphone .screen-placeholder span { font-size: 40px; max-width: unset; }
 
     /* ===== FEATURES GRID ===== */
     .feat-grid-section { background: var(--indigo); }
@@ -336,25 +314,23 @@
 
     /* ===== TOOLS ===== */
     .tools-section { background: var(--platinum); }
-    /* ── FIX: proper 5-col grid on desktop ── */
+    /* 5-col grid: row1=REBA,RULA,ROSA,WISHA,SNOOK | row2=NIOSH,WERA,QEC,CMDQ,JSI | row3=MAC(col1),OCRA(col2),MANTRA(col3) centred */
     .tools-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 12px;
-      justify-items: center;
       margin-top: 48px;
       max-width: 900px;
       margin-left: auto;
       margin-right: auto;
     }
     .tool-badge {
-      width: 100%;
       background: var(--white);
       border: 1px solid var(--alabaster);
       border-radius: 14px;
       padding: 14px 18px;
       text-align: center;
-      min-width: unset;
+      width: 100%;
       transition: all 0.2s;
       cursor: default;
     }
@@ -363,12 +339,10 @@
     .tool-badge:hover .tool-full { color: var(--alabaster); }
     .tool-name { font-size: 17px; font-weight: 900; color: var(--indigo); }
     .tool-full { font-size: 10px; color: #8a9aaa; margin-top: 4px; line-height: 1.3; }
-    /* MANTRA (13th) — centred in last row */
-    .tool-badge:last-child:nth-child(5n+3) {
-      grid-column: 2 / 5;
-      width: auto;
-      min-width: 96px;
-    }
+    /* Last row: MAC, OCRA, MANTRA centred across 5 cols */
+    .tool-badge:nth-child(11) { grid-column: 2; }
+    .tool-badge:nth-child(12) { grid-column: 3; }
+    .tool-badge:nth-child(13) { grid-column: 4; }
 
     /* ===== WAITLIST ===== */
     .waitlist-section { background: var(--indigo); text-align: center; }
@@ -444,8 +418,11 @@
       .contact-inner { grid-template-columns: 1fr; gap: 48px; }
       .blog-grid { grid-template-columns: 1fr 1fr; }
       .tools-grid { grid-template-columns: repeat(4, 1fr); }
-      .tool-badge:last-child:nth-child(5n+3) { grid-column: 2 / 4; width: auto; }
+      .tool-badge:nth-child(11) { grid-column: unset; }
+      .tool-badge:nth-child(12) { grid-column: unset; }
+      .tool-badge:nth-child(13) { grid-column: unset; }
       .industry-grid { grid-template-columns: repeat(2, auto); }
+      .feature-iphone { width: 200px; }
     }
 
     @media (max-width: 640px) {
@@ -461,6 +438,8 @@
         padding: 10px 16px;
       }
       .hero-badge .dot { display: none; }
+
+      .hero { padding-bottom: 0; }
 
       /* Hero waitlist */
       .hero-waitlist {
@@ -506,73 +485,77 @@
         text-align: center;
       }
 
-      /* ── PHONES on mobile ── */
-.phones-row {
-  gap: 12px;
-  width: 100%;
-  justify-content: center;
-  overflow: visible;
-  align-items: flex-end;
-  padding: 0 2%;
-}
-.iphone-wrap {
-  transform: perspective(800px) rotateY(14deg) translateY(20px) !important;
-  flex-shrink: 0;
-}
-.iphone-wrap:last-child {
-  transform: perspective(800px) rotateY(-14deg) translateY(20px) !important;
-}
-.iphone-wrap.center-phone {
-  transform: translateY(-16px) !important;
-  z-index: 2;
-  position: relative;
-}
-.iphone {
-  width: 28vw !important;
-  border-radius: 14px !important;
-}
-.iphone.center {
-  width: 33vw !important;
-  border-radius: 16px !important;
-}
-.iphone::before, .iphone::after { display: none; }
-.iphone-notch { height: 18px; }
-.iphone-pill { width: 38px; height: 6px; }
-.iphone-home-bar { height: 10px; }
-.iphone-home-pill { width: 46px; height: 2px; }
-.iphone-screen { aspect-ratio: 9/18 !important; background: var(--indigo) !important;}
+      /* Phones */
+      .phones-row {
+        gap: 16px;
+        width: 100vw;
+        margin-left: -6%;
+        margin-right: -6%;
+        padding: 0;
+        margin-bottom: 0;
+        justify-content: center;
+        overflow: visible;
+        align-items: flex-end;
+      }
+      .iphone-wrap {
+        transform: perspective(800px) rotateY(14deg) translateY(20px) !important;
+        flex-shrink: 0;
+      }
+      .iphone-wrap:last-child {
+        transform: perspective(800px) rotateY(-14deg) translateY(20px) !important;
+      }
+      .iphone-wrap.center-phone {
+        transform: translateY(-16px) !important;
+        z-index: 2;
+        position: relative;
+      }
       .iphone-wrap:hover,
-.iphone-wrap.center-phone:hover {
-  transform: inherit !important;
-}
-.iphone-wrap:last-child:hover {
-  transform: perspective(800px) rotateY(-14deg) translateY(20px) !important;
-}
-      .iphone-wrap:hover,
-.iphone-wrap.center-phone:hover {
-  transform: inherit !important;
-}
-.iphone-wrap:last-child:hover {
-  transform: perspective(800px) rotateY(-14deg) translateY(20px) !important;
-}
+      .iphone-wrap.center-phone:hover {
+        transform: inherit !important;
+      }
+      .iphone-wrap:last-child:hover {
+        transform: perspective(800px) rotateY(-14deg) translateY(20px) !important;
+      }
+      .iphone {
+        width: 28vw !important;
+        border-radius: 14px !important;
+      }
+      .iphone.center {
+        width: 33vw !important;
+        border-radius: 16px !important;
+      }
+      .iphone::before, .iphone::after { display: none; }
+      .iphone-notch { height: 22px; }
+      .iphone-island { width: 20px; height: 20px; }
+      .iphone-home-bar { height: 10px; }
+      .iphone-home-pill { width: 46px; height: 2px; }
+      .iphone-screen { aspect-ratio: 9/18 !important; background: var(--indigo) !important; }
+
+      /* Feature iphone mobile */
+      .feature-iphone {
+        width: 100% !important;
+        max-width: 220px;
+        border-radius: 32px !important;
+      }
+      .feature-iphone::before, .feature-iphone::after { display: none; }
 
       /* Tools */
       .tools-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 8px;
       }
+      .tool-badge:nth-child(11),
+      .tool-badge:nth-child(12),
+      .tool-badge:nth-child(13) { grid-column: unset; }
+      .tool-badge:nth-child(13) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc(33.33% - 4px);
+      }
       .tool-badge {
         width: 100%;
         padding: 10px 8px;
         border-radius: 10px;
-      }
-      .tool-badge:last-child:nth-child(5n+3) {
-        grid-column: unset;
-      }
-      .tool-badge:last-child:nth-child(3n+1) {
-        grid-column: 1 / -1;
-        justify-self: center;
-        width: calc(33.33% - 4px);
       }
       .tool-name { font-size: 13px; }
       .tool-full { font-size: 9px; }
@@ -612,14 +595,14 @@
       .contact-form textarea,
       .contact-form select { font-size: 14px; padding: 12px 14px; }
       .iphone {
-  width: 26vw !important;
-  border-radius: 12px !important;
-}
-.iphone.center {
-  width: 30vw !important;
-  border-radius: 14px !important;
-}
-.iphone-screen { aspect-ratio: 9/17 !important; }
+        width: 24vw !important;
+        border-radius: 12px !important;
+      }
+      .iphone.center {
+        width: 28vw !important;
+        border-radius: 14px !important;
+      }
+      .iphone-screen { aspect-ratio: 9/17 !important; }
       .hero h1 { letter-spacing: -1px; }
       .section-title { letter-spacing: -1px; }
       .industry-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
@@ -631,11 +614,6 @@
       }
       .tools-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
       .tool-badge { padding: 8px 6px; }
-      .tool-badge:last-child:nth-child(3n+1) {
-        grid-column: 1 / -1;
-        justify-self: center;
-        width: calc(33.33% - 4px);
-      }
       .tool-name { font-size: 12px; }
       .tool-full { font-size: 8px; }
       .feature-tags {
@@ -699,7 +677,7 @@
   <div class="phones-row">
     <div class="iphone-wrap">
       <div class="iphone">
-        <div class="iphone-notch"><div class="iphone-pill"></div></div>
+        <div class="iphone-notch"><div class="iphone-island"></div></div>
         <div class="iphone-screen">
           <img src="screen-analytics.jpg" alt="Ergzo Analytics"
             onerror="this.parentElement.innerHTML='<div class=\'screen-placeholder\'><span>📊</span>Analytics Screen</div>'"/>
@@ -709,7 +687,7 @@
     </div>
     <div class="iphone-wrap center-phone">
       <div class="iphone center">
-        <div class="iphone-notch"><div class="iphone-pill"></div></div>
+        <div class="iphone-notch"><div class="iphone-island"></div></div>
         <div class="iphone-screen">
           <img src="screen-camera.jpg" alt="Ergzo Camera Assessment"
             onerror="this.parentElement.innerHTML='<div class=\'screen-placeholder\'><span>📷</span>Camera Screen</div>'"/>
@@ -719,7 +697,7 @@
     </div>
     <div class="iphone-wrap" style="transform: perspective(800px) rotateY(-14deg) translateY(20px);">
       <div class="iphone">
-        <div class="iphone-notch"><div class="iphone-pill"></div></div>
+        <div class="iphone-notch"><div class="iphone-island"></div></div>
         <div class="iphone-screen">
           <img src="screen-dashboard.jpg" alt="Ergzo Dashboard"
             onerror="this.parentElement.innerHTML='<div class=\'screen-placeholder\'><span>🏠</span>Dashboard</div>'"/>
@@ -791,7 +769,7 @@
       </div>
       <div class="feature-visual-wrap">
         <div class="feature-iphone">
-          <div class="iphone-notch" style="background:#1a1a1a"><div class="iphone-pill"></div></div>
+          <div class="iphone-notch" style="background:#1a1a1a"><div class="iphone-island"></div></div>
           <img src="screen-camera.jpg" alt="Camera Assessment Screen"
             onerror="this.outerHTML='<div class=\'screen-placeholder\'><span>📷</span>Camera Screen<br/>Coming Soon</div>'"/>
           <div class="iphone-home-bar" style="background:#1a1a1a"><div class="iphone-home-pill"></div></div>
@@ -813,7 +791,7 @@
       </div>
       <div class="feature-visual-wrap">
         <div class="feature-iphone">
-          <div class="iphone-notch" style="background:#1a1a1a"><div class="iphone-pill"></div></div>
+          <div class="iphone-notch" style="background:#1a1a1a"><div class="iphone-island"></div></div>
           <img src="screen-worker.jpg" alt="Before After Comparison"
             onerror="this.outerHTML='<div class=\'screen-placeholder\'><span>🔁</span>Before vs After<br/>Coming Soon</div>'"/>
           <div class="iphone-home-bar" style="background:#1a1a1a"><div class="iphone-home-pill"></div></div>
@@ -836,7 +814,7 @@
       </div>
       <div class="feature-visual-wrap">
         <div class="feature-iphone">
-          <div class="iphone-notch" style="background:#1a1a1a"><div class="iphone-pill"></div></div>
+          <div class="iphone-notch" style="background:#1a1a1a"><div class="iphone-island"></div></div>
           <img src="screen-assessment.jpg" alt="Assessment Report Screen"
             onerror="this.outerHTML='<div class=\'screen-placeholder\'><span>📄</span>Assessment Report<br/>Coming Soon</div>'"/>
           <div class="iphone-home-bar" style="background:#1a1a1a"><div class="iphone-home-pill"></div></div>
@@ -859,7 +837,7 @@
       </div>
       <div class="feature-visual-wrap">
         <div class="feature-iphone">
-          <div class="iphone-notch" style="background:#1a1a1a"><div class="iphone-pill"></div></div>
+          <div class="iphone-notch" style="background:#1a1a1a"><div class="iphone-island"></div></div>
           <img src="screen-dashboard.jpg" alt="Manager Dashboard"
             onerror="this.outerHTML='<div class=\'screen-placeholder\'><span>📊</span>Manager Dashboard<br/>Coming Soon</div>'"/>
           <div class="iphone-home-bar" style="background:#1a1a1a"><div class="iphone-home-pill"></div></div>
@@ -1051,24 +1029,17 @@
     wrap.addEventListener('touchstart', function(e) {
       if (!isMobile()) return;
       e.stopPropagation();
-
-      // If already lifted, lower it
       if (wrap.classList.contains('tapped')) {
         wrap.classList.remove('tapped');
         return;
       }
-
-      // Lower any previously tapped phone
       document.querySelectorAll('.iphone-wrap.tapped').forEach(function(el) {
         el.classList.remove('tapped');
       });
-
-      // Lift this one
       wrap.classList.add('tapped');
     }, { passive: true });
   });
 
-  // Tap outside phones = lower all
   document.addEventListener('touchstart', function(e) {
     if (!isMobile()) return;
     if (!e.target.closest('.iphone-wrap')) {
