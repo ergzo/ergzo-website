@@ -498,37 +498,41 @@
         text-align: center;
       }
 
-      /* ── FIX: phones on mobile ── */
-      .phones-row {
-        gap: 6px;
-        width: 100%;
-        justify-content: center;
-        overflow: hidden;
-        align-items: center;
-      }
-      .iphone-wrap {
-        transform: perspective(600px) rotateY(10deg) translateY(12px) !important;
-        flex-shrink: 0;
-      }
-      .iphone-wrap:last-child {
-        transform: perspective(600px) rotateY(-10deg) translateY(12px) !important;
-      }
-      .iphone-wrap.center-phone {
-        transform: none !important;
-      }
-      .iphone {
-        width: 26vw !important;
-        border-radius: 14px !important;
-      }
-      .iphone.center {
-        width: 30vw !important;
-        border-radius: 16px !important;
-      }
-      .iphone-notch { height: 18px; }
-      .iphone-pill { width: 36px; height: 6px; }
-      .iphone-home-bar { height: 10px; }
-      .iphone-home-pill { width: 44px; height: 2px; }
-      .iphone-screen { aspect-ratio: 9/17 !important; }
+      /* ── PHONES on mobile ── */
+.phones-row {
+  gap: 0;
+  width: 100%;
+  justify-content: center;
+  overflow: hidden;
+  align-items: flex-end;
+  padding: 0 2%;
+}
+.iphone-wrap {
+  transform: perspective(800px) rotateY(14deg) translateY(20px) !important;
+  flex-shrink: 0;
+}
+.iphone-wrap:last-child {
+  transform: perspective(800px) rotateY(-14deg) translateY(20px) !important;
+}
+.iphone-wrap.center-phone {
+  transform: translateY(-16px) !important;
+  z-index: 2;
+  position: relative;
+}
+.iphone {
+  width: 28vw !important;
+  border-radius: 14px !important;
+}
+.iphone.center {
+  width: 33vw !important;
+  border-radius: 16px !important;
+}
+.iphone::before, .iphone::after { display: none; }
+.iphone-notch { height: 18px; }
+.iphone-pill { width: 38px; height: 6px; }
+.iphone-home-bar { height: 10px; }
+.iphone-home-pill { width: 46px; height: 2px; }
+.iphone-screen { aspect-ratio: 9/18 !important; }
 
       /* Tools */
       .tools-grid {
@@ -586,14 +590,14 @@
       .contact-form textarea,
       .contact-form select { font-size: 14px; padding: 12px 14px; }
       .iphone {
-        width: 24vw !important;
-        border-radius: 12px !important;
-      }
-      .iphone.center {
-        width: 28vw !important;
-        border-radius: 14px !important;
-      }
-      .iphone-screen { aspect-ratio: 9/16 !important; }
+  width: 26vw !important;
+  border-radius: 12px !important;
+}
+.iphone.center {
+  width: 30vw !important;
+  border-radius: 14px !important;
+}
+.iphone-screen { aspect-ratio: 9/17 !important; }
       .hero h1 { letter-spacing: -1px; }
       .section-title { letter-spacing: -1px; }
       .industry-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
