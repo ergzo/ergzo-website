@@ -154,6 +154,14 @@
     .iphone-wrap.center-phone { transform: none; }
     .iphone-wrap:hover { transform: perspective(800px) rotateY(0deg) translateY(0px) !important; }
     .iphone-wrap.center-phone:hover { transform: none !important; }
+    /* Mobile tap lift animation */
+.iphone-wrap.tapped {
+  transform: perspective(800px) rotateY(0deg) translateY(-8px) !important;
+  transition: transform 0.3s;
+}
+.iphone-wrap.center-phone.tapped {
+  transform: translateY(-24px) !important;
+}
     .iphone {
       width: 200px;
       background: #1a1a1a;
@@ -163,7 +171,7 @@
       box-shadow:
         0 0 0 1px #111,
         inset 0 0 0 2px #2a2a2a,
-        0 32px 64px rgba(0,0,0,0.6),
+        0 24px 64px rgba(35,45,66,0.35),
         0 8px 24px rgba(0,0,0,0.4);
       overflow: hidden;
       max-width: unset;
@@ -330,15 +338,22 @@
     .tools-section { background: var(--platinum); }
     /* ── FIX: proper 5-col grid on desktop ── */
     .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 12px;
-      justify-items: center;
-      margin-top: 48px;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  justify-items: stretch;
+  margin-top: 48px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tool-badge:last-child:nth-child(5n+3) {
+  grid-column: unset;
+  width: 100%;
+}
+.tool-badge:nth-child(11) { grid-column: 2; }
+.tool-badge:nth-child(12) { grid-column: 3; }
+.tool-badge:nth-child(13) { grid-column: 4; }
     .tool-badge {
       width: 100%;
       background: var(--white);
@@ -436,7 +451,6 @@
       .contact-inner { grid-template-columns: 1fr; gap: 48px; }
       .blog-grid { grid-template-columns: 1fr 1fr; }
       .tools-grid { grid-template-columns: repeat(4, 1fr); }
-      .tool-badge:last-child:nth-child(5n+3) { grid-column: 2 / 4; width: auto; }
       .industry-grid { grid-template-columns: repeat(2, auto); }
     }
 
@@ -533,6 +547,20 @@
 .iphone-home-bar { height: 10px; }
 .iphone-home-pill { width: 46px; height: 2px; }
 .iphone-screen { aspect-ratio: 9/18 !important; background: var(--indigo) !important;}
+      .iphone-wrap:hover,
+.iphone-wrap.center-phone:hover {
+  transform: inherit !important;
+}
+.iphone-wrap:last-child:hover {
+  transform: perspective(800px) rotateY(-14deg) translateY(20px) !important;
+}
+      .iphone-wrap:hover,
+.iphone-wrap.center-phone:hover {
+  transform: inherit !important;
+}
+.iphone-wrap:last-child:hover {
+  transform: perspective(800px) rotateY(-14deg) translateY(20px) !important;
+}
 
       /* Tools */
       .tools-grid {
@@ -1021,6 +1049,40 @@
       menu.classList.remove('open');
     }
   });
+
+  // Phone tap animation for mobile
+  const isMobile = () => window.innerWidth <= 640;
+
+  document.querySelectorAll('.iphone-wrap').forEach(function(wrap) {
+    wrap.addEventListener('touchstart', function(e) {
+      if (!isMobile()) return;
+      e.stopPropagation();
+
+      // If already lifted, lower it
+      if (wrap.classList.contains('tapped')) {
+        wrap.classList.remove('tapped');
+        return;
+      }
+
+      // Lower any previously tapped phone
+      document.querySelectorAll('.iphone-wrap.tapped').forEach(function(el) {
+        el.classList.remove('tapped');
+      });
+
+      // Lift this one
+      wrap.classList.add('tapped');
+    }, { passive: true });
+  });
+
+  // Tap outside phones = lower all
+  document.addEventListener('touchstart', function(e) {
+    if (!isMobile()) return;
+    if (!e.target.closest('.iphone-wrap')) {
+      document.querySelectorAll('.iphone-wrap.tapped').forEach(function(el) {
+        el.classList.remove('tapped');
+      });
+    }
+  }, { passive: true });
 </script>
 </body>
 </html>
