@@ -97,8 +97,10 @@
       padding: 8px 18px; border-radius: 50px;
       font-size: 13px; font-weight: 500;
       margin-bottom: 28px;
+      white-space: nowrap;
     }
     .hero-badge .dot { color: var(--success); font-size: 10px; }
+    .hero-badge .badge-line2 { display: none; }
     .hero h1 {
       font-size: clamp(38px, 6vw, 72px);
       font-weight: 900; color: var(--white);
@@ -154,9 +156,8 @@
     .iphone-wrap:hover { transform: perspective(800px) rotateY(0deg) translateY(0px) !important; }
     .iphone-wrap.center-phone:hover { transform: none !important; }
 
-    /* ===== FEATURE-IPHONE — single frame used everywhere ===== */
-    .feature-iphone {
-      width: 240px;
+    /* ===== iPHONE 12 FRAME — used everywhere ===== */
+    .iphone-frame {
       background: #1a1a1a;
       border-radius: 44px;
       border: 2px solid #3a3a3a;
@@ -168,36 +169,49 @@
         0 8px 24px rgba(0,0,0,0.4);
       overflow: hidden;
       max-width: unset;
+      width: 240px;
     }
-    /* Slightly smaller for side hero phones */
-    .feature-iphone.side { width: 210px; }
+    .iphone-frame.side { width: 210px; }
 
-    .feature-iphone::before {
+    /* Side buttons */
+    .iphone-frame::before {
       content: '';
       position: absolute; left: -4px; top: 80px;
       width: 3px; height: 28px;
-      background: #2a2a2a; border-radius: 2px 0 0 2px;
-      box-shadow: 0 38px 0 #2a2a2a, 0 72px 0 #2a2a2a;
+      background: #3a3a3a; border-radius: 2px 0 0 2px;
+      box-shadow: 0 38px 0 #3a3a3a, 0 72px 0 #3a3a3a;
       max-width: unset;
     }
-    .feature-iphone::after {
+    .iphone-frame::after {
       content: '';
       position: absolute; right: -4px; top: 100px;
-      width: 3px; height: 48px;
-      background: #2a2a2a; border-radius: 0 2px 2px 0;
+      width: 3px; height: 56px;
+      background: #3a3a3a; border-radius: 0 2px 2px 0;
       max-width: unset;
     }
 
+    /* iPhone 12 notch */
     .iphone-notch {
-      width: 100%; height: 36px;
+      width: 100%;
+      height: 30px;
       background: #1a1a1a;
-      display: flex; align-items: center; justify-content: center;
-      position: relative; z-index: 2;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 0;
     }
-    .iphone-pill {
-      width: 80px; height: 12px;
-      background: #0a0a0a; border-radius: 10px;
+    .iphone-notch-cutout {
+      width: 126px;
+      height: 30px;
+      background: #0a0a0a;
+      border-radius: 0 0 20px 20px;
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
     }
+
     .iphone-screen {
       width: 100%;
       background: var(--indigo);
@@ -219,20 +233,20 @@
     }
     .iphone-screen .screen-placeholder span { font-size: 32px; max-width: unset; }
     .iphone-home-bar {
-      height: 20px; background: #1a1a1a;
+      height: 22px; background: #1a1a1a;
       display: flex; align-items: center; justify-content: center;
     }
-    .iphone-home-pill { width: 100px; height: 4px; background: #3a3a3a; border-radius: 3px; }
+    .iphone-home-pill { width: 120px; height: 5px; background: #4a4a4a; border-radius: 3px; }
 
-    /* feature section screen placeholder */
-    .feature-iphone .screen-placeholder {
+    /* Feature section screen img */
+    .iphone-frame img { width: 100%; display: block; }
+    .iphone-frame .screen-placeholder {
       aspect-ratio: 9/19.5;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       color: rgba(255,255,255,0.25); font-size: 13px; text-align: center;
       padding: 20px; gap: 10px; background: var(--indigo);
     }
-    .feature-iphone .screen-placeholder span { font-size: 40px; max-width: unset; }
-    .feature-iphone img { width: 100%; display: block; }
+    .iphone-frame .screen-placeholder span { font-size: 40px; max-width: unset; }
 
     /* ===== SHARED SECTIONS ===== */
     section { padding: 96px 6%; }
@@ -408,8 +422,8 @@
       .tool-badge:nth-child(12) { grid-column: unset; }
       .tool-badge:nth-child(13) { grid-column: unset; }
       .industry-grid { grid-template-columns: repeat(2, auto); }
-      .feature-iphone { width: 200px; }
-      .feature-iphone.side { width: 180px; }
+      .iphone-frame { width: 200px; }
+      .iphone-frame.side { width: 180px; }
     }
 
     @media (max-width: 640px) {
@@ -418,13 +432,16 @@
       .feat-grid { grid-template-columns: 1fr; }
       .blog-grid { grid-template-columns: 1fr; }
 
+      /* Hero badge — split to 2 lines */
       .hero-badge {
         flex-direction: column;
         gap: 4px;
         text-align: center;
         padding: 10px 16px;
+        white-space: normal;
       }
       .hero-badge .dot { display: none; }
+      .hero-badge .badge-line2 { display: inline; }
 
       .hero { padding-bottom: 0; }
 
@@ -472,7 +489,7 @@
         text-align: center;
       }
 
-      /* Phones */
+      /* Phones row */
       .phones-row {
         gap: 16px;
         width: 100vw;
@@ -487,7 +504,7 @@
       .iphone-wrap {
         transform: perspective(600px) rotateY(10deg) translateY(12px) !important;
         flex-shrink: 0;
-        transition: none !important; /* disable hover on mobile */
+        transition: none !important;
       }
       .iphone-wrap:last-child {
         transform: perspective(600px) rotateY(-10deg) translateY(12px) !important;
@@ -495,36 +512,35 @@
       .iphone-wrap.center-phone {
         transform: none !important;
       }
-      /* Disable all hover effects on mobile */
       .iphone-wrap:hover,
       .iphone-wrap:last-child:hover,
       .iphone-wrap.center-phone:hover {
         transform: inherit !important;
       }
-      .feature-iphone,
-      .feature-iphone.side {
+      .iphone-frame,
+      .iphone-frame.side {
         width: 26vw !important;
         border-radius: 14px !important;
       }
-      .feature-iphone.center {
+      .iphone-frame.center {
         width: 30vw !important;
         border-radius: 16px !important;
       }
-      .feature-iphone::before, .feature-iphone::after { display: none; }
-      .iphone-notch { height: 18px; }
-      .iphone-pill { width: 36px; height: 6px; }
+      .iphone-frame::before, .iphone-frame::after { display: none; }
+      .iphone-notch { height: 16px; }
+      .iphone-notch-cutout { width: 50%; height: 16px; border-radius: 0 0 10px 10px; }
       .iphone-home-bar { height: 10px; }
       .iphone-home-pill { width: 44px; height: 2px; }
       .iphone-screen { aspect-ratio: 9/17 !important; background: var(--indigo) !important; }
 
-      /* Feature iphone in feature blocks — full width on mobile */
-      .feature-visual-wrap .feature-iphone {
+      /* Feature iphone in feature blocks */
+      .feature-visual-wrap .iphone-frame {
         width: 100% !important;
         max-width: 220px !important;
         border-radius: 32px !important;
       }
-      .feature-visual-wrap .feature-iphone::before,
-      .feature-visual-wrap .feature-iphone::after { display: none; }
+      .feature-visual-wrap .iphone-frame::before,
+      .feature-visual-wrap .iphone-frame::after { display: none; }
 
       /* Tools */
       .tools-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
@@ -571,12 +587,12 @@
       .contact-form input,
       .contact-form textarea,
       .contact-form select { font-size: 14px; padding: 12px 14px; }
-      .feature-iphone.side,
-      .feature-iphone {
+      .iphone-frame,
+      .iphone-frame.side {
         width: 24vw !important;
         border-radius: 12px !important;
       }
-      .feature-iphone.center {
+      .iphone-frame.center {
         width: 28vw !important;
         border-radius: 14px !important;
       }
@@ -638,7 +654,9 @@
 <!-- ===== HERO ===== -->
 <section class="hero" id="home">
   <div class="hero-badge">
-    <span class="dot">●</span> AI-Powered Ergonomic Assessment · 13 Validated Tools
+    <span class="dot">●</span>
+    <span>AI-Powered Ergonomic Assessment</span>
+    <span class="badge-line2">· 13 Validated Tools</span>
   </div>
   <h1>Ergonomic Risks.<br/><em>Detected in Minutes.</em></h1>
   <p class="hero-sub">Ergzo uses AI and your phone camera to assess musculoskeletal risks using REBA, RULA, ROSA, NIOSH and 9 more validated tools. Instant scores, body-part risk maps, action plans, and team analytics.</p>
@@ -650,8 +668,8 @@
 
   <div class="phones-row">
     <div class="iphone-wrap">
-      <div class="feature-iphone side">
-        <div class="iphone-notch"><div class="iphone-pill"></div></div>
+      <div class="iphone-frame side">
+        <div class="iphone-notch"><div class="iphone-notch-cutout"></div></div>
         <div class="iphone-screen">
           <img src="screen-analytics.jpg" alt="Ergzo Analytics"
             onerror="this.parentElement.innerHTML='<div class=\'screen-placeholder\'><span>📊</span>Analytics Screen</div>'"/>
@@ -660,8 +678,8 @@
       </div>
     </div>
     <div class="iphone-wrap center-phone">
-      <div class="feature-iphone center">
-        <div class="iphone-notch"><div class="iphone-pill"></div></div>
+      <div class="iphone-frame center">
+        <div class="iphone-notch"><div class="iphone-notch-cutout"></div></div>
         <div class="iphone-screen">
           <img src="screen-camera.jpg" alt="Ergzo Camera Assessment"
             onerror="this.parentElement.innerHTML='<div class=\'screen-placeholder\'><span>📷</span>Camera Screen</div>'"/>
@@ -670,8 +688,8 @@
       </div>
     </div>
     <div class="iphone-wrap" style="transform: perspective(800px) rotateY(-14deg) translateY(20px);">
-      <div class="feature-iphone side">
-        <div class="iphone-notch"><div class="iphone-pill"></div></div>
+      <div class="iphone-frame side">
+        <div class="iphone-notch"><div class="iphone-notch-cutout"></div></div>
         <div class="iphone-screen">
           <img src="screen-dashboard.jpg" alt="Ergzo Dashboard"
             onerror="this.parentElement.innerHTML='<div class=\'screen-placeholder\'><span>🏠</span>Dashboard</div>'"/>
@@ -742,11 +760,13 @@
         </div>
       </div>
       <div class="feature-visual-wrap">
-        <div class="feature-iphone">
-          <div class="iphone-notch" style="background:#1a1a1a"><div class="iphone-pill"></div></div>
-          <img src="screen-camera.jpg" alt="Camera Assessment Screen"
-            onerror="this.outerHTML='<div class=\'screen-placeholder\'><span>📷</span>Camera Screen<br/>Coming Soon</div>'"/>
-          <div class="iphone-home-bar" style="background:#1a1a1a"><div class="iphone-home-pill"></div></div>
+        <div class="iphone-frame">
+          <div class="iphone-notch"><div class="iphone-notch-cutout"></div></div>
+          <div class="iphone-screen">
+            <img src="screen-camera.jpg" alt="Camera Assessment Screen"
+              onerror="this.parentElement.innerHTML='<div class=\'screen-placeholder\'><span>📷</span>Camera Screen<br/>Coming Soon</div>'"/>
+          </div>
+          <div class="iphone-home-bar"><div class="iphone-home-pill"></div></div>
         </div>
       </div>
     </div>
@@ -764,11 +784,13 @@
         </div>
       </div>
       <div class="feature-visual-wrap">
-        <div class="feature-iphone">
-          <div class="iphone-notch" style="background:#1a1a1a"><div class="iphone-pill"></div></div>
-          <img src="screen-worker.jpg" alt="Before After Comparison"
-            onerror="this.outerHTML='<div class=\'screen-placeholder\'><span>🔁</span>Before vs After<br/>Coming Soon</div>'"/>
-          <div class="iphone-home-bar" style="background:#1a1a1a"><div class="iphone-home-pill"></div></div>
+        <div class="iphone-frame">
+          <div class="iphone-notch"><div class="iphone-notch-cutout"></div></div>
+          <div class="iphone-screen">
+            <img src="screen-worker.jpg" alt="Before After Comparison"
+              onerror="this.parentElement.innerHTML='<div class=\'screen-placeholder\'><span>🔁</span>Before vs After<br/>Coming Soon</div>'"/>
+          </div>
+          <div class="iphone-home-bar"><div class="iphone-home-pill"></div></div>
         </div>
       </div>
     </div>
@@ -787,11 +809,13 @@
         </div>
       </div>
       <div class="feature-visual-wrap">
-        <div class="feature-iphone">
-          <div class="iphone-notch" style="background:#1a1a1a"><div class="iphone-pill"></div></div>
-          <img src="screen-assessment.jpg" alt="Assessment Report Screen"
-            onerror="this.outerHTML='<div class=\'screen-placeholder\'><span>📄</span>Assessment Report<br/>Coming Soon</div>'"/>
-          <div class="iphone-home-bar" style="background:#1a1a1a"><div class="iphone-home-pill"></div></div>
+        <div class="iphone-frame">
+          <div class="iphone-notch"><div class="iphone-notch-cutout"></div></div>
+          <div class="iphone-screen">
+            <img src="screen-assessment.jpg" alt="Assessment Report Screen"
+              onerror="this.parentElement.innerHTML='<div class=\'screen-placeholder\'><span>📄</span>Assessment Report<br/>Coming Soon</div>'"/>
+          </div>
+          <div class="iphone-home-bar"><div class="iphone-home-pill"></div></div>
         </div>
       </div>
     </div>
@@ -810,11 +834,13 @@
         </div>
       </div>
       <div class="feature-visual-wrap">
-        <div class="feature-iphone">
-          <div class="iphone-notch" style="background:#1a1a1a"><div class="iphone-pill"></div></div>
-          <img src="screen-dashboard.jpg" alt="Manager Dashboard"
-            onerror="this.outerHTML='<div class=\'screen-placeholder\'><span>📊</span>Manager Dashboard<br/>Coming Soon</div>'"/>
-          <div class="iphone-home-bar" style="background:#1a1a1a"><div class="iphone-home-pill"></div></div>
+        <div class="iphone-frame">
+          <div class="iphone-notch"><div class="iphone-notch-cutout"></div></div>
+          <div class="iphone-screen">
+            <img src="screen-dashboard.jpg" alt="Manager Dashboard"
+              onerror="this.parentElement.innerHTML='<div class=\'screen-placeholder\'><span>📊</span>Manager Dashboard<br/>Coming Soon</div>'"/>
+          </div>
+          <div class="iphone-home-bar"><div class="iphone-home-pill"></div></div>
         </div>
       </div>
     </div>
