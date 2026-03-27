@@ -337,7 +337,16 @@
     /* ===== TOOLS ===== */
     .tools-section { background: var(--platinum); }
     /* ── FIX: proper 5-col grid on desktop ── */
-    .tools-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 48px; max-width: 900px; margin-left: auto; margin-right: auto; }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      justify-items: center;
+      margin-top: 48px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
     .tool-badge {
       width: 100%;
       background: var(--white);
