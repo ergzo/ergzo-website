@@ -234,11 +234,12 @@ section {
       overflow: hidden;
       display: flex; align-items: flex-start; justify-content: center;
     }
-    .iphone-screen img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: top;
-      display: block;
-    }
+    .iphone-screen img, 
+.iphone-screen video {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top;
+  display: block;
+}
     .iphone-screen .screen-placeholder {
       width: 100%; height: 100%;
       display: flex; flex-direction: column;
@@ -702,16 +703,18 @@ section {
         <div class="iphone-home-bar"><div class="iphone-home-pill"></div></div>
       </div>
     </div>
-    <div class="iphone-wrap center-phone">
-      <div class="feature-iphone center">
-        <div class="iphone-notch"><div class="iphone-pill"></div></div>
-        <div class="iphone-screen">
-          <img src="screen-camera.jpg" alt="Ergzo Camera Assessment"
-            onerror="this.parentElement.innerHTML='<div class=\'screen-placeholder\'><span>📷</span>Camera Screen</div>'"/>
-        </div>
-        <div class="iphone-home-bar"><div class="iphone-home-pill"></div></div>
-      </div>
+    <div class="iphone-wrap center-phone video-phone">
+  <div class="feature-iphone center">
+    <div class="iphone-notch"><div class="iphone-pill"></div></div>
+    <div class="iphone-screen">
+      <video autoplay loop muted playsinline class="hero-video">
+        <source src="ergzo-demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
+    <div class="iphone-home-bar"><div class="iphone-home-pill"></div></div>
+  </div>
+</div>
     <div class="iphone-wrap" style="transform: perspective(800px) rotateY(-14deg) translateY(20px);">
       <div class="feature-iphone side">
         <div class="iphone-notch"><div class="iphone-pill"></div></div>
