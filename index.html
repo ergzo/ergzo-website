@@ -112,13 +112,14 @@ section {
       font-size: clamp(38px, 6vw, 72px);
       font-weight: 800; color: var(--white);
       line-height: 1.05; letter-spacing: -1px;
-      margin-bottom: 24px; max-width: 800px;
+      margin-bottom: 24px; max-width: 860px;
+      text-wrap: balance;
     }
     .hero h1 em { font-style: normal; color: var(--alabaster); opacity: 0.7; }
     .hero-sub {
       font-size: clamp(16px, 2vw, 18px);
       color: rgba(214,226,226,0.7);
-      max-width: 580px; margin-bottom: 40px;
+      max-width: 640px; margin-bottom: 40px;
       line-height: 1.75;
       font-weight: 400;
     }
@@ -274,8 +275,8 @@ section {
       margin-bottom: 16px;
     }
     .section-tag.light { background: rgba(255,255,255,0.1); color: var(--alabaster); }
-    .section-title { font-size: clamp(28px, 4vw, 48px); font-weight: 800; letter-spacing: -0.8px; line-height: 1.05; margin-bottom: 16px; }
-    .section-sub { font-size: 17px; color: #5a6a7a; max-width: 540px; line-height: 1.75; font-weight: 400; }
+    .section-title { font-size: clamp(28px, 4vw, 48px); font-weight: 800; letter-spacing: -0.8px; line-height: 1.05; margin-bottom: 16px; text-wrap: balance; }
+    .section-sub { font-size: 17px; color: #5a6a7a; max-width: 600px; line-height: 1.75; font-weight: 400; }
     .text-center { text-align: center; }
     .text-center .section-sub { margin: 0 auto; }
 
@@ -284,7 +285,7 @@ section {
     .users-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; max-width: 1000px; margin: 48px auto 0; }
     .user-card { background: var(--platinum); border: 1px solid var(--alabaster); border-radius: 20px; padding: 32px 28px; }
     .user-card-icon { font-size: 36px; margin-bottom: 14px; }
-    .user-card h3 { font-size: 16px; font-weight: 700; color: var(--indigo); margin-bottom: 8px; }
+    .user-card h3 { font-size: 16px; font-weight: 700; color: var(--indigo); margin-bottom: 8px; text-wrap: balance; }
     .user-card p { font-size: 14px; color: #5a6a7a; line-height: 1.65; font-weight: 400; }
 
     /* ===== INDUSTRIES ===== */
@@ -312,7 +313,7 @@ section {
     .feature-block { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .feature-block.reverse .feature-content { order: 2; }
     .feature-block.reverse .feature-visual-wrap { order: 1; }
-    .feature-content h2 { font-size: clamp(24px, 3vw, 38px); font-weight: 700; letter-spacing: -0.4px; line-height: 1.15; margin-bottom: 16px; color: var(--ink); }
+    .feature-content h2 { font-size: clamp(24px, 3vw, 38px); font-weight: 700; letter-spacing: -0.4px; line-height: 1.15; margin-bottom: 16px; color: var(--ink); text-wrap: balance; }
     .feature-content p { font-size: 16px; color: #5a6a7a; line-height: 1.8; margin-bottom: 24px; font-weight: 400; }
     .feature-tags { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-start; }
     .feature-tag { flex-shrink: 0; background: var(--platinum); border: 1px solid var(--alabaster); color: var(--twilight); font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 50px; }
@@ -326,7 +327,7 @@ section {
     .feat-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09); border-radius: 20px; padding: 32px 26px; transition: background 0.2s; }
     .feat-card:hover { background: rgba(255,255,255,0.1); }
     .feat-icon { font-size: 30px; margin-bottom: 14px; max-width: unset; }
-    .feat-card h3 { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .feat-card h3 { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 8px; text-wrap: balance; }
     .feat-card p { font-size: 14px; color: var(--alabaster); line-height: 1.65; opacity: 0.85; font-weight: 400; }
 
     /* ===== TOOLS ===== */
@@ -375,14 +376,14 @@ section {
     .blog-thumb { height: 150px; background: var(--indigo); display: flex; align-items: center; justify-content: center; font-size: 48px; }
     .blog-body { padding: 24px; }
     .blog-tag-label { font-size: 11px; font-weight: 700; color: var(--twilight); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-    .blog-card h3 { font-size: 16px; font-weight: 700; color: var(--ink); line-height: 1.45; margin-bottom: 8px; }
+    .blog-card h3 { font-size: 16px; font-weight: 700; color: var(--ink); line-height: 1.45; margin-bottom: 8px; text-wrap: balance; }
     .blog-card p { font-size: 13px; color: #5a6a7a; line-height: 1.6; font-weight: 400; }
     .blog-read-more { display: inline-block; margin-top: 14px; font-size: 13px; font-weight: 700; color: var(--twilight); }
 
     /* ===== CONTACT ===== */
     .contact-section { background: var(--platinum); }
     .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1000px; margin: 0 auto; }
-    .contact-info h2 { font-size: 36px; font-weight: 800; letter-spacing: -0.8px; color: var(--ink); margin-bottom: 14px; }
+    .contact-info h2 { font-size: 36px; font-weight: 800; letter-spacing: -0.8px; color: var(--ink); margin-bottom: 14px; text-wrap: balance; }
     .contact-info p { font-size: 16px; color: #5a6a7a; line-height: 1.7; margin-bottom: 32px; font-weight: 400; }
     .contact-detail { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
     .contact-detail a { color: var(--indigo); font-weight: 400; text-decoration: none; font-size: 15px; }
