@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ergzo — AI Ergonomic Assessment App</title>
@@ -17,9 +17,9 @@
     }
     body {
       font-family: 'Inter', sans-serif;
+      font-weight: 400;
       background: #F4F7F7;
       color: #111621;
-      font-weight: 400;
       line-height: 1.6;
       overflow-x: hidden;
       width: 100%;
@@ -69,7 +69,7 @@ section {
     }
     .nav-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
     .nav-logo-icon { height: 32px; width: auto; display: block; filter: brightness(0) invert(1); }
-    .nav-logo-text { font-size: 22px; font-weight: 800; color: var(--white); letter-spacing: -0.5px; }
+    .nav-logo-text { font-size: 22px; font-weight: 800; color: var(--white); letter-spacing: -0.3px; }
     .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
     .nav-links a { color: var(--alabaster); text-decoration: none; font-size: 15px; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
@@ -111,7 +111,7 @@ section {
     .hero h1 {
       font-size: clamp(38px, 6vw, 72px);
       font-weight: 800; color: var(--white);
-      line-height: 1.1; letter-spacing: -1px;
+      line-height: 1.05; letter-spacing: -1px;
       margin-bottom: 24px; max-width: 800px;
     }
     .hero h1 em { font-style: normal; color: var(--alabaster); opacity: 0.7; }
@@ -120,6 +120,7 @@ section {
       color: rgba(214,226,226,0.7);
       max-width: 580px; margin-bottom: 40px;
       line-height: 1.75;
+      font-weight: 400;
     }
     .hero-waitlist {
       display: flex; gap: 0; justify-content: center;
@@ -143,7 +144,7 @@ section {
       transition: opacity 0.2s; max-width: unset;
     }
     .hero-waitlist button:hover { opacity: 0.88; }
-    .hero-note { color: rgba(214,226,226,0.35); font-size: 13px; margin-bottom: 64px; }
+    .hero-note { color: rgba(214,226,226,0.35); font-size: 13px; margin-bottom: 64px; font-weight: 400; }
     .waitlist-counter {
   display: flex;
   align-items: center;
@@ -156,12 +157,13 @@ section {
 }
 .counter-number {
   font-size: 22px;
-  font-weight: 900;
+  font-weight: 800;
   color: var(--white);
 }
 .counter-label {
   font-size: 13px;
   color: rgba(214,226,226,0.6);
+  font-weight: 400;
 }
     /* ===== PHONES ROW ===== */
     .phones-row {
@@ -232,12 +234,11 @@ section {
       overflow: hidden;
       display: flex; align-items: flex-start; justify-content: center;
     }
-    .iphone-screen img, 
-.iphone-screen video {
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: top;
-  display: block;
-}
+    .iphone-screen img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top;
+      display: block;
+    }
     .iphone-screen .screen-placeholder {
       width: 100%; height: 100%;
       display: flex; flex-direction: column;
@@ -267,14 +268,14 @@ section {
     .section-tag {
       display: inline-block;
       background: var(--alabaster); color: var(--twilight);
-      font-size: 11px; font-weight: 700;
+      font-size: 11px; font-weight: 500;
       padding: 6px 14px; border-radius: 50px;
-      letter-spacing: 1.2px; text-transform: uppercase;
+      letter-spacing: 1px; text-transform: uppercase;
       margin-bottom: 16px;
     }
     .section-tag.light { background: rgba(255,255,255,0.1); color: var(--alabaster); }
-    .section-title { font-size: clamp(28px, 4vw, 48px); font-weight: 800; letter-spacing: -0.8px; line-height: 1.1; margin-bottom: 16px; }
-    .section-sub { font-size: 17px; color: #5a6a7a; max-width: 540px; line-height: 1.75; }
+    .section-title { font-size: clamp(28px, 4vw, 48px); font-weight: 800; letter-spacing: -0.8px; line-height: 1.05; margin-bottom: 16px; }
+    .section-sub { font-size: 17px; color: #5a6a7a; max-width: 540px; line-height: 1.75; font-weight: 400; }
     .text-center { text-align: center; }
     .text-center .section-sub { margin: 0 auto; }
 
@@ -284,7 +285,7 @@ section {
     .user-card { background: var(--platinum); border: 1px solid var(--alabaster); border-radius: 20px; padding: 32px 28px; }
     .user-card-icon { font-size: 36px; margin-bottom: 14px; }
     .user-card h3 { font-size: 16px; font-weight: 700; color: var(--indigo); margin-bottom: 8px; }
-    .user-card p { font-size: 14px; color: #5a6a7a; line-height: 1.65; }
+    .user-card p { font-size: 14px; color: #5a6a7a; line-height: 1.65; font-weight: 400; }
 
     /* ===== INDUSTRIES ===== */
     .industries-section { background: var(--platinum); }
@@ -311,8 +312,8 @@ section {
     .feature-block { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .feature-block.reverse .feature-content { order: 2; }
     .feature-block.reverse .feature-visual-wrap { order: 1; }
-    .feature-content h2 { font-size: clamp(24px, 3vw, 38px); font-weight: 700; letter-spacing: -0.4px; line-height: 1.2; margin-bottom: 16px; color: var(--ink); }
-    .feature-content p { font-size: 16px; color: #5a6a7a; line-height: 1.8; margin-bottom: 24px; }
+    .feature-content h2 { font-size: clamp(24px, 3vw, 38px); font-weight: 700; letter-spacing: -0.4px; line-height: 1.15; margin-bottom: 16px; color: var(--ink); }
+    .feature-content p { font-size: 16px; color: #5a6a7a; line-height: 1.8; margin-bottom: 24px; font-weight: 400; }
     .feature-tags { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-start; }
     .feature-tag { flex-shrink: 0; background: var(--platinum); border: 1px solid var(--alabaster); color: var(--twilight); font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 50px; }
     .feature-visual-wrap { display: flex; justify-content: center; }
@@ -326,7 +327,7 @@ section {
     .feat-card:hover { background: rgba(255,255,255,0.1); }
     .feat-icon { font-size: 30px; margin-bottom: 14px; max-width: unset; }
     .feat-card h3 { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
-    .feat-card p { font-size: 14px; color: var(--alabaster); line-height: 1.65; opacity: 0.85; }
+    .feat-card p { font-size: 14px; color: var(--alabaster); line-height: 1.65; opacity: 0.85; font-weight: 400; }
 
     /* ===== TOOLS ===== */
     .tools-section { background: var(--platinum); }
@@ -353,18 +354,18 @@ section {
     .tool-badge:hover .tool-name { color: var(--white); }
     .tool-badge:hover .tool-full { color: var(--alabaster); }
     .tool-name { font-size: 17px; font-weight: 700; color: var(--indigo); }
-    .tool-full { font-size: 10px; color: #8a9aaa; margin-top: 4px; line-height: 1.3; }
+    .tool-full { font-size: 10px; color: #8a9aaa; margin-top: 4px; line-height: 1.3; font-weight: 400; }
 
     /* ===== WAITLIST ===== */
     .waitlist-section { background: var(--indigo); text-align: center; }
     .waitlist-section .section-title { color: var(--white); }
-    .waitlist-section p { color: var(--alabaster); font-size: 17px; max-width: 520px; margin: 16px auto 40px; line-height: 1.7; opacity: 0.85; }
+    .waitlist-section p { color: var(--alabaster); font-size: 17px; max-width: 520px; margin: 16px auto 40px; line-height: 1.7; opacity: 0.85; font-weight: 400; }
     .waitlist-form { display: flex; gap: 0; justify-content: center; max-width: 460px; margin: 0 auto; }
-    .waitlist-form input { flex: 1; padding: 16px 22px; border-radius: 50px 0 0 50px; border: 1px solid rgba(255,255,255,0.15); border-right: none; background: rgba(255,255,255,0.08); color: var(--white); font-size: 15px; font-family: inherit; outline: none; }
+    .waitlist-form input { flex: 1; padding: 16px 22px; border-radius: 50px 0 0 50px; border: 1px solid rgba(255,255,255,0.15); border-right: none; background: rgba(255,255,255,0.08); color: var(--white); font-size: 15px; font-family: inherit; font-weight: 400; outline: none; }
     .waitlist-form input::placeholder { color: rgba(214,226,226,0.4); }
     .waitlist-form button { background: var(--warning); color: var(--white); padding: 16px 28px; border-radius: 0 50px 50px 0; border: none; font-size: 15px; font-weight: 700; cursor: pointer; font-family: inherit; transition: opacity 0.2s; max-width: unset; }
     .waitlist-form button:hover { opacity: 0.85; }
-    .waitlist-note { color: rgba(214,226,226,0.4); font-size: 13px; margin-top: 14px; }
+    .waitlist-note { color: rgba(214,226,226,0.4); font-size: 13px; margin-top: 14px; font-weight: 400; }
 
     /* ===== BLOG ===== */
     .blog-section { background: var(--white); }
@@ -375,21 +376,21 @@ section {
     .blog-body { padding: 24px; }
     .blog-tag-label { font-size: 11px; font-weight: 700; color: var(--twilight); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
     .blog-card h3 { font-size: 16px; font-weight: 700; color: var(--ink); line-height: 1.45; margin-bottom: 8px; }
-    .blog-card p { font-size: 13px; color: #5a6a7a; line-height: 1.6; }
+    .blog-card p { font-size: 13px; color: #5a6a7a; line-height: 1.6; font-weight: 400; }
     .blog-read-more { display: inline-block; margin-top: 14px; font-size: 13px; font-weight: 700; color: var(--twilight); }
 
     /* ===== CONTACT ===== */
     .contact-section { background: var(--platinum); }
     .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1000px; margin: 0 auto; }
     .contact-info h2 { font-size: 36px; font-weight: 800; letter-spacing: -0.8px; color: var(--ink); margin-bottom: 14px; }
-    .contact-info p { font-size: 16px; color: #5a6a7a; line-height: 1.7; margin-bottom: 32px; }
+    .contact-info p { font-size: 16px; color: #5a6a7a; line-height: 1.7; margin-bottom: 32px; font-weight: 400; }
     .contact-detail { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .contact-detail a { color: var(--indigo); font-weight: 600; text-decoration: none; font-size: 15px; }
+    .contact-detail a { color: var(--indigo); font-weight: 400; text-decoration: none; font-size: 15px; }
     .contact-detail span.label { font-size: 15px; color: #5a6a7a; }
     .contact-form { display: flex; flex-direction: column; gap: 14px; }
     .contact-form input, .contact-form textarea, .contact-form select {
       padding: 14px 18px; border-radius: 12px; border: 1px solid var(--alabaster);
-      font-size: 15px; font-family: inherit; background: var(--white); color: var(--ink);
+      font-size: 15px; font-family: inherit; font-weight: 400; background: var(--white); color: var(--ink);
       outline: none; transition: border-color 0.2s;
       -webkit-appearance: none; appearance: none; min-height: 52px;
     }
@@ -408,16 +409,16 @@ section {
     /* ===== FOOTER ===== */
     footer { background: var(--ink); color: var(--alabaster); padding: 60px 6% 28px; }
     .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; margin-bottom: 48px; }
-    .footer-brand p { font-size: 13px; color: rgba(214,226,226,0.5); margin-top: 10px; max-width: 240px; line-height: 1.65; }
+    .footer-brand p { font-size: 13px; color: rgba(214,226,226,0.5); margin-top: 10px; max-width: 240px; line-height: 1.65; font-weight: 400; }
     .footer-logo { display: flex; align-items: center; gap: 8px; font-size: 22px; font-weight: 800; color: var(--white); max-width: unset; }
     .footer-logo-icon { height: 28px; width: auto; display: block; filter: brightness(0) invert(1); }
     .footer-links h4 { font-size: 11px; font-weight: 700; color: var(--white); letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 16px; }
     .footer-links ul { list-style: none; }
     .footer-links li { margin-bottom: 10px; }
-    .footer-links a { color: rgba(214,226,226,0.5); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-links a { color: rgba(214,226,226,0.5); text-decoration: none; font-size: 14px; transition: color 0.2s; font-weight: 400; }
     .footer-links a:hover { color: var(--white); }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-    .footer-bottom p { font-size: 13px; color: rgba(214,226,226,0.35); }
+    .footer-bottom p { font-size: 13px; color: rgba(214,226,226,0.35); font-weight: 400; }
     .social-links { list-style: none; }
 .social-links li { margin-bottom: 12px; }
 .social-links a {
@@ -428,6 +429,7 @@ section {
   text-decoration: none;
   font-size: 14px;
   transition: color 0.2s;
+  font-weight: 400;
 }
 .social-links a:hover { color: var(--white); }
 .social-links svg { flex-shrink: 0; opacity: 0.7; }
@@ -701,18 +703,16 @@ section {
         <div class="iphone-home-bar"><div class="iphone-home-pill"></div></div>
       </div>
     </div>
-    <div class="iphone-wrap center-phone video-phone">
-  <div class="feature-iphone center">
-    <div class="iphone-notch"><div class="iphone-pill"></div></div>
-    <div class="iphone-screen">
-      <video autoplay loop muted playsinline class="hero-video">
-        <source src="ergzo-demo.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+    <div class="iphone-wrap center-phone">
+      <div class="feature-iphone center">
+        <div class="iphone-notch"><div class="iphone-pill"></div></div>
+        <div class="iphone-screen">
+          <img src="screen-camera.jpg" alt="Ergzo Camera Assessment"
+            onerror="this.parentElement.innerHTML='<div class=\'screen-placeholder\'><span>📷</span>Camera Screen</div>'"/>
+        </div>
+        <div class="iphone-home-bar"><div class="iphone-home-pill"></div></div>
+      </div>
     </div>
-    <div class="iphone-home-bar"><div class="iphone-home-pill"></div></div>
-  </div>
-</div>
     <div class="iphone-wrap" style="transform: perspective(800px) rotateY(-14deg) translateY(20px);">
       <div class="feature-iphone side">
         <div class="iphone-notch"><div class="iphone-pill"></div></div>
