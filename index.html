@@ -4,655 +4,302 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ergzo — AI Ergonomic Assessment App</title>
-  <meta name="description" content="Ergzo uses AI and your phone camera to detect ergonomic risks instantly. REBA, RULA, ROSA, NIOSH & 11 more tools. Built for EHS teams, ergonomists & managers."/>
+  <title>Ergzo &#x2014; AI Ergonomic Risk Assessment App | REBA, RULA, NIOSH &amp; More</title>
+  <meta name="description" content="Ergzo uses AI and your phone camera to assess musculoskeletal risks instantly. REBA, RULA, ROSA, NIOSH, OWAS &amp; 10 more validated tools. Instant PDF reports. Built for EHS teams."/>
+  <meta property="og:title" content="Ergzo &#x2014; AI Ergonomic Risk Assessment App"/>
+  <meta property="og:description" content="15 validated ergonomic assessment tools. AI pose detection. Instant PDF reports."/>
+  <meta property="og:url" content="https://www.ergzo.com"/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="canonical" href="https://www.ergzo.com/"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Ergzo","applicationCategory":"BusinessApplication","operatingSystem":"Android, iOS","url":"https://www.ergzo.com"}</script>
   <style>
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 68px;
-      overflow-x: hidden;
-      width: 100%;
+    html{scroll-behavior:smooth;scroll-padding-top:68px;overflow-x:hidden;width:100%}
+    body{font-family:'Inter',sans-serif;font-weight:400;font-feature-settings:"cv11","ss01";background:#F4F7F7;color:#111621;line-height:1.7;overflow-x:hidden;width:100%;position:relative}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;max-width:100%}
+    img,video,iframe,svg{max-width:100%;height:auto}
+    .skip-link{position:absolute;top:-48px;left:0;padding:10px 16px;background:#232d42;color:#fff;font-size:14px;font-weight:600;z-index:9999;border-radius:0 0 8px 0;transition:top .2s;text-decoration:none}
+    .skip-link:focus{top:0}
+    :root{
+      --ink:#111621;--indigo:#232d42;--twilight:#354463;--alabaster:#d6e2e2;
+      --platinum:#F4F7F7;--success:#27AE60;--warning:#F39C12;--danger:#E74C3C;--white:#ffffff;
+      --text-hero:clamp(2.375rem,1rem + 5vw,4.5rem);
+      --text-2xl:clamp(1.75rem,1.2rem + 2vw,2.75rem);
+      --radius-full:9999px;--radius-xl:1.25rem;
+      --shadow-card:0 4px 20px rgba(17,22,33,.08);
+      --shadow-phone:0 32px 64px rgba(0,0,0,.6),0 8px 24px rgba(0,0,0,.4);
+      --transition:180ms cubic-bezier(.16,1,.3,1);
     }
-    body {
-      font-family: 'Inter', sans-serif;
-      font-weight: 400;
-      background: #F4F7F7;
-      color: #111621;
-      line-height: 1.6;
-      overflow-x: hidden;
-      width: 100%;
-      position: relative;
+    /* NAVBAR */
+    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(35,45,66,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:68px;border-bottom:1px solid rgba(214,226,226,.08);transition:box-shadow var(--transition)}
+    nav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.2)}
+    .nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+    .nav-logo-icon{height:30px;width:auto;display:block;filter:brightness(0) invert(1)}
+    .nav-logo-text{font-size:21px;font-weight:800;color:#fff;letter-spacing:-.5px}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+    .nav-links a{color:rgba(214,226,226,.8);text-decoration:none;font-size:15px;font-weight:500;transition:color var(--transition)}
+    .nav-links a:hover{color:#fff}
+    .nav-cta{background:#fff!important;color:#232d42!important;padding:9px 20px!important;border-radius:var(--radius-full)!important;font-weight:700!important;font-size:14px!important;transition:opacity var(--transition)!important;min-height:44px;display:inline-flex;align-items:center}
+    .nav-cta:hover{opacity:.85!important}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;max-width:unset;min-width:44px;min-height:44px;align-items:center;justify-content:center}
+    .hamburger span{width:22px;height:2px;background:#fff;border-radius:2px;display:block;transition:all .3s;max-width:unset}
+    .mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:#232d42;padding:20px 6%;border-bottom:1px solid rgba(255,255,255,.08);z-index:99;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+    .mobile-menu.open{display:flex;flex-direction:column;gap:18px}
+    .mobile-menu a{color:rgba(214,226,226,.8);text-decoration:none;font-size:16px;font-weight:500;padding:4px 0}
+    /* PULSE */
+    @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.75)}}
+    .pulse-dot{display:inline-block;width:8px;height:8px;background:#27AE60;border-radius:50%;animation:pulse-dot 2s ease-in-out infinite;flex-shrink:0}
+    /* HERO */
+    .hero{min-height:100vh;background:#232d42;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 6% 0}
+    .hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.07);border:1px solid rgba(214,226,226,.14);color:#d6e2e2;padding:8px 18px;border-radius:var(--radius-full);font-size:13px;font-weight:500;margin-bottom:28px}
+    .badge-sep{color:rgba(214,226,226,.3)}
+    .hero h1{font-size:var(--text-hero);font-weight:800;color:#fff;line-height:1.04;letter-spacing:-1.5px;margin-bottom:22px;max-width:820px;text-wrap:balance;font-feature-settings:"ss01","cv11"}
+    .hero h1 em{font-style:normal;color:rgba(214,226,226,.55)}
+    .hero-sub{font-size:clamp(15px,1.8vw,17px);color:rgba(214,226,226,.65);max-width:600px;margin-bottom:36px;line-height:1.75;font-weight:400}
+    .hero-waitlist{display:flex;gap:0;justify-content:center;margin-bottom:14px;max-width:460px;width:100%}
+    .hero-waitlist input{flex:1;padding:15px 20px;border:1px solid rgba(255,255,255,.14);border-right:none;border-radius:var(--radius-full) 0 0 var(--radius-full);background:rgba(255,255,255,.07);color:#fff;font-size:15px;font-family:inherit;outline:none;transition:border-color var(--transition);min-height:52px}
+    .hero-waitlist input:focus{border-color:rgba(255,255,255,.3)}
+    .hero-waitlist input::placeholder{color:rgba(214,226,226,.35)}
+    .hero-waitlist button{background:#fff;color:#232d42;padding:15px 26px;border-radius:0 var(--radius-full) var(--radius-full) 0;border:none;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;transition:opacity var(--transition);max-width:unset;min-height:52px}
+    .hero-waitlist button:hover{opacity:.88}
+    .hero-note{color:rgba(214,226,226,.35);font-size:13px;margin-bottom:40px;font-weight:400}
+    .waitlist-counter{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);border:1px solid rgba(214,226,226,.1);padding:10px 20px;border-radius:var(--radius-full);margin-bottom:56px}
+    .counter-number{font-size:20px;font-weight:800;color:#fff;letter-spacing:-.5px}
+    .counter-label{font-size:13px;color:rgba(214,226,226,.55);font-weight:400}
+    /* PHONES */
+    .phones-row{display:flex;justify-content:center;align-items:flex-end;gap:20px}
+    .iphone-wrap{position:relative;transform:perspective(800px) rotateY(14deg) translateY(20px);transition:transform .35s cubic-bezier(.16,1,.3,1);max-width:unset}
+    .iphone-wrap:last-child{transform:perspective(800px) rotateY(-14deg) translateY(20px)}
+    .iphone-wrap.center-phone{transform:none}
+    .iphone-wrap:hover{transform:perspective(800px) rotateY(0deg) translateY(-4px)!important}
+    .iphone-wrap.center-phone:hover{transform:translateY(-4px)!important}
+    /* IPHONE FRAME */
+    .feature-iphone{width:240px;background:#181818;border-radius:46px;border:2px solid #3a3a3a;position:relative;box-shadow:0 0 0 1px #0d0d0d,inset 0 0 0 2px #252525,var(--shadow-phone);overflow:hidden;max-width:unset}
+    .feature-iphone.side{width:210px}
+    .feature-iphone::before{content:'';position:absolute;left:-4px;top:80px;width:3px;height:28px;background:#2a2a2a;border-radius:2px 0 0 2px;box-shadow:0 38px 0 #2a2a2a,0 72px 0 #2a2a2a;max-width:unset}
+    .feature-iphone::after{content:'';position:absolute;right:-4px;top:100px;width:3px;height:48px;background:#2a2a2a;border-radius:0 2px 2px 0;max-width:unset}
+    .iphone-notch{width:100%;height:36px;background:#181818;display:flex;align-items:center;justify-content:center;position:relative;z-index:2}
+    .iphone-pill{width:76px;height:11px;background:#0d0d0d;border-radius:10px}
+    .iphone-screen{width:100%;background:#1a2035;aspect-ratio:9/19.5;overflow:hidden;display:flex;align-items:flex-start;justify-content:center}
+    .iphone-screen img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+    .iphone-home-bar{height:20px;background:#181818;display:flex;align-items:center;justify-content:center}
+    .iphone-home-pill{width:96px;height:4px;background:#333;border-radius:3px}
+    /* SCREEN PLACEHOLDER */
+    .screen-placeholder{width:100%;height:100%;background:#1a2035;display:flex;flex-direction:column;padding:14px 12px;gap:0}
+    .sp-topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+    .sp-topbar-label{font-size:10px;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:.8px;text-transform:uppercase;font-family:'Inter',sans-serif}
+    .sp-dot{width:7px;height:7px;border-radius:50%;background:#27AE60;flex-shrink:0}
+    .sp-title{font-size:14px;font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-.3px;font-family:'Inter',sans-serif}
+    .sp-score-row{display:flex;gap:7px;margin-bottom:12px}
+    .sp-score{flex:1;background:rgba(255,255,255,.06);border-radius:9px;padding:9px 8px 7px;text-align:center}
+    .sp-score-num{font-size:18px;font-weight:800;color:#fff;line-height:1;margin-bottom:3px;font-family:'Inter',sans-serif}
+    .sp-score-num.warn{color:#F39C12}.sp-score-num.ok{color:#27AE60}.sp-score-num.hi{color:#E74C3C}
+    .sp-score-lbl{font-size:8px;color:rgba(255,255,255,.4);font-weight:600;letter-spacing:.4px;text-transform:uppercase;font-family:'Inter',sans-serif}
+    .sp-bar-row{margin-bottom:9px}
+    .sp-bar-label{font-size:8px;font-weight:600;color:rgba(255,255,255,.4);letter-spacing:.4px;text-transform:uppercase;margin-bottom:4px;font-family:'Inter',sans-serif}
+    .sp-bar-track{height:4px;background:rgba(255,255,255,.08);border-radius:10px;overflow:hidden}
+    .sp-bar-fill{height:100%;border-radius:10px;background:#27AE60}
+    .sp-bar-fill.warn{background:#F39C12}.sp-bar-fill.hi{background:#E74C3C}
+    .sp-divider{height:1px;background:rgba(255,255,255,.06);margin:9px 0}
+    .sp-tag-row{display:flex;gap:4px;flex-wrap:wrap}
+    .sp-tag{font-size:8px;font-weight:700;padding:3px 6px;border-radius:var(--radius-full);background:rgba(255,255,255,.08);color:rgba(255,255,255,.45);font-family:'Inter',sans-serif}
+    .sp-tag.active{background:rgba(39,174,96,.2);color:#27AE60}
+    .sp-action-btn{margin-top:auto;padding:7px;background:rgba(255,255,255,.09);border-radius:9px;text-align:center;font-size:9px;font-weight:700;color:rgba(255,255,255,.55);font-family:'Inter',sans-serif}
+    /* SECTIONS */
+    section{padding:96px 6%}
+    .section-tag{display:inline-block;background:#d6e2e2;color:#354463;font-size:11px;font-weight:600;padding:6px 14px;border-radius:var(--radius-full);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:16px}
+    .section-tag.light{background:rgba(255,255,255,.1);color:#d6e2e2}
+    .section-title{font-size:var(--text-2xl);font-weight:800;letter-spacing:-.8px;line-height:1.07;margin-bottom:14px;text-wrap:balance}
+    .section-sub{font-size:17px;color:#5a6a7a;max-width:580px;line-height:1.75;font-weight:400}
+    .text-center{text-align:center}
+    .text-center .section-sub{margin:0 auto}
+    /* USERS */
+    .users-section{background:#fff}
+    .users-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:48px auto 0}
+    .user-card{background:#F4F7F7;border:1px solid #d6e2e2;border-radius:var(--radius-xl);padding:32px 28px;transition:box-shadow var(--transition),border-color var(--transition),transform var(--transition)}
+    .user-card:hover{box-shadow:var(--shadow-card);border-color:#b8cccc;transform:translateY(-2px)}
+    .user-card-icon{width:44px;height:44px;background:#232d42;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:#fff}
+    .user-card-icon svg{width:20px;height:20px}
+    .user-card h3{font-size:16px;font-weight:700;color:#232d42;margin-bottom:8px;text-wrap:balance;letter-spacing:-.2px}
+    .user-card p{font-size:14px;color:#5a6a7a;line-height:1.7;font-weight:400}
+    /* INDUSTRIES */
+    .industries-section{background:#F4F7F7}
+    .industry-grid{display:grid;grid-template-columns:repeat(3,auto);gap:10px;justify-content:center;margin-top:40px}
+    .industry-pill{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #d6e2e2;padding:11px 20px;border-radius:var(--radius-full);font-size:14px;font-weight:600;color:#232d42;transition:all var(--transition);cursor:default;white-space:nowrap}
+    .industry-pill:hover{background:#232d42;color:#fff;border-color:#232d42}
+    /* FEATURES */
+    .features-section{background:#fff}
+    .features-inner{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:100px}
+    .feature-block{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .feature-block.reverse .feature-content{order:2}
+    .feature-block.reverse .feature-visual-wrap{order:1}
+    .feature-content h2{font-size:clamp(22px,2.8vw,36px);font-weight:700;letter-spacing:-.4px;line-height:1.15;margin-bottom:14px;color:#111621;text-wrap:balance}
+    .feature-content p{font-size:15px;color:#5a6a7a;line-height:1.8;margin-bottom:24px;font-weight:400}
+    .feature-tags{display:flex;flex-wrap:wrap;gap:7px}
+    .feature-tag{flex-shrink:0;background:#F4F7F7;border:1px solid #d6e2e2;color:#354463;font-size:12px;font-weight:600;padding:5px 13px;border-radius:var(--radius-full)}
+    .feature-visual-wrap{display:flex;justify-content:center}
+    .feature-iphone img{width:100%;display:block}
+    /* FEAT GRID */
+    .feat-grid-section{background:#232d42}
+    .feat-grid-section .section-title{color:#fff}
+    .feat-grid-section .section-sub{color:rgba(214,226,226,.75)}
+    .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px;max-width:1100px;margin-left:auto;margin-right:auto}
+    .feat-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-xl);padding:30px 24px;transition:background var(--transition),border-color var(--transition)}
+    .feat-card:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.14)}
+    .feat-icon-wrap{width:42px;height:42px;background:rgba(255,255,255,.09);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;color:#d6e2e2}
+    .feat-icon-wrap svg{width:20px;height:20px}
+    .feat-card h3{font-size:15px;font-weight:700;color:#fff;margin-bottom:7px;text-wrap:balance;letter-spacing:-.2px}
+    .feat-card p{font-size:13px;color:rgba(214,226,226,.7);line-height:1.65;font-weight:400}
+    /* TOOLS */
+    .tools-section{background:#F4F7F7}
+    .tools-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:48px;max-width:900px;margin-left:auto;margin-right:auto}
+    .tool-badge{background:#fff;border:1px solid #d6e2e2;border-radius:14px;padding:14px 12px;text-align:center;width:100%;cursor:default;transition:all var(--transition)}
+    .tool-badge:hover{background:#232d42;border-color:#232d42;transform:translateY(-2px);box-shadow:0 8px 20px rgba(35,45,66,.2)}
+    .tool-badge:hover .tool-name{color:#fff}
+    .tool-badge:hover .tool-full{color:rgba(214,226,226,.65)}
+    .tool-name{font-size:16px;font-weight:800;color:#232d42;letter-spacing:-.2px}
+    .tool-full{font-size:10px;color:#8a9aaa;margin-top:4px;line-height:1.4;font-weight:400}
+    /* WAITLIST */
+    .waitlist-section{background:#232d42;text-align:center}
+    .waitlist-section .section-title{color:#fff}
+    .waitlist-section>p{color:rgba(214,226,226,.75);font-size:17px;max-width:500px;margin:14px auto 36px;line-height:1.7;font-weight:400}
+    .waitlist-form{display:flex;gap:0;justify-content:center;max-width:440px;margin:0 auto}
+    .waitlist-form input{flex:1;padding:15px 20px;border-radius:var(--radius-full) 0 0 var(--radius-full);border:1px solid rgba(255,255,255,.14);border-right:none;background:rgba(255,255,255,.08);color:#fff;font-size:15px;font-family:inherit;font-weight:400;outline:none;transition:border-color var(--transition);min-height:52px}
+    .waitlist-form input:focus{border-color:rgba(255,255,255,.3)}
+    .waitlist-form input::placeholder{color:rgba(214,226,226,.35)}
+    .waitlist-form button{background:#F39C12;color:#fff;padding:15px 26px;border-radius:0 var(--radius-full) var(--radius-full) 0;border:none;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity var(--transition);max-width:unset;min-height:52px}
+    .waitlist-form button:hover{opacity:.85}
+    .waitlist-note{color:rgba(214,226,226,.35);font-size:13px;margin-top:12px;font-weight:400}
+    /* BLOG */
+    .blog-section{background:#fff}
+    .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;max-width:1100px;margin-left:auto;margin-right:auto}
+    .blog-card{background:#F4F7F7;border:1px solid #d6e2e2;border-radius:var(--radius-xl);overflow:hidden;cursor:pointer;text-decoration:none;display:block;transition:box-shadow var(--transition),transform var(--transition),border-color var(--transition)}
+    .blog-card:hover{box-shadow:0 10px 36px rgba(35,45,66,.1);transform:translateY(-3px);border-color:#b8cccc}
+    .blog-thumb{height:148px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6)}
+    .blog-thumb svg{width:44px;height:44px;opacity:.7}
+    .blog-thumb-1{background:linear-gradient(135deg,#232d42 0%,#354463 100%)}
+    .blog-thumb-2{background:linear-gradient(135deg,#1e3a5f 0%,#2d4f7c 100%)}
+    .blog-thumb-3{background:linear-gradient(135deg,#1a2d1a 0%,#2a4a2a 100%)}
+    .blog-body{padding:22px 24px 24px}
+    .blog-tag-label{font-size:11px;font-weight:600;color:#354463;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+    .blog-card h3{font-size:15px;font-weight:700;color:#111621;line-height:1.45;margin-bottom:8px;text-wrap:balance;letter-spacing:-.2px}
+    .blog-card p{font-size:13px;color:#5a6a7a;line-height:1.65;font-weight:400}
+    .blog-read-more{display:inline-flex;align-items:center;gap:5px;margin-top:14px;font-size:13px;font-weight:700;color:#354463;text-decoration:none}
+    .blog-read-more svg{width:14px;height:14px}
+    /* CONTACT */
+    .contact-section{background:#F4F7F7}
+    .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;max-width:1000px;margin:0 auto}
+    .contact-info h2{font-size:clamp(26px,3vw,34px);font-weight:800;letter-spacing:-.7px;color:#111621;margin-bottom:12px;text-wrap:balance}
+    .contact-info p{font-size:15px;color:#5a6a7a;line-height:1.75;margin-bottom:32px;font-weight:400}
+    .contact-detail{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .contact-detail-icon{width:36px;height:36px;background:#fff;border:1px solid #d6e2e2;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#354463}
+    .contact-detail-icon svg{width:16px;height:16px}
+    .contact-detail a,.contact-detail span.label{color:#232d42;font-weight:400;text-decoration:none;font-size:15px}
+    .contact-detail a:hover{text-decoration:underline}
+    .contact-form{display:flex;flex-direction:column;gap:12px}
+    .contact-form input,.contact-form textarea,.contact-form select{padding:13px 16px;border-radius:12px;border:1px solid #d6e2e2;font-size:15px;font-family:inherit;font-weight:400;background:#fff;color:#111621;outline:none;transition:border-color var(--transition),box-shadow var(--transition);-webkit-appearance:none;appearance:none;min-height:50px}
+    .contact-form select{padding-right:40px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23354463' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;cursor:pointer}
+    .contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{border-color:#354463;box-shadow:0 0 0 3px rgba(35,45,66,.1)}
+    .contact-form textarea{resize:vertical;min-height:116px}
+    .contact-form button{background:#232d42;color:#fff;padding:15px;border-radius:var(--radius-full);border:none;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:background var(--transition);max-width:unset;min-height:52px}
+    .contact-form button:hover{background:#354463}
+    .form-success{background:rgba(39,174,96,.08);border:1px solid rgba(39,174,96,.25);border-radius:12px;padding:24px;text-align:center;color:#1a5c38;font-size:15px;font-weight:500;display:none}
+    .form-success.visible{display:block}
+    /* FOOTER */
+    footer{background:#111621;color:#d6e2e2;padding:60px 6% 28px}
+    .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:48px}
+    .footer-brand p{font-size:13px;color:rgba(214,226,226,.45);margin-top:10px;max-width:240px;line-height:1.7;font-weight:400}
+    .footer-logo{display:flex;align-items:center;gap:8px;font-size:20px;font-weight:800;color:#fff;max-width:unset;letter-spacing:-.3px}
+    .footer-logo-icon{height:26px;width:auto;display:block;filter:brightness(0) invert(1)}
+    .footer-links h4{font-size:11px;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:16px}
+    .footer-links ul{list-style:none}
+    .footer-links li{margin-bottom:10px}
+    .footer-links a{color:rgba(214,226,226,.45);text-decoration:none;font-size:14px;transition:color var(--transition);font-weight:400}
+    .footer-links a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .footer-bottom p{font-size:13px;color:rgba(214,226,226,.3);font-weight:400}
+    .social-links{list-style:none}
+    .social-links li{margin-bottom:10px}
+    .social-links a{display:flex;align-items:center;gap:9px;color:rgba(214,226,226,.45);text-decoration:none;font-size:14px;transition:color var(--transition);font-weight:400}
+    .social-links a:hover{color:#fff}
+    .social-links svg{flex-shrink:0;opacity:.65;width:15px;height:15px}
+    .social-links a:hover svg{opacity:1}
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .feat-grid{grid-template-columns:repeat(2,1fr)}
+      .feature-block{grid-template-columns:1fr;gap:40px}
+      .feature-block.reverse .feature-content{order:0}
+      .feature-block.reverse .feature-visual-wrap{order:0}
+      .users-grid{grid-template-columns:1fr}
+      .contact-inner{grid-template-columns:1fr;gap:48px}
+      .blog-grid{grid-template-columns:1fr 1fr}
+      .tools-grid{grid-template-columns:repeat(4,1fr)}
+      .industry-grid{grid-template-columns:repeat(2,auto)}
+      .feature-iphone{width:200px}
+      .feature-iphone.side{width:180px}
     }
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      max-width: 100%;
+    @media(max-width:640px){
+      .nav-links{display:none}
+      .hamburger{display:flex}
+      .feat-grid,.blog-grid{grid-template-columns:1fr}
+      .hero-badge{flex-wrap:wrap;gap:2px;text-align:center;padding:10px 16px;justify-content:center}
+      .badge-sep{display:none}
+      .hero{padding-bottom:0}
+      .hero-waitlist{flex-direction:column;max-width:100%;width:100%;padding:0 4%;gap:10px}
+      .hero-waitlist input{border:1px solid rgba(255,255,255,.15);border-radius:var(--radius-full);width:100%;text-align:center}
+      .hero-waitlist button{border-radius:var(--radius-full);width:100%;text-align:center}
+      .waitlist-form{flex-direction:column;max-width:100%;width:100%;padding:0 4%;gap:10px}
+      .waitlist-form input{border:1px solid rgba(255,255,255,.15);border-radius:var(--radius-full);width:100%;text-align:center}
+      .waitlist-form button{border-radius:var(--radius-full);width:100%;text-align:center}
+      .phones-row{gap:12px;width:100vw;margin-left:-6%;margin-right:-6%;padding:0;margin-bottom:0;justify-content:center;overflow:visible;align-items:flex-end}
+      .iphone-wrap{transform:perspective(600px) rotateY(10deg) translateY(12px)!important;flex-shrink:0;transition:none!important}
+      .iphone-wrap:last-child{transform:perspective(600px) rotateY(-10deg) translateY(12px)!important}
+      .iphone-wrap.center-phone{transform:none!important}
+      .iphone-wrap:hover,.iphone-wrap:last-child:hover,.iphone-wrap.center-phone:hover{transform:inherit!important}
+      .feature-iphone,.feature-iphone.side{width:26vw!important;border-radius:14px!important}
+      .feature-iphone.center{width:30vw!important;border-radius:16px!important}
+      .feature-iphone::before,.feature-iphone::after{display:none}
+      .iphone-notch{height:18px}
+      .iphone-pill{width:32px;height:6px}
+      .iphone-home-bar{height:10px}
+      .iphone-home-pill{width:40px;height:2px}
+      .iphone-screen{aspect-ratio:9/17!important;background:#1a2035!important}
+      .feature-visual-wrap .feature-iphone{width:100%!important;max-width:220px!important;border-radius:32px!important}
+      .feature-visual-wrap .feature-iphone::before,.feature-visual-wrap .feature-iphone::after{display:none}
+      .tools-grid{grid-template-columns:repeat(3,1fr);gap:8px}
+      .tool-badge{width:100%;padding:10px 6px;border-radius:10px}
+      .tool-name{font-size:13px}
+      .tool-full{font-size:9px}
+      .feature-tag{font-size:11px;padding:5px 11px}
+      .industry-grid{grid-template-columns:1fr 1fr;gap:8px}
+      .industry-pill{justify-content:center;padding:11px 8px;font-size:13px;border-radius:12px;white-space:normal;text-align:center}
     }
-    img, video, iframe, svg {
-      max-width: 100%;
-      height: auto;
-    }
-    * {
-  scroll-behavior: smooth;
-}
-
-/* Faster, snappier page transitions */
-section {
-  opacity: 1;
-  transition: opacity 0.15s ease;
-}
-
-    :root {
-      --ink: #111621;
-      --indigo: #232d42;
-      --twilight: #354463;
-      --alabaster: #d6e2e2;
-      --platinum: #F4F7F7;
-      --success: #27AE60;
-      --warning: #F39C12;
-      --danger: #E74C3C;
-      --white: #ffffff;
-    }
-
-    /* ===== NAVBAR ===== */
-    nav {
-      position: fixed; top: 0; width: 100%; z-index: 100;
-      background: rgba(35, 45, 66, 0.96);
-      backdrop-filter: blur(12px);
-      padding: 0 6%;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 68px;
-      border-bottom: 1px solid rgba(214,226,226,0.08);
-    }
-    .nav-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
-    .nav-logo-icon { height: 32px; width: auto; display: block; filter: brightness(0) invert(1); }
-    .nav-logo-text { font-size: 22px; font-weight: 800; color: var(--white); letter-spacing: -0.3px; }
-    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
-    .nav-links a { color: var(--alabaster); text-decoration: none; font-size: 15px; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--white); }
-    .nav-cta {
-      background: var(--white) !important; color: var(--indigo) !important;
-      padding: 10px 22px; border-radius: 50px;
-      font-weight: 700 !important; font-size: 14px !important;
-    }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; max-width: unset; }
-    .hamburger span { width: 24px; height: 2px; background: white; border-radius: 2px; display: block; transition: all 0.3s; max-width: unset; }
-    .mobile-menu {
-      display: none; position: fixed; top: 68px; left: 0; right: 0;
-      background: var(--indigo); padding: 24px 6%;
-      border-bottom: 1px solid rgba(255,255,255,0.08); z-index: 99;
-    }
-    .mobile-menu.open { display: flex; flex-direction: column; gap: 20px; }
-    .mobile-menu a { color: var(--alabaster); text-decoration: none; font-size: 16px; font-weight: 500; }
-
-    /* ===== HERO ===== */
-    .hero {
-      min-height: 100vh;
-      background: var(--indigo);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center;
-      padding: 120px 6% 80px;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(214,226,226,0.15);
-      color: var(--alabaster);
-      padding: 8px 18px; border-radius: 50px;
-      font-size: 13px; font-weight: 500;
-      margin-bottom: 28px;
-    }
-    .hero-badge .dot { color: var(--success); font-size: 10px; }
-    .badge-text1, .badge-sep, .badge-text2 { display: inline; }
-    .hero h1 {
-      font-size: clamp(38px, 6vw, 72px);
-      font-weight: 800; color: var(--white);
-      line-height: 1.05; letter-spacing: -1px;
-      margin-bottom: 24px; max-width: 860px;
-      text-wrap: balance;
-    }
-    .hero h1 em { font-style: normal; color: var(--alabaster); opacity: 0.7; }
-    .hero-sub {
-      font-size: clamp(16px, 2vw, 18px);
-      color: rgba(214,226,226,0.7);
-      max-width: 640px; margin-bottom: 40px;
-      line-height: 1.75;
-      font-weight: 400;
-    }
-    .hero-waitlist {
-      display: flex; gap: 0; justify-content: center;
-      margin-bottom: 16px; max-width: 480px; width: 100%;
-    }
-    .hero-waitlist input {
-      flex: 1; padding: 16px 22px;
-      border: 1px solid rgba(255,255,255,0.15);
-      border-right: none;
-      border-radius: 50px 0 0 50px;
-      background: rgba(255,255,255,0.07);
-      color: var(--white); font-size: 15px;
-      font-family: inherit; outline: none;
-    }
-    .hero-waitlist input::placeholder { color: rgba(214,226,226,0.4); }
-    .hero-waitlist button {
-      background: var(--white); color: var(--indigo);
-      padding: 16px 28px; border-radius: 0 50px 50px 0;
-      border: none; font-size: 15px; font-weight: 700;
-      cursor: pointer; font-family: inherit; white-space: nowrap;
-      transition: opacity 0.2s; max-width: unset;
-    }
-    .hero-waitlist button:hover { opacity: 0.88; }
-    .hero-note { color: rgba(214,226,226,0.35); font-size: 13px; margin-bottom: 64px; font-weight: 400; }
-    .waitlist-counter {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(214,226,226,0.12);
-  padding: 10px 20px;
-  border-radius: 50px;
-  margin-bottom: 48px;
-}
-.counter-number {
-  font-size: 22px;
-  font-weight: 800;
-  color: var(--white);
-}
-.counter-label {
-  font-size: 13px;
-  color: rgba(214,226,226,0.6);
-  font-weight: 400;
-}
-    /* ===== PHONES ROW ===== */
-    .phones-row {
-      display: flex; justify-content: center;
-      align-items: flex-end; gap: 24px;
-    }
-    .iphone-wrap {
-      position: relative;
-      transform: perspective(800px) rotateY(14deg) translateY(20px);
-      transition: transform 0.3s;
-      max-width: unset;
-    }
-    .iphone-wrap:last-child {
-      transform: perspective(800px) rotateY(-14deg) translateY(20px);
-    }
-    .iphone-wrap.center-phone { transform: none; }
-    .iphone-wrap:hover { transform: perspective(800px) rotateY(0deg) translateY(0px) !important; }
-    .iphone-wrap.center-phone:hover { transform: none !important; }
-
-    /* ===== FEATURE-IPHONE — single frame used everywhere ===== */
-    .feature-iphone {
-      width: 240px;
-      background: #1a1a1a;
-      border-radius: 44px;
-      border: 2px solid #3a3a3a;
-      position: relative;
-      box-shadow:
-        0 0 0 1px #111,
-        inset 0 0 0 2px #2a2a2a,
-        0 32px 64px rgba(0,0,0,0.6),
-        0 8px 24px rgba(0,0,0,0.4);
-      overflow: hidden;
-      max-width: unset;
-    }
-    /* Slightly smaller for side hero phones */
-    .feature-iphone.side { width: 210px; }
-
-    .feature-iphone::before {
-      content: '';
-      position: absolute; left: -4px; top: 80px;
-      width: 3px; height: 28px;
-      background: #2a2a2a; border-radius: 2px 0 0 2px;
-      box-shadow: 0 38px 0 #2a2a2a, 0 72px 0 #2a2a2a;
-      max-width: unset;
-    }
-    .feature-iphone::after {
-      content: '';
-      position: absolute; right: -4px; top: 100px;
-      width: 3px; height: 48px;
-      background: #2a2a2a; border-radius: 0 2px 2px 0;
-      max-width: unset;
-    }
-
-    .iphone-notch {
-      width: 100%; height: 36px;
-      background: #1a1a1a;
-      display: flex; align-items: center; justify-content: center;
-      position: relative; z-index: 2;
-    }
-    .iphone-pill {
-      width: 80px; height: 12px;
-      background: #0a0a0a; border-radius: 10px;
-    }
-    .iphone-screen {
-      width: 100%;
-      background: var(--indigo);
-      aspect-ratio: 9/19.5;
-      overflow: hidden;
-      display: flex; align-items: flex-start; justify-content: center;
-    }
-    .iphone-screen img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: top;
-      display: block;
-    }
-    .iphone-screen .screen-placeholder {
-      width: 100%; height: 100%;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.2); font-size: 13px; text-align: center;
-      padding: 16px; gap: 8px;
-    }
-    .iphone-screen .screen-placeholder span { font-size: 32px; max-width: unset; }
-    .iphone-home-bar {
-      height: 20px; background: #1a1a1a;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .iphone-home-pill { width: 100px; height: 4px; background: #3a3a3a; border-radius: 3px; }
-
-    /* feature section screen placeholder */
-    .feature-iphone .screen-placeholder {
-      aspect-ratio: 9/19.5;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.25); font-size: 13px; text-align: center;
-      padding: 20px; gap: 10px; background: var(--indigo);
-    }
-    .feature-iphone .screen-placeholder span { font-size: 40px; max-width: unset; }
-    .feature-iphone img { width: 100%; display: block; }
-
-    /* ===== SHARED SECTIONS ===== */
-    section { padding: 96px 6%; }
-    .section-tag {
-      display: inline-block;
-      background: var(--alabaster); color: var(--twilight);
-      font-size: 11px; font-weight: 500;
-      padding: 6px 14px; border-radius: 50px;
-      letter-spacing: 1px; text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-    .section-tag.light { background: rgba(255,255,255,0.1); color: var(--alabaster); }
-    .section-title { font-size: clamp(28px, 4vw, 48px); font-weight: 800; letter-spacing: -0.8px; line-height: 1.05; margin-bottom: 16px; text-wrap: balance; }
-    .section-sub { font-size: 17px; color: #5a6a7a; max-width: 600px; line-height: 1.75; font-weight: 400; }
-    .text-center { text-align: center; }
-    .text-center .section-sub { margin: 0 auto; }
-
-    /* ===== USERS ===== */
-    .users-section { background: var(--white); }
-    .users-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; max-width: 1000px; margin: 48px auto 0; }
-    .user-card { background: var(--platinum); border: 1px solid var(--alabaster); border-radius: 20px; padding: 32px 28px; }
-    .user-card-icon { font-size: 36px; margin-bottom: 14px; }
-    .user-card h3 { font-size: 16px; font-weight: 700; color: var(--indigo); margin-bottom: 8px; text-wrap: balance; }
-    .user-card p { font-size: 14px; color: #5a6a7a; line-height: 1.65; font-weight: 400; }
-
-    /* ===== INDUSTRIES ===== */
-    .industries-section { background: var(--platinum); }
-    .industry-grid {
-      display: grid;
-      grid-template-columns: repeat(3, auto);
-      gap: 12px;
-      justify-content: center;
-      margin-top: 40px;
-    }
-    .industry-pill {
-      display: flex; align-items: center; gap: 8px;
-      background: var(--white); border: 1px solid var(--alabaster);
-      padding: 12px 22px; border-radius: 50px;
-      font-size: 15px; font-weight: 600; color: var(--indigo);
-      transition: all 0.2s; cursor: default;
-      white-space: nowrap;
-    }
-    .industry-pill:hover { background: var(--indigo); color: var(--white); border-color: var(--indigo); }
-
-    /* ===== FEATURE BLOCKS ===== */
-    .features-section { background: var(--white); }
-    .features-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 100px; }
-    .feature-block { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .feature-block.reverse .feature-content { order: 2; }
-    .feature-block.reverse .feature-visual-wrap { order: 1; }
-    .feature-content h2 { font-size: clamp(24px, 3vw, 38px); font-weight: 700; letter-spacing: -0.4px; line-height: 1.15; margin-bottom: 16px; color: var(--ink); text-wrap: balance; }
-    .feature-content p { font-size: 16px; color: #5a6a7a; line-height: 1.8; margin-bottom: 24px; font-weight: 400; }
-    .feature-tags { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-start; }
-    .feature-tag { flex-shrink: 0; background: var(--platinum); border: 1px solid var(--alabaster); color: var(--twilight); font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 50px; }
-    .feature-visual-wrap { display: flex; justify-content: center; }
-
-    /* ===== FEATURES GRID ===== */
-    .feat-grid-section { background: var(--indigo); }
-    .feat-grid-section .section-title { color: var(--white); }
-    .feat-grid-section .section-sub { color: var(--alabaster); }
-    .feat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 52px; max-width: 1100px; margin-left: auto; margin-right: auto; }
-    .feat-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09); border-radius: 20px; padding: 32px 26px; transition: background 0.2s; }
-    .feat-card:hover { background: rgba(255,255,255,0.1); }
-    .feat-icon { font-size: 30px; margin-bottom: 14px; max-width: unset; }
-    .feat-card h3 { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 8px; text-wrap: balance; }
-    .feat-card p { font-size: 14px; color: var(--alabaster); line-height: 1.65; opacity: 0.85; font-weight: 400; }
-
-    /* ===== TOOLS ===== */
-    .tools-section { background: var(--platinum); }
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 12px;
-      margin-top: 48px;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .tool-badge {
-      background: var(--white);
-      border: 1px solid var(--alabaster);
-      border-radius: 14px;
-      padding: 14px 18px;
-      text-align: center;
-      width: 100%;
-      transition: all 0.2s;
-      cursor: default;
-    }
-    .tool-badge:hover { background: var(--indigo); border-color: var(--indigo); }
-    .tool-badge:hover .tool-name { color: var(--white); }
-    .tool-badge:hover .tool-full { color: var(--alabaster); }
-    .tool-name { font-size: 17px; font-weight: 700; color: var(--indigo); }
-    .tool-full { font-size: 10px; color: #8a9aaa; margin-top: 4px; line-height: 1.3; font-weight: 400; }
-
-    /* ===== WAITLIST ===== */
-    .waitlist-section { background: var(--indigo); text-align: center; }
-    .waitlist-section .section-title { color: var(--white); }
-    .waitlist-section p { color: var(--alabaster); font-size: 17px; max-width: 520px; margin: 16px auto 40px; line-height: 1.7; opacity: 0.85; font-weight: 400; }
-    .waitlist-form { display: flex; gap: 0; justify-content: center; max-width: 460px; margin: 0 auto; }
-    .waitlist-form input { flex: 1; padding: 16px 22px; border-radius: 50px 0 0 50px; border: 1px solid rgba(255,255,255,0.15); border-right: none; background: rgba(255,255,255,0.08); color: var(--white); font-size: 15px; font-family: inherit; font-weight: 400; outline: none; }
-    .waitlist-form input::placeholder { color: rgba(214,226,226,0.4); }
-    .waitlist-form button { background: var(--warning); color: var(--white); padding: 16px 28px; border-radius: 0 50px 50px 0; border: none; font-size: 15px; font-weight: 700; cursor: pointer; font-family: inherit; transition: opacity 0.2s; max-width: unset; }
-    .waitlist-form button:hover { opacity: 0.85; }
-    .waitlist-note { color: rgba(214,226,226,0.4); font-size: 13px; margin-top: 14px; font-weight: 400; }
-
-    /* ===== BLOG ===== */
-    .blog-section { background: var(--white); }
-    .blog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; max-width: 1100px; margin-left: auto; margin-right: auto; }
-    .blog-card { background: var(--platinum); border: 1px solid var(--alabaster); border-radius: 20px; overflow: hidden; cursor: pointer; transition: box-shadow 0.2s; text-decoration: none; display: block; }
-    .blog-card:hover { box-shadow: 0 8px 32px rgba(35,45,66,0.1); }
-    .blog-thumb { height: 150px; background: var(--indigo); display: flex; align-items: center; justify-content: center; font-size: 48px; }
-    .blog-body { padding: 24px; }
-    .blog-tag-label { font-size: 11px; font-weight: 700; color: var(--twilight); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-    .blog-card h3 { font-size: 16px; font-weight: 700; color: var(--ink); line-height: 1.45; margin-bottom: 8px; text-wrap: balance; }
-    .blog-card p { font-size: 13px; color: #5a6a7a; line-height: 1.6; font-weight: 400; }
-    .blog-read-more { display: inline-block; margin-top: 14px; font-size: 13px; font-weight: 700; color: var(--twilight); }
-
-    /* ===== CONTACT ===== */
-    .contact-section { background: var(--platinum); }
-    .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1000px; margin: 0 auto; }
-    .contact-info h2 { font-size: 36px; font-weight: 800; letter-spacing: -0.8px; color: var(--ink); margin-bottom: 14px; text-wrap: balance; }
-    .contact-info p { font-size: 16px; color: #5a6a7a; line-height: 1.7; margin-bottom: 32px; font-weight: 400; }
-    .contact-detail { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .contact-detail a { color: var(--indigo); font-weight: 400; text-decoration: none; font-size: 15px; }
-    .contact-detail span.label { font-size: 15px; color: #5a6a7a; }
-    .contact-form { display: flex; flex-direction: column; gap: 14px; }
-    .contact-form input, .contact-form textarea, .contact-form select {
-      padding: 14px 18px; border-radius: 12px; border: 1px solid var(--alabaster);
-      font-size: 15px; font-family: inherit; font-weight: 400; background: var(--white); color: var(--ink);
-      outline: none; transition: border-color 0.2s;
-      -webkit-appearance: none; appearance: none; min-height: 52px;
-    }
-    .contact-form select {
-      padding-right: 44px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23354463' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 14px center;
-      cursor: pointer;
-    }
-    .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { border-color: var(--twilight); }
-    .contact-form textarea { resize: vertical; min-height: 120px; }
-    .contact-form button { background: var(--indigo); color: var(--white); padding: 16px; border-radius: 50px; border: none; font-size: 16px; font-weight: 700; cursor: pointer; font-family: inherit; transition: background 0.2s; max-width: unset; }
-    .contact-form button:hover { background: var(--twilight); }
-
-    /* ===== FOOTER ===== */
-    footer { background: var(--ink); color: var(--alabaster); padding: 60px 6% 28px; }
-    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; margin-bottom: 48px; }
-    .footer-brand p { font-size: 13px; color: rgba(214,226,226,0.5); margin-top: 10px; max-width: 240px; line-height: 1.65; font-weight: 400; }
-    .footer-logo { display: flex; align-items: center; gap: 8px; font-size: 22px; font-weight: 800; color: var(--white); max-width: unset; }
-    .footer-logo-icon { height: 28px; width: auto; display: block; filter: brightness(0) invert(1); }
-    .footer-links h4 { font-size: 11px; font-weight: 700; color: var(--white); letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 16px; }
-    .footer-links ul { list-style: none; }
-    .footer-links li { margin-bottom: 10px; }
-    .footer-links a { color: rgba(214,226,226,0.5); text-decoration: none; font-size: 14px; transition: color 0.2s; font-weight: 400; }
-    .footer-links a:hover { color: var(--white); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-    .footer-bottom p { font-size: 13px; color: rgba(214,226,226,0.35); font-weight: 400; }
-    .social-links { list-style: none; }
-.social-links li { margin-bottom: 12px; }
-.social-links a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: rgba(214,226,226,0.5);
-  text-decoration: none;
-  font-size: 14px;
-  transition: color 0.2s;
-  font-weight: 400;
-}
-.social-links a:hover { color: var(--white); }
-.social-links svg { flex-shrink: 0; opacity: 0.7; }
-.social-links a:hover svg { opacity: 1; }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 900px) {
-      .feat-grid { grid-template-columns: repeat(2,1fr); }
-      .feature-block { grid-template-columns: 1fr; gap: 40px; }
-      .feature-block.reverse .feature-content { order: 0; }
-      .feature-block.reverse .feature-visual-wrap { order: 0; }
-      .users-grid { grid-template-columns: 1fr; }
-      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
-      .blog-grid { grid-template-columns: 1fr 1fr; }
-      .tools-grid { grid-template-columns: repeat(4, 1fr); }
-      .tool-badge:nth-child(11) { grid-column: unset; }
-      .tool-badge:nth-child(12) { grid-column: unset; }
-      .tool-badge:nth-child(13) { grid-column: unset; }
-      .industry-grid { grid-template-columns: repeat(2, auto); }
-      .feature-iphone { width: 200px; }
-      .feature-iphone.side { width: 180px; }
-    }
-
-    @media (max-width: 640px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .feat-grid { grid-template-columns: 1fr; }
-      .blog-grid { grid-template-columns: 1fr; }
-
-      .hero-badge {
-  flex-direction: column;
-  gap: 2px;
-  text-align: center;
-  padding: 10px 16px;
-}
-.hero-badge .dot { display: none; }
-.badge-sep { display: none; }
-.badge-text1, .badge-text2 { display: block; }
-
-      .hero { padding-bottom: 0; }
-
-      /* Hero waitlist */
-      .hero-waitlist {
-        flex-direction: column;
-        max-width: 100%;
-        width: 100%;
-        padding: 0 4%;
-        gap: 10px;
-      }
-      .hero-waitlist input {
-        border: 1px solid rgba(255,255,255,0.15);
-        border-radius: 50px;
-        padding: 15px 22px;
-        width: 100%;
-        text-align: center;
-      }
-      .hero-waitlist button {
-        border-radius: 50px;
-        padding: 15px 22px;
-        width: 100%;
-        text-align: center;
-      }
-
-      /* Waitlist section */
-      .waitlist-form {
-        flex-direction: column;
-        max-width: 100%;
-        width: 100%;
-        padding: 0 4%;
-        gap: 10px;
-      }
-      .waitlist-form input {
-        border: 1px solid rgba(255,255,255,0.15);
-        border-radius: 50px;
-        padding: 15px 22px;
-        width: 100%;
-        text-align: center;
-      }
-      .waitlist-form button {
-        border-radius: 50px;
-        padding: 15px 22px;
-        width: 100%;
-        text-align: center;
-      }
-
-      /* Phones */
-      .phones-row {
-        gap: 16px;
-        width: 100vw;
-        margin-left: -6%;
-        margin-right: -6%;
-        padding: 0;
-        margin-bottom: 0;
-        justify-content: center;
-        overflow: visible;
-        align-items: flex-end;
-      }
-      .iphone-wrap {
-        transform: perspective(600px) rotateY(10deg) translateY(12px) !important;
-        flex-shrink: 0;
-        transition: none !important; /* disable hover on mobile */
-      }
-      .iphone-wrap:last-child {
-        transform: perspective(600px) rotateY(-10deg) translateY(12px) !important;
-      }
-      .iphone-wrap.center-phone {
-        transform: none !important;
-      }
-      /* Disable all hover effects on mobile */
-      .iphone-wrap:hover,
-      .iphone-wrap:last-child:hover,
-      .iphone-wrap.center-phone:hover {
-        transform: inherit !important;
-      }
-      .feature-iphone,
-      .feature-iphone.side {
-        width: 26vw !important;
-        border-radius: 14px !important;
-      }
-      .feature-iphone.center {
-        width: 30vw !important;
-        border-radius: 16px !important;
-      }
-      .feature-iphone::before, .feature-iphone::after { display: none; }
-      .iphone-notch { height: 18px; }
-      .iphone-pill { width: 36px; height: 6px; }
-      .iphone-home-bar { height: 10px; }
-      .iphone-home-pill { width: 44px; height: 2px; }
-      .iphone-screen { aspect-ratio: 9/17 !important; background: var(--indigo) !important; }
-
-      /* Feature iphone in feature blocks — full width on mobile */
-      .feature-visual-wrap .feature-iphone {
-        width: 100% !important;
-        max-width: 220px !important;
-        border-radius: 32px !important;
-      }
-      .feature-visual-wrap .feature-iphone::before,
-      .feature-visual-wrap .feature-iphone::after { display: none; }
-
-      /* Tools */
-      .tools-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
-      .tool-badge:nth-child(11),
-      .tool-badge:nth-child(12),
-      .tool-badge:nth-child(13) { grid-column: unset; }
-      .tool-badge { width: 100%; padding: 10px 8px; border-radius: 10px; }
-      .tool-name { font-size: 13px; }
-      .tool-full { font-size: 9px; }
-
-      /* Feature tags */
-      .feature-tags { gap: 6px; }
-      .feature-tag { font-size: 12px; padding: 5px 11px; }
-
-      /* Industries */
-      .industry-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-      .industry-pill {
-        justify-content: center;
-        padding: 12px 10px;
-        font-size: 13px;
-        border-radius: 12px;
-        white-space: normal;
-        text-align: center;
-      }
-      .industry-pill:last-child:nth-child(odd) {
-        grid-column: 1 / -1;
-        justify-self: center;
-        width: 50%;
-      }
-    }
-
-    @media (max-width: 400px) {
-      section { padding: 64px 4%; }
-      .users-grid, .blog-grid, .feat-grid { grid-template-columns: 1fr; }
-      .user-card { padding: 24px 18px; }
-      .feat-card { padding: 24px 18px; }
-      .blog-body { padding: 18px; }
-      .contact-inner { gap: 32px; }
-      .contact-form input,
-      .contact-form textarea,
-      .contact-form select { font-size: 14px; padding: 12px 14px; }
-      .feature-iphone.side,
-      .feature-iphone {
-        width: 24vw !important;
-        border-radius: 12px !important;
-      }
-      .feature-iphone.center {
-        width: 28vw !important;
-        border-radius: 14px !important;
-      }
-      .iphone-screen { aspect-ratio: 9/16 !important; }
-      .hero h1 { letter-spacing: -1px; }
-      .section-title { letter-spacing: -1px; }
-      .industry-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
-      .industry-pill { font-size: 12px; padding: 10px 8px; gap: 5px; }
-      .industry-pill:last-child:nth-child(odd) {
-        grid-column: 1 / -1;
-        justify-self: center;
-        width: 50%;
-      }
-      .tools-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
-      .tool-badge { padding: 8px 6px; }
-      .tool-name { font-size: 12px; }
-      .tool-full { font-size: 8px; }
-      .feature-tags {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 6px;
-      }
-      .feature-tag { text-align: center; font-size: 11px; padding: 6px 8px; }
-      .feature-tag:last-child:nth-child(odd) {
-        grid-column: 1 / -1;
-        justify-self: center;
-        width: 50%;
-      }
+    @media(max-width:400px){
+      section{padding:64px 4%}
+      .users-grid,.blog-grid,.feat-grid{grid-template-columns:1fr}
+      .user-card,.feat-card{padding:24px 18px}
+      .blog-body{padding:18px}
+      .contact-inner{gap:32px}
+      .contact-form input,.contact-form textarea,.contact-form select{font-size:14px;padding:11px 13px}
+      .feature-iphone.side,.feature-iphone{width:24vw!important;border-radius:12px!important}
+      .feature-iphone.center{width:28vw!important;border-radius:14px!important}
+      .iphone-screen{aspect-ratio:9/16!important}
+      .tools-grid{grid-template-columns:repeat(3,1fr);gap:6px}
+      .tool-name{font-size:12px}
+      .tool-full{font-size:8px}
     }
   </style>
 </head>
 <body>
-
-<!-- ===== NAVBAR ===== -->
-<nav>
+<a href="#home" class="skip-link">Skip to main content</a>
+<!-- NAVBAR -->
+<nav id="mainNav">
   <a href="#" class="nav-logo">
-    <img src="ergzo-icon.png" alt="Ergzo icon" class="nav-logo-icon"/>
+    <img src="ergzo-icon.png" alt="Ergzo logo" class="nav-logo-icon" width="30" height="30"/>
     <span class="nav-logo-text">ergzo</span>
   </a>
   <ul class="nav-links">
@@ -662,44 +309,57 @@ section {
     <li><a href="#contact">Contact</a></li>
     <li><a href="#waitlist" class="nav-cta">Get Early Access</a></li>
   </ul>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Open navigation menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
-<div class="mobile-menu" id="mobileMenu">
+<div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
   <a href="#features" onclick="toggleMenu()">Features</a>
   <a href="#tools" onclick="toggleMenu()">Tools</a>
   <a href="#blog" onclick="toggleMenu()">Blog</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
-  <a href="#waitlist" onclick="toggleMenu()" style="color:var(--warning);font-weight:700">Get Early Access →</a>
+  <a href="support.html" onclick="toggleMenu()">Support</a>
+  <a href="#waitlist" onclick="toggleMenu()" style="color:#F39C12;font-weight:700">Get Early Access &#x2192;</a>
 </div>
-
-<!-- ===== HERO ===== -->
+<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-badge">
-  <span class="badge-text1">AI-Powered Ergonomic Assessment</span>
-  <span class="badge-sep"> · </span>
-  <span class="badge-text2">15 Validated Tools</span>
-</div>
-  <h1>Stop Guessing.<br/><em>Know Exactly Who's at Risk.</em></h1>
+    <span class="pulse-dot"></span>
+    <span class="badge-text1">AI-Powered Ergonomic Assessment</span>
+    <span class="badge-sep"> &middot; </span>
+    <span class="badge-text2">15 Validated Tools</span>
+  </div>
+  <h1>Stop Guessing.<br/><em>Know Exactly Who&#x2019;s at Risk.</em></h1>
   <p class="hero-sub">Ergzo uses AI and your phone camera to assess musculoskeletal risks using REBA, RULA, ROSA, NIOSH and 11 more validated tools. Instant scores, body-part risk maps, action plans, and team analytics.</p>
   <form class="hero-waitlist" action="https://formspree.io/f/xnjonlry">
-  <input type="email" name="email" placeholder="Enter your work email" required/>
-  <button type="submit">Get Early Access</button>
-</form>
-  <p class="hero-note">🚀 App launching soon on iOS & Android</p>
+    <input type="email" name="email" placeholder="Enter your work email" required/>
+    <button type="submit">Get Early Access</button>
+  </form>
+  <p class="hero-note">&#x1F680; App launching soon on iOS &amp; Android</p>
   <div class="waitlist-counter">
-  <span class="counter-number">59</span>
-  <span class="counter-label">safety professionals already on the waitlist</span>
-</div>
-
+    <span class="pulse-dot"></span>
+    <span class="counter-number">59</span>
+    <span class="counter-label">safety professionals already on the waitlist</span>
+  </div>
   <div class="phones-row">
     <div class="iphone-wrap">
       <div class="feature-iphone side">
         <div class="iphone-notch"><div class="iphone-pill"></div></div>
         <div class="iphone-screen">
-          <img src="screen-analytics.jpg" alt="Ergzo Analytics"
-            onerror="this.parentElement.innerHTML='<div class=\'screen-placeholder\'><span>📊</span>Analytics Screen</div>'"/>
+          <img src="screen-analytics.jpg" alt="Ergzo team analytics dashboard" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="screen-placeholder" style="display:none">
+            <div class="sp-topbar"><span class="sp-topbar-label">Analytics</span><span class="sp-dot"></span></div>
+            <div class="sp-title">Team Risk</div>
+            <div class="sp-score-row">
+              <div class="sp-score"><div class="sp-score-num hi">8</div><div class="sp-score-lbl">High</div></div>
+              <div class="sp-score"><div class="sp-score-num warn">14</div><div class="sp-score-lbl">Medium</div></div>
+              <div class="sp-score"><div class="sp-score-num ok">21</div><div class="sp-score-lbl">Low</div></div>
+            </div>
+            <div class="sp-bar-row"><div class="sp-bar-label">Assembly</div><div class="sp-bar-track"><div class="sp-bar-fill hi" style="width:72%"></div></div></div>
+            <div class="sp-bar-row"><div class="sp-bar-label">Packing</div><div class="sp-bar-track"><div class="sp-bar-fill warn" style="width:48%"></div></div></div>
+            <div class="sp-bar-row"><div class="sp-bar-label">Office</div><div class="sp-bar-track"><div class="sp-bar-fill" style="width:24%"></div></div></div>
+            <div class="sp-action-btn" style="margin-top:auto">View Report &#x2192;</div>
+          </div>
         </div>
         <div class="iphone-home-bar"><div class="iphone-home-pill"></div></div>
       </div>
@@ -708,437 +368,363 @@ section {
       <div class="feature-iphone center">
         <div class="iphone-notch"><div class="iphone-pill"></div></div>
         <div class="iphone-screen">
-          <img src="screen-camera.jpg" alt="Ergzo Camera Assessment"
-            onerror="this.parentElement.innerHTML='<div class=\'screen-placeholder\'><span>📷</span>Camera Screen</div>'"/>
+          <img src="screen-camera.jpg" alt="Ergzo AI camera detecting worker posture" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="screen-placeholder" style="display:none">
+            <div class="sp-topbar"><span class="sp-topbar-label">REBA Assessment</span><span class="sp-dot"></span></div>
+            <div class="sp-title">Score: 7 &#x2014; High Risk</div>
+            <div class="sp-score-row">
+              <div class="sp-score"><div class="sp-score-num warn">7</div><div class="sp-score-lbl">REBA</div></div>
+              <div class="sp-score"><div class="sp-score-num hi">5</div><div class="sp-score-lbl">Trunk</div></div>
+              <div class="sp-score"><div class="sp-score-num ok">2</div><div class="sp-score-lbl">Neck</div></div>
+            </div>
+            <div class="sp-bar-row"><div class="sp-bar-label">Shoulder Load</div><div class="sp-bar-track"><div class="sp-bar-fill hi" style="width:80%"></div></div></div>
+            <div class="sp-bar-row"><div class="sp-bar-label">Lower Back</div><div class="sp-bar-track"><div class="sp-bar-fill warn" style="width:60%"></div></div></div>
+            <div class="sp-bar-row"><div class="sp-bar-label">Wrist</div><div class="sp-bar-track"><div class="sp-bar-fill" style="width:30%"></div></div></div>
+            <div class="sp-divider"></div>
+            <div class="sp-tag-row">
+              <span class="sp-tag active">AI Active</span>
+              <span class="sp-tag">Pose OK</span>
+            </div>
+            <div class="sp-action-btn" style="margin-top:10px">Export PDF &#x2192;</div>
+          </div>
         </div>
         <div class="iphone-home-bar"><div class="iphone-home-pill"></div></div>
       </div>
     </div>
-    <div class="iphone-wrap" style="transform: perspective(800px) rotateY(-14deg) translateY(20px);">
+    <div class="iphone-wrap" style="transform:perspective(800px) rotateY(-14deg) translateY(20px)">
       <div class="feature-iphone side">
         <div class="iphone-notch"><div class="iphone-pill"></div></div>
         <div class="iphone-screen">
-          <img src="screen-dashboard.jpg" alt="Ergzo Dashboard"
-            onerror="this.parentElement.innerHTML='<div class=\'screen-placeholder\'><span>🏠</span>Dashboard</div>'"/>
+          <img src="screen-dashboard.jpg" alt="Ergzo manager dashboard" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="screen-placeholder" style="display:none">
+            <div class="sp-topbar"><span class="sp-topbar-label">Dashboard</span><span class="sp-dot"></span></div>
+            <div class="sp-title">Today</div>
+            <div class="sp-score-row">
+              <div class="sp-score"><div class="sp-score-num">12</div><div class="sp-score-lbl">Done</div></div>
+              <div class="sp-score"><div class="sp-score-num warn">3</div><div class="sp-score-lbl">Pending</div></div>
+            </div>
+            <div class="sp-bar-row"><div class="sp-bar-label">Progress</div><div class="sp-bar-track"><div class="sp-bar-fill" style="width:80%"></div></div></div>
+            <div class="sp-divider"></div>
+            <div class="sp-tag-row"><span class="sp-tag active">3 High Risk</span><span class="sp-tag">Reports Ready</span></div>
+            <div class="sp-action-btn" style="margin-top:auto">View Workers &#x2192;</div>
+          </div>
         </div>
         <div class="iphone-home-bar"><div class="iphone-home-pill"></div></div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- ===== WHO IS IT FOR ===== -->
+<!-- WHO IS IT FOR -->
 <section class="users-section" id="users">
   <div class="text-center">
     <span class="section-tag">Who Is Ergzo For?</span>
     <h2 class="section-title">Built for every safety professional</h2>
   </div>
-  <div class="users-grid">
+  <div class="users-grid" data-aos="fade-up">
     <div class="user-card">
-      <div class="user-card-icon">🧑‍⚕️</div>
-      <h3>Ergonomists & OHS Consultants</h3>
+      <div class="user-card-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+      </div>
+      <h3>Ergonomists &amp; OHS Consultants</h3>
       <p>Conduct on-site assessments using validated tools, generate professional client reports in PDF and Excel, and manage multiple client accounts from one app.</p>
     </div>
     <div class="user-card">
-      <div class="user-card-icon">🏭</div>
-      <h3>Corporate EHS & Safety Teams</h3>
+      <div class="user-card-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3>Corporate EHS &amp; Safety Teams</h3>
       <p>Monitor ergonomic risk across departments, track intervention outcomes, and present data-driven compliance reports to senior management.</p>
     </div>
     <div class="user-card">
-      <div class="user-card-icon">👷</div>
-      <h3>HR & Operations Managers</h3>
+      <div class="user-card-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      </div>
+      <h3>HR &amp; Operations Managers</h3>
       <p>Identify high-risk roles in your workforce, estimate potential injury costs, and build a healthier, more productive team.</p>
     </div>
   </div>
 </section>
-
-<!-- ===== INDUSTRIES ===== -->
+<!-- INDUSTRIES -->
 <section class="industries-section" id="industries">
   <div class="text-center">
     <span class="section-tag">Industries</span>
     <h2 class="section-title">Built for every workplace</h2>
-    <p class="section-sub">Whether your team works on a factory floor, construction site, warehouse, or office desk — Ergzo has the right assessment tools for your environment.</p>
+    <p class="section-sub">Whether your team works on a factory floor, construction site, warehouse, or office desk &#x2014; Ergzo has the right assessment tools for your environment.</p>
   </div>
-  <div class="industry-grid">
-    <div class="industry-pill">🏭 Manufacturing</div>
-    <div class="industry-pill">🏗️ Construction</div>
-    <div class="industry-pill">📦 Warehouse & Logistics</div>
-    <div class="industry-pill">👗 Garment & Textile</div>
-    <div class="industry-pill">💻 Office & IT</div>
-    <div class="industry-pill">🔧 Generic Workplaces</div>
+  <div class="industry-grid" data-aos="fade-up">
+    <div class="industry-pill">&#x1F3ED; Manufacturing</div>
+    <div class="industry-pill">&#x1F3D7;&#xFE0F; Construction</div>
+    <div class="industry-pill">&#x1F4E6; Warehouse &amp; Logistics</div>
+    <div class="industry-pill">&#x1F457; Garment &amp; Textile</div>
+    <div class="industry-pill">&#x1F4BB; Office &amp; IT</div>
+    <div class="industry-pill">&#x1F527; Generic Workplaces</div>
   </div>
 </section>
-
-<!-- ===== FEATURE BLOCKS ===== -->
+<!-- FEATURE BLOCKS -->
 <section class="features-section" id="features">
   <div class="features-inner">
-
-    <div class="feature-block">
+    <div class="feature-block" data-aos="fade-up">
       <div class="feature-content">
         <span class="section-tag">AI Assessment</span>
         <h2>Point your camera.<br/>Get instant risk scores.</h2>
-        <p>Capture a worker performing a task using your phone camera or upload from your gallery. Ergzo's AI analyses body posture, maps joint angles, and scores the task using your chosen assessment method — REBA, RULA, ROSA, WISHA, SNOOK, NIOSH, WERA, QEC, CMDQ, JSI, MAC, OCRA, MANTRA, OWAS or PATH. Results in under 5 minutes, no sensors needed.</p>
+        <p>Capture a worker performing a task using your phone camera or upload from your gallery. Ergzo&#x2019;s AI analyses body posture, maps joint angles, and scores the task using REBA, RULA, ROSA, WISHA, SNOOK, NIOSH, WERA, QEC, CMDQ, JSI, MAC, OCRA, MANTRA, OWAS or PATH. Results in under 5 minutes, no sensors needed.</p>
         <div class="feature-tags">
-          <span class="feature-tag">📷 Phone Camera</span>
-          <span class="feature-tag">🖼️ Gallery Upload</span>
-          <span class="feature-tag">🤖 AI Posture Detection</span>
-          <span class="feature-tag">🦴 Body Part Risk Map</span>
-          <span class="feature-tag">🎯 Instant Score</span>
+          <span class="feature-tag">Phone Camera</span>
+          <span class="feature-tag">Gallery Upload</span>
+          <span class="feature-tag">AI Posture Detection</span>
+          <span class="feature-tag">Body Part Risk Map</span>
+          <span class="feature-tag">Instant Score</span>
         </div>
       </div>
       <div class="feature-visual-wrap">
         <div class="feature-iphone">
-          <div class="iphone-notch" style="background:#1a1a1a"><div class="iphone-pill"></div></div>
-          <img src="screen-camera.jpg" alt="Camera Assessment Screen"
-            onerror="this.outerHTML='<div class=\'screen-placeholder\'><span>📷</span>Camera Screen<br/>Coming Soon</div>'"/>
-          <div class="iphone-home-bar" style="background:#1a1a1a"><div class="iphone-home-pill"></div></div>
+          <div class="iphone-notch" style="background:#181818"><div class="iphone-pill"></div></div>
+          <img src="screen-camera.jpg" alt="Ergzo camera assessment showing AI posture detection" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="screen-placeholder" style="display:none">
+            <div class="sp-topbar"><span class="sp-topbar-label">REBA</span><span class="sp-dot"></span></div>
+            <div class="sp-title">AI Camera Active</div>
+            <div class="sp-score-row">
+              <div class="sp-score"><div class="sp-score-num warn">7</div><div class="sp-score-lbl">Score</div></div>
+              <div class="sp-score"><div class="sp-score-num hi">High</div><div class="sp-score-lbl">Risk</div></div>
+            </div>
+            <div class="sp-bar-row"><div class="sp-bar-label">Back</div><div class="sp-bar-track"><div class="sp-bar-fill hi" style="width:82%"></div></div></div>
+            <div class="sp-bar-row"><div class="sp-bar-label">Shoulder</div><div class="sp-bar-track"><div class="sp-bar-fill warn" style="width:55%"></div></div></div>
+            <div class="sp-bar-row"><div class="sp-bar-label">Wrist</div><div class="sp-bar-track"><div class="sp-bar-fill" style="width:28%"></div></div></div>
+            <div class="sp-action-btn" style="margin-top:auto">Generate Report &#x2192;</div>
+          </div>
+          <div class="iphone-home-bar" style="background:#181818"><div class="iphone-home-pill"></div></div>
         </div>
       </div>
     </div>
-
-    <div class="feature-block reverse">
+    <div class="feature-block reverse" data-aos="fade-up">
       <div class="feature-content">
         <span class="section-tag">Intervention Tracking</span>
         <h2>Measure what actually improves.</h2>
-        <p>Re-assess after implementing a fix — a new chair, a workstation adjustment, a task redesign. Ergzo automatically compares pre and post-intervention sessions side by side, showing exact score changes, body part improvements, and estimated injury risk reduction. Prove ROI to management with data, not guesswork.</p>
+        <p>Re-assess after implementing a fix &#x2014; a new chair, a workstation adjustment, a task redesign. Ergzo automatically compares pre and post-intervention sessions side by side, showing exact score changes, body part improvements, and estimated injury risk reduction. Prove ROI to management with data, not guesswork.</p>
         <div class="feature-tags">
-          <span class="feature-tag">🔁 Before &amp; After</span>
-          <span class="feature-tag">📉 Risk Reduction</span>
-          <span class="feature-tag">💰 Injury Cost Saved</span>
-          <span class="feature-tag">📅 Assessment Trends</span>
+          <span class="feature-tag">Before &amp; After</span>
+          <span class="feature-tag">Risk Reduction %</span>
+          <span class="feature-tag">Injury Cost Saved</span>
+          <span class="feature-tag">Assessment Trends</span>
         </div>
       </div>
       <div class="feature-visual-wrap">
         <div class="feature-iphone">
-          <div class="iphone-notch" style="background:#1a1a1a"><div class="iphone-pill"></div></div>
-          <img src="screen-worker.jpg" alt="Before After Comparison"
-            onerror="this.outerHTML='<div class=\'screen-placeholder\'><span>🔁</span>Before vs After<br/>Coming Soon</div>'"/>
-          <div class="iphone-home-bar" style="background:#1a1a1a"><div class="iphone-home-pill"></div></div>
+          <div class="iphone-notch" style="background:#181818"><div class="iphone-pill"></div></div>
+          <img src="screen-worker.jpg" alt="Ergzo before and after intervention comparison" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="screen-placeholder" style="display:none">
+            <div class="sp-topbar"><span class="sp-topbar-label">Intervention</span><span class="sp-dot"></span></div>
+            <div class="sp-title">Before vs After</div>
+            <div class="sp-score-row">
+              <div class="sp-score"><div class="sp-score-num hi">9</div><div class="sp-score-lbl">Before</div></div>
+              <div class="sp-score"><div class="sp-score-num ok">4</div><div class="sp-score-lbl">After</div></div>
+              <div class="sp-score"><div class="sp-score-num ok">-56%</div><div class="sp-score-lbl">Reduced</div></div>
+            </div>
+            <div class="sp-bar-row"><div class="sp-bar-label">Back Risk</div><div class="sp-bar-track"><div class="sp-bar-fill" style="width:38%"></div></div></div>
+            <div class="sp-bar-row"><div class="sp-bar-label">Shoulder</div><div class="sp-bar-track"><div class="sp-bar-fill warn" style="width:44%"></div></div></div>
+            <div class="sp-action-btn" style="margin-top:auto">Share Results &#x2192;</div>
+          </div>
+          <div class="iphone-home-bar" style="background:#181818"><div class="iphone-home-pill"></div></div>
         </div>
       </div>
     </div>
-
-    <div class="feature-block">
+    <div class="feature-block" data-aos="fade-up">
       <div class="feature-content">
         <span class="section-tag">Instant Reports</span>
         <h2>Professional reports.<br/>One tap.</h2>
-        <p>Every session auto-generates a complete ergonomic assessment report — risk scores, body part map, root cause, recommendations, and a corrective action plan. Export as a branded PDF to share with clients or management. Download raw data in CSV or Excel for compliance filing.</p>
+        <p>Every session auto-generates a complete ergonomic assessment report &#x2014; risk scores, body part map, root cause, recommendations, and a corrective action plan. Export as a branded PDF to share with clients or management. Download raw data in CSV or Excel for compliance filing.</p>
         <div class="feature-tags">
-          <span class="feature-tag">📄 PDF Export</span>
-          <span class="feature-tag">📊 CSV Export</span>
-          <span class="feature-tag">📋 Excel Export</span>
-          <span class="feature-tag">✅ Action Plans</span>
-          <span class="feature-tag">💡 Recommendations</span>
+          <span class="feature-tag">PDF Export</span>
+          <span class="feature-tag">CSV Export</span>
+          <span class="feature-tag">Excel Export</span>
+          <span class="feature-tag">Action Plans</span>
+          <span class="feature-tag">Recommendations</span>
         </div>
       </div>
       <div class="feature-visual-wrap">
         <div class="feature-iphone">
-          <div class="iphone-notch" style="background:#1a1a1a"><div class="iphone-pill"></div></div>
-          <img src="screen-assessment.jpg" alt="Assessment Report Screen"
-            onerror="this.outerHTML='<div class=\'screen-placeholder\'><span>📄</span>Assessment Report<br/>Coming Soon</div>'"/>
-          <div class="iphone-home-bar" style="background:#1a1a1a"><div class="iphone-home-pill"></div></div>
+          <div class="iphone-notch" style="background:#181818"><div class="iphone-pill"></div></div>
+          <img src="screen-assessment.jpg" alt="Ergzo assessment report with risk scores and recommendations" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="screen-placeholder" style="display:none">
+            <div class="sp-topbar"><span class="sp-topbar-label">Report</span><span class="sp-dot"></span></div>
+            <div class="sp-title">REBA Report Ready</div>
+            <div class="sp-bar-row"><div class="sp-bar-label">Overall Risk</div><div class="sp-bar-track"><div class="sp-bar-fill warn" style="width:68%"></div></div></div>
+            <div class="sp-divider"></div>
+            <div class="sp-tag-row" style="margin-bottom:7px"><span class="sp-tag active">PDF</span><span class="sp-tag active">Excel</span><span class="sp-tag active">CSV</span></div>
+            <div class="sp-tag-row"><span class="sp-tag">Action Plan</span><span class="sp-tag">Body Map</span></div>
+            <div class="sp-action-btn" style="margin-top:auto">Download &#x2192;</div>
+          </div>
+          <div class="iphone-home-bar" style="background:#181818"><div class="iphone-home-pill"></div></div>
         </div>
       </div>
     </div>
-
-    <div class="feature-block reverse">
+    <div class="feature-block reverse" data-aos="fade-up">
       <div class="feature-content">
         <span class="section-tag">Manager Analytics</span>
-        <h2>Your entire workforce's risk.<br/>One dashboard.</h2>
-        <p>See department-wise risk distributions, track improvement trends, monitor assessment history, and view estimated annual injury costs per worker. Identify the highest-risk roles and departments — and prioritise resources where they matter most.</p>
+        <h2>Your entire workforce&#x2019;s risk.<br/>One dashboard.</h2>
+        <p>See department-wise risk distributions, track improvement trends, monitor assessment history, and view estimated annual injury costs per worker. Identify the highest-risk roles and departments &#x2014; and prioritise resources where they matter most.</p>
         <div class="feature-tags">
-          <span class="feature-tag">👥 Team Overview</span>
-          <span class="feature-tag">🏭 Department Risk</span>
-          <span class="feature-tag">📈 Analytics</span>
-          <span class="feature-tag">🗺️ Risk Distribution</span>
-          <span class="feature-tag">💸 Est. Annual Exposure</span>
+          <span class="feature-tag">Team Overview</span>
+          <span class="feature-tag">Department Risk</span>
+          <span class="feature-tag">Analytics</span>
+          <span class="feature-tag">Risk Distribution</span>
+          <span class="feature-tag">Est. Annual Exposure</span>
         </div>
       </div>
       <div class="feature-visual-wrap">
         <div class="feature-iphone">
-          <div class="iphone-notch" style="background:#1a1a1a"><div class="iphone-pill"></div></div>
-          <img src="screen-dashboard.jpg" alt="Manager Dashboard"
-            onerror="this.outerHTML='<div class=\'screen-placeholder\'><span>📊</span>Manager Dashboard<br/>Coming Soon</div>'"/>
-          <div class="iphone-home-bar" style="background:#1a1a1a"><div class="iphone-home-pill"></div></div>
+          <div class="iphone-notch" style="background:#181818"><div class="iphone-pill"></div></div>
+          <img src="screen-dashboard.jpg" alt="Ergzo manager dashboard with workforce risk overview" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="screen-placeholder" style="display:none">
+            <div class="sp-topbar"><span class="sp-topbar-label">Analytics</span><span class="sp-dot"></span></div>
+            <div class="sp-title">Dept. Overview</div>
+            <div class="sp-score-row">
+              <div class="sp-score"><div class="sp-score-num">43</div><div class="sp-score-lbl">Workers</div></div>
+              <div class="sp-score"><div class="sp-score-num hi">11</div><div class="sp-score-lbl">High Risk</div></div>
+            </div>
+            <div class="sp-bar-row"><div class="sp-bar-label">Assembly</div><div class="sp-bar-track"><div class="sp-bar-fill hi" style="width:74%"></div></div></div>
+            <div class="sp-bar-row"><div class="sp-bar-label">Logistics</div><div class="sp-bar-track"><div class="sp-bar-fill warn" style="width:52%"></div></div></div>
+            <div class="sp-bar-row"><div class="sp-bar-label">Admin</div><div class="sp-bar-track"><div class="sp-bar-fill" style="width:20%"></div></div></div>
+            <div class="sp-action-btn" style="margin-top:auto">Full Dashboard &#x2192;</div>
+          </div>
+          <div class="iphone-home-bar" style="background:#181818"><div class="iphone-home-pill"></div></div>
         </div>
       </div>
     </div>
-
   </div>
 </section>
-
-<!-- ===== FEATURES GRID ===== -->
+<!-- FEATURES GRID -->
 <section class="feat-grid-section">
   <div class="text-center">
     <span class="section-tag light">Features</span>
     <h2 class="section-title">Everything ergonomics. In one app.</h2>
-    <p class="section-sub" style="color:var(--alabaster);opacity:0.8">Smart, flexible, and built around the way real safety professionals work.</p>
+    <p class="section-sub">Smart, flexible, and built around the way real safety professionals work.</p>
   </div>
-  <div class="feat-grid">
-    <div class="feat-card"><div class="feat-icon">🎯</div><h3>15 Validated Assessment Tools</h3><p>REBA, RULA, ROSA, WISHA, SNOOK, NIOSH, WERA, QEC, CMDQ, JSI, MAC, OCRA, MANTRA, OWAS & PATH — all built in, all science-backed.</p></div>
-    <div class="feat-card"><div class="feat-icon">📷</div><h3>Camera & Gallery Analysis</h3><p>Assess live from your phone camera or upload from gallery. No wearables, no sensors, no special hardware required.</p></div>
-    <div class="feat-card"><div class="feat-icon">🦴</div><h3>Body Part Risk Map</h3><p>Colour-coded diagram shows exactly which joints and body segments are at highest risk, with joint-level breakdown.</p></div>
-    <div class="feat-card"><div class="feat-icon">🔁</div><h3>Before & After Comparison</h3><p>Record pre and post-intervention sessions. Ergzo automatically calculates and displays the exact improvement in risk scores.</p></div>
-    <div class="feat-card"><div class="feat-icon">📊</div><h3>Team Analytics Dashboard</h3><p>Department-wise risks, assessment trends, improvement rates, risk distribution charts, and estimated injury cost per worker.</p></div>
-    <div class="feat-card"><div class="feat-icon">📄</div><h3>Multi-format Export</h3><p>Download every session as a professional PDF report or raw data in CSV/Excel — instantly, with one tap.</p></div>
+  <div class="feat-grid" data-aos="fade-up">
+    <div class="feat-card"><div class="feat-icon-wrap" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><h3>15 Validated Assessment Tools</h3><p>REBA, RULA, ROSA, WISHA, SNOOK, NIOSH, WERA, QEC, CMDQ, JSI, MAC, OCRA, MANTRA, OWAS &amp; PATH &#x2014; all built in, all science-backed.</p></div>
+    <div class="feat-card"><div class="feat-icon-wrap" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div><h3>Camera &amp; Gallery Analysis</h3><p>Assess live from your phone camera or upload from gallery. No wearables, no sensors, no special hardware required.</p></div>
+    <div class="feat-card"><div class="feat-icon-wrap" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Body Part Risk Map</h3><p>Colour-coded diagram shows exactly which joints and body segments are at highest risk, with joint-level breakdown.</p></div>
+    <div class="feat-card"><div class="feat-icon-wrap" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div><h3>Before &amp; After Comparison</h3><p>Record pre and post-intervention sessions. Ergzo automatically calculates and displays the exact improvement in risk scores.</p></div>
+    <div class="feat-card"><div class="feat-icon-wrap" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><h3>Team Analytics Dashboard</h3><p>Department-wise risks, assessment trends, improvement rates, risk distribution charts, and estimated injury cost per worker.</p></div>
+    <div class="feat-card"><div class="feat-icon-wrap" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><h3>Multi-format Export</h3><p>Download every session as a professional PDF report or raw data in CSV/Excel &#x2014; instantly, with one tap.</p></div>
   </div>
 </section>
-
-<!-- ===== TOOLS ===== -->
+<!-- TOOLS -->
 <section class="tools-section" id="tools">
   <div class="text-center">
     <span class="section-tag">Science-Backed</span>
     <h2 class="section-title">15 globally validated assessment tools</h2>
-    <p class="section-sub">Built on the world's most trusted musculoskeletal risk assessment methods — used by ergonomists and occupational health professionals worldwide.</p>
+    <p class="section-sub">Built on the world&#x2019;s most trusted musculoskeletal risk assessment methods &#x2014; used by ergonomists and occupational health professionals worldwide.</p>
   </div>
-  <div class="tools-grid">
-  <div class="tool-badge"><div class="tool-name">REBA</div><div class="tool-full">Rapid Entire Body Assessment</div></div>
-  <div class="tool-badge"><div class="tool-name">RULA</div><div class="tool-full">Rapid Upper Limb Assessment</div></div>
-  <div class="tool-badge"><div class="tool-name">ROSA</div><div class="tool-full">Rapid Office Strain Assessment</div></div>
-  <div class="tool-badge"><div class="tool-name">WISHA</div><div class="tool-full">WA Lifting Calculator</div></div>
-  <div class="tool-badge"><div class="tool-name">SNOOK</div><div class="tool-full">Manual Handling Tables</div></div>
-  <div class="tool-badge"><div class="tool-name">NIOSH</div><div class="tool-full">NIOSH Lifting Equation</div></div>
-  <div class="tool-badge"><div class="tool-name">WERA</div><div class="tool-full">Work-related Exposure Risk</div></div>
-  <div class="tool-badge"><div class="tool-name">QEC</div><div class="tool-full">Quick Exposure Check</div></div>
-  <div class="tool-badge"><div class="tool-name">CMDQ</div><div class="tool-full">Cornell Discomfort Questionnaire</div></div>
-  <div class="tool-badge"><div class="tool-name">JSI</div><div class="tool-full">Job Strain Index</div></div>
-  <div class="tool-badge"><div class="tool-name">MAC</div><div class="tool-full">Manual Handling Assessment</div></div>
-  <div class="tool-badge"><div class="tool-name">OCRA</div><div class="tool-full">Occupational Repetitive Actions</div></div>
-  <div class="tool-badge"><div class="tool-name">MANTRA</div><div class="tool-full">Manual Tasks Risk Assessment</div></div>
-  <div class="tool-badge"><div class="tool-name">OWAS</div><div class="tool-full">Ovako Working Posture Assessment</div></div>
-  <div class="tool-badge"><div class="tool-name">PATH</div><div class="tool-full">Posture, Activity, Tools & Handling</div></div>
-</div>
+  <div class="tools-grid" data-aos="fade-up">
+    <div class="tool-badge"><div class="tool-name">REBA</div><div class="tool-full">Rapid Entire Body Assessment</div></div>
+    <div class="tool-badge"><div class="tool-name">RULA</div><div class="tool-full">Rapid Upper Limb Assessment</div></div>
+    <div class="tool-badge"><div class="tool-name">ROSA</div><div class="tool-full">Rapid Office Strain Assessment</div></div>
+    <div class="tool-badge"><div class="tool-name">WISHA</div><div class="tool-full">WA Lifting Calculator</div></div>
+    <div class="tool-badge"><div class="tool-name">SNOOK</div><div class="tool-full">Manual Handling Tables</div></div>
+    <div class="tool-badge"><div class="tool-name">NIOSH</div><div class="tool-full">NIOSH Lifting Equation</div></div>
+    <div class="tool-badge"><div class="tool-name">WERA</div><div class="tool-full">Work-related Exposure Risk</div></div>
+    <div class="tool-badge"><div class="tool-name">QEC</div><div class="tool-full">Quick Exposure Check</div></div>
+    <div class="tool-badge"><div class="tool-name">CMDQ</div><div class="tool-full">Cornell Discomfort Questionnaire</div></div>
+    <div class="tool-badge"><div class="tool-name">JSI</div><div class="tool-full">Job Strain Index</div></div>
+    <div class="tool-badge"><div class="tool-name">MAC</div><div class="tool-full">Manual Handling Assessment</div></div>
+    <div class="tool-badge"><div class="tool-name">OCRA</div><div class="tool-full">Occupational Repetitive Actions</div></div>
+    <div class="tool-badge"><div class="tool-name">MANTRA</div><div class="tool-full">Manual Tasks Risk Assessment</div></div>
+    <div class="tool-badge"><div class="tool-name">OWAS</div><div class="tool-full">Ovako Working Posture Assessment</div></div>
+    <div class="tool-badge"><div class="tool-name">PATH</div><div class="tool-full">Posture, Activity, Tools &amp; Handling</div></div>
+  </div>
 </section>
-
-<!-- ===== WAITLIST ===== -->
+<!-- WAITLIST -->
 <section class="waitlist-section" id="waitlist">
   <span class="section-tag light">Launching Soon</span>
   <h2 class="section-title">Be first to experience Ergzo</h2>
   <p>Join the waitlist and get early access pricing when we launch on iOS and Android. Plans available for individual ergonomists and enterprise teams.</p>
   <form class="waitlist-form" action="https://formspree.io/f/xnjonlry">
-  <input type="email" name="email" placeholder="Enter your work email" required/>
-  <button type="submit">🚀 Join Waitlist</button>
-</form>
+    <input type="email" name="email" placeholder="Enter your work email" required/>
+    <button type="submit">&#x1F680; Join Waitlist</button>
+  </form>
   <p class="waitlist-note">No spam. No credit card. Just early access.</p>
 </section>
-
-<!-- ===== BLOG ===== -->
+<!-- BLOG -->
 <section class="blog-section" id="blog">
   <div class="text-center">
-    <span class="section-tag">Blog & Resources</span>
+    <span class="section-tag">Blog &amp; Resources</span>
     <h2 class="section-title">Insights from the world of ergonomics</h2>
   </div>
-  <div class="blog-grid">
+  <div class="blog-grid" data-aos="fade-up">
     <a href="blog-1.html" class="blog-card">
-      <div class="blog-thumb">🧠</div>
-      <div class="blog-body">
-        <div class="blog-tag-label">Tools Guide</div>
-        <h3>REBA vs RULA: Which Ergonomic Assessment Tool Should You Use?</h3>
-        <p>A practical breakdown of when to use each tool and what makes them different for your worksite.</p>
-        <span class="blog-read-more">Read Article →</span>
-      </div>
+      <div class="blog-thumb blog-thumb-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.44-4.54z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.44-4.54z"/></svg></div>
+      <div class="blog-body"><div class="blog-tag-label">Tools Guide</div><h3>REBA vs RULA: Which Ergonomic Assessment Tool Should You Use?</h3><p>A practical breakdown of when to use each tool and what makes them different for your worksite.</p><span class="blog-read-more">Read Article <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
     </a>
     <a href="blog-2.html" class="blog-card">
-      <div class="blog-thumb">📱</div>
-      <div class="blog-body">
-        <div class="blog-tag-label">How-To</div>
-        <h3>How to Conduct an Ergonomic Assessment Using Just Your Smartphone</h3>
-        <p>Step-by-step guide to running a full ergonomic risk assessment on-site with no expensive equipment.</p>
-        <span class="blog-read-more">Read Article →</span>
-      </div>
+      <div class="blog-thumb blog-thumb-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+      <div class="blog-body"><div class="blog-tag-label">How-To</div><h3>How to Conduct an Ergonomic Assessment Using Just Your Smartphone</h3><p>Step-by-step guide to running a full ergonomic risk assessment on-site with no expensive equipment.</p><span class="blog-read-more">Read Article <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
     </a>
     <a href="blog-3.html" class="blog-card">
-      <div class="blog-thumb">💰</div>
-      <div class="blog-body">
-        <div class="blog-tag-label">Industry</div>
-        <h3>The Hidden Cost of Ergonomic Injuries in Manufacturing</h3>
-        <p>How musculoskeletal disorders quietly cost Indian manufacturers crores every year — and how to prevent it.</p>
-        <span class="blog-read-more">Read Article →</span>
-      </div>
+      <div class="blog-thumb blog-thumb-3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <div class="blog-body"><div class="blog-tag-label">Industry</div><h3>The Hidden Cost of Ergonomic Injuries in Manufacturing</h3><p>How musculoskeletal disorders quietly cost Indian manufacturers crores every year &#x2014; and how to prevent it.</p><span class="blog-read-more">Read Article <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
     </a>
   </div>
 </section>
-
-<!-- ===== CONTACT ===== -->
+<!-- CONTACT -->
 <section class="contact-section" id="contact">
-  <div class="contact-inner">
+  <div class="contact-inner" data-aos="fade-up">
     <div class="contact-info">
       <span class="section-tag">Contact Us</span>
-      <h2>Let's talk ergonomics</h2>
-      <p>Have a question, partnership inquiry, or want to learn more about Ergzo? We'd love to hear from you.</p>
-      <div class="contact-detail"><span>📧</span><a href="mailto:hello@ergzo.com">hello@ergzo.com</a></div>
-      <div class="contact-detail"><span>🌐</span><a href="https://www.ergzo.com">www.ergzo.com</a></div>
-      <div class="contact-detail"><span>📍</span><span class="label">India</span></div>
+      <h2>Let&#x2019;s talk ergonomics</h2>
+      <p>Have a question, partnership inquiry, or want to learn more about Ergzo? We&#x2019;d love to hear from you.</p>
+      <div class="contact-detail"><div class="contact-detail-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><a href="mailto:hello@ergzo.com">hello@ergzo.com</a></div>
+      <div class="contact-detail"><div class="contact-detail-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><a href="https://www.ergzo.com">www.ergzo.com</a></div>
+      <div class="contact-detail"><div class="contact-detail-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><span class="label">India</span></div>
     </div>
-    <form class="contact-form" action="https://formspree.io/f/xnjonlry">
-      <input type="text" placeholder="Full Name" required/>
-      <input type="text" placeholder="Company Name"/>
-      <select>
-        <option value="">Your Role</option>
-        <option>Ergonomist / OHS Consultant</option>
-        <option>EHS / Safety Manager</option>
-        <option>HR / Operations Manager</option>
-        <option>Other</option>
-      </select>
-      <input type="email" placeholder="Work Email" required/>
-      <input type="tel" placeholder="Phone (optional)"/>
-      <textarea placeholder="Your Message"></textarea>
-      <button type="submit">Send Message →</button>
-    </form>
+    <div>
+      <form class="contact-form" action="https://formspree.io/f/xnjonlry" id="contactForm">
+        <input type="text" name="name" placeholder="Full Name" required/>
+        <input type="text" name="company" placeholder="Company Name"/>
+        <select name="role"><option value="">Your Role</option><option>Ergonomist / OHS Consultant</option><option>EHS / Safety Manager</option><option>HR / Operations Manager</option><option>Other</option></select>
+        <input type="email" name="email" placeholder="Work Email" required/>
+        <input type="tel" name="phone" placeholder="Phone (optional)"/>
+        <textarea name="message" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message &#x2192;</button>
+      </form>
+      <div class="form-success" id="contactSuccess"><strong>Message sent!</strong> We&#x2019;ll be in touch within one business day.</div>
+    </div>
   </div>
 </section>
-
-<!-- ===== FOOTER ===== -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <div class="footer-logo">
-        <img src="ergzo-icon.png" alt="Ergzo icon" class="footer-logo-icon"/>
-        ergzo
-      </div>
+      <div class="footer-logo"><img src="ergzo-icon.png" alt="Ergzo logo" class="footer-logo-icon" width="26" height="26"/>ergzo</div>
       <p>AI-powered ergonomic assessment app for safety professionals, EHS teams, and managers worldwide.</p>
     </div>
-    <div class="footer-links">
-      <h4>Product</h4>
-      <ul>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#tools">Assessment Tools</a></li>
-        <li><a href="#waitlist">Join Waitlist</a></li>
-      </ul>
-    </div>
-    <div class="footer-links">
-      <h4>Company</h4>
-      <ul>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="terms.html">Terms of Service</a></li>
-      </ul>
-    </div>
-    <div class="footer-links">
-      <h4>Industries</h4>
-      <ul>
-        <li><a href="#">Manufacturing</a></li>
-        <li><a href="#">Construction</a></li>
-        <li><a href="#">Warehouse</a></li>
-        <li><a href="#">Office</a></li>
-      </ul>
-    </div>
-    <div class="footer-links">
-  <h4>Follow Us</h4>
-  <ul class="social-links">
-    <li>
-      <a href="https://www.linkedin.com/company/ergzo/" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.554v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.137 1.446-2.137 2.941v5.665H9.352V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.602 0 4.267 2.37 4.267 5.455v6.284zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        <span>ergzo</span>
-      </a>
-    </li>
-    <li>
-      <a href="https://x.com/ergzohealth" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        <span>ergzohealth</span>
-      </a>
-    </li>
-    <li>
-      <a href="https://www.instagram.com/ergzohealth" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-        <span>ergzohealth</span>
-      </a>
-    </li>
-    <li>
-      <a href="https://www.facebook.com/share/187gWZDqZg/" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        <span>ergzo</span>
-      </a>
-    </li>
-  </ul>
-</div>
+    <div class="footer-links"><h4>Product</h4><ul><li><a href="#features">Features</a></li><li><a href="#tools">Assessment Tools</a></li><li><a href="#waitlist">Join Waitlist</a></li></ul></div>
+    <div class="footer-links"><h4>Company</h4><ul><li><a href="#blog">Blog</a></li><li><a href="#contact">Contact</a></li><li><a href="support.html">Support</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
+    <div class="footer-links"><h4>Industries</h4><ul><li><a href="#">Manufacturing</a></li><li><a href="#">Construction</a></li><li><a href="#">Warehouse</a></li><li><a href="#">Office</a></li></ul></div>
+    <div class="footer-links"><h4>Follow Us</h4><ul class="social-links">
+      <li><a href="https://www.linkedin.com/company/ergzo/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.554v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.137 1.446-2.137 2.941v5.665H9.352V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.602 0 4.267 2.37 4.267 5.455v6.284zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span>ergzo</span></a></li>
+      <li><a href="https://x.com/ergzohealth" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span>ergzohealth</span></a></li>
+      <li><a href="https://www.instagram.com/ergzohealth" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg><span>ergzohealth</span></a></li>
+      <li><a href="https://www.facebook.com/share/187gWZDqZg/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg><span>ergzo</span></a></li>
+    </ul></div>
   </div>
   <div class="footer-bottom">
-    <p>© 2026 Ergzo. All rights reserved.</p>
-    <p>Made with ❤️ for safer workplaces</p>
+    <p>&#169; 2026 Ergzo Solutions Private Limited. All rights reserved.</p>
+    <p>Made with &#x2764;&#xFE0F; for safer workplaces</p>
   </div>
 </footer>
-
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
 <script>
-  // ===== HAMBURGER MENU =====
-  function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
-  }
-  document.addEventListener('click', function(e) {
-    const menu = document.getElementById('mobileMenu');
-    const hamburger = document.querySelector('.hamburger');
-    if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
-      menu.classList.remove('open');
-    }
-  });
-
-  // ===== SMOOTH SCROLL =====
-  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-    anchor.addEventListener('click', function(e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (!target) return;
-      e.preventDefault();
-      const top = target.getBoundingClientRect().top + window.pageYOffset - 68;
-      window.scrollTo({ top: top, behavior: 'smooth' });
-      document.getElementById('mobileMenu').classList.remove('open');
-    });
-  });
-
-  // ===== FORMSPREE AJAX SUBMIT =====
-  function handleFormSubmit(form, btnText, successMsg) {
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
-      const originalText = btn.textContent;
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-          btn.textContent = successMsg;
-          btn.style.background = '#27AE60';
-          form.reset();
-          setTimeout(function() {
-            btn.textContent = originalText;
-            btn.style.background = '';
-            btn.disabled = false;
-          }, 4000);
-        } else {
-          btn.textContent = 'Something went wrong';
-          btn.style.background = '#E74C3C';
-          setTimeout(function() {
-            btn.textContent = originalText;
-            btn.style.background = '';
-            btn.disabled = false;
-          }, 3000);
-        }
-      } catch (err) {
-        btn.textContent = 'Network error';
-        btn.style.background = '#E74C3C';
-        setTimeout(function() {
-          btn.textContent = originalText;
-          btn.style.background = '';
-          btn.disabled = false;
-        }, 3000);
-      }
-    });
-  }
-
-  // Attach to all three forms
-  const heroForm = document.querySelector('.hero-waitlist');
-  const waitlistForm = document.querySelector('.waitlist-form');
-  const contactForm = document.querySelector('.contact-form');
-
-  if (heroForm) handleFormSubmit(heroForm, 'Get Early Access', 'You\'re on the list!');
-  if (waitlistForm) handleFormSubmit(waitlistForm, '🚀 Join Waitlist', 'You\'re on the list!');
-  if (contactForm) handleFormSubmit(contactForm, 'Send Message →', 'Message sent!');
+document.addEventListener('DOMContentLoaded',function(){if(typeof AOS!=='undefined'){AOS.init({duration:420,once:true,offset:60,easing:'ease-out'})}});
+window.addEventListener('scroll',function(){document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>10)},{passive:true});
+function toggleMenu(){var m=document.getElementById('mobileMenu');var h=document.querySelector('.hamburger');var o=m.classList.toggle('open');h.setAttribute('aria-expanded',o);h.setAttribute('aria-label',o?'Close navigation menu':'Open navigation menu')}
+document.addEventListener('click',function(e){var m=document.getElementById('mobileMenu');var h=document.querySelector('.hamburger');if(!m.contains(e.target)&&!h.contains(e.target)){m.classList.remove('open');h.setAttribute('aria-expanded','false')}});
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var href=this.getAttribute('href');if(href==='#')return;var t=document.querySelector(href);if(!t)return;e.preventDefault();var top=t.getBoundingClientRect().top+window.pageYOffset-68;window.scrollTo({top:top,behavior:'smooth'});document.getElementById('mobileMenu').classList.remove('open')})});
+function handleForm(form,successFn){form.addEventListener('submit',async function(e){e.preventDefault();var btn=form.querySelector('button[type="submit"]');var orig=btn.textContent;btn.textContent='Sending\u2026';btn.disabled=true;try{var r=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});if(r.ok){if(successFn){successFn(form,btn)}else{btn.textContent="You're on the list!";btn.style.background='#27AE60';form.reset();setTimeout(function(){btn.textContent=orig;btn.style.background='';btn.disabled=false},4000)}}else{btn.textContent='Something went wrong';btn.style.background='#E74C3C';setTimeout(function(){btn.textContent=orig;btn.style.background='';btn.disabled=false},3000)}}catch(err){btn.textContent='Network error';btn.style.background='#E74C3C';setTimeout(function(){btn.textContent=orig;btn.style.background='';btn.disabled=false},3000)}})}
+var hf=document.querySelector('.hero-waitlist');var wf=document.querySelector('.waitlist-form');var cf=document.getElementById('contactForm');
+if(hf)handleForm(hf);
+if(wf)handleForm(wf);
+if(cf)handleForm(cf,function(form,btn){form.style.display='none';document.getElementById('contactSuccess').classList.add('visible')});
 </script>
 </body>
 </html>
