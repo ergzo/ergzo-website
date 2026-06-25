@@ -54,6 +54,16 @@
     /* PULSE */
     @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.75)}}
     .pulse-dot{display:inline-block;width:8px;height:8px;background:#27AE60;border-radius:50%;animation:pulse-dot 2s ease-in-out infinite;flex-shrink:0}
+
+    /* RISK BAR */
+    .hero-risk-bar{display:flex;align-items:center;gap:8px;margin-bottom:32px;flex-wrap:wrap;justify-content:center}
+    .risk-chip{font-size:11px;font-weight:700;padding:5px 12px;border-radius:var(--radius-full);letter-spacing:.4px;text-transform:uppercase}
+    .risk-low{background:rgba(39,174,96,.18);color:#4ade80;border:1px solid rgba(39,174,96,.25)}
+    .risk-med{background:rgba(243,156,18,.18);color:#fbbf24;border:1px solid rgba(243,156,18,.25)}
+    .risk-high{background:rgba(231,76,60,.18);color:#f87171;border:1px solid rgba(231,76,60,.25)}
+    .risk-vhi{background:rgba(153,27,27,.25);color:#fca5a5;border:1px solid rgba(153,27,27,.3)}
+    .risk-bar-label{font-size:12px;color:rgba(214,226,226,.4);font-weight:400;width:100%;text-align:center;margin-top:2px}
+    @media(max-width:640px){.hero-risk-bar{gap:6px}.risk-bar-label{font-size:11px}}
     /* HERO */
     .hero{min-height:100vh;background:#232d42;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 6% 0}
     .hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.07);border:1px solid rgba(214,226,226,.14);color:#d6e2e2;padding:8px 18px;border-radius:var(--radius-full);font-size:13px;font-weight:500;margin-bottom:28px}
@@ -121,7 +131,7 @@
     /* USERS */
     .users-section{background:#fff}
     .users-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:48px auto 0}
-    .user-card{background:#F4F7F7;border:1px solid #d6e2e2;border-radius:var(--radius-xl);padding:32px 28px;transition:box-shadow var(--transition),border-color var(--transition),transform var(--transition)}
+    .user-card{background:#F4F7F7;border:1px solid #d6e2e2;border-radius:var(--radius-xl);padding:32px 28px;transition:box-shadow var(--transition),border-color var(--transition),transform var(--transition);border-left:3px solid #232d42}
     .user-card:hover{box-shadow:var(--shadow-card);border-color:#b8cccc;transform:translateY(-2px)}
     .user-card-icon{width:44px;height:44px;background:#232d42;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:#fff}
     .user-card-icon svg{width:20px;height:20px}
@@ -164,6 +174,8 @@
     .tool-badge:hover .tool-full{color:rgba(214,226,226,.65)}
     .tool-name{font-size:16px;font-weight:800;color:#232d42;letter-spacing:-.2px}
     .tool-full{font-size:10px;color:#8a9aaa;margin-top:4px;line-height:1.4;font-weight:400}
+
+    .waitlist-proof{display:inline-flex;align-items:center;gap:8px;color:rgba(214,226,226,.5);font-size:13px;font-weight:400;margin-bottom:20px}
     /* WAITLIST */
     .waitlist-section{background:#232d42;text-align:center}
     .waitlist-section .section-title{color:#fff}
@@ -175,6 +187,9 @@
     .waitlist-form button{background:#F39C12;color:#fff;padding:15px 26px;border-radius:0 var(--radius-full) var(--radius-full) 0;border:none;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity var(--transition);max-width:unset;min-height:52px}
     .waitlist-form button:hover{opacity:.85}
     .waitlist-note{color:rgba(214,226,226,.35);font-size:13px;margin-top:12px;font-weight:400}
+
+    .blog-thumb{position:relative}
+    .blog-time{position:absolute;top:12px;right:12px;background:rgba(17,22,33,.55);color:rgba(255,255,255,.8);font-size:11px;font-weight:600;padding:4px 10px;border-radius:var(--radius-full);backdrop-filter:blur(4px);font-family:inherit}
     /* BLOG */
     .blog-section{background:#fff}
     .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;max-width:1100px;margin-left:auto;margin-right:auto}
@@ -332,11 +347,18 @@
   </div>
   <h1>Stop Guessing.<br/><em>Know Exactly Who&#x2019;s at Risk.</em></h1>
   <p class="hero-sub">Ergzo uses AI and your phone camera to assess musculoskeletal risks using REBA, RULA, ROSA, NIOSH and 11 more validated tools. Instant scores, body-part risk maps, action plans, and team analytics.</p>
+  <div class="hero-risk-bar" aria-hidden="true">
+    <span class="risk-chip risk-low">Low</span>
+    <span class="risk-chip risk-med">Medium</span>
+    <span class="risk-chip risk-high">High</span>
+    <span class="risk-chip risk-vhi">Very High</span>
+    <span class="risk-bar-label">Instant risk classification on every assessment</span>
+  </div>
   <form class="hero-waitlist" action="https://formspree.io/f/xnjonlry">
     <input type="email" name="email" placeholder="Enter your work email" required/>
     <button type="submit">Get Early Access</button>
   </form>
-  <p class="hero-note">&#x1F680; App launching soon on iOS &amp; Android</p>
+  <p class="hero-note">Launching soon on iOS &amp; Android</p>
   <div class="waitlist-counter">
     <span class="pulse-dot"></span>
     <span class="counter-number">59</span>
@@ -631,7 +653,7 @@
 <!-- TOOLS -->
 <section class="tools-section" id="tools">
   <div class="text-center">
-    <span class="section-tag">Science-Backed</span>
+    <span class="section-tag" style="background:#232d42;color:#d6e2e2;letter-spacing:1.5px">Science-Backed</span>
     <h2 class="section-title">15 globally validated assessment tools</h2>
     <p class="section-sub">Built on the world&#x2019;s most trusted musculoskeletal risk assessment methods &#x2014; used by ergonomists and occupational health professionals worldwide.</p>
   </div>
@@ -658,9 +680,13 @@
   <span class="section-tag light">Launching Soon</span>
   <h2 class="section-title">Be first to experience Ergzo</h2>
   <p>Join the waitlist and get early access pricing when we launch on iOS and Android. Plans available for individual ergonomists and enterprise teams.</p>
+  <div class="waitlist-proof">
+    <span class="pulse-dot"></span>
+    <span>59 safety professionals already joined</span>
+  </div>
   <form class="waitlist-form" action="https://formspree.io/f/xnjonlry">
     <input type="email" name="email" placeholder="Enter your work email" required/>
-    <button type="submit">&#x1F680; Join Waitlist</button>
+    <button type="submit">Join the Waitlist &#x2192;</button>
   </form>
   <p class="waitlist-note">No spam. No credit card. Just early access.</p>
 </section>
@@ -672,15 +698,15 @@
   </div>
   <div class="blog-grid" data-aos="fade-up">
     <a href="blog-1.html" class="blog-card">
-      <div class="blog-thumb blog-thumb-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.44-4.54z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.44-4.54z"/></svg></div>
+      <div class="blog-thumb blog-thumb-1"><span class="blog-time">5 min</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.44-4.54z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.44-4.54z"/></svg></div>
       <div class="blog-body"><div class="blog-tag-label">Tools Guide</div><h3>REBA vs RULA: Which Ergonomic Assessment Tool Should You Use?</h3><p>A practical breakdown of when to use each tool and what makes them different for your worksite.</p><span class="blog-read-more">Read Article <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
     </a>
     <a href="blog-2.html" class="blog-card">
-      <div class="blog-thumb blog-thumb-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+      <div class="blog-thumb blog-thumb-2"><span class="blog-time">7 min</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
       <div class="blog-body"><div class="blog-tag-label">How-To</div><h3>How to Conduct an Ergonomic Assessment Using Just Your Smartphone</h3><p>Step-by-step guide to running a full ergonomic risk assessment on-site with no expensive equipment.</p><span class="blog-read-more">Read Article <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
     </a>
     <a href="blog-3.html" class="blog-card">
-      <div class="blog-thumb blog-thumb-3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <div class="blog-thumb blog-thumb-3"><span class="blog-time">8 min</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
       <div class="blog-body"><div class="blog-tag-label">Industry</div><h3>The Hidden Cost of Ergonomic Injuries in Manufacturing</h3><p>How musculoskeletal disorders quietly cost Indian manufacturers crores every year &#x2014; and how to prevent it.</p><span class="blog-read-more">Read Article <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
     </a>
   </div>
@@ -692,6 +718,7 @@
       <span class="section-tag">Contact Us</span>
       <h2>Let&#x2019;s talk ergonomics</h2>
       <p>Have a question, partnership inquiry, or want to learn more about Ergzo? We&#x2019;d love to hear from you.</p>
+      <p style="font-size:13px;color:#8a9aaa;margin-bottom:24px;margin-top:-16px">We respond within one business day.</p>
       <div class="contact-detail"><div class="contact-detail-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><a href="mailto:hello@ergzo.com">hello@ergzo.com</a></div>
       <div class="contact-detail"><div class="contact-detail-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><a href="https://www.ergzo.com">www.ergzo.com</a></div>
       <div class="contact-detail"><div class="contact-detail-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><span class="label">India</span></div>
