@@ -15,7 +15,8 @@
   <meta property="og:type" content="website"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <link rel="canonical" href="https://www.ergzo.com/"/>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="icon" type="image/png" href="ergzo-icon.png"/>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Ergzo","applicationCategory":"BusinessApplication","operatingSystem":"Android, iOS","url":"https://www.ergzo.com"}</script>
   <style>
     html{scroll-behavior:smooth;scroll-padding-top:68px;overflow-x:hidden;width:100%}
@@ -128,8 +129,8 @@
     .user-card p{font-size:14px;color:#5a6a7a;line-height:1.7;font-weight:400}
     /* INDUSTRIES */
     .industries-section{background:#F4F7F7}
-    .industry-grid{display:grid;grid-template-columns:repeat(3,auto);gap:10px;justify-content:center;margin-top:40px}
-    .industry-pill{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #d6e2e2;padding:11px 20px;border-radius:var(--radius-full);font-size:14px;font-weight:600;color:#232d42;transition:all var(--transition);cursor:default;white-space:nowrap}
+    .industry-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:40px}
+    .industry-pill{display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;border:1px solid #d6e2e2;padding:11px 20px;border-radius:var(--radius-full);font-size:14px;font-weight:600;color:#232d42;transition:all var(--transition);cursor:default;white-space:nowrap}
     .industry-pill:hover{background:#232d42;color:#fff;border-color:#232d42}
     /* FEATURES */
     .features-section{background:#fff}
@@ -275,8 +276,8 @@
       .tool-name{font-size:13px}
       .tool-full{font-size:9px}
       .feature-tag{font-size:11px;padding:5px 11px}
-      .industry-grid{grid-template-columns:1fr 1fr;gap:8px}
-      .industry-pill{justify-content:center;padding:11px 8px;font-size:13px;border-radius:12px;white-space:normal;text-align:center}
+      
+      .industry-pill{padding:10px 16px;font-size:13px}
     }
     @media(max-width:400px){
       section{padding:64px 4%}
@@ -444,7 +445,6 @@
     </div>
   </div>
 </section>
-<!-- INDUSTRIES -->
 <section class="industries-section" id="industries">
   <div class="text-center">
     <span class="section-tag">Industries</span>
@@ -452,14 +452,33 @@
     <p class="section-sub">Whether your team works on a factory floor, construction site, warehouse, or office desk &#x2014; Ergzo has the right assessment tools for your environment.</p>
   </div>
   <div class="industry-grid" data-aos="fade-up">
-    <div class="industry-pill">&#x1F3ED; Manufacturing</div>
-    <div class="industry-pill">&#x1F3D7;&#xFE0F; Construction</div>
-    <div class="industry-pill">&#x1F4E6; Warehouse &amp; Logistics</div>
-    <div class="industry-pill">&#x1F457; Garment &amp; Textile</div>
-    <div class="industry-pill">&#x1F4BB; Office &amp; IT</div>
-    <div class="industry-pill">&#x1F527; Generic Workplaces</div>
+    <div class="industry-pill">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20V8l10-6 10 6v12H2z"/><path d="M12 20v-6"/><path d="M6 20v-4h4v4"/><path d="M14 20v-4h4v4"/></svg>
+      Manufacturing
+    </div>
+    <div class="industry-pill">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M12 6V4"/><path d="M8 6V3"/><path d="M16 6V3"/><path d="M2 10h20"/></svg>
+      Construction
+    </div>
+    <div class="industry-pill">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+      Warehouse &amp; Logistics
+    </div>
+    <div class="industry-pill">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg>
+      Garment &amp; Textile
+    </div>
+    <div class="industry-pill">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+      Office &amp; IT
+    </div>
+    <div class="industry-pill">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Generic Workplaces
+    </div>
   </div>
 </section>
+
 <!-- FEATURE BLOCKS -->
 <section class="features-section" id="features">
   <div class="features-inner">
