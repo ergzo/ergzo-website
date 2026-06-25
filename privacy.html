@@ -1,155 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Privacy Policy — Ergzo</title>
+  <title>Privacy Policy &#x2014; Ergzo</title>
+  <meta name="description" content="Ergzo&#x2019;s privacy policy covering data collection, use, storage, and your rights under the Digital Personal Data Protection Act 2023."/>
+  <link rel="canonical" href="https://www.ergzo.com/privacy.html"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <style>
-    body { font-family: 'Inter', sans-serif; background: #F4F7F7; color: #111621; line-height: 1.7; margin: 0; padding: 0; }
-    .doc-nav { background: #232d42; padding: 0 6%; height: 68px; display: flex; align-items: center; justify-content: space-between; }
-    .doc-nav a.logo { font-size: 22px; font-weight: 900; color: #fff; text-decoration: none; }
-    .doc-nav a.back { font-size: 14px; color: #d6e2e2; text-decoration: none; opacity: 0.7; }
-    .doc-nav a.back:hover { opacity: 1; }
-    .doc-body { max-width: 760px; margin: 0 auto; padding: 64px 6% 96px; }
-    h1 { font-size: 38px; font-weight: 900; letter-spacing: -1px; margin-bottom: 8px; }
-    .meta { font-size: 13px; color: #8a9aaa; margin-bottom: 48px; }
-    h2 { font-size: 20px; font-weight: 700; margin-top: 40px; margin-bottom: 10px; color: #232d42; }
-    h3 { font-size: 16px; font-weight: 700; margin-top: 18px; margin-bottom: 8px; color: #232d42; }
-    p { font-size: 15px; color: #354463; margin-bottom: 14px; }
-    ul { padding-left: 20px; margin-bottom: 14px; }
-    li { font-size: 15px; color: #354463; margin-bottom: 6px; }
-    a { color: #232d42; }
-    .callout { background: #fff; border-left: 4px solid #232d42; padding: 16px 18px; border-radius: 10px; margin: 16px 0; box-shadow: 0 8px 20px rgba(35,45,66,0.06); }
-    .callout.warn { border-left-color: #c47b00; }
-    .table-wrap { overflow-x: auto; margin: 14px 0 10px; }
-    table { width: 100%; border-collapse: collapse; min-width: 640px; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(35,45,66,0.06); }
-    th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid #d6e2e2; vertical-align: top; font-size: 14px; color: #354463; }
-    th { color: #232d42; background: #eef3f4; font-weight: 700; }
-    footer { text-align: center; padding: 32px; font-size: 13px; color: #8a9aaa; border-top: 1px solid #d6e2e2; }
-  </style>
+    html{scroll-behavior:smooth;overflow-x:hidden;width:100%}
+    body{font-family:'Inter',sans-serif;font-weight:400;font-feature-settings:"cv11","ss01";background:#F4F7F7;color:#111621;line-height:1.7;overflow-x:hidden;width:100%;position:relative}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;max-width:100%}
+    img,video,iframe,svg{max-width:100%;height:auto}
+    :root{
+      --ink:#111621;--indigo:#232d42;--twilight:#354463;--alabaster:#d6e2e2;
+      --platinum:#F4F7F7;--success:#27AE60;--warning:#F39C12;--danger:#E74C3C;--white:#ffffff;
+      --radius-full:9999px;--radius-xl:1.25rem;
+      --shadow-card:0 4px 20px rgba(17,22,33,.08);
+      --transition:180ms cubic-bezier(.16,1,.3,1);
+    }
+    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(35,45,66,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:68px;border-bottom:1px solid rgba(214,226,226,.08);transition:box-shadow var(--transition)}
+    nav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.2)}
+    .nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+    .nav-logo-icon{height:30px;width:auto;display:block;filter:brightness(0) invert(1)}
+    .nav-logo-text{font-size:21px;font-weight:800;color:#fff;letter-spacing:-.5px}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+    .nav-links a{color:rgba(214,226,226,.8);text-decoration:none;font-size:15px;font-weight:500;transition:color var(--transition)}
+    .nav-links a:hover{color:#fff}
+    .nav-cta{background:#fff!important;color:#232d42!important;padding:9px 20px!important;border-radius:var(--radius-full)!important;font-weight:700!important;font-size:14px!important;transition:opacity var(--transition)!important;min-height:44px;display:inline-flex;align-items:center}
+    .nav-cta:hover{opacity:.85!important}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;max-width:unset;min-width:44px;min-height:44px;align-items:center;justify-content:center}
+    .hamburger span{width:22px;height:2px;background:#fff;border-radius:2px;display:block;transition:all .3s;max-width:unset}
+    .mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:#232d42;padding:20px 6%;border-bottom:1px solid rgba(255,255,255,.08);z-index:99;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+    .mobile-menu.open{display:flex;flex-direction:column;gap:18px}
+    .mobile-menu a{color:rgba(214,226,226,.8);text-decoration:none;font-size:16px;font-weight:500;padding:4px 0}
+    footer{background:#111621;color:#d6e2e2;padding:60px 6% 28px}
+    .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:48px}
+    .footer-brand p{font-size:13px;color:rgba(214,226,226,.45);margin-top:10px;max-width:240px;line-height:1.7;font-weight:400}
+    .footer-logo{display:flex;align-items:center;gap:8px;font-size:20px;font-weight:800;color:#fff;max-width:unset;letter-spacing:-.3px}
+    .footer-logo-icon{height:26px;width:auto;display:block;filter:brightness(0) invert(1)}
+    .footer-links h4{font-size:11px;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:16px}
+    .footer-links ul{list-style:none}
+    .footer-links li{margin-bottom:10px}
+    .footer-links a{color:rgba(214,226,226,.45);text-decoration:none;font-size:14px;transition:color var(--transition);font-weight:400}
+    .footer-links a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .footer-bottom p{font-size:13px;color:rgba(214,226,226,.3);font-weight:400}
+    .social-links{list-style:none}
+    .social-links li{margin-bottom:10px}
+    .social-links a{display:flex;align-items:center;gap:9px;color:rgba(214,226,226,.45);text-decoration:none;font-size:14px;transition:color var(--transition);font-weight:400}
+    .social-links a:hover{color:#fff}
+    .social-links svg{flex-shrink:0;opacity:.65;width:15px;height:15px}
+    .social-links a:hover svg{opacity:1}
+    @media(max-width:640px){.nav-links{display:none}.hamburger{display:flex}}
+
+    .doc-hero{background:#232d42;padding:64px 6% 56px;border-bottom:1px solid rgba(255,255,255,.06);margin-top:68px}
+    .doc-hero-inner{max-width:760px;margin:0 auto}
+    .doc-tag{display:inline-block;background:rgba(255,255,255,.1);color:#d6e2e2;font-size:11px;font-weight:600;padding:5px 14px;border-radius:var(--radius-full);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:14px}
+    .doc-hero h1{font-size:clamp(26px,4vw,40px);font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.1;margin-bottom:8px;text-wrap:balance}
+    .doc-hero .meta{font-size:13px;color:rgba(214,226,226,.45);font-weight:400}
+    .doc-body{max-width:760px;margin:0 auto;padding:56px 6% 96px}
+    .doc-body h2{font-size:19px;font-weight:800;color:#232d42;margin:44px 0 12px;letter-spacing:-.4px;padding-bottom:10px;border-bottom:1px solid #e8eef0}
+    .doc-body h3{font-size:15px;font-weight:700;color:#232d42;margin:22px 0 8px;letter-spacing:-.2px}
+    .doc-body p{font-size:15px;color:#354463;margin-bottom:13px;line-height:1.75}
+    .doc-body ul,.doc-body ol{padding-left:20px;margin-bottom:13px}
+    .doc-body li{font-size:15px;color:#354463;margin-bottom:6px;line-height:1.7}
+    .doc-body a{color:#232d42;font-weight:600}
+    .doc-body a:hover{text-decoration:underline}
+    .doc-body strong{color:#111621}
+    .callout{background:#fff;border:1px solid #d6e2e2;border-radius:14px;padding:16px 18px;margin:16px 0;display:flex;gap:12px;align-items:flex-start}
+    .callout p{margin:0;font-size:14px;color:#354463;line-height:1.65}
+    .callout-icon{font-size:17px;flex-shrink:0;margin-top:1px}
+    .callout.warn{border-color:#f0d99a;background:#fffcf0}
+    .callout.info{border-color:#c3d6f0;background:#f0f6ff}
+    .table-wrap{overflow-x:auto;margin:16px 0;-webkit-overflow-scrolling:touch}
+    table{width:100%;border-collapse:collapse;min-width:500px;background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-card);border:1px solid #d6e2e2}
+    th,td{text-align:left;padding:12px 15px;border-bottom:1px solid #e8eef0;vertical-align:top;font-size:14px;color:#354463;font-family:inherit}
+    th{color:#232d42;background:#f0f4f5;font-weight:700;font-size:11px;letter-spacing:.5px;text-transform:uppercase}
+    tr:last-child td{border-bottom:none}
+    tbody tr:hover td{background:#f8fafa}
+    @media(max-width:640px){
+      .doc-hero{padding:48px 4% 40px}
+      .doc-body{padding:40px 4% 64px}
+      table{min-width:440px}
+    }
+    @media(max-width:400px){
+      .doc-hero h1{font-size:24px}
+      .doc-body h2{font-size:17px}
+    }
+</style>
 </head>
 <body>
-  <nav class="doc-nav">
-    <a href="index.html" class="logo">ergzo</a>
-    <a href="index.html" class="back">← Back to Home</a>
-  </nav>
-  <div class="doc-body">
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <img src="ergzo-icon.png" alt="Ergzo logo" class="nav-logo-icon" width="30" height="30"/>
+    <span class="nav-logo-text">ergzo</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#features">Features</a></li>
+    <li><a href="index.html#tools">Tools</a></li>
+    <li><a href="index.html#blog">Blog</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="index.html#waitlist" class="nav-cta">Get Early Access</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Open navigation menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+  <a href="index.html#features" onclick="toggleMenu()">Features</a>
+  <a href="index.html#tools" onclick="toggleMenu()">Tools</a>
+  <a href="index.html#blog" onclick="toggleMenu()">Blog</a>
+  <a href="index.html#contact" onclick="toggleMenu()">Contact</a>
+  <a href="support.html" onclick="toggleMenu()">Support</a>
+  <a href="index.html#waitlist" onclick="toggleMenu()" style="color:#F39C12;font-weight:700">Get Early Access &#x2192;</a>
+</div>
+
+<div class="doc-hero">
+  <div class="doc-hero-inner">
+    <div class="doc-tag">Legal</div>
     <h1>Privacy Policy</h1>
-    <p class="meta">Last updated: June 9, 2026</p>
-    <p>Ergzo Solutions Private Limited (“Ergzo”, “we”, “our”, or “us”) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, store, disclose, retain, and protect personal data when you use the Ergzo mobile application, the Ergzo website, and related services used for ergonomic screening, assessment workflows, reporting, follow-up tracking, and workplace analytics.</p>
-
-    <h2>1. Scope and roles</h2>
-    <p>Ergzo is primarily offered for workplace use by enterprise and institutional customers, including environment, health and safety teams, medical officers, HR teams, plant managers, factory managers, ergonomists, assessors, and authorized viewers. Workers do not currently maintain direct end-user accounts in the app, although assessment records may relate to a worker or a pseudonymous worker profile created by an authorized company user.</p>
-    <p>Depending on the context, Ergzo may act as an independent data fiduciary/controller for website, support, account administration, and product operations, and may also act as a processor/service provider on behalf of a customer organization for workplace assessment records handled within the service.</p>
-    <div class="callout"><strong>Workplace use:</strong> Ergzo is designed for adults in workplace settings and is not intended for children or consumer use.</div>
-
-    <h2>2. Data we collect</h2>
-    <h3>Account and organization data</h3>
-    <p>For enterprise access and account administration, we may process user and organization information such as name, business email address, company name, designation, access role, team membership, company identifier, and authentication records. In production workflows, login credentials may be provisioned externally by or for the customer organization rather than collected directly through a public in-app signup flow.</p>
-    <h3>Assessment and ergonomic data</h3>
-    <p>When an authorized user performs an assessment, Ergzo may process posture keypoints, joint angles, ergonomic scores, risk levels, timestamps, department information, task or scene context, joint risk observations, intervention-related status, and associated analytical outputs. These data points may be linked to a worker name or a pseudonymous/default worker label such as “Person #” depending on customer workflow choices.</p>
-    <h3>Media and local device data</h3>
-    <p>Photos, imported gallery media, locally recorded assessment videos, and optional screen-recorded assessment replays may be created or processed on the device for ergonomic analysis and review. Ergzo’s intended production design is that raw assessment media remains on the user’s device unless the user separately exports or shares it outside the app.</p>
-    <h3>Company assets and operational content</h3>
-    <p>The app may process company logos, worker photos, department names, team structures, session names, notes, and other organization-provided content needed to support assessment workflows and reporting.</p>
-    <h3>Website and support data</h3>
-    <p>When you visit the website, contact us, request a demo, or communicate with support, we may collect standard website, correspondence, and business-contact information needed to respond, provide access, maintain security, and administer our services.</p>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr><th>Category</th><th>Examples</th><th>Primary storage pattern</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Account and org data</td><td>Name, email, company name, role, team access</td><td>Backend / authenticated service environment</td></tr>
-          <tr><td>Assessment analytics</td><td>Keypoints, joint angles, scores, risk levels, timestamps, department</td><td>Firebase Auth / Firestore and app database as applicable</td></tr>
-          <tr><td>Media</td><td>Photos, imported videos, local screen recordings</td><td>Stored and processed locally on device by design</td></tr>
-          <tr><td>AI request payload</td><td>Joint risks, scores, task context, scene context</td><td>Sent only when user taps AI feature</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h2>3. How we use personal data</h2>
-    <ul>
-      <li>To authenticate authorized users and administer enterprise access.</li>
-      <li>To conduct ergonomic screening and produce scores, risk indicators, recommendations, reports, summaries, and dashboard views.</li>
-      <li>To support before-and-after intervention analysis, follow-up workflows, trend analysis, and safety improvement tracking.</li>
-      <li>To allow locally saved review of assessment media and optional on-device screen-recorded assessment overlays.</li>
-      <li>To send operational notifications such as follow-up reminders and weekly reports.</li>
-      <li>To maintain product security, prevent misuse, troubleshoot incidents, and improve product performance.</li>
-      <li>To comply with legal obligations, contractual obligations, safety governance requirements, and legitimate business recordkeeping needs.</li>
-    </ul>
-    <div class="callout"><strong>No sale of personal data:</strong> Ergzo does not sell personal data and is not designed for advertising profiling or cross-app tracking.</div>
-
-    <h2>4. Permissions and device access</h2>
-    <p>Ergzo requests or may request only the permissions reasonably necessary for assessment features, optional local media handling, and related workflows. Permission prompts and store disclosures should always be read together with this policy and the in-app explanations presented at the point of collection or use.</p>
-    <h3>Camera</h3>
-    <p>The camera is used to capture posture or movement needed for ergonomic screening and assessment. Camera access is used only within relevant workflows initiated by the user.</p>
-    <h3>Photos / gallery</h3>
-    <p>Photo library or media access may be used to import existing photos or videos for local ergonomic analysis and to add optional company logos or related assets. Imported media is intended to remain on-device unless a separate export or sharing action is taken by the user.</p>
-    <h3>Screen recording</h3>
-    <p>Optional screen recording may be used to create a local replay of the assessment with posture analysis, score overlays, and face blur for later review by the authorized user. This feature is optional, is not required to obtain scores, and is not designed to capture content from other apps.</p>
-    <h3>Microphone</h3>
-    <p>Ergzo is not intended to record or use audio as part of an assessment. If microphone access is requested on certain iOS implementations because of an underlying screen-recording framework, Ergzo’s intended production behavior is that assessment screen recordings are silent, and the microphone permission should be removed where technically feasible.</p>
-    <h3>Notifications</h3>
-    <p>Notification permissions, where available, are used for operational reminders such as high-risk follow-up prompts and weekly reporting notifications. Ergzo does not use push notifications for unrelated promotional marketing.</p>
-    <h3>Local network</h3>
-    <p>Ergzo does not intend to require local network access for its core functions. If a local-network-related prompt appears because of platform or framework behavior, Ergzo intends to remove or disable unnecessary access where not required for the shipped feature set.</p>
-    <div class="callout warn"><strong>Permission note:</strong> Some features may be unavailable if a required permission is denied.</div>
-
-    <h2>5. AI-generated recommendations and action plans</h2>
-    <p>Ergzo may offer an optional AI feature that generates recommendations or action plans when a user affirmatively taps the relevant in-app control, such as an “Ask AI” or similar button. This feature is not required to conduct an assessment or to view baseline scores.</p>
-    <p>When the AI feature is used, Ergzo may send a limited data payload such as ergonomic scores, joint risks, task context, or scene/work context to a generative AI service to produce recommendations. Based on the current design described by Ergzo, raw assessment photos, raw videos, and raw audio are not intended to be sent for this feature.</p>
-    <p>AI outputs are generated automatically and may require human review. Customers and users remain responsible for evaluating whether any recommendation is appropriate for their workplace, workforce, operational constraints, and applicable health and safety obligations.</p>
-
-    <h2>6. Sharing and disclosure</h2>
-    <p>Ergzo may disclose personal data or related records only in limited circumstances and only to the extent reasonably necessary for the stated purpose.</p>
-    <ul>
-      <li><strong>Within the customer organization:</strong> authorized admins, assessors, viewers, managers, and other role-based personnel may access relevant data according to permissions configured for that company.</li>
-      <li><strong>Service providers:</strong> Ergzo may use trusted providers to support authentication, secure cloud storage of non-media assessment data, infrastructure, and similar services.</li>
-      <li><strong>AI provider:</strong> where the user invokes the optional AI feature, limited non-media assessment data may be transmitted to the AI provider to generate requested recommendations or action plans.</li>
-      <li><strong>Legal and safety reasons:</strong> Ergzo may disclose information if required by law, legal process, binding regulatory request, or where necessary to protect rights, security, safety, or investigate misuse.</li>
-      <li><strong>Corporate transaction:</strong> if Ergzo undergoes a merger, acquisition, restructuring, financing, or sale of assets, data may be transferred subject to appropriate confidentiality and lawful-use safeguards.</li>
-    </ul>
-    <p>Ergzo does not sell personal data to data brokers and does not share personal data for cross-context behavioral advertising.</p>
-    <h3>Marketing or demonstration footage</h3>
-    <p>Any use of real worker imagery or factory recordings for testimonials, demonstrations, client onboarding materials, case studies, website content, or marketing materials should occur only under a separate and specific authorization process appropriate to that purpose. Such use should not be assumed from ordinary assessment participation alone.</p>
-
-    <h2>7. Retention, deletion, and record integrity</h2>
-    <p>Ergzo retains personal data and related records only for as long as reasonably necessary for the purposes described in this policy, including service delivery, enterprise administration, workplace safety recordkeeping, trend analysis, intervention tracking, compliance, dispute handling, security, and legitimate business operations.</p>
-    <p>Certain assessment and session records may be retained even where a customer can delete or archive other entities such as workers, departments, or related organizational structures. This design may be used to preserve audit integrity, reduce the risk of selective underreporting, maintain before-and-after intervention histories, and support longitudinal ergonomic and safety analysis.</p>
-    <p>Where a worker identifier is removed from an assessment record, Ergzo may instead display a default or pseudonymous label rather than the original worker name, subject to technical and legal limitations.</p>
-    <div class="callout warn"><strong>Limitations on deletion:</strong> Erasure or deletion rights may be limited where retention is required for legal compliance, contractual obligations, safety record integrity, fraud or misuse prevention, defense of legal claims, or another valid lawful basis recognized by applicable law.</div>
-
-    <h2>8. Your rights and choices</h2>
-    <p>As an India-first service, Ergzo aims to provide notices and controls aligned with the Digital Personal Data Protection Act, 2023, while also preparing for broader rights frameworks applicable in other regions. Depending on the relationship involved, the applicable law, and whether Ergzo acts as a controller/data fiduciary or processor/service provider, individuals may have rights to request access, correction, updating, restriction, objection, consent withdrawal, grievance redressal, portability where applicable, and deletion or erasure subject to lawful retention exceptions.</p>
-    <p>Where Ergzo processes data on behalf of a customer organization, requests relating to worker-linked assessment records may need to be routed through the relevant customer organization that controls the underlying workplace assessment program. Ergzo may also require verification of identity, authority, or organizational role before acting on a request.</p>
-    <p>To exercise rights or raise a complaint, contact <a href="mailto:privacy@ergzo.com">privacy@ergzo.com</a>. Ergzo may request additional information reasonably necessary to verify the request and respond securely.</p>
-
-    <h2>9. Security and safeguards</h2>
-    <p>Ergzo uses reasonable technical, organizational, and administrative safeguards designed to protect personal data against unauthorized access, disclosure, alteration, misuse, and destruction. These measures may include role-based access controls, encryption in transit, cloud-service security controls, pseudonymization measures such as face blur and worker label substitution, internal access restrictions, and review of service-provider protections.</p>
-    <p>No platform, application, network, or storage environment can be guaranteed to be perfectly secure. Users and customer organizations are responsible for protecting device access, passwords, exported media, and any information they choose to share outside Ergzo.</p>
-
-    <h2>10. International users and legal basis</h2>
-    <p>Ergzo currently positions India as the primary governing privacy regime and presently describes its core hosted infrastructure for the app backend as located in the India region identified by Ergzo for Firebase services. If Ergzo expands internationally, additional region-specific disclosures, transfer mechanisms, or legal-basis descriptions may be added for jurisdictions such as the EEA, United Kingdom, California, and other applicable regions.</p>
-    <p>Where required by applicable law, Ergzo may rely on consent, contract performance, legitimate interests, employment-related necessity, legal obligations, or other recognized lawful bases depending on the service context and the data involved.</p>
-
-    <h2>11. Children and age limitations</h2>
-    <p>Ergzo is intended for workplace use involving adults and is not directed to children. Ergzo does not knowingly offer the service as a child-directed product and does not intend to process children’s personal data as part of its normal product design.</p>
-
-    <h2>12. Consent in assessment workflows</h2>
-    <p>Ergzo may present a session-start consent notice or similar gate before an assessment workflow begins. That notice is intended to inform the user that workers are being recorded or assessed for ergonomic risk assessment, that face blur may be applied at the start of the assessment when a person/worker is detected and remains blurred throughout the recorded screen and assessment, and that data handling will occur according to the workflow described in the app and this policy.</p>
-    <p>Where consent is used, Ergzo aims to make the notice clear, specific, and understandable. Ergzo may also rely on other valid grounds recognized under applicable law in enterprise and workplace contexts, including where the relevant organization is administering an occupational safety or employment-related process.</p>
-
-    <h2>13. Changes to this policy</h2>
-    <p>Ergzo may update this Privacy Policy from time to time to reflect product changes, legal developments, platform requirements, security improvements, or operational changes. The revised version will be posted on this page with an updated effective date, and where required, additional notice may be provided in-app, by email, or through another appropriate channel.</p>
-
-    <h2>14. Contact and grievance</h2>
-    <p><strong>Entity:</strong> Ergzo Solutions Private Limited</p>
-    <p><strong>Email:</strong> <a href="mailto:privacy@ergzo.com">privacy@ergzo.com</a></p>
-    <p><strong>Website:</strong> <a href="https://www.ergzo.com" target="_blank" rel="noopener noreferrer">www.ergzo.com</a></p>
-    <p>If you have a privacy concern, rights request, correction request, or complaint, please contact Ergzo using the email above with enough detail for us to understand the issue and verify the request.</p>
+    <p class="meta">Last updated: June 9, 2026 &nbsp;&middot;&nbsp; Ergzo Solutions Private Limited</p>
   </div>
-  <footer>© 2026 Ergzo Solutions Private Limited. This page is intended to be the master privacy policy for Ergzo’s website and app.</footer>
+</div>
+
+<div class="doc-body">
+  <p>Ergzo Solutions Private Limited (&#x201C;Ergzo&#x201D;, &#x201C;we&#x201D;, &#x201C;our&#x201D;, or &#x201C;us&#x201D;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, store, disclose, retain, and protect personal data when you use the Ergzo mobile application, the Ergzo website, and related services used for ergonomic screening, assessment workflows, reporting, follow-up tracking, and workplace analytics.</p>
+
+  <h2>1. Scope and Roles</h2>
+  <p>Ergzo is primarily offered for workplace use by enterprise and institutional customers, including environment, health and safety teams, medical officers, HR teams, plant managers, factory managers, ergonomists, assessors, and authorized viewers. Workers do not currently maintain direct end-user accounts in the app, although assessment records may relate to a worker or a pseudonymous worker profile created by an authorized company user.</p>
+  <p>Depending on the context, Ergzo may act as an independent data fiduciary/controller for website, support, account administration, and product operations, and may also act as a processor/service provider on behalf of a customer organization for workplace assessment records handled within the service.</p>
+  <div class="callout info"><span class="callout-icon">&#x2139;&#xFE0F;</span><p><strong>Workplace use:</strong> Ergzo is designed for adults in workplace settings and is not intended for children or consumer use.</p></div>
+
+  <h2>2. Data We Collect</h2>
+  <h3>Account and organization data</h3>
+  <p>For enterprise access and account administration, we may process user and organization information such as name, business email address, company name, designation, access role, team membership, company identifier, and authentication records.</p>
+  <h3>Assessment and ergonomic data</h3>
+  <p>When an authorized user performs an assessment, Ergzo may process posture keypoints, joint angles, ergonomic scores, risk levels, timestamps, department information, task or scene context, joint risk observations, intervention-related status, and associated analytical outputs. These data points may be linked to a worker name or a pseudonymous/default worker label such as &#x201C;Person #&#x201D; depending on customer workflow choices.</p>
+  <h3>Media and local device data</h3>
+  <p>Photos, imported gallery media, locally recorded assessment videos, and optional screen-recorded assessment replays may be created or processed on the device for ergonomic analysis and review. Ergzo&#x2019;s intended production design is that raw assessment media remains on the user&#x2019;s device unless the user separately exports or shares it outside the app.</p>
+  <h3>Company assets and operational content</h3>
+  <p>The app may process company logos, worker photos, department names, team structures, session names, notes, and other organization-provided content needed to support assessment workflows and reporting.</p>
+  <h3>Website and support data</h3>
+  <p>When you visit the website, contact us, request a demo, or communicate with support, we may collect standard website, correspondence, and business-contact information needed to respond, provide access, maintain security, and administer our services.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Category</th><th>Examples</th><th>Primary storage pattern</th></tr></thead>
+      <tbody>
+        <tr><td>Account and org data</td><td>Name, email, company name, role, team access</td><td>Backend / authenticated service environment</td></tr>
+        <tr><td>Assessment analytics</td><td>Keypoints, joint angles, scores, risk levels, timestamps, department</td><td>Firebase Auth / Firestore and app database as applicable</td></tr>
+        <tr><td>Media</td><td>Photos, imported videos, local screen recordings</td><td>Stored and processed locally on device by design</td></tr>
+        <tr><td>AI request payload</td><td>Joint risks, scores, task context, scene context</td><td>Sent only when user taps AI feature</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>3. How We Use Personal Data</h2>
+  <ul>
+    <li>To authenticate authorized users and administer enterprise access.</li>
+    <li>To conduct ergonomic screening and produce scores, risk indicators, recommendations, reports, summaries, and dashboard views.</li>
+    <li>To support before-and-after intervention analysis, follow-up workflows, trend analysis, and safety improvement tracking.</li>
+    <li>To allow locally saved review of assessment media and optional on-device screen-recorded assessment overlays.</li>
+    <li>To send operational notifications such as follow-up reminders and weekly reports.</li>
+    <li>To maintain product security, prevent misuse, troubleshoot incidents, and improve product performance.</li>
+    <li>To comply with legal obligations, contractual obligations, safety governance requirements, and legitimate business recordkeeping needs.</li>
+  </ul>
+  <div class="callout info"><span class="callout-icon">&#x2705;</span><p><strong>No sale of personal data:</strong> Ergzo does not sell personal data and is not designed for advertising profiling or cross-app tracking.</p></div>
+
+  <h2>4. Permissions and Device Access</h2>
+  <p>Ergzo requests or may request only the permissions reasonably necessary for assessment features, optional local media handling, and related workflows.</p>
+  <h3>Camera</h3>
+  <p>The camera is used to capture posture or movement needed for ergonomic screening and assessment. Camera access is used only within relevant workflows initiated by the user.</p>
+  <h3>Photos / Gallery</h3>
+  <p>Photo library or media access may be used to import existing photos or videos for local ergonomic analysis and to add optional company logos or related assets. Imported media is intended to remain on-device unless a separate export or sharing action is taken by the user.</p>
+  <h3>Screen Recording</h3>
+  <p>Optional screen recording may be used to create a local replay of the assessment with posture analysis, score overlays, and face blur for later review by the authorized user. This feature is optional and is not designed to capture content from other apps.</p>
+  <h3>Microphone</h3>
+  <p>Ergzo is not intended to record or use audio as part of an assessment. Ergzo&#x2019;s intended production behavior is that assessment screen recordings are silent, and the microphone permission should be removed where technically feasible.</p>
+  <h3>Notifications</h3>
+  <p>Notification permissions are used for operational reminders such as high-risk follow-up prompts and weekly reporting notifications. Ergzo does not use push notifications for unrelated promotional marketing.</p>
+  <div class="callout warn"><span class="callout-icon">&#x26A0;&#xFE0F;</span><p><strong>Permission note:</strong> Some features may be unavailable if a required permission is denied.</p></div>
+
+  <h2>5. AI-Generated Recommendations and Action Plans</h2>
+  <p>Ergzo may offer an optional AI feature that generates recommendations or action plans when a user affirmatively taps the relevant in-app control. This feature is not required to conduct an assessment or to view baseline scores.</p>
+  <p>When the AI feature is used, Ergzo may send a limited data payload such as ergonomic scores, joint risks, task context, or scene/work context to a generative AI service to produce recommendations. Raw assessment photos, raw videos, and raw audio are not intended to be sent for this feature.</p>
+  <p>AI outputs are generated automatically and may require human review. Customers and users remain responsible for evaluating whether any recommendation is appropriate for their workplace, workforce, operational constraints, and applicable health and safety obligations.</p>
+
+  <h2>6. Sharing and Disclosure</h2>
+  <p>Ergzo may disclose personal data or related records only in limited circumstances and only to the extent reasonably necessary for the stated purpose.</p>
+  <ul>
+    <li><strong>Within the customer organization:</strong> authorized admins, assessors, viewers, managers, and other role-based personnel may access relevant data according to permissions configured for that company.</li>
+    <li><strong>Service providers:</strong> Ergzo may use trusted providers to support authentication, secure cloud storage of non-media assessment data, infrastructure, and similar services.</li>
+    <li><strong>AI provider:</strong> where the user invokes the optional AI feature, limited non-media assessment data may be transmitted to the AI provider to generate requested recommendations or action plans.</li>
+    <li><strong>Legal and safety reasons:</strong> Ergzo may disclose information if required by law, legal process, binding regulatory request, or where necessary to protect rights, security, safety, or investigate misuse.</li>
+    <li><strong>Corporate transaction:</strong> if Ergzo undergoes a merger, acquisition, restructuring, financing, or sale of assets, data may be transferred subject to appropriate confidentiality and lawful-use safeguards.</li>
+  </ul>
+  <p>Ergzo does not sell personal data to data brokers and does not share personal data for cross-context behavioral advertising.</p>
+  <h3>Marketing or Demonstration Footage</h3>
+  <p>Any use of real worker imagery or factory recordings for testimonials, demonstrations, client onboarding materials, case studies, website content, or marketing materials should occur only under a separate and specific authorization process appropriate to that purpose. Such use should not be assumed from ordinary assessment participation alone.</p>
+
+  <h2>7. Retention, Deletion, and Record Integrity</h2>
+  <p>Ergzo retains personal data and related records only for as long as reasonably necessary for the purposes described in this policy, including service delivery, enterprise administration, workplace safety recordkeeping, trend analysis, intervention tracking, compliance, dispute handling, security, and legitimate business operations.</p>
+  <p>Certain assessment and session records may be retained even where a customer can delete or archive other entities such as workers, departments, or related organizational structures. This design may be used to preserve audit integrity, reduce the risk of selective underreporting, maintain before-and-after intervention histories, and support longitudinal ergonomic and safety analysis.</p>
+  <p>Where a worker identifier is removed from an assessment record, Ergzo may instead display a default or pseudonymous label rather than the original worker name, subject to technical and legal limitations.</p>
+  <div class="callout warn"><span class="callout-icon">&#x26A0;&#xFE0F;</span><p><strong>Limitations on deletion:</strong> Erasure or deletion rights may be limited where retention is required for legal compliance, contractual obligations, safety record integrity, fraud or misuse prevention, defense of legal claims, or another valid lawful basis recognized by applicable law.</p></div>
+
+  <h2>8. Your Rights and Choices</h2>
+  <p>As an India-first service, Ergzo aims to provide notices and controls aligned with the Digital Personal Data Protection Act, 2023, while also preparing for broader rights frameworks applicable in other regions. Depending on the relationship involved, the applicable law, and whether Ergzo acts as a controller/data fiduciary or processor/service provider, individuals may have rights to request access, correction, updating, restriction, objection, consent withdrawal, grievance redressal, portability where applicable, and deletion or erasure subject to lawful retention exceptions.</p>
+  <p>Where Ergzo processes data on behalf of a customer organization, requests relating to worker-linked assessment records may need to be routed through the relevant customer organization that controls the underlying workplace assessment program. Ergzo may also require verification of identity, authority, or organizational role before acting on a request.</p>
+  <p>To exercise rights or raise a complaint, contact <a href="mailto:privacy@ergzo.com">privacy@ergzo.com</a>.</p>
+
+  <h2>9. Security and Safeguards</h2>
+  <p>Ergzo uses reasonable technical, organizational, and administrative safeguards designed to protect personal data against unauthorized access, disclosure, alteration, misuse, and destruction. These measures may include role-based access controls, encryption in transit, cloud-service security controls, pseudonymization measures such as face blur and worker label substitution, internal access restrictions, and review of service-provider protections.</p>
+  <p>No platform, application, network, or storage environment can be guaranteed to be perfectly secure. Users and customer organizations are responsible for protecting device access, passwords, exported media, and any information they choose to share outside Ergzo.</p>
+
+  <h2>10. International Users and Legal Basis</h2>
+  <p>Ergzo currently positions India as the primary governing privacy regime. If Ergzo expands internationally, additional region-specific disclosures, transfer mechanisms, or legal-basis descriptions may be added for jurisdictions such as the EEA, United Kingdom, California, and other applicable regions.</p>
+  <p>Where required by applicable law, Ergzo may rely on consent, contract performance, legitimate interests, employment-related necessity, legal obligations, or other recognized lawful bases depending on the service context and the data involved.</p>
+
+  <h2>11. Children and Age Limitations</h2>
+  <p>Ergzo is intended for workplace use involving adults and is not directed to children. Ergzo does not knowingly offer the service as a child-directed product and does not intend to process children&#x2019;s personal data as part of its normal product design.</p>
+
+  <h2>12. Consent in Assessment Workflows</h2>
+  <p>Ergzo may present a session-start consent notice or similar gate before an assessment workflow begins. That notice is intended to inform the user that workers are being recorded or assessed for ergonomic risk assessment, that face blur may be applied throughout the recorded screen and assessment, and that data handling will occur according to the workflow described in the app and this policy.</p>
+  <p>Where consent is used, Ergzo aims to make the notice clear, specific, and understandable. Ergzo may also rely on other valid grounds recognized under applicable law in enterprise and workplace contexts.</p>
+
+  <h2>13. Changes to This Policy</h2>
+  <p>Ergzo may update this Privacy Policy from time to time to reflect product changes, legal developments, platform requirements, security improvements, or operational changes. The revised version will be posted on this page with an updated effective date, and where required, additional notice may be provided in-app, by email, or through another appropriate channel.</p>
+
+  <h2>14. Contact and Grievance</h2>
+  <p><strong>Entity:</strong> Ergzo Solutions Private Limited</p>
+  <p><strong>Email:</strong> <a href="mailto:privacy@ergzo.com">privacy@ergzo.com</a></p>
+  <p><strong>Website:</strong> <a href="https://www.ergzo.com" target="_blank" rel="noopener noreferrer">www.ergzo.com</a></p>
+  <p>If you have a privacy concern, rights request, correction request, or complaint, please contact Ergzo using the email above with enough detail for us to understand the issue and verify the request.</p>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo"><img src="ergzo-icon.png" alt="Ergzo logo" class="footer-logo-icon" width="26" height="26"/>ergzo</div>
+      <p>AI-powered ergonomic assessment app for safety professionals, EHS teams, and managers worldwide.</p>
+    </div>
+    <div class="footer-links"><h4>Product</h4><ul><li><a href="index.html#features">Features</a></li><li><a href="index.html#tools">Assessment Tools</a></li><li><a href="index.html#waitlist">Join Waitlist</a></li></ul></div>
+    <div class="footer-links"><h4>Company</h4><ul><li><a href="index.html#blog">Blog</a></li><li><a href="index.html#contact">Contact</a></li><li><a href="support.html">Support</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
+    <div class="footer-links"><h4>Industries</h4><ul><li><a href="index.html#industries">Manufacturing</a></li><li><a href="index.html#industries">Construction</a></li><li><a href="index.html#industries">Warehouse</a></li><li><a href="index.html#industries">Office</a></li></ul></div>
+    <div class="footer-links"><h4>Follow Us</h4><ul class="social-links">
+      <li><a href="https://www.linkedin.com/company/ergzo/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.554v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.137 1.446-2.137 2.941v5.665H9.352V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.602 0 4.267 2.37 4.267 5.455v6.284zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span>ergzo</span></a></li>
+      <li><a href="https://x.com/ergzohealth" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span>ergzohealth</span></a></li>
+      <li><a href="https://www.instagram.com/ergzohealth" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg><span>ergzohealth</span></a></li>
+      <li><a href="https://www.facebook.com/share/187gWZDqZg/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg><span>ergzo</span></a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>&#169; 2026 Ergzo Solutions Private Limited. All rights reserved.</p>
+    <p>Made with &#x2764;&#xFE0F; for safer workplaces</p>
+  </div>
+</footer>
+<script>
+window.addEventListener('scroll',function(){document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>10)},{passive:true});
+function toggleMenu(){var m=document.getElementById('mobileMenu');var h=document.querySelector('.hamburger');var o=m.classList.toggle('open');h.setAttribute('aria-expanded',o);h.setAttribute('aria-label',o?'Close navigation menu':'Open navigation menu')}
+document.addEventListener('click',function(e){var m=document.getElementById('mobileMenu');var h=document.querySelector('.hamburger');if(m&&h&&!m.contains(e.target)&&!h.contains(e.target)){m.classList.remove('open');h.setAttribute('aria-expanded','false')}});
+</script>
 </body>
 </html>
