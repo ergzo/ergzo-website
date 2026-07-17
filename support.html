@@ -5,8 +5,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <meta charset="UTF-8"/>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
-  <link rel="icon" type="image/png" href="ergzo-icon.png"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Support Policy &#x2014; Ergzo</title>
   <meta name="description" content="Ergzo support channels, response times, bug reporting, and data subject requests."/>
@@ -23,10 +21,17 @@
       --transition:180ms cubic-bezier(.16,1,.3,1);
     }
     /* NAV */
+    .doc-nav{background:#232d42;padding:0 6%;height:68px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.06)}
+    .doc-nav a.logo{font-size:21px;font-weight:800;color:#fff;text-decoration:none;letter-spacing:-.5px;display:flex;align-items:center;gap:8px}
     .doc-nav a.logo img{height:26px;width:auto;filter:brightness(0) invert(1)}
-    .doc-nav a.back svg{width:16px;height:16px}
+    .doc-nav-links{display:flex;align-items:center;gap:28px}
+    .doc-nav-links a{color:rgba(214,226,226,.8);text-decoration:none;font-size:15px;font-weight:500;transition:color var(--transition)}
+    .doc-nav-links a:hover{color:#fff}
+    .doc-nav-links a.doc-nav-cta{background:#fff;color:#232d42;padding:9px 20px;border-radius:var(--radius-full);font-weight:700;font-size:14px}
+    .doc-nav-links a.doc-nav-cta:hover{opacity:.85;color:#232d42}
+    @media(max-width:640px){.doc-nav-links{display:none}}
     /* HERO BAND */
-    .doc-hero{background:#232d42;padding:52px 6% 48px;border-bottom:1px solid rgba(255,255,255,.06);margin-top:68px}
+    .doc-hero{background:#232d42;padding:52px 6% 48px;border-bottom:1px solid rgba(255,255,255,.06)}
     .doc-hero-inner{max-width:760px;margin:0 auto}
     .doc-tag{display:inline-block;background:rgba(255,255,255,.1);color:#d6e2e2;font-size:11px;font-weight:600;padding:5px 14px;border-radius:var(--radius-full);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:14px}
     .doc-hero h1{font-size:clamp(28px,4vw,42px);font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.1;margin-bottom:10px;text-wrap:balance}
@@ -89,9 +94,24 @@
     .channel-info p{font-size:14px;color:#5a6a7a;margin:0;line-height:1.6}
     .channel-info a{color:#232d42;font-weight:600}
     /* FOOTER */
-    footer{background:#111621;color:rgba(214,226,226,.5);text-align:center;padding:28px 6%;font-size:13px}
-    footer a{color:rgba(214,226,226,.7);text-decoration:none;margin:0 10px;transition:color var(--transition)}
-    footer a:hover{color:#fff}
+    footer{background:#111621;color:#d6e2e2;padding:60px 6% 28px}
+    .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:48px}
+    .footer-brand p{font-size:13px;color:rgba(214,226,226,.45);margin-top:10px;max-width:240px;line-height:1.7;font-weight:400}
+    .footer-logo{display:flex;align-items:center;gap:8px;font-size:20px;font-weight:800;color:#fff;letter-spacing:-.3px}
+    .footer-logo-icon{height:26px;width:auto;display:block;filter:brightness(0) invert(1)}
+    .footer-links h4{font-size:11px;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:16px}
+    .footer-links ul{list-style:none}
+    .footer-links li{margin-bottom:10px}
+    .footer-links a{color:rgba(214,226,226,.45);text-decoration:none;font-size:14px;transition:color var(--transition);font-weight:400}
+    .footer-links a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .footer-bottom p{font-size:13px;color:rgba(214,226,226,.3);font-weight:400}
+    .social-links{list-style:none}
+    .social-links li{margin-bottom:10px}
+    .social-links a{display:flex;align-items:center;gap:9px;color:rgba(214,226,226,.45);text-decoration:none;font-size:14px;transition:color var(--transition);font-weight:400}
+    .social-links a:hover{color:#fff}
+    .social-links svg{flex-shrink:0;opacity:.65;width:15px;height:15px}
+    .social-links a:hover svg{opacity:1}
     /* RESPONSIVE */
     @media(max-width:640px){
       .doc-body{padding:40px 4% 64px}
@@ -105,68 +125,22 @@
       .doc-hero h1{font-size:26px}
       .doc-section h2{font-size:18px}
     }
-  
-    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(35,45,66,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:68px;border-bottom:1px solid rgba(214,226,226,.08);transition:box-shadow 180ms cubic-bezier(.16,1,.3,1)}
-    nav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.2)}
-    .nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
-    .nav-logo-icon{height:30px;width:auto;display:block;filter:brightness(0) invert(1)}
-    .nav-logo-text{font-size:21px;font-weight:800;color:#fff;letter-spacing:-.5px}
-    .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
-    .nav-links a{color:rgba(214,226,226,.8);text-decoration:none;font-size:15px;font-weight:500;transition:color 180ms cubic-bezier(.16,1,.3,1)}
-    .nav-links a:hover{color:#fff}
-    .nav-cta{background:#fff!important;color:#232d42!important;padding:9px 20px!important;border-radius:9999px!important;font-weight:700!important;font-size:14px!important;transition:opacity 180ms cubic-bezier(.16,1,.3,1)!important;min-height:44px;display:inline-flex;align-items:center}
-    .nav-cta:hover{opacity:.85!important}
-    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;max-width:unset;min-width:44px;min-height:44px;align-items:center;justify-content:center}
-    .hamburger span{width:22px;height:2px;background:#fff;border-radius:2px;display:block;transition:all .3s;max-width:unset}
-    .mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:#232d42;padding:20px 6%;border-bottom:1px solid rgba(255,255,255,.08);z-index:99;box-shadow:0 8px 24px rgba(0,0,0,.3)}
-    .mobile-menu.open{display:flex;flex-direction:column;gap:18px}
-    .mobile-menu a{color:rgba(214,226,226,.8);text-decoration:none;font-size:16px;font-weight:500;padding:4px 0}
-    footer{background:#111621;color:#d6e2e2;padding:60px 6% 28px}
-    .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:48px}
-    .footer-brand p{font-size:13px;color:rgba(214,226,226,.45);margin-top:10px;max-width:240px;line-height:1.7;font-weight:400}
-    .footer-logo{display:flex;align-items:center;gap:8px;font-size:20px;font-weight:800;color:#fff;max-width:unset;letter-spacing:-.3px}
-    .footer-logo-icon{height:26px;width:auto;display:block;filter:brightness(0) invert(1)}
-    .footer-links h4{font-size:11px;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:16px}
-    .footer-links ul{list-style:none}
-    .footer-links li{margin-bottom:10px}
-    .footer-links a{color:rgba(214,226,226,.45);text-decoration:none;font-size:14px;transition:color 180ms cubic-bezier(.16,1,.3,1);font-weight:400}
-    .footer-links a:hover{color:#fff}
-    .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-    .footer-bottom p{font-size:13px;color:rgba(214,226,226,.3);font-weight:400}
-    .social-links{list-style:none}
-    .social-links li{margin-bottom:10px}
-    .social-links a{display:flex;align-items:center;gap:9px;color:rgba(214,226,226,.45);text-decoration:none;font-size:14px;transition:color 180ms cubic-bezier(.16,1,.3,1);font-weight:400}
-    .social-links a:hover{color:#fff}
-    .social-links svg{flex-shrink:0;opacity:.65;width:15px;height:15px}
-    .social-links a:hover svg{opacity:1}
-    @media(max-width:640px){.nav-links{display:none}.hamburger{display:flex}}
-</style>
+  </style>
 </head>
 <body>
-<nav id="mainNav">
-  <a href="index.html" class="nav-logo">
-    <img src="ergzo-icon.png" alt="Ergzo logo" class="nav-logo-icon" width="30" height="30"/>
-    <span class="nav-logo-text">ergzo</span>
+<nav class="doc-nav">
+  <a href="index.html" class="logo">
+    <img src="ergzo-icon.png" alt="Ergzo logo" width="26" height="26"/>
+    ergzo
   </a>
-  <ul class="nav-links">
-    <li><a href="index.html#features">Features</a></li>
-    <li><a href="index.html#tools">Tools</a></li>
-    <li><a href="index.html#blog">Blog</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
-    <li><a href="index.html#waitlist" class="nav-cta">Get Early Access</a></li>
-  </ul>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Open navigation menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="doc-nav-links">
+    <a href="index.html#features">Features</a>
+    <a href="index.html#tools">Tools</a>
+    <a href="index.html#blog">Blog</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#waitlist" class="doc-nav-cta">Get Early Access</a>
+  </div>
 </nav>
-<div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
-  <a href="index.html#features" onclick="toggleMenu()">Features</a>
-  <a href="index.html#tools" onclick="toggleMenu()">Tools</a>
-  <a href="index.html#blog" onclick="toggleMenu()">Blog</a>
-  <a href="index.html#contact" onclick="toggleMenu()">Contact</a>
-  <a href="support.html" onclick="toggleMenu()">Support</a>
-  <a href="index.html#waitlist" onclick="toggleMenu()" style="color:#F39C12;font-weight:700">Get Early Access &#x2192;</a>
-</div>
 
 <div class="doc-hero">
   <div class="doc-hero-inner">
@@ -414,10 +388,5 @@
     <p>Made with &#x2764;&#xFE0F; for safer workplaces</p>
   </div>
 </footer>
-<script>
-window.addEventListener('scroll',function(){document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>10)},{passive:true});
-function toggleMenu(){var m=document.getElementById('mobileMenu');var h=document.querySelector('.hamburger');var o=m.classList.toggle('open');h.setAttribute('aria-expanded',o);h.setAttribute('aria-label',o?'Close navigation menu':'Open navigation menu')}
-document.addEventListener('click',function(e){var m=document.getElementById('mobileMenu');var h=document.querySelector('.hamburger');if(m&&h&&!m.contains(e.target)&&!h.contains(e.target)){m.classList.remove('open');h.setAttribute('aria-expanded','false')}});
-</script>
 </body>
 </html>
