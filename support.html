@@ -23,14 +23,10 @@
       --transition:180ms cubic-bezier(.16,1,.3,1);
     }
     /* NAV */
-    .doc-nav{background:#232d42;padding:0 6%;height:68px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.06)}
-    .doc-nav a.logo{font-size:21px;font-weight:800;color:#fff;text-decoration:none;letter-spacing:-.5px;display:flex;align-items:center;gap:8px}
     .doc-nav a.logo img{height:26px;width:auto;filter:brightness(0) invert(1)}
-    .doc-nav a.back{font-size:14px;color:rgba(214,226,226,.65);text-decoration:none;font-weight:500;display:flex;align-items:center;gap:6px;transition:color var(--transition)}
-    .doc-nav a.back:hover{color:#fff}
     .doc-nav a.back svg{width:16px;height:16px}
     /* HERO BAND */
-    .doc-hero{background:#232d42;padding:52px 6% 48px;border-bottom:1px solid rgba(255,255,255,.06)}
+    .doc-hero{background:#232d42;padding:52px 6% 48px;border-bottom:1px solid rgba(255,255,255,.06);margin-top:68px}
     .doc-hero-inner{max-width:760px;margin:0 auto}
     .doc-tag{display:inline-block;background:rgba(255,255,255,.1);color:#d6e2e2;font-size:11px;font-weight:600;padding:5px 14px;border-radius:var(--radius-full);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:14px}
     .doc-hero h1{font-size:clamp(28px,4vw,42px);font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.1;margin-bottom:10px;text-wrap:balance}
@@ -109,19 +105,68 @@
       .doc-hero h1{font-size:26px}
       .doc-section h2{font-size:18px}
     }
-  </style>
+  
+    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(35,45,66,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:68px;border-bottom:1px solid rgba(214,226,226,.08);transition:box-shadow 180ms cubic-bezier(.16,1,.3,1)}
+    nav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.2)}
+    .nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+    .nav-logo-icon{height:30px;width:auto;display:block;filter:brightness(0) invert(1)}
+    .nav-logo-text{font-size:21px;font-weight:800;color:#fff;letter-spacing:-.5px}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+    .nav-links a{color:rgba(214,226,226,.8);text-decoration:none;font-size:15px;font-weight:500;transition:color 180ms cubic-bezier(.16,1,.3,1)}
+    .nav-links a:hover{color:#fff}
+    .nav-cta{background:#fff!important;color:#232d42!important;padding:9px 20px!important;border-radius:9999px!important;font-weight:700!important;font-size:14px!important;transition:opacity 180ms cubic-bezier(.16,1,.3,1)!important;min-height:44px;display:inline-flex;align-items:center}
+    .nav-cta:hover{opacity:.85!important}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;max-width:unset;min-width:44px;min-height:44px;align-items:center;justify-content:center}
+    .hamburger span{width:22px;height:2px;background:#fff;border-radius:2px;display:block;transition:all .3s;max-width:unset}
+    .mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:#232d42;padding:20px 6%;border-bottom:1px solid rgba(255,255,255,.08);z-index:99;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+    .mobile-menu.open{display:flex;flex-direction:column;gap:18px}
+    .mobile-menu a{color:rgba(214,226,226,.8);text-decoration:none;font-size:16px;font-weight:500;padding:4px 0}
+    footer{background:#111621;color:#d6e2e2;padding:60px 6% 28px}
+    .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:48px}
+    .footer-brand p{font-size:13px;color:rgba(214,226,226,.45);margin-top:10px;max-width:240px;line-height:1.7;font-weight:400}
+    .footer-logo{display:flex;align-items:center;gap:8px;font-size:20px;font-weight:800;color:#fff;max-width:unset;letter-spacing:-.3px}
+    .footer-logo-icon{height:26px;width:auto;display:block;filter:brightness(0) invert(1)}
+    .footer-links h4{font-size:11px;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:16px}
+    .footer-links ul{list-style:none}
+    .footer-links li{margin-bottom:10px}
+    .footer-links a{color:rgba(214,226,226,.45);text-decoration:none;font-size:14px;transition:color 180ms cubic-bezier(.16,1,.3,1);font-weight:400}
+    .footer-links a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .footer-bottom p{font-size:13px;color:rgba(214,226,226,.3);font-weight:400}
+    .social-links{list-style:none}
+    .social-links li{margin-bottom:10px}
+    .social-links a{display:flex;align-items:center;gap:9px;color:rgba(214,226,226,.45);text-decoration:none;font-size:14px;transition:color 180ms cubic-bezier(.16,1,.3,1);font-weight:400}
+    .social-links a:hover{color:#fff}
+    .social-links svg{flex-shrink:0;opacity:.65;width:15px;height:15px}
+    .social-links a:hover svg{opacity:1}
+    @media(max-width:640px){.nav-links{display:none}.hamburger{display:flex}}
+</style>
 </head>
 <body>
-<nav class="doc-nav">
-  <a href="index.html" class="logo">
-    <img src="ergzo-icon.png" alt="Ergzo logo" width="26" height="26"/>
-    ergzo
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <img src="ergzo-icon.png" alt="Ergzo logo" class="nav-logo-icon" width="30" height="30"/>
+    <span class="nav-logo-text">ergzo</span>
   </a>
-  <a href="index.html" class="back">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-    Back to Home
-  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#features">Features</a></li>
+    <li><a href="index.html#tools">Tools</a></li>
+    <li><a href="index.html#blog">Blog</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="index.html#waitlist" class="nav-cta">Get Early Access</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Open navigation menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+  <a href="index.html#features" onclick="toggleMenu()">Features</a>
+  <a href="index.html#tools" onclick="toggleMenu()">Tools</a>
+  <a href="index.html#blog" onclick="toggleMenu()">Blog</a>
+  <a href="index.html#contact" onclick="toggleMenu()">Contact</a>
+  <a href="support.html" onclick="toggleMenu()">Support</a>
+  <a href="index.html#waitlist" onclick="toggleMenu()" style="color:#F39C12;font-weight:700">Get Early Access &#x2192;</a>
+</div>
 
 <div class="doc-hero">
   <div class="doc-hero-inner">
@@ -349,7 +394,30 @@
 </div>
 
 <footer>
-  <p>&#169; 2026 Ergzo Solutions Private Limited &#x2014; <a href="index.html">Home</a> <a href="privacy.html">Privacy</a> <a href="terms.html">Terms</a> <a href="mailto:support@ergzo.com">support@ergzo.com</a></p>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo"><img src="ergzo-icon.png" alt="Ergzo logo" class="footer-logo-icon" width="26" height="26"/>ergzo</div>
+      <p>AI-powered ergonomic assessment app for safety professionals, EHS teams, and managers worldwide.</p>
+    </div>
+    <div class="footer-links"><h4>Product</h4><ul><li><a href="index.html#features">Features</a></li><li><a href="index.html#tools">Assessment Tools</a></li><li><a href="index.html#waitlist">Join Waitlist</a></li></ul></div>
+    <div class="footer-links"><h4>Company</h4><ul><li><a href="index.html#blog">Blog</a></li><li><a href="index.html#contact">Contact</a></li><li><a href="support.html">Support</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
+    <div class="footer-links"><h4>Industries</h4><ul><li><a href="index.html#industries">Manufacturing</a></li><li><a href="index.html#industries">Construction</a></li><li><a href="index.html#industries">Warehouse</a></li><li><a href="index.html#industries">Office</a></li></ul></div>
+    <div class="footer-links"><h4>Follow Us</h4><ul class="social-links">
+      <li><a href="https://www.linkedin.com/company/ergzo/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.554v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.137 1.446-2.137 2.941v5.665H9.352V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.602 0 4.267 2.37 4.267 5.455v6.284zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span>ergzo</span></a></li>
+      <li><a href="https://x.com/ergzohealth" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span>ergzohealth</span></a></li>
+      <li><a href="https://www.instagram.com/ergzohealth" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg><span>ergzohealth</span></a></li>
+      <li><a href="https://www.facebook.com/share/187gWZDqZg/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg><span>ergzo</span></a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>&#169; 2026 Ergzo Solutions Private Limited. All rights reserved.</p>
+    <p>Made with &#x2764;&#xFE0F; for safer workplaces</p>
+  </div>
 </footer>
+<script>
+window.addEventListener('scroll',function(){document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>10)},{passive:true});
+function toggleMenu(){var m=document.getElementById('mobileMenu');var h=document.querySelector('.hamburger');var o=m.classList.toggle('open');h.setAttribute('aria-expanded',o);h.setAttribute('aria-label',o?'Close navigation menu':'Open navigation menu')}
+document.addEventListener('click',function(e){var m=document.getElementById('mobileMenu');var h=document.querySelector('.hamburger');if(m&&h&&!m.contains(e.target)&&!h.contains(e.target)){m.classList.remove('open');h.setAttribute('aria-expanded','false')}});
+</script>
 </body>
 </html>
