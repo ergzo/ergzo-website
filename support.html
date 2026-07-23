@@ -6,22 +6,70 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Support Policy &#x2014; Ergzo</title>
-  <meta name="description" content="Ergzo support channels, response times, bug reporting, and data subject requests."/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"/>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+  <meta name="referrer" content="strict-origin-when-cross-origin"/>
+  <title>Support &amp; Help Centre | Ergzo</title>
+  <meta name="description" content="Ergzo support channels, response times by plan tier, bug reporting process, security disclosure and data subject requests. Contact support@ergzo.com."/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="Ergzo Solutions Private Limited"/>
   <link rel="canonical" href="https://www.ergzo.com/support.html"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="icon" type="image/png" href="ergzo-icon.png"/>
+  <meta property="og:site_name" content="Ergzo"/>
+  <meta property="og:locale" content="en_IN"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Support &amp; Help Centre | Ergzo"/>
+  <meta property="og:description" content="Support channels, response times, bug reporting and data subject requests."/>
+  <meta property="og:url" content="https://www.ergzo.com/support.html"/>
+  <meta property="og:image" content="https://www.ergzo.com/ergzo-icon.png"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:site" content="@ergzohealth"/>
   <style>
     body{font-family:'Inter',sans-serif;font-feature-settings:"cv11","ss01";font-weight:400;background:#F4F7F7;color:#111621;line-height:1.7;margin:0;padding:0}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     img{max-width:100%;height:auto}
     :root{
-      --ink:#111621;--indigo:#232d42;--twilight:#354463;--alabaster:#d6e2e2;
-      --platinum:#F4F7F7;--success:#27AE60;--warning:#F39C12;--white:#ffffff;
-      --radius-full:9999px;--radius-xl:1.25rem;
+      /* Brand */
+      --ink:#111621;--indigo:#232d42;--twilight:#354463;
+      --alabaster:#d6e2e2;--platinum:#F4F7F7;--white:#ffffff;
+      /* Semantic */
+      --success:#27AE60;--warning:#F39C12;--danger:#E74C3C;
+      /* Text */
+      --text-body:#354463;--text-muted:#5a6a7a;--text-faint:#8a9aaa;
+      --border-soft:#e8eef0;--border-mid:#d6e2e2;--border-strong:#b8cccc;
+      /* Type scale */
+      --text-xs:clamp(.75rem,.7rem + .2vw,.8125rem);
+      --text-sm:clamp(.8125rem,.78rem + .25vw,.9375rem);
+      --text-base:clamp(.9375rem,.9rem + .2vw,1rem);
+      --text-lg:clamp(1rem,.95rem + .35vw,1.125rem);
+      --text-xl:clamp(1.25rem,1rem + 1vw,1.75rem);
+      --text-2xl:clamp(1.75rem,1.2rem + 2vw,2.75rem);
+      --text-hero:clamp(2.375rem,1rem + 5vw,4.5rem);
+      --text-page-h1:clamp(1.625rem,1.1rem + 2.2vw,2.625rem);
+      /* Spacing */
+      --space-section:clamp(4rem,3rem + 4vw,6rem);
+      --space-hero:clamp(3.5rem,2.5rem + 4vw,5rem);
+      /* Layout */
+      --nav-h:68px;--container-doc:760px;--container-wide:1100px;
+      /* Radius / shadow / motion */
+      --radius-sm:.375rem;--radius-md:.5rem;--radius-lg:.75rem;
+      --radius-xl:1.25rem;--radius-full:9999px;
       --shadow-card:0 4px 20px rgba(17,22,33,.08);
+      --shadow-lift:0 10px 36px rgba(35,45,66,.1);
+      --shadow-phone:0 32px 64px rgba(0,0,0,.6),0 8px 24px rgba(0,0,0,.4);
       --transition:180ms cubic-bezier(.16,1,.3,1);
     }
+    .doc-nav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.2)}
+    .skip-link{position:absolute;top:-48px;left:0;padding:10px 16px;background:var(--indigo);color:#fff;font-size:14px;font-weight:600;z-index:9999;border-radius:0 0 8px 0;transition:top .2s;text-decoration:none}
+    .skip-link:focus{top:0}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;min-width:44px;min-height:44px;align-items:center;justify-content:center}
+    .hamburger span{width:22px;height:2px;background:#fff;border-radius:2px;display:block;transition:all .3s}
+    .mobile-menu{display:none;position:absolute;top:var(--nav-h);left:0;right:0;background:var(--indigo);padding:20px 6%;border-bottom:1px solid rgba(255,255,255,.08);z-index:99;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+    .mobile-menu.open{display:flex;flex-direction:column;gap:18px}
+    .mobile-menu a{color:rgba(214,226,226,.8);text-decoration:none;font-size:16px;font-weight:500;padding:4px 0}
     /* NAV */
-    .doc-nav{background:#232d42;padding:0 6%;height:68px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.06)}
+    .doc-nav{background:var(--indigo);transition:box-shadow var(--transition);padding:0 6%;height:68px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.06)}
     .doc-nav a.logo{font-size:21px;font-weight:800;color:#fff;text-decoration:none;letter-spacing:-.5px;display:flex;align-items:center;gap:8px}
     .doc-nav a.logo img{height:26px;width:auto;filter:brightness(0) invert(1)}
     .doc-nav-links{display:flex;align-items:center;gap:28px}
@@ -29,12 +77,25 @@
     .doc-nav-links a:hover{color:#fff}
     .doc-nav-links a.doc-nav-cta{background:#fff;color:#232d42;padding:9px 20px;border-radius:var(--radius-full);font-weight:700;font-size:14px}
     .doc-nav-links a.doc-nav-cta:hover{opacity:.85;color:#232d42}
-    @media(max-width:640px){.doc-nav-links{display:none}}
+    /* ===== iPad / tablet 641-1024px ===== */
+    @media(min-width:641px) and (max-width:1024px){
+      .doc-nav{padding:0 4%}
+      .doc-nav-links{gap:20px}
+      .doc-nav-links a{font-size:14px}
+      .doc-nav-links a.doc-nav-cta{padding:8px 16px;font-size:13px}
+      .doc-body{padding-left:5%;padding-right:5%}
+      .doc-hero{padding-left:5%;padding-right:5%}
+      footer{padding:48px 4% 24px}
+      .footer-top{gap:32px}
+      .footer-brand{flex:1 1 100%;margin-bottom:8px}
+      .footer-links{flex:1 1 calc(50% - 16px);min-width:160px}
+    }
+    @media(max-width:640px){.doc-nav-links{display:none}.hamburger{display:flex}}
     /* HERO BAND */
-    .doc-hero{background:#232d42;padding:52px 6% 48px;border-bottom:1px solid rgba(255,255,255,.06)}
+    .doc-hero{background:var(--indigo);padding:var(--space-hero) 6% calc(var(--space-hero) * .85);border-bottom:1px solid rgba(255,255,255,.06)}
     .doc-hero-inner{max-width:760px;margin:0 auto}
     .doc-tag{display:inline-block;background:rgba(255,255,255,.1);color:#d6e2e2;font-size:11px;font-weight:600;padding:5px 14px;border-radius:var(--radius-full);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:14px}
-    .doc-hero h1{font-size:clamp(28px,4vw,42px);font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.1;margin-bottom:10px;text-wrap:balance}
+    .doc-hero h1{font-size:var(--text-page-h1);font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.1;margin-bottom:10px;text-wrap:balance}
     .doc-hero .meta{font-size:13px;color:rgba(214,226,226,.45);font-weight:400}
     /* QUICK CONTACT BAR */
     .quick-bar{background:#fff;border-bottom:1px solid #d6e2e2}
@@ -45,7 +106,7 @@
     .quick-item a:hover{text-decoration:underline}
     .quick-sep{width:1px;height:16px;background:#d6e2e2;flex-shrink:0}
     /* BODY */
-    .doc-body{max-width:760px;margin:0 auto;padding:52px 6% 96px}
+    .doc-body{max-width:var(--container-doc);margin:0 auto;padding:52px 6% 96px}
     /* SECTION NAV / TOC */
     .toc{background:#fff;border:1px solid #d6e2e2;border-radius:var(--radius-xl);padding:24px 28px;margin-bottom:48px}
     .toc-title{font-size:11px;font-weight:700;color:#354463;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:14px}
@@ -128,7 +189,9 @@
   </style>
 </head>
 <body>
-<nav class="doc-nav">
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav class="doc-nav" id="mainNav">
   <a href="index.html" class="logo">
     <img src="ergzo-icon.png" alt="Ergzo logo" width="26" height="26"/>
     ergzo
@@ -140,7 +203,18 @@
     <a href="index.html#contact">Contact</a>
     <a href="index.html#waitlist" class="doc-nav-cta">Get Early Access</a>
   </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Open navigation menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+  <a href="index.html#features" onclick="toggleMenu()">Features</a>
+  <a href="index.html#tools" onclick="toggleMenu()">Tools</a>
+  <a href="index.html#blog" onclick="toggleMenu()">Blog</a>
+  <a href="index.html#contact" onclick="toggleMenu()">Contact</a>
+  <a href="support.html" onclick="toggleMenu()">Support</a>
+  <a href="index.html#waitlist" onclick="toggleMenu()" style="color:#F39C12;font-weight:700">Get Early Access &#x2192;</a>
+</div>
 
 <div class="doc-hero">
   <div class="doc-hero-inner">
@@ -169,7 +243,7 @@
   </div>
 </div>
 
-<div class="doc-body">
+<div class="doc-body" id="main">
   <!-- TOC -->
   <nav class="toc" aria-label="Page contents">
     <div class="toc-title">Contents</div>
@@ -388,5 +462,14 @@
     <p>Made with &#x2764;&#xFE0F; for safer workplaces</p>
   </div>
 </footer>
+<script>
+window.addEventListener('scroll',function(){document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>10)},{passive:true});
+function toggleMenu(){var m=document.getElementById('mobileMenu');var h=document.querySelector('.hamburger');var o=m.classList.toggle('open');h.setAttribute('aria-expanded',o);h.setAttribute('aria-label',o?'Close navigation menu':'Open navigation menu')}
+document.addEventListener('click',function(e){var m=document.getElementById('mobileMenu');var h=document.querySelector('.hamburger');if(m&&h&&!m.contains(e.target)&&!h.contains(e.target)){m.classList.remove('open');h.setAttribute('aria-expanded','false')}});
+</script>
+<script>
+/* Clickjacking fallback - CSP frame-ancestors is primary defence */
+if (window.top !== window.self) { window.top.location = window.self.location; }
+</script>
 </body>
 </html>
