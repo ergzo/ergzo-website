@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- PHONE SCREENSHOTS: export app screen only (no device frame), aspect ~9:19.5 (e.g. 1206x2622). Name them: screen-dashboard.jpg, screen-camera.jpg, screen-score.jpg, screen-highrisk.jpg, screen-actionplan.jpg, screen-roi.jpg. They fill the frame; the 9:41 status bar + Dynamic Island are drawn by CSS on top. -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -324,21 +324,14 @@
     @media(max-width:640px){.ref-table{min-width:600px}.ref-table th,.ref-table td{padding:11px 14px;font-size:13px}}
     .btn-arrow{display:inline-block;font-size:1.05em;line-height:1;transform:translateY(-1px);transition:transform var(--transition)}
     button:hover .btn-arrow{transform:translate(2px,-1px)}
-    /* ===== iPhone 17 Pro frame (Figma overlay; screenshot sits behind) ===== */
-    .feature-iphone{position:relative;width:250px;max-width:unset;aspect-ratio:779/1569;
-      filter:drop-shadow(0 22px 44px rgba(17,22,33,.30)) drop-shadow(0 6px 14px rgba(17,22,33,.16))}
+    .feature-iphone.side
+    .feature-iphone.center
+    /* phone mockups (frame + screen baked into each PNG) */
+    .feature-iphone{position:relative;width:250px;max-width:unset;display:block;
+      filter:drop-shadow(0 18px 34px rgba(17,22,33,.24)) drop-shadow(0 5px 12px rgba(17,22,33,.12))}
     .feature-iphone.side{width:216px}
     .feature-iphone.center{width:262px}
-    /* screen window: measured L/R 3.21%, top 1.21%, bottom 1.34% */
-    .ip-shot{position:absolute;top:1.21%;left:3.21%;right:3.21%;bottom:1.34%;
-      border-radius:13.4%/6.4%;overflow:hidden;background:#eef1f3;z-index:1}
-    .ip-shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
-    /* faint placeholder shown when no screenshot is present */
-    .ip-shot::after{content:"";position:absolute;top:50%;left:50%;width:17%;aspect-ratio:1;
-      transform:translate(-50%,-50%);border:2px solid rgba(140,152,164,.28);border-radius:22%;
-      background:linear-gradient(rgba(140,152,164,.3),rgba(140,152,164,.3)) center/40% 2px no-repeat,
-                 linear-gradient(rgba(140,152,164,.3),rgba(140,152,164,.3)) center/2px 40% no-repeat;z-index:-1}
-    .ip-frame{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:2;pointer-events:none}
+    .phone-img{display:block;width:100%;height:auto}
     /* FOOTER */
     footer{background:var(--ink);color:var(--alabaster);padding:60px 6% 28px}
     .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:48px}
@@ -493,13 +486,13 @@
   </div>
   <div class="phones-row">
     <div class="iphone-wrap">
-      <div class="feature-iphone side"><div class="ip-shot"><img src="screen-dashboard.jpg" alt="Ergzo company dashboard" loading="lazy" onerror="this.onerror=null;this.style.display='none'"/></div><img class="ip-frame" src="iphone17-frame.png" alt="" aria-hidden="true"/></div>
+      <div class="feature-iphone side"><img class="phone-img" src="phone-dashboard.png" alt="Ergzo dashboard: sessions, assessments, average score and high-risk count" loading="lazy"/></div>
     </div>
     <div class="iphone-wrap center-phone">
-      <div class="feature-iphone center"><div class="ip-shot"><img src="screen-camera.jpg" alt="Ergzo AI camera real-time pose detection" loading="lazy" onerror="this.onerror=null;this.style.display='none'"/></div><img class="ip-frame" src="iphone17-frame.png" alt="" aria-hidden="true"/></div>
+      <div class="feature-iphone center"><img class="phone-img" src="phone-camera.png" alt="Ergzo AI camera scoring worker posture in real time" loading="lazy"/></div>
     </div>
     <div class="iphone-wrap" style="transform:perspective(800px) rotateY(-14deg) translateY(20px)">
-      <div class="feature-iphone side"><div class="ip-shot"><img src="screen-score.jpg" alt="Ergzo RULA score and body risk map" loading="lazy" onerror="this.onerror=null;this.style.display='none'"/></div><img class="ip-frame" src="iphone17-frame.png" alt="" aria-hidden="true"/></div>
+      <div class="feature-iphone side"><img class="phone-img" src="phone-score.png" alt="Ergzo RULA score with joint-by-joint body risk map" loading="lazy"/></div>
     </div>
   </div>
 </section>
@@ -584,7 +577,7 @@
         </div>
       </div>
       <div class="feature-visual-wrap">
-        <div class="feature-iphone"><div class="ip-shot"><img src="screen-camera.jpg" alt="Ergzo AI camera real-time pose detection" loading="lazy" onerror="this.onerror=null;this.style.display='none'"/></div><img class="ip-frame" src="iphone17-frame.png" alt="" aria-hidden="true"/></div>
+        <div class="feature-iphone"><img class="phone-img" src="phone-camera.png" alt="Ergzo AI camera scoring worker posture in real time" loading="lazy"/></div>
       </div>
     </div>
     <div class="feature-block reverse" data-aos="fade-up">
@@ -600,7 +593,7 @@
         </div>
       </div>
       <div class="feature-visual-wrap">
-        <div class="feature-iphone"><div class="ip-shot"><img src="screen-highrisk.jpg" alt="Ergzo high-risk body parts and recommendations" loading="lazy" onerror="this.onerror=null;this.style.display='none'"/></div><img class="ip-frame" src="iphone17-frame.png" alt="" aria-hidden="true"/></div>
+        <div class="feature-iphone"><img class="phone-img" src="phone-highrisk.png" alt="Ergzo high-risk body parts with AI recommendations" loading="lazy"/></div>
       </div>
     </div>
     <div class="feature-block" data-aos="fade-up">
@@ -617,7 +610,7 @@
         </div>
       </div>
       <div class="feature-visual-wrap">
-        <div class="feature-iphone"><div class="ip-shot"><img src="screen-actionplan.jpg" alt="Ergzo prioritised action plan" loading="lazy" onerror="this.onerror=null;this.style.display='none'"/></div><img class="ip-frame" src="iphone17-frame.png" alt="" aria-hidden="true"/></div>
+        <div class="feature-iphone"><img class="phone-img" src="phone-actionplan.png" alt="Ergzo prioritised action plan" loading="lazy"/></div>
       </div>
     </div>
     <div class="feature-block reverse" data-aos="fade-up">
@@ -634,7 +627,7 @@
         </div>
       </div>
       <div class="feature-visual-wrap">
-        <div class="feature-iphone"><div class="ip-shot"><img src="screen-roi.jpg" alt="Ergzo before and after ROI with payback" loading="lazy" onerror="this.onerror=null;this.style.display='none'"/></div><img class="ip-frame" src="iphone17-frame.png" alt="" aria-hidden="true"/></div>
+        <div class="feature-iphone"><img class="phone-img" src="phone-roi.png" alt="Ergzo before and after scoring with payback period" loading="lazy"/></div>
       </div>
     </div>
   </div>
