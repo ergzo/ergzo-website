@@ -179,13 +179,13 @@
     .risk-vhi{background:rgba(153,27,27,.25);color:#fca5a5;border:1px solid rgba(153,27,27,.3)}
     .risk-bar-label{font-size:12px;color:rgba(214,226,226,.4);font-weight:400;width:100%;text-align:center;margin-top:2px}
     /* phone mockups (frame + screen baked into each PNG) — sizes match original */
-    .feature-iphone{position:relative;width:279px;max-width:unset;display:block}
-    .feature-iphone.side{width:244px}
-    .feature-iphone.center{width:279px}
-    .feature-visual-wrap .feature-iphone{width:244px}
+    .feature-iphone{position:relative;width:255px;max-width:unset;display:block}
+    .feature-iphone.side{width:223px}
+    .feature-iphone.center{width:255px}
+    .feature-visual-wrap .feature-iphone{width:223px}
     .phone-img{display:block;width:100%;height:auto}
     @media(max-width:640px){
-      .feature-iphone,.feature-iphone.side{width:29vw}
+      .feature-iphone,.feature-iphone.side{width:29.5vw}
       .feature-iphone.center{width:34vw}
       .feature-visual-wrap .feature-iphone{width:100%;max-width:220px}
       .tools-grid{grid-template-columns:repeat(3,1fr);gap:8px}.hero-risk-bar{gap:6px}.risk-bar-label{font-size:11px}}
@@ -357,6 +357,12 @@
     /* RESPONSIVE */
     /* ===== iPad / tablet 641-1024px ===== */
     @media(min-width:641px) and (max-width:1024px){
+      .phones-row{gap:0;margin-bottom:-3%}
+      .hero{padding-bottom:32px}
+      .users-section{padding-top:56px}
+      .feature-iphone.side{width:196px}
+      .feature-iphone.center{width:224px}
+      .feature-visual-wrap .feature-iphone{width:196px}
       footer{padding:52px 4% 26px}
       .footer-top{gap:28px 32px}
       .footer-brand{flex:1 1 100%;margin-bottom:4px}
@@ -374,10 +380,10 @@
       .contact-inner{gap:48px}
     }
     @media(max-width:900px){
-      .feature-iphone{width:232px}
-      .feature-iphone.side{width:209px}
-      .feature-iphone.center{width:232px}
-      .feature-visual-wrap .feature-iphone{width:209px}
+      .feature-iphone{width:212px}
+      .feature-iphone.side{width:191px}
+      .feature-iphone.center{width:212px}
+      .feature-visual-wrap .feature-iphone{width:191px}
       .feat-grid{grid-template-columns:repeat(2,1fr)}
       .feature-block{grid-template-columns:1fr;gap:40px}
       .feature-block.reverse .feature-content{order:0}
@@ -389,14 +395,18 @@
       .industry-grid{grid-template-columns:repeat(2,auto)}
     }
     @media(max-width:640px){
-      .phones-row{gap:0;padding:0 1%;justify-content:center;align-items:flex-end;overflow:visible}
+      .hero{padding-bottom:0}
+      .users-section{padding-top:40px}
+      [data-aos]{opacity:1!important;transform:none!important;transition:none!important;animation:none!important}
+      .feature-block{gap:28px}
+      .phones-row{gap:0;padding:0;justify-content:center;align-items:flex-end;overflow:visible;margin-bottom:-4%}
       .iphone-wrap{transform:perspective(700px) rotateY(8deg) translateY(10px)!important;flex-shrink:1;min-width:0}
       .iphone-wrap:last-child{transform:perspective(700px) rotateY(-8deg) translateY(10px)!important}
       .iphone-wrap.center-phone{transform:none!important}
       .iphone-wrap:hover,.iphone-wrap:last-child:hover,.iphone-wrap.center-phone:hover{transform:inherit!important}
-      .feature-iphone,.feature-iphone.side{width:29vw}
+      .feature-iphone,.feature-iphone.side{width:29.5vw}
       .feature-iphone.center{width:34vw}
-      .feature-visual-wrap .feature-iphone{width:100%;max-width:232px}
+      .feature-visual-wrap .feature-iphone{width:100%;max-width:250px}
       footer{padding:44px 6% 24px}
       .footer-top{flex-direction:column;gap:26px;margin-bottom:32px}
       .footer-brand{flex:1 1 auto}
@@ -429,9 +439,9 @@
       .industry-pill{padding:10px 16px;font-size:13px}
     }
     @media(max-width:400px){
-      .feature-iphone,.feature-iphone.side{width:28vw}
-      .feature-iphone.center{width:31vw}
-      .feature-visual-wrap .feature-iphone{width:100%;max-width:232px}
+      .feature-iphone,.feature-iphone.side{width:28.5vw}
+      .feature-iphone.center{width:33vw}
+      .feature-visual-wrap .feature-iphone{width:100%;max-width:250px}
       section{padding:64px 4%}
       .users-grid,.blog-grid,.feat-grid{grid-template-columns:1fr}
       .user-card,.feat-card{padding:24px 18px}
