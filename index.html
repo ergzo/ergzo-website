@@ -149,6 +149,10 @@
       --shadow-lift:0 10px 36px rgba(35,45,66,.1);
       --shadow-phone:0 32px 64px rgba(0,0,0,.6),0 8px 24px rgba(0,0,0,.4);
       --transition:180ms cubic-bezier(.16,1,.3,1);
+      /* phone mockup scale — image width = visible width x 1.061 */
+      --phone-side:249px;   /* hero left/right  ~235px visible */
+      --phone-center:287px; /* hero centre      ~270px visible */
+      --phone-feat:265px;   /* feature blocks   ~250px visible */
     }
     /* NAVBAR */
     nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(35,45,66,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:68px;border-bottom:1px solid rgba(214,226,226,.08);transition:box-shadow var(--transition)}
@@ -179,14 +183,14 @@
     .risk-vhi{background:rgba(153,27,27,.25);color:#fca5a5;border:1px solid rgba(153,27,27,.3)}
     .risk-bar-label{font-size:12px;color:rgba(214,226,226,.4);font-weight:400;width:100%;text-align:center;margin-top:2px}
     /* phone mockups (frame + screen baked into each PNG) — sizes match original */
-    .feature-iphone{position:relative;width:255px;max-width:unset;display:block}
-    .feature-iphone.side{width:223px}
-    .feature-iphone.center{width:255px}
-    .feature-visual-wrap .feature-iphone{width:223px}
+    .feature-iphone{position:relative;width:var(--phone-center);max-width:unset;display:block}
+    .feature-iphone.side{width:var(--phone-side)}
+    .feature-iphone.center{width:var(--phone-center)}
+    .feature-visual-wrap .feature-iphone{width:var(--phone-feat)}
     .phone-img{display:block;width:100%;height:auto}
     @media(max-width:640px){
-      .feature-iphone,.feature-iphone.side{width:29.5vw}
-      .feature-iphone.center{width:34vw}
+      .feature-iphone,.feature-iphone.side{width:30vw}
+      .feature-iphone.center{width:34.5vw}
       .feature-visual-wrap .feature-iphone{width:100%;max-width:220px}
       .tools-grid{grid-template-columns:repeat(3,1fr);gap:8px}.hero-risk-bar{gap:6px}.risk-bar-label{font-size:11px}}
     /* HERO */
@@ -360,9 +364,7 @@
       .phones-row{gap:0;margin-bottom:-3%}
       .hero{padding-bottom:32px}
       .users-section{padding-top:56px}
-      .feature-iphone.side{width:196px}
-      .feature-iphone.center{width:224px}
-      .feature-visual-wrap .feature-iphone{width:196px}
+      :root{--phone-side:212px;--phone-center:244px;--phone-feat:228px}
       footer{padding:52px 4% 26px}
       .footer-top{gap:28px 32px}
       .footer-brand{flex:1 1 100%;margin-bottom:4px}
@@ -380,11 +382,8 @@
       .contact-inner{gap:48px}
     }
     @media(max-width:900px){
-      .feature-iphone{width:212px}
-      .feature-iphone.side{width:191px}
-      .feature-iphone.center{width:212px}
-      .feature-visual-wrap .feature-iphone{width:191px}
-      .feat-grid{grid-template-columns:repeat(2,1fr)}
+      :root{--phone-side:212px;--phone-center:244px;--phone-feat:228px}
+            .feat-grid{grid-template-columns:repeat(2,1fr)}
       .feature-block{grid-template-columns:1fr;gap:40px}
       .feature-block.reverse .feature-content{order:0}
       .feature-block.reverse .feature-visual-wrap{order:0}
@@ -404,9 +403,9 @@
       .iphone-wrap:last-child{transform:perspective(700px) rotateY(-8deg) translateY(10px)!important}
       .iphone-wrap.center-phone{transform:none!important}
       .iphone-wrap:hover,.iphone-wrap:last-child:hover,.iphone-wrap.center-phone:hover{transform:inherit!important}
-      .feature-iphone,.feature-iphone.side{width:29.5vw}
-      .feature-iphone.center{width:34vw}
-      .feature-visual-wrap .feature-iphone{width:100%;max-width:250px}
+      .feature-iphone,.feature-iphone.side{width:30vw}
+      .feature-iphone.center{width:34.5vw}
+      .feature-visual-wrap .feature-iphone{width:100%;max-width:268px}
       footer{padding:44px 6% 24px}
       .footer-top{flex-direction:column;gap:26px;margin-bottom:32px}
       .footer-brand{flex:1 1 auto}
@@ -441,7 +440,7 @@
     @media(max-width:400px){
       .feature-iphone,.feature-iphone.side{width:28.5vw}
       .feature-iphone.center{width:33vw}
-      .feature-visual-wrap .feature-iphone{width:100%;max-width:250px}
+      .feature-visual-wrap .feature-iphone{width:100%;max-width:268px}
       section{padding:64px 4%}
       .users-grid,.blog-grid,.feat-grid{grid-template-columns:1fr}
       .user-card,.feat-card{padding:24px 18px}
