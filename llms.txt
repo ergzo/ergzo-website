@@ -1,0 +1,72 @@
+# Ergzo
+
+> AI-powered ergonomic risk assessment for workplaces. Ergzo turns any smartphone
+> camera into an ergonomic assessment tool, scoring musculoskeletal risk with 15
+> globally validated methods and producing instant reports, body-part risk maps
+> and corrective action plans.
+
+Ergzo is built by Ergzo Solutions Private Limited (India) for EHS professionals,
+safety managers, occupational health teams, ergonomists and factory managers.
+The product is currently pre-launch and operating a waitlist for iOS and Android.
+
+## What Ergzo does
+
+- **AI pose detection** — analyses a worker's posture from a phone camera or an
+  uploaded photo/video. No wearables, sensors or specialist hardware.
+- **15 validated assessment tools** — REBA, RULA, ROSA, WISHA, SNOOK, NIOSH,
+  WERA, QEC, CMDQ, JSI, MAC, OCRA, MANTRA, OWAS and PATH.
+- **Instant risk scoring** — colour-coded risk bands (low, medium, high, very
+  high) with a joint-by-joint body risk map.
+- **Corrective action plans** — prioritised recommendations grouped by urgency.
+- **Before/after intervention tracking** — re-assess after a fix and compare
+  scores side by side, with estimated payback period.
+- **Team analytics** — department-wise risk distribution, assessment history and
+  estimated annual injury exposure.
+- **Reporting** — branded PDF reports plus CSV and Excel export for compliance
+  records.
+
+## Team
+
+- **Founder — Dr. Tanay Prabhu Lawande, MBBS, AFIH.** An occupational health
+  physician. AFIH (Associate Fellowship in Industrial Health) is the
+  qualification India requires of a Factory Medical Officer. Previously a site
+  doctor in construction, and Factory Medical Officer and Occupational Health
+  Physician at Crompton.
+- **Co-founder — Vaibhavi Prabhu Lawande.** An IT engineer by education. Works on
+  the application alongside the founder and owns brand, content and demand
+  generation, including outreach at industry expos.
+
+## Key facts
+
+- A full assessment takes roughly 4–8 minutes per task, versus 20–45 minutes for
+  a traditional paper-based REBA or RULA assessment.
+- Musculoskeletal disorders account for roughly 38% of occupational illnesses
+  globally.
+- Ergzo is a workplace screening and risk-analysis tool. It is not a medical
+  device and does not provide medical diagnosis or treatment. Outputs should be
+  reviewed by a qualified ergonomist or safety professional.
+- Assessment media is processed on-device by design; raw photos and videos are
+  not uploaded unless the user explicitly exports or shares them.
+- India-first, aligned with the Digital Personal Data Protection Act 2023.
+
+## Pages
+
+- [Home](https://www.ergzo.com/): product overview, features, 15-tool reference table
+- [Tool reference](https://www.ergzo.com/#reference): which assessment method fits which task
+- [About](https://www.ergzo.com/about.html): who builds Ergzo and why
+- [REBA vs RULA](https://www.ergzo.com/blog-1.html): choosing between whole-body and upper-limb assessment
+- [Smartphone assessment guide](https://www.ergzo.com/blog-2.html): running an assessment step by step
+- [Cost of ergonomic injuries](https://www.ergzo.com/blog-3.html): calculating MSD exposure in manufacturing
+- [ROSA office ergonomics](https://www.ergzo.com/blog-4.html): desk and workstation assessment
+- [Building an ergonomics programme](https://www.ergzo.com/blog-5.html): rolling out workplace ergonomics
+- [Support](https://www.ergzo.com/support.html): response times, bug reporting, security disclosure
+- [Privacy policy](https://www.ergzo.com/privacy.html)
+- [Terms of service](https://www.ergzo.com/terms.html)
+
+## Contact
+
+- General: hello@ergzo.com
+- Support: support@ergzo.com
+- Privacy: privacy@ergzo.com
+- Security: security@ergzo.com
+- Website: https://www.ergzo.com

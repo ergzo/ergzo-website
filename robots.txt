@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# AI answer engines — explicitly allowed for AEO
+# AI answer engines - explicitly allowed for AEO
 User-agent: GPTBot
 Allow: /
 
@@ -18,3 +18,6 @@ User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://www.ergzo.com/sitemap.xml
+
+# AI-readable site summary
+# https://www.ergzo.com/llms.txt
