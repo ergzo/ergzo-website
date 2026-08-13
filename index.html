@@ -246,7 +246,7 @@
     .industry-pill:hover{background:#232d42;color:#fff;border-color:#232d42}
     /* FEATURES */
     .features-section{background:#fff}
-    .features-inner{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:100px}
+    .features-inner{max-width:var(--container-wide);margin:0 auto;display:flex;flex-direction:column;gap:64px}
     .feature-block{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
     .feature-block.reverse .feature-content{order:2}
     .feature-block.reverse .feature-visual-wrap{order:1}
@@ -397,6 +397,7 @@
       .industry-grid{grid-template-columns:repeat(2,auto)}
     }
     @media(max-width:640px){
+      .features-inner{gap:40px}
       .hero{padding-bottom:0}
       .users-section{padding-top:40px}
       [data-aos]{opacity:1!important;transform:none!important;transition:none!important;animation:none!important}
