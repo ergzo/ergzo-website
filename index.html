@@ -340,6 +340,31 @@
     @media(max-width:640px){.ref-table{min-width:600px}.ref-table th,.ref-table td{padding:11px 14px;font-size:13px}}
     .btn-arrow{display:inline-block;font-size:1.05em;line-height:1;transform:translateY(-1px);transition:transform var(--transition)}
     button:hover .btn-arrow{transform:translate(2px,-1px)}
+
+    /* Reference table — stacked cards below 900px, no horizontal scroll */
+    @media(max-width:900px){
+      .ref-table-wrap{overflow:visible;border:none;box-shadow:none;border-radius:0;margin-top:32px}
+      .ref-table{min-width:0;background:transparent}
+      .ref-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+      .ref-table tbody{display:grid;gap:12px}
+      .ref-table tr{display:block;background:var(--white);border:1px solid var(--border-mid);
+        border-left:3px solid var(--indigo);border-radius:var(--radius-lg);padding:14px 16px;box-shadow:var(--shadow-card)}
+      .ref-table tbody tr:hover td{background:transparent}
+      .ref-table td{display:grid;grid-template-columns:96px 1fr;gap:10px;align-items:baseline;
+        border:none;padding:5px 0;font-size:var(--text-sm)}
+      .ref-table td::before{content:attr(data-label);font-size:var(--text-xs);font-weight:700;
+        color:var(--text-faint);text-transform:uppercase;letter-spacing:.6px}
+      .ref-table td:first-child{padding-top:0;border-bottom:1px solid var(--border-soft);
+        padding-bottom:9px;margin-bottom:5px}
+      .ref-table td:first-child::before{display:none}
+      .ref-table td:first-child{grid-template-columns:1fr}
+      .ref-table td:first-child strong{font-size:var(--text-lg);letter-spacing:-.3px}
+      .ref-table td:last-child{padding-bottom:0}
+    }
+    @media(max-width:420px){
+      .ref-table td{grid-template-columns:1fr;gap:2px}
+      .ref-table td::before{margin-bottom:1px}
+    }
     /* FOOTER */
     footer{background:var(--ink);color:var(--alabaster);padding:60px 6% 28px}
     .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:48px}
@@ -485,7 +510,6 @@
   <a href="#blog" onclick="toggleMenu()">Blog</a>
   <a href="about.html" onclick="toggleMenu()">About</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
-  <a href="about.html" onclick="toggleMenu()">About</a>
   <a href="support.html" onclick="toggleMenu()">Support</a>
   <a href="#waitlist" onclick="toggleMenu()" style="color:#F39C12;font-weight:700">Get Early Access &#x2192;</a>
 </div>
@@ -718,21 +742,21 @@
         <tr><th scope="col">Tool</th><th scope="col">Full name</th><th scope="col">Best for</th><th scope="col">Body region</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>REBA</strong></td><td>Rapid Entire Body Assessment</td><td>Lifting, carrying, awkward whole-body postures</td><td>Whole body</td></tr>
-        <tr><td><strong>RULA</strong></td><td>Rapid Upper Limb Assessment</td><td>Assembly, typing, repetitive arm work</td><td>Upper limb</td></tr>
-        <tr><td><strong>ROSA</strong></td><td>Rapid Office Strain Assessment</td><td>Desk and computer workstations</td><td>Seated posture</td></tr>
-        <tr><td><strong>NIOSH</strong></td><td>NIOSH Lifting Equation</td><td>Manual lifting with known load weight</td><td>Lower back</td></tr>
-        <tr><td><strong>OWAS</strong></td><td>Ovako Working Posture Assessment</td><td>Sampling posture across a full shift</td><td>Whole body</td></tr>
-        <tr><td><strong>OCRA</strong></td><td>Occupational Repetitive Actions</td><td>High-frequency repetitive cycles</td><td>Upper limb</td></tr>
-        <tr><td><strong>QEC</strong></td><td>Quick Exposure Check</td><td>Fast screening with worker input</td><td>Whole body</td></tr>
-        <tr><td><strong>JSI</strong></td><td>Job Strain Index</td><td>Distal upper limb strain, grip tasks</td><td>Hand and wrist</td></tr>
-        <tr><td><strong>MAC</strong></td><td>Manual Handling Assessment Charts</td><td>Lifting, carrying and team handling</td><td>Whole body</td></tr>
-        <tr><td><strong>SNOOK</strong></td><td>Snook Manual Handling Tables</td><td>Push, pull and carry limits by percentile</td><td>Whole body</td></tr>
-        <tr><td><strong>WISHA</strong></td><td>Washington Lifting Calculator</td><td>Regulatory lifting screening</td><td>Lower back</td></tr>
-        <tr><td><strong>WERA</strong></td><td>Work-related Exposure Risk Assessment</td><td>Broad physical exposure screening</td><td>Whole body</td></tr>
-        <tr><td><strong>CMDQ</strong></td><td>Cornell Discomfort Questionnaire</td><td>Self-reported discomfort mapping</td><td>Whole body</td></tr>
-        <tr><td><strong>MANTRA</strong></td><td>Manual Tasks Risk Assessment</td><td>Structured manual task review</td><td>Whole body</td></tr>
-        <tr><td><strong>PATH</strong></td><td>Posture, Activity, Tools and Handling</td><td>Non-repetitive construction and field work</td><td>Whole body</td></tr>
+        <tr><td data-label="Tool"><strong>REBA</strong></td><td data-label="Full name">Rapid Entire Body Assessment</td><td data-label="Best for">Lifting, carrying, awkward whole-body postures</td><td data-label="Body region">Whole body</td></tr>
+        <tr><td data-label="Tool"><strong>RULA</strong></td><td data-label="Full name">Rapid Upper Limb Assessment</td><td data-label="Best for">Assembly, typing, repetitive arm work</td><td data-label="Body region">Upper limb</td></tr>
+        <tr><td data-label="Tool"><strong>ROSA</strong></td><td data-label="Full name">Rapid Office Strain Assessment</td><td data-label="Best for">Desk and computer workstations</td><td data-label="Body region">Seated posture</td></tr>
+        <tr><td data-label="Tool"><strong>NIOSH</strong></td><td data-label="Full name">NIOSH Lifting Equation</td><td data-label="Best for">Manual lifting with known load weight</td><td data-label="Body region">Lower back</td></tr>
+        <tr><td data-label="Tool"><strong>OWAS</strong></td><td data-label="Full name">Ovako Working Posture Assessment</td><td data-label="Best for">Sampling posture across a full shift</td><td data-label="Body region">Whole body</td></tr>
+        <tr><td data-label="Tool"><strong>OCRA</strong></td><td data-label="Full name">Occupational Repetitive Actions</td><td data-label="Best for">High-frequency repetitive cycles</td><td data-label="Body region">Upper limb</td></tr>
+        <tr><td data-label="Tool"><strong>QEC</strong></td><td data-label="Full name">Quick Exposure Check</td><td data-label="Best for">Fast screening with worker input</td><td data-label="Body region">Whole body</td></tr>
+        <tr><td data-label="Tool"><strong>JSI</strong></td><td data-label="Full name">Job Strain Index</td><td data-label="Best for">Distal upper limb strain, grip tasks</td><td data-label="Body region">Hand and wrist</td></tr>
+        <tr><td data-label="Tool"><strong>MAC</strong></td><td data-label="Full name">Manual Handling Assessment Charts</td><td data-label="Best for">Lifting, carrying and team handling</td><td data-label="Body region">Whole body</td></tr>
+        <tr><td data-label="Tool"><strong>SNOOK</strong></td><td data-label="Full name">Snook Manual Handling Tables</td><td data-label="Best for">Push, pull and carry limits by percentile</td><td data-label="Body region">Whole body</td></tr>
+        <tr><td data-label="Tool"><strong>WISHA</strong></td><td data-label="Full name">Washington Lifting Calculator</td><td data-label="Best for">Regulatory lifting screening</td><td data-label="Body region">Lower back</td></tr>
+        <tr><td data-label="Tool"><strong>WERA</strong></td><td data-label="Full name">Work-related Exposure Risk Assessment</td><td data-label="Best for">Broad physical exposure screening</td><td data-label="Body region">Whole body</td></tr>
+        <tr><td data-label="Tool"><strong>CMDQ</strong></td><td data-label="Full name">Cornell Discomfort Questionnaire</td><td data-label="Best for">Self-reported discomfort mapping</td><td data-label="Body region">Whole body</td></tr>
+        <tr><td data-label="Tool"><strong>MANTRA</strong></td><td data-label="Full name">Manual Tasks Risk Assessment</td><td data-label="Best for">Structured manual task review</td><td data-label="Body region">Whole body</td></tr>
+        <tr><td data-label="Tool"><strong>PATH</strong></td><td data-label="Full name">Posture, Activity, Tools and Handling</td><td data-label="Best for">Non-repetitive construction and field work</td><td data-label="Body region">Whole body</td></tr>
       </tbody>
     </table>
   </div>
