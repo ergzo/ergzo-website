@@ -116,7 +116,6 @@
       .doc-hero,.blog-hero{padding-left:5%;padding-right:5%}
     }
     @media(max-width:640px){.nav-links{display:none}.hamburger{display:flex}}
-
     .doc-hero{background:var(--indigo);padding:var(--space-hero) 6% calc(var(--space-hero) * .85);border-bottom:1px solid rgba(255,255,255,.06);margin-top:68px}
     .doc-hero-inner{max-width:760px;margin:0 auto}
     .doc-tag{display:inline-block;background:rgba(255,255,255,.1);color:#d6e2e2;font-size:11px;font-weight:600;padding:5px 14px;border-radius:var(--radius-full);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:14px}
@@ -142,6 +141,8 @@
     th{color:#232d42;background:#f0f4f5;font-weight:700;font-size:11px;letter-spacing:.5px;text-transform:uppercase}
     tr:last-child td{border-bottom:none}
     tbody tr:hover td{background:#f8fafa}
+    .revision{margin-top:44px;padding-top:20px;border-top:1px solid #e8eef0}
+    .revision p{font-size:13px;color:#8a9aaa;margin-bottom:6px}
     @media(max-width:640px){
       footer{padding:44px 6% 24px}
       .footer-top{flex-direction:column;gap:26px;margin-bottom:32px}
@@ -187,15 +188,13 @@
   <a href="support.html" onclick="toggleMenu()">Support</a>
   <a href="index.html#waitlist" onclick="toggleMenu()" style="color:#F39C12;font-weight:700">Get Early Access &#x2192;</a>
 </div>
-
 <div class="doc-hero">
   <div class="doc-hero-inner">
     <div class="doc-tag">Legal</div>
     <h1>Privacy Policy</h1>
-    <p class="meta">Last updated: June 9, 2026 &nbsp;&middot;&nbsp; Ergzo Solutions Private Limited</p>
+    <p class="meta">Last updated: September 1, 2026 &nbsp;&middot;&nbsp; Ergzo Solutions Private Limited</p>
   </div>
 </div>
-
 <div class="doc-body" id="main">
   <p>Ergzo Solutions Private Limited (&#x201C;Ergzo&#x201D;, &#x201C;we&#x201D;, &#x201C;our&#x201D;, or &#x201C;us&#x201D;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, store, disclose, retain, and protect personal data when you use the Ergzo mobile application, the Ergzo website, and related services used for ergonomic screening, assessment workflows, reporting, follow-up tracking, and workplace analytics.</p>
 
@@ -207,12 +206,22 @@
   <h2>2. Data We Collect</h2>
   <h3>Account and organization data</h3>
   <p>For enterprise access and account administration, we may process user and organization information such as name, business email address, company name, designation, access role, team membership, company identifier, and authentication records.</p>
+
   <h3>Assessment and ergonomic data</h3>
   <p>When an authorized user performs an assessment, Ergzo may process posture keypoints, joint angles, ergonomic scores, risk levels, timestamps, department information, task or scene context, joint risk observations, intervention-related status, and associated analytical outputs. These data points may be linked to a worker name or a pseudonymous/default worker label such as &#x201C;Person #&#x201D; depending on customer workflow choices.</p>
+
+  <h3>Health-related self-reported data</h3>
+  <p>Where a customer organization uses the Cornell Musculoskeletal Discomfort Questionnaire (CMDQ) module, Ergzo processes self-reported discomfort information: the body region affected, how often discomfort occurred, how severe it was, and whether it interfered with normal work activities. These responses are linked to a worker or a pseudonymous worker label and are stored in Ergzo&#x2019;s cloud environment in India alongside the related assessment record. Ergzo treats this as health-related information and applies the access restrictions described in Section 9.</p>
+
   <h3>Media and local device data</h3>
-  <p>Photos, imported gallery media, locally recorded assessment videos, and optional screen-recorded assessment replays may be created or processed on the device for ergonomic analysis and review. Ergzo&#x2019;s intended production design is that raw assessment media remains on the user&#x2019;s device unless the user separately exports or shares it outside the app.</p>
+  <p>Photos, imported gallery media, locally recorded assessment videos, and optional screen-recorded assessment replays may be created or processed on the device for ergonomic analysis and review. Raw assessment media remains on the user&#x2019;s device and is not uploaded to Ergzo&#x2019;s servers. Where a user saves or exports media &#x2014; including saving an assessment recording to the device photo library &#x2014; that file passes outside the app, as described in Section 4.</p>
+
+  <h3>Device and messaging identifiers</h3>
+  <p>To deliver operational push notifications, Ergzo processes a device messaging token issued by the platform&#x2019;s notification service, together with the authenticated user identifier assigned to your account. These identifiers are used to route notifications and to associate records with the correct account. They are not used for advertising, profiling, or cross-app tracking.</p>
+
   <h3>Company assets and operational content</h3>
   <p>The app may process company logos, worker photos, department names, team structures, session names, notes, and other organization-provided content needed to support assessment workflows and reporting.</p>
+
   <h3>Website and support data</h3>
   <p>When you visit the website, contact us, request a demo, or communicate with support, we may collect standard website, correspondence, and business-contact information needed to respond, provide access, maintain security, and administer our services.</p>
 
@@ -220,10 +229,12 @@
     <table>
       <thead><tr><th>Category</th><th>Examples</th><th>Primary storage pattern</th></tr></thead>
       <tbody>
-        <tr><td>Account and org data</td><td>Name, email, company name, role, team access</td><td>Backend / authenticated service environment</td></tr>
+        <tr><td>Account and org data</td><td>Name, business email, company name, role, team access</td><td>Backend / authenticated service environment (India)</td></tr>
         <tr><td>Assessment analytics</td><td>Keypoints, joint angles, scores, risk levels, timestamps, department</td><td>Firebase Auth / Firestore and app database as applicable</td></tr>
-        <tr><td>Media</td><td>Photos, imported videos, local screen recordings</td><td>Stored and processed locally on device by design</td></tr>
-        <tr><td>AI request payload</td><td>Joint risks, scores, task context, scene context</td><td>Sent only when user taps AI feature</td></tr>
+        <tr><td>Health-related self-reported data</td><td>CMDQ body region, discomfort frequency, severity, work interference</td><td>Firestore (asia-south1, India), restricted by role</td></tr>
+        <tr><td>Media</td><td>Photos, imported videos, local screen recordings</td><td>Stored and processed locally on the device; not uploaded to Ergzo</td></tr>
+        <tr><td>Device and messaging identifiers</td><td>Push notification token, authenticated user identifier</td><td>Backend / authenticated service environment</td></tr>
+        <tr><td>AI request payload</td><td>Scores, joint risks, task and scene context, worker role, work type, height, CMDQ discomfort summary, prior intervention titles</td><td>Sent to Google LLC only when the user invokes the AI feature</td></tr>
       </tbody>
     </table>
   </div>
@@ -232,6 +243,7 @@
   <ul>
     <li>To authenticate authorized users and administer enterprise access.</li>
     <li>To conduct ergonomic screening and produce scores, risk indicators, recommendations, reports, summaries, and dashboard views.</li>
+    <li>To record and analyse self-reported musculoskeletal discomfort where a customer organization uses the CMDQ module, and to relate it to assessed ergonomic risk.</li>
     <li>To support before-and-after intervention analysis, follow-up workflows, trend analysis, and safety improvement tracking.</li>
     <li>To allow locally saved review of assessment media and optional on-device screen-recorded assessment overlays.</li>
     <li>To send operational notifications such as follow-up reminders and weekly reports.</li>
@@ -242,72 +254,130 @@
 
   <h2>4. Permissions and Device Access</h2>
   <p>Ergzo requests or may request only the permissions reasonably necessary for assessment features, optional local media handling, and related workflows.</p>
+
   <h3>Camera</h3>
-  <p>The camera is used to capture posture or movement needed for ergonomic screening and assessment. Camera access is used only within relevant workflows initiated by the user.</p>
+  <p>The camera is used to capture posture or movement needed for ergonomic screening and assessment. Camera access is used only within relevant workflows initiated by the user. Pose analysis is performed on the device; camera video is not transmitted to Ergzo&#x2019;s servers.</p>
+
   <h3>Photos / Gallery</h3>
-  <p>Photo library or media access may be used to import existing photos or videos for local ergonomic analysis and to add optional company logos or related assets. Imported media is intended to remain on-device unless a separate export or sharing action is taken by the user.</p>
+  <p>Photo library or media access may be used to import existing photos or videos for local ergonomic analysis and to add optional company logos or related assets. Imported media is processed on the device.</p>
+
+  <h3>Saving to your photo library</h3>
+  <p>Where an assessment recording is saved to your device&#x2019;s photo library, that file becomes part of your device&#x2019;s photo storage and may be synchronised to a personal cloud photo service such as iCloud Photos or Google Photos, according to your own device settings. Ergzo has no access to, and no control over, files once they are in your photo library. We recommend saving assessment recordings to your photo library only where your organization&#x2019;s policy permits it.</p>
+
   <h3>Screen Recording</h3>
   <p>Optional screen recording may be used to create a local replay of the assessment with posture analysis, score overlays, and face blur for later review by the authorized user. This feature is optional and is not designed to capture content from other apps.</p>
+
+  <h3>Calendar</h3>
+  <p>Where you choose to add a reassessment date to your device calendar, Ergzo writes that event so you receive a reminder when a follow-up ergonomic assessment is due. Ergzo does not read your existing calendar entries.</p>
+
   <h3>Microphone</h3>
-  <p>Ergzo is not intended to record or use audio as part of an assessment. Ergzo&#x2019;s intended production behavior is that assessment screen recordings are silent, and the microphone permission should be removed where technically feasible.</p>
+  <p>Ergzo does not record or process audio. The app declares no microphone permission on iOS or Android, and assessment screen recordings are silent.</p>
+
   <h3>Notifications</h3>
-  <p>Notification permissions are used for operational reminders such as high-risk follow-up prompts and weekly reporting notifications. Ergzo does not use push notifications for unrelated promotional marketing.</p>
+  <p>Notification permissions are used for operational reminders such as high-risk follow-up prompts, task assignment alerts, and weekly reporting notifications. Ergzo does not use push notifications for unrelated promotional marketing.</p>
   <div class="callout warn"><span class="callout-icon">&#x26A0;&#xFE0F;</span><p><strong>Permission note:</strong> Some features may be unavailable if a required permission is denied.</p></div>
 
   <h2>5. AI-Generated Recommendations and Action Plans</h2>
-  <p>Ergzo may offer an optional AI feature that generates recommendations or action plans when a user affirmatively taps the relevant in-app control. This feature is not required to conduct an assessment or to view baseline scores.</p>
-  <p>When the AI feature is used, Ergzo may send a limited data payload such as ergonomic scores, joint risks, task context, or scene/work context to a generative AI service to produce recommendations. Raw assessment photos, raw videos, and raw audio are not intended to be sent for this feature.</p>
-  <p>AI outputs are generated automatically and may require human review. Customers and users remain responsible for evaluating whether any recommendation is appropriate for their workplace, workforce, operational constraints, and applicable health and safety obligations.</p>
+  <p>Ergzo offers an optional AI feature that generates recommendations or action plans when a user affirmatively invokes the relevant in-app control. This feature is not required to conduct an assessment or to view baseline scores.</p>
+  <p>When a user invokes the AI feature, Ergzo transmits a limited, non-media data payload to <strong>Google LLC</strong>, which operates the Gemini API used to generate recommendations. That payload consists of:</p>
+  <ul>
+    <li>REBA or RULA score, joint risk scores, and whether the assessed posture is seated or standing;</li>
+    <li>task type, work environment, and session duration;</li>
+    <li>the worker&#x2019;s role, work type and height, where those have been recorded;</li>
+    <li>self-reported CMDQ discomfort information &#x2014; body region, frequency and severity; and</li>
+    <li>titles and status of previous ergonomic interventions recorded for that worker.</li>
+  </ul>
+  <p>Worker names, photographs, video, screen recordings and audio are not transmitted for this feature. Ergzo uses a paid Google Gemini API tier under which Google does not use submitted content to train or improve its models. Google provides protections for this data equivalent to those described in this policy, and processes it only to return the requested output.</p>
+  <p>The AI feature is never invoked automatically. It runs only when a user affirmatively selects the AI recommendation control for a specific assessment, and no data is transmitted to Google unless and until that control is used. Because the payload includes health-related information, customer organizations should decide as a matter of policy whether their assessors may use this feature.</p>
+  <p>AI outputs are generated automatically and require human review. Customers and users remain responsible for evaluating whether any recommendation is appropriate for their workplace, workforce, operational constraints, and applicable health and safety obligations.</p>
 
   <h2>6. Sharing and Disclosure</h2>
   <p>Ergzo may disclose personal data or related records only in limited circumstances and only to the extent reasonably necessary for the stated purpose.</p>
   <ul>
     <li><strong>Within the customer organization:</strong> authorized admins, assessors, viewers, managers, and other role-based personnel may access relevant data according to permissions configured for that company.</li>
-    <li><strong>Service providers:</strong> Ergzo may use trusted providers to support authentication, secure cloud storage of non-media assessment data, infrastructure, and similar services.</li>
-    <li><strong>AI provider:</strong> where the user invokes the optional AI feature, limited non-media assessment data may be transmitted to the AI provider to generate requested recommendations or action plans.</li>
+    <li><strong>Service providers:</strong> Ergzo uses Google Cloud and Firebase services (authentication, database, serverless functions, crash and performance diagnostics, and push notification delivery) to operate the service. Personal data held by Ergzo is stored in the <code>asia-south1</code> (Mumbai, India) region. These providers are engaged under contract, process data only on Ergzo&#x2019;s instructions for the purposes described here, and are required to afford protections equivalent to those described in this policy.</li>
+    <li><strong>AI provider:</strong> where a user invokes the optional AI feature, the limited non-media payload described in Section 5 is transmitted to Google LLC to generate the requested recommendations or action plans.</li>
+    <li><strong>Customer API access:</strong> where a customer organization&#x2019;s plan includes API access, its administrators may generate API keys that allow that organization&#x2019;s own systems to retrieve its worker, department, session and assessment records from Ergzo programmatically. Data retrieved this way leaves Ergzo&#x2019;s environment and is thereafter controlled by that customer organization. Ergzo logs API access for audit purposes.</li>
     <li><strong>Legal and safety reasons:</strong> Ergzo may disclose information if required by law, legal process, binding regulatory request, or where necessary to protect rights, security, safety, or investigate misuse.</li>
     <li><strong>Corporate transaction:</strong> if Ergzo undergoes a merger, acquisition, restructuring, financing, or sale of assets, data may be transferred subject to appropriate confidentiality and lawful-use safeguards.</li>
   </ul>
   <p>Ergzo does not sell personal data to data brokers and does not share personal data for cross-context behavioral advertising.</p>
   <h3>Marketing or Demonstration Footage</h3>
-  <p>Any use of real worker imagery or factory recordings for testimonials, demonstrations, client onboarding materials, case studies, website content, or marketing materials should occur only under a separate and specific authorization process appropriate to that purpose. Such use should not be assumed from ordinary assessment participation alone.</p>
+  <p>Any use of real worker imagery or factory recordings for testimonials, demonstrations, client onboarding materials, case studies, website content, or marketing materials occurs only under a separate and specific consent process appropriate to that purpose. Such use is never assumed from ordinary assessment participation alone.</p>
 
   <h2>7. Retention, Deletion, and Record Integrity</h2>
   <p>Ergzo retains personal data and related records only for as long as reasonably necessary for the purposes described in this policy, including service delivery, enterprise administration, workplace safety recordkeeping, trend analysis, intervention tracking, compliance, dispute handling, security, and legitimate business operations.</p>
-  <p>Certain assessment and session records may be retained even where a customer can delete or archive other entities such as workers, departments, or related organizational structures. This design may be used to preserve audit integrity, reduce the risk of selective underreporting, maintain before-and-after intervention histories, and support longitudinal ergonomic and safety analysis.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Category</th><th>Retention</th><th>Basis</th></tr></thead>
+      <tbody>
+        <tr><td>Assessment and session records</td><td>7 years from creation</td><td>Occupational health and safety recordkeeping; intervention history</td></tr>
+        <tr><td>CMDQ responses</td><td>7 years from creation</td><td>Linked to the assessment record they inform</td></tr>
+        <tr><td>Worker profiles</td><td>Life of the customer relationship, then pseudonymised</td><td>Service delivery</td></tr>
+        <tr><td>Account and profile data</td><td>90 days after access is revoked</td><td>Account administration, dispute handling</td></tr>
+        <tr><td>Crash and performance logs</td><td>90 days</td><td>Product security and stability</td></tr>
+        <tr><td>Deletion and access request records</td><td>3 years</td><td>Evidence of compliance with statutory requests</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Certain assessment and session records may be retained even where a customer can delete or archive other entities such as workers, departments, or related organizational structures. This design preserves audit integrity, reduces the risk of selective underreporting, maintains before-and-after intervention histories, and supports longitudinal ergonomic and safety analysis.</p>
   <p>Where a worker identifier is removed from an assessment record, Ergzo may instead display a default or pseudonymous label rather than the original worker name, subject to technical and legal limitations.</p>
+  <p>Where you submit an erasure request through the app, we suspend the account immediately and confirm in writing within 30 days what has been erased and what has been retained, together with the lawful basis for retaining it.</p>
   <div class="callout warn"><span class="callout-icon">&#x26A0;&#xFE0F;</span><p><strong>Limitations on deletion:</strong> Erasure or deletion rights may be limited where retention is required for legal compliance, contractual obligations, safety record integrity, fraud or misuse prevention, defense of legal claims, or another valid lawful basis recognized by applicable law.</p></div>
 
   <h2>8. Your Rights and Choices</h2>
-  <p>As an India-first service, Ergzo aims to provide notices and controls aligned with the Digital Personal Data Protection Act, 2023, while also preparing for broader rights frameworks applicable in other regions. Depending on the relationship involved, the applicable law, and whether Ergzo acts as a controller/data fiduciary or processor/service provider, individuals may have rights to request access, correction, updating, restriction, objection, consent withdrawal, grievance redressal, portability where applicable, and deletion or erasure subject to lawful retention exceptions.</p>
-  <p>Where Ergzo processes data on behalf of a customer organization, requests relating to worker-linked assessment records may need to be routed through the relevant customer organization that controls the underlying workplace assessment program. Ergzo may also require verification of identity, authority, or organizational role before acting on a request.</p>
-  <p>To exercise rights or raise a complaint, contact <a href="mailto:privacy@ergzo.com">privacy@ergzo.com</a>.</p>
+  <p>As an India-first service, Ergzo provides notices and controls aligned with the Digital Personal Data Protection Act, 2023, while also preparing for broader rights frameworks applicable in other regions. Depending on the relationship involved, the applicable law, and whether Ergzo acts as a controller/data fiduciary or processor/service provider, individuals may have rights to:</p>
+  <ul>
+    <li>request access to a summary of the personal data being processed and the processing activities undertaken;</li>
+    <li>request correction, completion or updating of inaccurate, misleading or incomplete personal data;</li>
+    <li>request erasure of personal data, subject to the lawful retention exceptions described in Section 7;</li>
+    <li>withdraw consent where processing is based on consent, with effect for future processing;</li>
+    <li>seek grievance redressal through the process described in Section 15; and</li>
+    <li><strong>nominate</strong> another individual to exercise your rights under the Digital Personal Data Protection Act, 2023 in the event of your death or incapacity. To register a nomination, contact us using the details in Section 15.</li>
+  </ul>
+  <p>The app provides two of these controls directly. Under <strong>Legal &amp; Support</strong>, <em>Data Export</em> returns a machine-readable copy of the personal data Ergzo holds about your account, and <em>Request account deletion</em> submits a formal erasure request.</p>
+  <p>Where Ergzo processes data on behalf of a customer organization, requests relating to worker-linked assessment records may need to be routed through the relevant customer organization that controls the underlying workplace assessment program. We will tell you when we do so. Ergzo may also require verification of identity, authority, or organizational role before acting on a request.</p>
 
   <h2>9. Security and Safeguards</h2>
-  <p>Ergzo uses reasonable technical, organizational, and administrative safeguards designed to protect personal data against unauthorized access, disclosure, alteration, misuse, and destruction. These measures may include role-based access controls, encryption in transit, cloud-service security controls, pseudonymization measures such as face blur and worker label substitution, internal access restrictions, and review of service-provider protections.</p>
-  <p>No platform, application, network, or storage environment can be guaranteed to be perfectly secure. Users and customer organizations are responsible for protecting device access, passwords, exported media, and any information they choose to share outside Ergzo.</p>
+  <p>Ergzo uses reasonable technical, organizational, and administrative safeguards designed to protect personal data against unauthorized access, disclosure, alteration, misuse, and destruction. These measures include tenant isolation, so that data belonging to one customer organization is accessible only to authenticated, active members of that organization; role-based administrative controls; encryption of the local database on the device; encryption in transit with certificate pinning; app and device attestation checks; cloud-service security controls; pseudonymization measures such as face blur and worker label substitution; audit logging of privileged operations; internal access restrictions; and review of service-provider protections.</p>
+  <p>No platform, application, network, or storage environment can be guaranteed to be perfectly secure. Users and customer organizations are responsible for protecting device access, passwords, API keys, exported media, and any information they choose to share outside Ergzo.</p>
 
-  <h2>10. International Users and Legal Basis</h2>
+  <h2>10. Personal Data Breach</h2>
+  <p>If Ergzo becomes aware of a personal data breach affecting personal data we hold, we will intimate each affected data principal without undue delay, describing the nature and extent of the breach, its likely consequences, the measures we have taken to mitigate it, and the steps the individual may take to protect their interests. We will also report the breach to the Data Protection Board of India, and will provide the Board with a detailed report within 72 hours of becoming aware of it, or such longer period as the Board allows.</p>
+  <p>Where a breach affects personal data we process on behalf of a customer organization, we will notify that organization without undue delay so that it can meet its own obligations as data fiduciary.</p>
+
+  <h2>11. Legal Basis and International Users</h2>
   <p>Ergzo currently positions India as the primary governing privacy regime. If Ergzo expands internationally, additional region-specific disclosures, transfer mechanisms, or legal-basis descriptions may be added for jurisdictions such as the EEA, United Kingdom, California, and other applicable regions.</p>
-  <p>Where required by applicable law, Ergzo may rely on consent, contract performance, legitimate interests, employment-related necessity, legal obligations, or other recognized lawful bases depending on the service context and the data involved.</p>
+  <p>Where Ergzo processes worker assessment records on behalf of a customer organization, that organization is the data fiduciary and generally relies on the legitimate uses recognized in Section 7(i) of the Digital Personal Data Protection Act, 2023, which permit processing for purposes of employment and for safeguarding the employer from loss or liability. Workers are not asked to consent to workplace safety assessment through the app.</p>
+  <p>Consent is sought separately, and specifically, for uses outside that employment purpose &#x2014; in particular the use of the optional AI feature described in Section 5, and any use of worker imagery for marketing, demonstration or case-study purposes described in Section 6.</p>
+  <p>For its own activities as a data fiduciary &#x2014; website, support, account administration and product operations &#x2014; Ergzo may rely on consent, contract performance, legitimate uses recognized by applicable law, legal obligations, or another recognized lawful basis depending on the service context and the data involved.</p>
 
-  <h2>11. Children and Age Limitations</h2>
-  <p>Ergzo is intended for workplace use involving adults and is not directed to children. Ergzo does not knowingly offer the service as a child-directed product and does not intend to process children&#x2019;s personal data as part of its normal product design.</p>
+  <h2>12. Children and Age Limitations</h2>
+  <p>Ergzo is intended for workplace use involving adults and is not directed to children. Ergzo does not knowingly offer the service as a child-directed product and does not process children&#x2019;s personal data as part of its product design.</p>
 
-  <h2>12. Consent in Assessment Workflows</h2>
-  <p>Ergzo may present a session-start consent notice or similar gate before an assessment workflow begins. That notice is intended to inform the user that workers are being recorded or assessed for ergonomic risk assessment, that face blur may be applied throughout the recorded screen and assessment, and that data handling will occur according to the workflow described in the app and this policy.</p>
-  <p>Where consent is used, Ergzo aims to make the notice clear, specific, and understandable. Ergzo may also rely on other valid grounds recognized under applicable law in enterprise and workplace contexts.</p>
+  <h2>13. Worker Notification in Assessment Workflows</h2>
+  <p>Before an assessment workflow begins, the app presents a session-start notice to the authorized user. That notice records that workers in the session have been informed they are being recorded or assessed for ergonomic risk assessment, that faces are blurred in the recording, that video remains on the device, and that assessment scores and records are stored securely in India and visible to authorized safety staff at that company.</p>
+  <p>This notice is a record that workers have been informed. It is not a consent mechanism, and it does not replace the customer organization&#x2019;s own obligations to notify its workforce about workplace safety monitoring, or any obligation it may have under applicable employment or occupational-safety law.</p>
 
-  <h2>13. Changes to This Policy</h2>
+  <h2>14. Changes to This Policy</h2>
   <p>Ergzo may update this Privacy Policy from time to time to reflect product changes, legal developments, platform requirements, security improvements, or operational changes. The revised version will be posted on this page with an updated effective date, and where required, additional notice may be provided in-app, by email, or through another appropriate channel.</p>
 
-  <h2>14. Contact and Grievance</h2>
+  <h2>15. Contact, Grievance Redressal and Complaints</h2>
   <p><strong>Entity:</strong> Ergzo Solutions Private Limited</p>
+  <p><strong>Grievance Officer and Data Protection contact:</strong> [FULL NAME]</p>
   <p><strong>Email:</strong> <a href="mailto:privacy@ergzo.com">privacy@ergzo.com</a></p>
-  <p><strong>Website:</strong> <a href="https://www.ergzo.com" target="_blank" rel="noopener noreferrer">www.ergzo.com</a></p>
-  <p>If you have a privacy concern, rights request, correction request, or complaint, please contact Ergzo using the email above with enough detail for us to understand the issue and verify the request.</p>
-</div>
+  <p><strong>Postal address:</strong> [REGISTERED OFFICE ADDRESS]</p>
+  <p><strong>Website:</strong> <a href="https://www.ergzo.com">www.ergzo.com</a></p>
+  <p>If you have a privacy concern, a rights request, a correction request or a complaint, contact our Grievance Officer using the details above with enough information for us to understand the issue and verify your identity or authority. We will acknowledge your request within 3 business days and respond substantively within 30 days.</p>
+  <p>If you are not satisfied with our response, or if we do not respond within that period, you may make a complaint to the Data Protection Board of India in the manner provided under the Digital Personal Data Protection Act, 2023 and the rules made under it.</p>
+  <p>For general product and account support, contact <a href="mailto:support@ergzo.com">support@ergzo.com</a>.</p>
 
+  <div class="revision">
+    <p><strong>Revision history</strong></p>
+    <p>v2.0 &#x2014; September 1, 2026: added health-related self-reported data (CMDQ) to the data inventory; itemised the AI payload and named Google LLC as the AI provider; added calendar, photo-library-save and device-identifier disclosures; added a retention schedule and a 30-day deletion response commitment; added the right to nominate; added a personal data breach section; named the Grievance Officer and the route to the Data Protection Board; clarified the Section 7(i) legal basis and reframed the session notice as a worker notification record.</p>
+    <p>v1.0 &#x2014; June 9, 2026: initial publication.</p>
+  </div>
+</div>
 <footer>
   <div class="footer-top">
     <div class="footer-brand">

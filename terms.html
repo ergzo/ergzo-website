@@ -116,7 +116,6 @@
       .doc-hero,.blog-hero{padding-left:5%;padding-right:5%}
     }
     @media(max-width:640px){.nav-links{display:none}.hamburger{display:flex}}
-
     .doc-hero{background:var(--indigo);padding:var(--space-hero) 6% calc(var(--space-hero) * .85);border-bottom:1px solid rgba(255,255,255,.06);margin-top:68px}
     .doc-hero-inner{max-width:760px;margin:0 auto}
     .doc-tag{display:inline-block;background:rgba(255,255,255,.1);color:#d6e2e2;font-size:11px;font-weight:600;padding:5px 14px;border-radius:var(--radius-full);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:14px}
@@ -142,6 +141,8 @@
     th{color:#232d42;background:#f0f4f5;font-weight:700;font-size:11px;letter-spacing:.5px;text-transform:uppercase}
     tr:last-child td{border-bottom:none}
     tbody tr:hover td{background:#f8fafa}
+    .revision{margin-top:44px;padding-top:20px;border-top:1px solid #e8eef0}
+    .revision p{font-size:13px;color:#8a9aaa;margin-bottom:6px}
     @media(max-width:640px){
       footer{padding:44px 6% 24px}
       .footer-top{flex-direction:column;gap:26px;margin-bottom:32px}
@@ -187,15 +188,13 @@
   <a href="support.html" onclick="toggleMenu()">Support</a>
   <a href="index.html#waitlist" onclick="toggleMenu()" style="color:#F39C12;font-weight:700">Get Early Access &#x2192;</a>
 </div>
-
 <div class="doc-hero">
   <div class="doc-hero-inner">
     <div class="doc-tag">Legal</div>
     <h1>Terms of Service</h1>
-    <p class="meta">Last updated: June 8, 2026 &nbsp;&middot;&nbsp; Ergzo Solutions Private Limited</p>
+    <p class="meta">Last updated: September 1, 2026 &nbsp;&middot;&nbsp; Ergzo Solutions Private Limited</p>
   </div>
 </div>
-
 <div class="doc-body" id="main">
   <p>Please read these Terms of Service (&#x201C;Terms&#x201D;) carefully before using the Ergzo mobile application, website, and related services (collectively, the &#x201C;Service&#x201D;), operated by Ergzo Solutions Private Limited (&#x201C;Ergzo&#x201D;, &#x201C;we&#x201D;, &#x201C;our&#x201D;, or &#x201C;us&#x201D;). By accessing or using the Service, you agree to be bound by these Terms and by our <a href="privacy.html">Privacy Policy</a>.</p>
 
@@ -203,23 +202,24 @@
   <p>By creating an account, receiving organization-provisioned access, joining a demo account, or using any part of the Service, you confirm that you are at least 18 years old and have authority to act for the organization or team using the Service. If you do not agree to these Terms, you must not use the Service.</p>
 
   <h2>2. Description of Service</h2>
-  <p>Ergzo is a workplace ergonomic assessment and reporting platform that helps authorized users evaluate musculoskeletal risks using validated methods and workflow tools. The Service may include camera-based assessment, gallery import, optional local screen recording, dashboards, intervention tracking, reporting, and optional AI-generated recommendations and action plans.</p>
+  <p>Ergzo is a workplace ergonomic assessment and reporting platform that helps authorized users evaluate musculoskeletal risks using validated methods and workflow tools. The Service may include camera-based assessment, gallery import, optional local screen recording, self-reported discomfort surveys, dashboards, intervention tracking, reporting, programmatic API access, and optional AI-generated recommendations and action plans.</p>
   <p>The Service is intended for qualified safety professionals, ergonomists, EHS teams, HR and operations personnel, and other authorized workplace users. The Service is not designed for general consumer use.</p>
 
   <h2>3. Professional Use Only</h2>
   <p>Ergzo is a professional workplace screening and risk-analysis tool. It is not a medical device and does not provide medical diagnosis, treatment, or clinical advice. Assessment outputs are intended to support ergonomic and safety decision-making by trained personnel, not to replace professional judgment.</p>
 
-  <h2>4. Accounts and Access</h2>
+  <h2>4. Accounts, Access and Commercial Terms</h2>
   <p>Access may be provisioned externally by the customer organization, and account creation or sign-up options may be limited, disabled, or restricted to demonstration use depending on the deployment. You are responsible for maintaining the confidentiality of your login credentials and for all activity that occurs under your account.</p>
   <ul>
     <li>You must provide accurate information when required for account provisioning or organizational access.</li>
     <li>You must not share access credentials with unauthorized persons.</li>
     <li>You must immediately notify us of any suspected unauthorized access or security issue.</li>
   </ul>
+  <p>Fees, plan entitlements, assessment volumes, user and site limits, invoicing and renewal are governed by the order form, quotation or master services agreement agreed between Ergzo and your organization. Where those documents conflict with these Terms, they prevail on commercial matters. Ergzo may suspend or restrict access to the Service where fees remain unpaid after written notice.</p>
 
   <h2>5. User Responsibilities</h2>
   <ul>
-    <li>You are responsible for ensuring you have appropriate notice, authorization, and consent before capturing or processing assessment media or assessment data.</li>
+    <li>You are responsible for ensuring you have appropriate notice, authorization, and lawful basis before capturing or processing assessment media or assessment data, and for informing workers in accordance with applicable employment and occupational-safety law.</li>
     <li>You must use the Service in compliance with applicable law, workplace policy, and any customer organization requirements.</li>
     <li>You must not use the Service for unlawful, harmful, deceptive, discriminatory, or fraudulent purposes.</li>
     <li>You must not attempt to bypass access controls, security protections, or data retention rules.</li>
@@ -227,47 +227,66 @@
   </ul>
 
   <h2>6. Assessment Data and Media</h2>
-  <p>Depending on your workflow, assessment data may include posture keypoints, joint angles, scores, risk levels, timestamps, department data, task context, scene context, and related analytics. Raw photos, videos, and optional screen-recorded replays are intended to be processed locally on the device unless the user explicitly exports or shares them outside the app.</p>
+  <p>Depending on your workflow, assessment data may include posture keypoints, joint angles, scores, risk levels, timestamps, department data, task context, scene context, self-reported discomfort responses, and related analytics. Raw photos, videos, and optional screen-recorded replays are processed locally on the device and are not uploaded to Ergzo&#x2019;s servers.</p>
+  <p>Where a user chooses to save an assessment recording to the device photo library, or otherwise exports assessment media from the Service, that file passes outside Ergzo&#x2019;s control and may be synchronised to a personal cloud photo service according to the user&#x2019;s device settings. You are responsible for ensuring that such exports comply with your organization&#x2019;s policies and applicable law.</p>
   <p>By using the Service, you grant Ergzo a limited, non-exclusive, revocable licence to process assessment data solely as needed to provide, secure, maintain, improve, and support the Service, and to perform the functions you or your organization request.</p>
 
   <h2>7. AI Features</h2>
-  <p>If the optional AI recommendations feature is used, you acknowledge that Ergzo may send limited non-media assessment data such as joint risks, scores, task context, and scene context to a third-party AI provider when a user explicitly requests that feature. You are responsible for reviewing AI outputs before relying on them in workplace decisions.</p>
+  <p>If the optional AI recommendations feature is used, you acknowledge that Ergzo transmits a limited non-media payload to Google LLC, which operates the Gemini API. That payload is described in full in Section 5 of our <a href="privacy.html">Privacy Policy</a> and includes ergonomic scores, joint risks, task and scene context, the worker&#x2019;s role, work type and height where recorded, self-reported CMDQ discomfort information, and prior intervention titles. Worker names, photographs, video and audio are not transmitted.</p>
+  <p>The feature runs only when a user affirmatively selects the AI recommendation control for a specific assessment. Because the payload includes health-related information, your organization is responsible for deciding whether its personnel may use this feature and for informing workers accordingly. You are responsible for reviewing AI outputs before relying on them in workplace decisions.</p>
   <div class="callout warn"><span class="callout-icon">&#x26A0;&#xFE0F;</span><p><strong>Important:</strong> AI-generated recommendations may be incomplete, inaccurate, or unsuitable for a specific workplace. They must be reviewed by a qualified person.</p></div>
 
-  <h2>8. Retention and Record Integrity</h2>
-  <p>Ergzo may retain certain assessment and session records to preserve workplace safety history, audit integrity, intervention tracking, before-and-after comparison, and anti-underreporting controls. Some records may remain available even when other organizational data such as workers or departments are deleted or renamed.</p>
+  <h2>8. API Access</h2>
+  <p>Where your plan includes API access, your administrators may generate API keys that permit your systems to retrieve your organization&#x2019;s records from the Service. You are responsible for the security and custody of those keys, for revoking them promptly when a person or system no longer requires access, and for the lawful handling of any data retrieved through them.</p>
+  <p>API keys are issued for server-to-server use and must not be embedded in client applications, browser code, or any location accessible to end users. Data you retrieve through the API leaves Ergzo&#x2019;s environment, and your organization acts as data fiduciary in respect of it from that point. Ergzo logs API access and may suspend a key that shows signs of compromise or misuse.</p>
+
+  <h2>9. Retention and Record Integrity</h2>
+  <p>Ergzo may retain certain assessment and session records to preserve workplace safety history, audit integrity, intervention tracking, before-and-after comparison, and anti-underreporting controls. Some records may remain available even when other organizational data such as workers or departments are deleted or renamed. Retention periods for each category of data are published in Section 7 of our <a href="privacy.html">Privacy Policy</a>.</p>
   <p>Where allowed by the system design and applicable law, Ergzo may replace a worker name with a default or pseudonymous label rather than deleting assessment history where deletion would undermine safety records or workflow integrity.</p>
 
-  <h2>9. Intellectual Property</h2>
+  <h2>10. Intellectual Property</h2>
   <p>All content, software, interfaces, branding, logos, and related materials in the Service are owned by Ergzo or its licensors and are protected by intellectual property laws. You may not copy, modify, reverse engineer, or distribute any part of the Service except as expressly permitted by law or authorized in writing by Ergzo.</p>
 
-  <h2>10. Third-Party Services</h2>
-  <p>The Service may depend on or integrate with third-party providers for authentication, cloud storage, communications, analytics, or AI features. Your use of those services may be subject to separate third-party terms and privacy policies. Ergzo is not responsible for third-party services outside its reasonable control.</p>
+  <h2>11. Third-Party Services</h2>
+  <p>The Service depends on third-party providers for authentication, database and serverless infrastructure, crash and performance diagnostics, push notification delivery, and AI features. Ergzo&#x2019;s current sub-processors are identified in Section 6 of our <a href="privacy.html">Privacy Policy</a>. Your use of those services may be subject to separate third-party terms and privacy policies. Ergzo is not responsible for third-party services outside its reasonable control.</p>
 
-  <h2>11. Suspension and Termination</h2>
+  <h2>12. Suspension and Termination</h2>
   <p>We may suspend, restrict, or terminate your access to the Service if we reasonably believe you have violated these Terms, created a security risk, misused the Service, or acted in a way that is harmful to Ergzo, your organization, or any other person. We may also disable access in response to legal, security, or operational requirements.</p>
 
-  <h2>12. Disclaimer of Warranties</h2>
+  <h2>13. Disclaimer of Warranties</h2>
   <p>The Service is provided on an &#x201C;as is&#x201D; and &#x201C;as available&#x201D; basis. To the maximum extent permitted by law, Ergzo disclaims all warranties, whether express, implied, or statutory, including implied warranties of merchantability, fitness for a particular purpose, and non-infringement. We do not guarantee that the Service will be uninterrupted, error-free, or that it will produce any specific business or safety outcome.</p>
 
-  <h2>13. Limitation of Liability</h2>
-  <p>To the maximum extent permitted by law, Ergzo will not be liable for indirect, incidental, special, consequential, exemplary, or punitive damages, or for lost profits, lost data, business interruption, or workplace decisions made based on assessment outputs. Nothing in these Terms limits liability to the extent such limitation is prohibited by applicable law.</p>
+  <h2>14. Limitation of Liability</h2>
+  <p>To the maximum extent permitted by law, Ergzo will not be liable for indirect, incidental, special, consequential, exemplary, or punitive damages, or for lost profits, lost data, business interruption, or workplace decisions made based on assessment outputs.</p>
+  <p>Ergzo&#x2019;s total aggregate liability arising out of or relating to these Terms or the Service, whether in contract, tort or otherwise, shall not exceed the total fees paid by your organization to Ergzo in the twelve months immediately preceding the event giving rise to the claim. This cap does not apply to liability for breach of confidentiality obligations, infringement of intellectual property rights, wilful misconduct, or any liability that cannot be limited under applicable law.</p>
+  <p>Nothing in these Terms limits liability to the extent such limitation is prohibited by applicable law.</p>
 
-  <h2>14. Indemnity</h2>
+  <h2>15. Indemnity</h2>
   <p>You agree to indemnify and hold harmless Ergzo, its directors, officers, employees, contractors, and affiliates from claims, losses, liabilities, damages, costs, and expenses arising from your misuse of the Service, your violation of these Terms, your breach of applicable law, or your infringement of third-party rights.</p>
 
-  <h2>15. Governing Law</h2>
-  <p>These Terms are governed by the laws of India. Any dispute arising out of or relating to these Terms or the Service will be subject to the exclusive jurisdiction of the courts located in India, unless another forum is required by applicable law.</p>
+  <h2>16. Governing Law and Jurisdiction</h2>
+  <p>These Terms are governed by the laws of India. The courts at <strong>[CITY]</strong> shall have exclusive jurisdiction over any dispute arising out of or relating to these Terms or the Service, and each party submits to that jurisdiction, unless another forum is required by applicable law.</p>
 
-  <h2>16. Changes to Terms</h2>
+  <h2>17. Changes to Terms</h2>
   <p>We may revise these Terms from time to time to reflect changes in the Service, legal requirements, or business operations. We will notify you of material changes by email, in-app notice, or another reasonable method. Continued use of the Service after the effective date of updated Terms constitutes acceptance of the revised Terms.</p>
 
-  <h2>17. Contact Us</h2>
-  <p>If you have any questions about these Terms, contact us at:</p>
-  <p><strong>Email:</strong> <a href="mailto:privacy@ergzo.com">privacy@ergzo.com</a><br/>
-  <strong>Website:</strong> <a href="https://www.ergzo.com" target="_blank" rel="noopener noreferrer">www.ergzo.com</a></p>
-</div>
+  <h2>18. Apple App Store Terms</h2>
+  <p>Where you obtained the Ergzo application through the Apple App Store, the following applies. These Terms are between you and Ergzo only, not with Apple, and Ergzo alone is responsible for the application and its content. Your licence is a non-transferable licence to use the application on any Apple-branded device you own or control, as permitted by the App Store Terms of Service.</p>
+  <p>Apple has no obligation to provide maintenance or support for the application. In the event the application fails to conform to any applicable warranty, you may notify Apple and Apple will refund the purchase price, if any; to the maximum extent permitted by law, Apple has no other warranty obligation. Ergzo, not Apple, is responsible for addressing any claim that the application or your use of it infringes intellectual property rights, for product liability claims, and for any claim arising under consumer protection or similar legislation. You represent that you are not located in a country subject to a U.S. Government embargo or designated as a &#x201C;terrorist supporting&#x201D; country, and that you are not listed on any U.S. Government list of prohibited or restricted parties. Apple and its subsidiaries are third-party beneficiaries of these Terms and, on your acceptance, will have the right to enforce them against you.</p>
 
+  <h2>19. Contact Us</h2>
+  <p>For support, account and technical issues: <a href="mailto:support@ergzo.com">support@ergzo.com</a></p>
+  <p>For privacy questions, rights requests and grievances: <a href="mailto:privacy@ergzo.com">privacy@ergzo.com</a>, marked for the attention of the Grievance Officer</p>
+  <p>For security vulnerability reports: <a href="mailto:support@ergzo.com">support@ergzo.com</a> with &#x201C;Security&#x201D; in the subject line</p>
+  <p><strong>Entity:</strong> Ergzo Solutions Private Limited<br/>
+  <strong>Website:</strong> <a href="https://www.ergzo.com">www.ergzo.com</a></p>
+
+  <div class="revision">
+    <p><strong>Revision history</strong></p>
+    <p>v2.0 &#x2014; September 1, 2026: named Google LLC as the AI provider and itemised the AI payload; added API access terms; added commercial terms and order-form precedence; added photo-library export terms; added an aggregate liability cap; named the seat of jurisdiction; added Apple App Store terms; split support and privacy contact routes.</p>
+    <p>v1.0 &#x2014; June 8, 2026: initial publication.</p>
+  </div>
+</div>
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
