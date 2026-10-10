@@ -7,7 +7,7 @@
 
 Ergzo is built by Ergzo Solutions Private Limited (India) for EHS professionals,
 safety managers, occupational health teams, ergonomists and factory managers.
-The product is currently pre-launch and operating a waitlist for iOS and Android.
+The app is live and free to download on the Apple App Store and Google Play.
 
 ## What Ergzo does
 
@@ -36,6 +36,14 @@ The product is currently pre-launch and operating a waitlist for iOS and Android
   the application alongside the founder and owns brand, content and demand
   generation, including outreach at industry expos.
 
+## Download
+
+Ergzo is free to download.
+
+- App Store (iOS): https://apps.apple.com/in/app/ergzo-workplace-ergonomics/id6792673710
+- Google Play (Android): https://play.google.com/store/apps/details?id=com.ergzo.app
+- Download page: https://www.ergzo.com/download.html
+
 ## Key facts
 
 - A full assessment takes roughly 4–8 minutes per task, versus 20–45 minutes for
@@ -59,9 +67,11 @@ The product is currently pre-launch and operating a waitlist for iOS and Android
 - [Cost of ergonomic injuries](https://www.ergzo.com/blog-3.html): calculating MSD exposure in manufacturing
 - [ROSA office ergonomics](https://www.ergzo.com/blog-4.html): desk and workstation assessment
 - [Building an ergonomics programme](https://www.ergzo.com/blog-5.html): rolling out workplace ergonomics
+- [Download](https://www.ergzo.com/download.html): App Store and Google Play links
 - [Support](https://www.ergzo.com/support.html): response times, bug reporting, security disclosure
 - [Privacy policy](https://www.ergzo.com/privacy.html)
 - [Terms of service](https://www.ergzo.com/terms.html)
+- [Account and data deletion](https://www.ergzo.com/delete-account.html)
 
 ## Contact
 
