@@ -6,6 +6,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#232d42"/>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"/>
   <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
   <meta name="referrer" content="strict-origin-when-cross-origin"/>
@@ -18,14 +19,21 @@
   <link rel="canonical" href="https://www.ergzo.com/support.html"/>
   <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
   <link rel="icon" type="image/png" href="ergzo-icon.png"/>
+  <link rel="apple-touch-icon" href="ergzo-icon.png"/>
   <meta property="og:site_name" content="Ergzo"/>
   <meta property="og:locale" content="en_IN"/>
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="Support &amp; Help Centre | Ergzo"/>
   <meta property="og:description" content="Support channels, response times, bug reporting and data subject requests."/>
   <meta property="og:url" content="https://www.ergzo.com/support.html"/>
-  <meta property="og:image" content="https://www.ergzo.com/ergzo-icon.png"/>
-  <meta name="twitter:card" content="summary"/>
+  <meta property="og:image" content="https://www.ergzo.com/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:type" content="image/png"/>
+  <meta property="og:image:alt" content="Ergzo &#x2014; AI ergonomic risk assessment, 15 validated tools"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://www.ergzo.com/og-image.png"/>
+  <meta name="twitter:image:alt" content="Ergzo &#x2014; AI ergonomic risk assessment, 15 validated tools"/>
   <meta name="twitter:site" content="@ergzohealth"/>
   <style>
     body{font-family:'Inter',sans-serif;font-feature-settings:"cv11","ss01";font-weight:400;background:#F4F7F7;color:#111621;line-height:1.7;margin:0;padding:0}
@@ -64,9 +72,9 @@
     }
     #mainNav{position:fixed;top:0;width:100%;z-index:100;background:rgba(35,45,66,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:68px;border-bottom:1px solid rgba(214,226,226,.08);transition:box-shadow var(--transition)}
     #mainNav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.2)}
-    .nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
-    .nav-logo-icon{height:30px;width:auto;display:block;filter:brightness(0) invert(1)}
-    .nav-logo-text{font-size:21px;font-weight:800;color:#fff;letter-spacing:-.5px}
+    .nav-logo{display:flex;align-items:center;text-decoration:none}
+    .nav-logo-img{height:28px;width:auto;max-width:none;display:block}
+    
     .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
     .nav-links a{color:rgba(214,226,226,.8);text-decoration:none;font-size:15px;font-weight:500;transition:color var(--transition)}
     .nav-links a:hover{color:#fff}
@@ -83,8 +91,8 @@
     .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:48px}
     .footer-brand{flex:1 1 240px}
     .footer-brand p{font-size:13px;color:rgba(214,226,226,.45);margin-top:10px;max-width:240px;line-height:1.7;font-weight:400}
-    .footer-logo{display:flex;align-items:center;gap:8px;font-size:20px;font-weight:800;color:#fff;max-width:unset;letter-spacing:-.3px}
-    .footer-logo-icon{height:26px;width:auto;display:block;filter:brightness(0) invert(1)}
+    .footer-logo{display:flex;align-items:center}
+    .footer-logo-img{height:26px;width:auto;max-width:none;display:block}
     .footer-links{flex:0 1 auto;min-width:140px}
     .footer-links h4{font-size:11px;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:16px}
     .footer-links ul{list-style:none;padding:0;margin:0}
@@ -92,6 +100,7 @@
     .footer-links a{color:rgba(214,226,226,.45);text-decoration:none;font-size:14px;transition:color var(--transition);font-weight:400}
     .footer-links a:hover{color:#fff}
     .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .legal-tm{flex-basis:100%;order:3;font-size:11px;line-height:1.6;color:rgba(214,226,226,.3);margin-top:14px;max-width:760px;font-weight:400}
     .footer-bottom p{font-size:13px;color:rgba(214,226,226,.3);font-weight:400}
     .social-links{list-style:none;padding:0;margin:0}
     .social-links li{margin-bottom:10px}
@@ -127,15 +136,15 @@
     .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:48px}
     .footer-brand{flex:1 1 240px}
     .footer-brand p{font-size:13px;color:rgba(214,226,226,.45);margin-top:10px;max-width:240px;line-height:1.7;font-weight:400}
-    .footer-logo{display:flex;align-items:center;gap:8px;font-size:20px;font-weight:800;color:#fff;max-width:unset;letter-spacing:-.3px}
-    .footer-logo-icon{height:26px;width:auto;display:block;filter:brightness(0) invert(1)}
+    
+    
     .footer-links{flex:0 1 auto;min-width:140px}
     .footer-links h4{font-size:11px;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:16px}
     .footer-links ul{list-style:none;padding:0;margin:0}
     .footer-links li{margin-bottom:10px}
     .footer-links a{color:rgba(214,226,226,.45);text-decoration:none;font-size:14px;transition:color var(--transition);font-weight:400}
     .footer-links a:hover{color:#fff}
-    .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    
     .footer-bottom p{font-size:13px;color:rgba(214,226,226,.3);font-weight:400}
     .social-links{list-style:none;padding:0;margin:0}
     .social-links li{margin-bottom:10px}
@@ -192,6 +201,7 @@
     .callout{background:#fff;border:1px solid #d6e2e2;border-radius:14px;padding:18px 20px;margin:18px 0;display:flex;gap:14px;align-items:flex-start}
     .callout-icon{font-size:18px;flex-shrink:0;margin-top:1px}
     .callout p{margin:0;font-size:14px;color:#354463;line-height:1.65}
+    .callout p a{color:#232d42;font-weight:600}
     .callout.warn{border-color:#f0d99a;background:#fffcf0}
     .callout.success{border-color:#9adfc0;background:#f0fdf7}
     .callout.info{border-color:#c3d6f0;background:#f0f6ff}
@@ -242,9 +252,8 @@
 <a href="#main" class="skip-link">Skip to main content</a>
 
 <nav id="mainNav">
-  <a href="index.html" class="nav-logo">
-    <img src="ergzo-icon.png" alt="Ergzo logo" class="nav-logo-icon" width="30" height="30"/>
-    <span class="nav-logo-text">ergzo</span>
+  <a href="index.html" class="nav-logo" aria-label="Ergzo home">
+    <img src="ergzo-logo.svg" alt="Ergzo" class="nav-logo-img" width="65" height="28"/>
   </a>
   <ul class="nav-links">
     <li><a href="index.html#features">Features</a></li>
@@ -314,6 +323,15 @@
       <li><a href="#updates">12. Updates to This Policy</a></li>
     </ul>
   </nav>
+
+  <div class="callout info" style="margin-bottom:34px">
+    <span class="callout-icon">&#x2139;&#xFE0F;</span>
+    <p><strong>Downloaded the app and cannot sign in?</strong> That is expected. Ergzo does not offer
+    self sign-up &#x2014; accounts are created by our team for each customer organisation. Email
+    <a href="mailto:hello@ergzo.com">hello@ergzo.com</a> or use the
+    <a href="index.html#contact">contact form</a> with your name, organisation and role, and we will
+    set up your trial account and send sign-in details within one business day.</p>
+  </div>
 
   <!-- 1. SCOPE -->
   <div class="doc-section" id="scope">
@@ -503,7 +521,7 @@ that period, you may complain to the Data Protection Board of India.</p>
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <div class="footer-logo"><img src="ergzo-icon.png" alt="Ergzo logo" class="footer-logo-icon" width="26" height="26"/>ergzo</div>
+      <div class="footer-logo"><img src="ergzo-logo.svg" alt="Ergzo" class="footer-logo-img" width="61" height="26"/></div>
       <p>AI-powered ergonomic assessment app for safety professionals, EHS teams, and managers worldwide.</p>
     </div>
     <div class="footer-links"><h4>Product</h4><ul><li><a href="index.html#features">Features</a></li><li><a href="index.html#tools">Assessment Tools</a></li><li><a href="index.html#reference">Tool Reference</a></li><li><a href="index.html#download">Download App</a></li></ul></div>
@@ -519,6 +537,7 @@ that period, you may complain to the Data Protection Board of India.</p>
   </div>
   <div class="footer-bottom">
     <p>&#169; 2026 Ergzo Solutions Private Limited. All rights reserved.</p>
+    <p class="legal-tm">Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC.</p>
     <p>Made with &#x2764;&#xFE0F; for safer workplaces</p>
   </div>
 </footer>

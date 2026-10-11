@@ -7,7 +7,8 @@
 
 Ergzo is built by Ergzo Solutions Private Limited (India) for EHS professionals,
 safety managers, occupational health teams, ergonomists and factory managers.
-The app is live and free to download on the Apple App Store and Google Play.
+The app is live on the Apple App Store and Google Play. It is sold business-to-business:
+accounts are provisioned by the Ergzo team, not by self sign-up.
 
 ## What Ergzo does
 
@@ -36,9 +37,14 @@ The app is live and free to download on the Apple App Store and Google Play.
   the application alongside the founder and owns brand, content and demand
   generation, including outreach at industry expos.
 
-## Download
+## Getting access
 
-Ergzo is free to download.
+The app is free to download, but Ergzo does not offer self sign-up. Accounts are
+created by the Ergzo team for each customer organisation, and trial credentials are
+sent to the customer directly. Someone who installs the app without first requesting
+an account will not be able to sign in. To get access, contact hello@ergzo.com or use
+the form at https://www.ergzo.com/#contact; sign-in details follow within one business
+day.
 
 - App Store (iOS): https://apps.apple.com/in/app/ergzo-workplace-ergonomics/id6792673710
 - Google Play (Android): https://play.google.com/store/apps/details?id=com.ergzo.app
