@@ -6,6 +6,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#232d42"/>
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#232d42"/>
   <meta name="theme-color" content="#232d42"/>
   <meta name="color-scheme" content="light"/>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"/>
@@ -19,9 +21,10 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1"/>
   <meta name="author" content="Ergzo Solutions Private Limited"/>
   <link rel="canonical" href="https://www.ergzo.com/blog-5.html"/>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
-  <link rel="icon" type="image/png" href="ergzo-icon.png"/>
-  <link rel="apple-touch-icon" href="ergzo-icon.png"/>
+  <link rel="icon" href="favicon.ico?v=3" sizes="32x32"/>
+  <link rel="icon" href="favicon.svg?v=3" type="image/svg+xml"/>
+  <link rel="icon" href="favicon-192.png?v=3" type="image/png" sizes="192x192"/>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3"/>
   <meta property="og:site_name" content="Ergzo"/>
   <meta property="og:locale" content="en_IN"/>
   <meta property="og:type" content="article"/>
@@ -105,8 +108,8 @@
     }
     .skip-link{position:absolute;top:-48px;left:0;padding:10px 16px;background:var(--indigo);color:#fff;font-size:14px;font-weight:600;z-index:9999;border-radius:0 0 8px 0;transition:top .2s;text-decoration:none}
     .skip-link:focus{top:0}
-    #mainNav{position:fixed;top:0;width:100%;z-index:100;background:rgba(35,45,66,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:68px;border-bottom:1px solid rgba(214,226,226,.08);transition:box-shadow var(--transition)}
-    #mainNav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.2)}
+    #mainNav{position:fixed;top:0;width:100%;z-index:100;background:#232d42;padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:68px;box-shadow:inset 0 -1px 0 rgba(214,226,226,.08);transition:box-shadow var(--transition)}
+    #mainNav.scrolled{box-shadow:inset 0 -1px 0 rgba(214,226,226,.08),0 4px 24px rgba(0,0,0,.2)}
     .nav-logo{display:flex;align-items:center;text-decoration:none}
     .nav-logo-img{height:28px;width:auto;max-width:none;display:block}
     
