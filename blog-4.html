@@ -7,6 +7,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="theme-color" content="#232d42"/>
+  <meta name="color-scheme" content="light"/>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"/>
   <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
   <meta name="referrer" content="strict-origin-when-cross-origin"/>
@@ -64,7 +65,7 @@
   }
   </script>
   <style>
-    html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h);overflow-x:hidden;width:100%}
+    html{background:#232d42;scroll-behavior:smooth;scroll-padding-top:var(--nav-h);overflow-x:hidden;width:100%}
     body{font-family:'Inter',sans-serif;font-weight:400;font-feature-settings:"cv11","ss01";background:#F4F7F7;color:#111621;line-height:1.7;overflow-x:hidden;width:100%;position:relative}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;max-width:100%}
     img,video,iframe,svg{max-width:100%;height:auto}
@@ -102,7 +103,7 @@
     .skip-link{position:absolute;top:-48px;left:0;padding:10px 16px;background:var(--indigo);color:#fff;font-size:14px;font-weight:600;z-index:9999;border-radius:0 0 8px 0;transition:top .2s;text-decoration:none}
     .skip-link:focus{top:0}
     #mainNav{position:fixed;top:0;width:100%;z-index:100;background:rgba(35,45,66,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:68px;border-bottom:1px solid rgba(214,226,226,.08);transition:box-shadow var(--transition)}
-    nav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.2)}
+    #mainNav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.2)}
     .nav-logo{display:flex;align-items:center;text-decoration:none}
     .nav-logo-img{height:28px;width:auto;max-width:none;display:block}
     
@@ -116,7 +117,6 @@
     .mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:#232d42;padding:20px 6%;border-bottom:1px solid rgba(255,255,255,.08);z-index:99;box-shadow:0 8px 24px rgba(0,0,0,.3)}
     .mobile-menu.open{display:flex;flex-direction:column;gap:18px}
     .mobile-menu a{color:rgba(214,226,226,.8);text-decoration:none;font-size:16px;font-weight:500;padding:4px 0}
-    .social-links a:hover svg{opacity:1}
     /* FOOTER */
     footer{background:var(--ink);color:var(--alabaster);padding:60px 6% 28px}
     .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:48px}
@@ -132,6 +132,7 @@
     .footer-links a:hover{color:#fff}
     .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
     .legal-tm{flex-basis:100%;order:3;font-size:11px;line-height:1.6;color:rgba(214,226,226,.3);margin-top:14px;max-width:760px;font-weight:400}
+    .legal-tm-2{order:4;margin-top:4px}
     .footer-bottom p{font-size:13px;color:rgba(214,226,226,.3);font-weight:400}
     .social-links{list-style:none;padding:0;margin:0}
     .social-links li{margin-bottom:10px}
@@ -145,7 +146,7 @@
       .footer-top{gap:28px 32px}
       .footer-brand{flex:1 1 100%;margin-bottom:4px}
       .footer-links{flex:1 1 calc(50% - 16px);min-width:150px}
-      nav{padding:0 4%}
+      #mainNav{padding:0 4%}
       .nav-links{gap:20px}
       .nav-links a{font-size:14px}
       .nav-cta{padding:8px 16px!important;font-size:13px!important}
@@ -343,7 +344,7 @@
   <div class="article-cta">
     <h3>Run ROSA assessments from your phone</h3>
     <p>Ergzo has all 15 validated ergonomic assessment tools built in &#x2014; including ROSA, REBA, RULA, NIOSH and more.</p>
-    <a href="index.html#download">Download Ergzo &#x2192;</a>
+    <a href="index.html#download">Download Ergzo</a>
   </div>
 </div>
 <footer>
@@ -365,7 +366,8 @@
   </div>
   <div class="footer-bottom">
     <p>&#169; 2026 Ergzo Solutions Private Limited. All rights reserved.</p>
-    <p class="legal-tm">Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC.</p>
+    <p class="legal-tm">Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.</p>
+    <p class="legal-tm legal-tm-2">Google Play and the Google Play logo are trademarks of Google LLC.</p>
     <p>Made with &#x2764;&#xFE0F; for safer workplaces</p>
   </div>
 </footer>
