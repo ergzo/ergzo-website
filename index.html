@@ -24,10 +24,10 @@
        Search Console > Add property > HTML tag, then uncomment the line below.
   <meta name="google-site-verification" content="REPLACE_WITH_YOUR_TOKEN"/> -->
   <link rel="canonical" href="https://www.ergzo.com/"/>
-  <link rel="icon" href="favicon.ico?v=5" sizes="32x32"/>
-  <link rel="icon" href="favicon.svg?v=5" type="image/svg+xml"/>
-  <link rel="icon" href="favicon-192.png?v=5" type="image/png" sizes="192x192"/>
-  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=5"/>
+  <link rel="icon" href="favicon.ico?v=6" sizes="32x32"/>
+  <link rel="icon" href="favicon.svg?v=6" type="image/svg+xml"/>
+  <link rel="icon" href="favicon-192.png?v=6" type="image/png" sizes="192x192"/>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=6"/>
   <meta property="og:site_name" content="Ergzo"/>
   <meta property="og:locale" content="en_IN"/>
   <meta property="og:type" content="website"/>
@@ -174,8 +174,8 @@
     /* NAVBAR */
     #mainNav{position:fixed;top:0;width:100%;z-index:100;background:#232d42;padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:68px;box-shadow:inset 0 -1px 0 rgba(214,226,226,.08);transition:box-shadow var(--transition)}
     #mainNav.scrolled{box-shadow:inset 0 -1px 0 rgba(214,226,226,.08),0 4px 24px rgba(0,0,0,.2)}
-    .nav-logo{display:flex;align-items:center;text-decoration:none}
-    .nav-logo-img{height:28px;width:auto;max-width:none;display:block}
+    .nav-logo{display:flex;align-items:center;text-decoration:none;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none}
+    .nav-logo-img{height:28px;width:auto;max-width:none;display:block;pointer-events:none;-webkit-user-drag:none;user-select:none}
     
     .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
     .nav-links a{color:rgba(214,226,226,.8);text-decoration:none;font-size:15px;font-weight:500;transition:color var(--transition)}
@@ -302,8 +302,10 @@
     .download-section{background:#232d42;text-align:center}
     .download-section .section-title{color:#fff}
     .download-section>p{color:rgba(214,226,226,.75);font-size:17px;max-width:560px;margin:14px auto 0;line-height:1.7;font-weight:400}
-    .dl-primary{display:inline-flex;align-items:center;background:var(--warning);color:#fff;padding:15px 30px;border-radius:var(--radius-full);font-size:15px;font-weight:700;text-decoration:none;margin-top:30px;transition:opacity var(--transition),transform var(--transition)}
-    .dl-primary:hover{opacity:.9;transform:translateY(-1px)}
+    .dl-trial{margin:30px auto 0}
+    .dl-note{color:rgba(214,226,226,.45)!important;font-size:13px!important;margin-top:14px!important}
+    .dl-note a{color:rgba(214,226,226,.8);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(214,226,226,.35);transition:color var(--transition)}
+    .dl-note a:hover{color:#fff;text-decoration-color:#fff}
     .dl-have{color:rgba(214,226,226,.45)!important;font-size:13px!important;margin-top:34px!important}
     .download-cta-row{display:flex;gap:40px;align-items:center;justify-content:center;margin-top:20px;flex-wrap:wrap}
     .download-divider{width:1px;height:92px;background:rgba(255,255,255,.13)}
@@ -390,8 +392,8 @@
     .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:48px}
     .footer-brand{flex:1 1 240px}
     .footer-brand p{font-size:13px;color:rgba(214,226,226,.45);margin-top:10px;max-width:240px;line-height:1.7;font-weight:400}
-    .footer-logo{display:flex;align-items:center}
-    .footer-logo-img{height:26px;width:auto;max-width:none;display:block}
+    .footer-logo{display:flex;align-items:center;cursor:pointer;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+    .footer-logo-img{height:26px;width:auto;max-width:none;display:block;pointer-events:none;-webkit-user-drag:none;user-select:none}
     .footer-links{flex:0 1 auto;min-width:140px}
     .footer-links h4{font-size:11px;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:16px}
     .footer-links ul{list-style:none;padding:0;margin:0}
@@ -506,7 +508,7 @@
 <a href="#home" class="skip-link">Skip to main content</a>
 <!-- NAVBAR -->
 <nav id="mainNav">
-  <a href="#" class="nav-logo" aria-label="Ergzo home">
+  <a href="/" class="nav-logo" aria-label="Ergzo home">
     <img src="ergzo-logo.svg" alt="Ergzo" class="nav-logo-img" width="65" height="28"/>
   </a>
   <ul class="nav-links">
@@ -556,7 +558,7 @@
     <input id="heroEmail" type="email" name="email" placeholder="Enter your work email" required maxlength="120" autocomplete="email"/>
     <button type="submit">Request a free trial</button>
   </form>
-  <p class="hero-note">Free trial &middot; we&#x2019;ll set up your account and email sign-in details within one business day</p>
+  <p class="hero-note">Free trial &middot; we&#x2019;ll create your account and email your sign-in details within one business day.</p>
   <p class="hero-have">Already have an account?</p>
   <div class="store-badges hero-badges">
       <a class="store-badge" href="https://apps.apple.com/in/app/ergzo-workplace-ergonomics/id6792673710" target="_blank" rel="noopener"><img src="appstore-badge.svg" width="156" height="52" alt="Download Ergzo on the App Store" decoding="async"/></a>
@@ -794,8 +796,15 @@ rel="noopener noreferrer">https://ergo.human.cornell.edu/cutools.html</a>)
 <section class="download-section" id="download">
   <span class="section-tag light">Getting started</span>
   <h2 class="section-title">Set your team up on Ergzo</h2>
-  <p>Ergzo is live on the App Store and Google Play. Accounts are created by our team rather than self sign-up, so tell us about your site and we&#x2019;ll set up your free trial and send sign-in details within one business day.</p>
-  <a href="#contact" class="dl-primary">Request a free trial</a>
+  <p>Ergzo is live on the App Store and Google Play. Accounts are created by our team rather than by self sign-up, so leave your work email below and we&#x2019;ll provision your free trial and send your sign-in details within one business day.</p>
+  <form class="hero-trial dl-trial" action="https://formspree.io/f/xnjonlry"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"/>
+    <input type="hidden" name="_subject" value="Ergzo trial request (download section)"/>
+    <input type="hidden" name="source" value="download-section"/>
+    <label for="dlEmail" class="sr-only">Work email</label>
+    <input id="dlEmail" type="email" name="email" placeholder="Enter your work email" required maxlength="120" autocomplete="email"/>
+    <button type="submit">Request a free trial</button>
+  </form>
+  <p class="dl-note">Prefer to give us more detail? <a href="#contact">Use the contact form</a> instead.</p>
   <p class="dl-have">Already have an account? Get the app:</p>
   <div class="download-cta-row">
     <div class="store-badges">
@@ -903,12 +912,15 @@ rel="noopener noreferrer">https://ergo.human.cornell.edu/cutools.html</a>)
 <script>
 document.addEventListener('DOMContentLoaded',function(){if(typeof AOS!=='undefined'){AOS.init({duration:420,once:true,offset:60,easing:'ease-out'})}});
 window.addEventListener('scroll',function(){document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>10)},{passive:true});
+/* Keep the home page on one canonical URL so the browser caches a single favicon for it */
+if(/index\.html$/.test(location.pathname)){try{history.replaceState(null,'',location.pathname.replace(/index\.html$/,'')+location.search+location.hash)}catch(e){}}
+/* Logo resets the page without a reload when we are already home */
+document.addEventListener('DOMContentLoaded',function(){var nl=document.querySelector('.nav-logo');if(!nl)return;nl.addEventListener('click',function(e){if(location.pathname!=='/'&&!/index\.html$/.test(location.pathname))return;e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});document.getElementById('mobileMenu').classList.remove('open');try{history.replaceState(null,'','/')}catch(err){}})});
 function toggleMenu(){var m=document.getElementById('mobileMenu');var h=document.querySelector('.hamburger');var o=m.classList.toggle('open');h.setAttribute('aria-expanded',o);h.setAttribute('aria-label',o?'Close navigation menu':'Open navigation menu')}
 document.addEventListener('click',function(e){var m=document.getElementById('mobileMenu');var h=document.querySelector('.hamburger');if(!m.contains(e.target)&&!h.contains(e.target)){m.classList.remove('open');h.setAttribute('aria-expanded','false')}});
 document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var href=this.getAttribute('href');if(href==='#')return;var t=document.querySelector(href);if(!t)return;e.preventDefault();var top=t.getBoundingClientRect().top+window.pageYOffset-68;window.scrollTo({top:top,behavior:'smooth'});document.getElementById('mobileMenu').classList.remove('open')})});
 function handleForm(form,successFn){form.addEventListener('submit',async function(e){e.preventDefault();var btn=form.querySelector('button[type="submit"]');var orig=btn.textContent;btn.textContent='Sending\u2026';btn.disabled=true;try{var r=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});if(r.ok){if(successFn){successFn(form,btn)}else{btn.textContent="You're on the list!";btn.style.background='#27AE60';form.reset();setTimeout(function(){btn.textContent=orig;btn.style.background='';btn.disabled=false},4000)}}else{btn.textContent='Something went wrong';btn.style.background='#E74C3C';setTimeout(function(){btn.textContent=orig;btn.style.background='';btn.disabled=false},3000)}}catch(err){btn.textContent='Network error';btn.style.background='#E74C3C';setTimeout(function(){btn.textContent=orig;btn.style.background='';btn.disabled=false},3000)}})}
-var hf=document.querySelector('.hero-trial');
-if(hf)handleForm(hf,function(form,btn){btn.textContent='Request received \u2713';btn.style.background='#27AE60';btn.style.color='#fff';form.reset();setTimeout(function(){btn.textContent='Request a free trial';btn.style.background='';btn.style.color='';btn.disabled=false},4500)});
+document.querySelectorAll('.hero-trial').forEach(function(hf){handleForm(hf,function(form,btn){btn.textContent='Request received \u2713';btn.style.background='#27AE60';btn.style.color='#fff';form.reset();setTimeout(function(){btn.textContent='Request a free trial';btn.style.background='';btn.style.color='';btn.disabled=false},4500)})});
 var cf=document.getElementById('contactForm');
 if(cf)handleForm(cf,function(form,btn){form.style.display='none';document.getElementById('contactSuccess').classList.add('visible')});
 </script>

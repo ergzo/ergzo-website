@@ -20,10 +20,10 @@
   <meta name="robots" content="index, follow"/>
   <meta name="author" content="Ergzo Solutions Private Limited"/>
   <link rel="canonical" href="https://www.ergzo.com/privacy.html"/>
-  <link rel="icon" href="favicon.ico?v=5" sizes="32x32"/>
-  <link rel="icon" href="favicon.svg?v=5" type="image/svg+xml"/>
-  <link rel="icon" href="favicon-192.png?v=5" type="image/png" sizes="192x192"/>
-  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=5"/>
+  <link rel="icon" href="favicon.ico?v=6" sizes="32x32"/>
+  <link rel="icon" href="favicon.svg?v=6" type="image/svg+xml"/>
+  <link rel="icon" href="favicon-192.png?v=6" type="image/png" sizes="192x192"/>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=6"/>
   <meta property="og:site_name" content="Ergzo"/>
   <meta property="og:locale" content="en_IN"/>
   <meta property="og:type" content="website"/>
@@ -79,8 +79,8 @@
     .skip-link:focus{top:0}
     #mainNav{position:fixed;top:0;width:100%;z-index:100;background:#232d42;padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:68px;box-shadow:inset 0 -1px 0 rgba(214,226,226,.08);transition:box-shadow var(--transition)}
     #mainNav.scrolled{box-shadow:inset 0 -1px 0 rgba(214,226,226,.08),0 4px 24px rgba(0,0,0,.2)}
-    .nav-logo{display:flex;align-items:center;text-decoration:none}
-    .nav-logo-img{height:28px;width:auto;max-width:none;display:block}
+    .nav-logo{display:flex;align-items:center;text-decoration:none;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none}
+    .nav-logo-img{height:28px;width:auto;max-width:none;display:block;pointer-events:none;-webkit-user-drag:none;user-select:none}
     
     .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
     .nav-links a{color:rgba(214,226,226,.8);text-decoration:none;font-size:15px;font-weight:500;transition:color var(--transition)}
@@ -97,8 +97,8 @@
     .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:48px}
     .footer-brand{flex:1 1 240px}
     .footer-brand p{font-size:13px;color:rgba(214,226,226,.45);margin-top:10px;max-width:240px;line-height:1.7;font-weight:400}
-    .footer-logo{display:flex;align-items:center}
-    .footer-logo-img{height:26px;width:auto;max-width:none;display:block}
+    .footer-logo{display:flex;align-items:center;cursor:pointer;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+    .footer-logo-img{height:26px;width:auto;max-width:none;display:block;pointer-events:none;-webkit-user-drag:none;user-select:none}
     .footer-links{flex:0 1 auto;min-width:140px}
     .footer-links h4{font-size:11px;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:16px}
     .footer-links ul{list-style:none;padding:0;margin:0}
@@ -176,29 +176,29 @@
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
 <nav id="mainNav">
-  <a href="index.html" class="nav-logo" aria-label="Ergzo home">
+  <a href="/" class="nav-logo" aria-label="Ergzo home">
     <img src="ergzo-logo.svg" alt="Ergzo" class="nav-logo-img" width="65" height="28"/>
   </a>
   <ul class="nav-links">
-    <li><a href="index.html#features">Features</a></li>
-    <li><a href="index.html#tools">Tools</a></li>
-    <li><a href="index.html#blog">Blog</a></li>
+    <li><a href="/#features">Features</a></li>
+    <li><a href="/#tools">Tools</a></li>
+    <li><a href="/#blog">Blog</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
-    <li><a href="index.html#download" class="nav-cta">Download App</a></li>
+    <li><a href="/#contact">Contact</a></li>
+    <li><a href="/#download" class="nav-cta">Download App</a></li>
   </ul>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Open navigation menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
 <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
-  <a href="index.html#features" onclick="toggleMenu()">Features</a>
-  <a href="index.html#tools" onclick="toggleMenu()">Tools</a>
-  <a href="index.html#blog" onclick="toggleMenu()">Blog</a>
+  <a href="/#features" onclick="toggleMenu()">Features</a>
+  <a href="/#tools" onclick="toggleMenu()">Tools</a>
+  <a href="/#blog" onclick="toggleMenu()">Blog</a>
   <a href="about.html" onclick="toggleMenu()">About</a>
-  <a href="index.html#contact" onclick="toggleMenu()">Contact</a>
+  <a href="/#contact" onclick="toggleMenu()">Contact</a>
   <a href="support.html" onclick="toggleMenu()">Support</a>
-  <a href="index.html#download" onclick="toggleMenu()" style="color:#F39C12;font-weight:700">Download App</a>
+  <a href="/#download" onclick="toggleMenu()" style="color:#F39C12;font-weight:700">Download App</a>
 </div>
 <div class="doc-hero">
   <div class="doc-hero-inner">
@@ -396,9 +396,9 @@
       <div class="footer-logo"><img src="ergzo-logo.svg" alt="Ergzo" class="footer-logo-img" width="61" height="26"/></div>
       <p>AI-powered ergonomic assessment app for safety professionals, EHS teams, and managers worldwide.</p>
     </div>
-    <div class="footer-links"><h4>Product</h4><ul><li><a href="index.html#features">Features</a></li><li><a href="index.html#tools">Assessment Tools</a></li><li><a href="index.html#reference">Tool Reference</a></li><li><a href="index.html#download">Download App</a></li></ul></div>
-    <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="index.html#blog">Blog</a></li><li><a href="index.html#contact">Contact</a></li><li><a href="support.html">Support</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li><li><a href="delete-account.html">Delete Account</a></li></ul></div>
-    <div class="footer-links"><h4>Industries</h4><ul><li><a href="index.html#industries">Manufacturing</a></li><li><a href="index.html#industries">Construction</a></li><li><a href="index.html#industries">Warehouse</a></li><li><a href="index.html#industries">Office</a></li></ul></div>
+    <div class="footer-links"><h4>Product</h4><ul><li><a href="/#features">Features</a></li><li><a href="/#tools">Assessment Tools</a></li><li><a href="/#reference">Tool Reference</a></li><li><a href="/#download">Download App</a></li></ul></div>
+    <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="/#blog">Blog</a></li><li><a href="/#contact">Contact</a></li><li><a href="support.html">Support</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li><li><a href="delete-account.html">Delete Account</a></li></ul></div>
+    <div class="footer-links"><h4>Industries</h4><ul><li><a href="/#industries">Manufacturing</a></li><li><a href="/#industries">Construction</a></li><li><a href="/#industries">Warehouse</a></li><li><a href="/#industries">Office</a></li></ul></div>
     <div class="footer-links"><h4>Follow Us</h4><ul class="social-links">
       <li><a href="https://www.linkedin.com/company/ergzo/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.554v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.137 1.446-2.137 2.941v5.665H9.352V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.602 0 4.267 2.37 4.267 5.455v6.284zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span>ergzo</span></a></li>
       <li><a href="https://x.com/ergzohealth" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span>ergzohealth</span></a></li>
