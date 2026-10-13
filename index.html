@@ -24,9 +24,10 @@
        Search Console > Add property > HTML tag, then uncomment the line below.
   <meta name="google-site-verification" content="REPLACE_WITH_YOUR_TOKEN"/> -->
   <link rel="canonical" href="https://www.ergzo.com/"/>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
-  <link rel="icon" type="image/png" href="ergzo-icon.png"/>
-  <link rel="apple-touch-icon" href="ergzo-icon.png"/>
+  <link rel="icon" href="favicon.ico?v=5" sizes="32x32"/>
+  <link rel="icon" href="favicon.svg?v=5" type="image/svg+xml"/>
+  <link rel="icon" href="favicon-192.png?v=5" type="image/png" sizes="192x192"/>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=5"/>
   <meta property="og:site_name" content="Ergzo"/>
   <meta property="og:locale" content="en_IN"/>
   <meta property="og:type" content="website"/>
@@ -205,7 +206,7 @@
     .feature-visual-wrap .feature-iphone{width:var(--phone-feat)}
     .phone-img{display:block;width:100%;height:auto}
     @media(max-width:640px){
-      .feature-iphone,.feature-iphone.side{width:30vw}.hero-risk-bar{gap:6px}.risk-bar-label{font-size:11px}}
+      .hero-risk-bar{gap:6px}.risk-bar-label{font-size:11px}}
     /* HERO */
     .hero{min-height:100vh;background:#232d42;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 6% 0}
     .hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.07);border:1px solid rgba(214,226,226,.14);color:#d6e2e2;padding:8px 18px;border-radius:var(--radius-full);font-size:13px;font-weight:500;margin-bottom:28px}
@@ -221,8 +222,17 @@
     .store-badge img{height:52px;width:auto;max-width:none;display:block}
     .store-badge:hover{transform:translateY(-2px);opacity:.92}
     .store-badge:focus-visible{outline:2px solid var(--warning);outline-offset:4px}
-    .hero-badges{margin-bottom:20px}
-    .hero-note{color:rgba(214,226,226,.45);font-size:13px;margin-bottom:46px;font-weight:400}
+    .hero-badges{margin-bottom:46px}
+    .hero-note{color:rgba(214,226,226,.45);font-size:13px;margin-bottom:30px;font-weight:400}
+    .hero-have{color:rgba(214,226,226,.38);font-size:12px;letter-spacing:.3px;margin-bottom:14px;font-weight:400}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    /* email pill - same shape as the original hero form */
+    .hero-trial{display:flex;gap:0;justify-content:center;margin-bottom:14px;max-width:470px;width:100%}
+    .hero-trial input[type=email]{flex:1;min-width:0;padding:15px 20px;border:1px solid rgba(255,255,255,.14);border-right:none;border-radius:var(--radius-full) 0 0 var(--radius-full);background:rgba(255,255,255,.07);color:#fff;font-size:15px;font-family:inherit;outline:none;transition:border-color var(--transition);min-height:52px}
+    .hero-trial input[type=email]:focus{border-color:rgba(255,255,255,.3)}
+    .hero-trial input[type=email]::placeholder{color:rgba(214,226,226,.35)}
+    .hero-trial button{background:#fff;color:var(--indigo);padding:15px 22px;display:inline-flex;align-items:center;justify-content:center;line-height:1;border-radius:0 var(--radius-full) var(--radius-full) 0;border:none;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;transition:opacity var(--transition);max-width:unset;min-height:52px}
+    .hero-trial button:hover{opacity:.88}
     .hero-note a{color:rgba(214,226,226,.8);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(214,226,226,.35);transition:color var(--transition)}
     .hero-note a:hover{color:#fff;text-decoration-color:#fff}
     /* PHONES */
@@ -438,7 +448,6 @@
       .users-section{padding-top:40px}
       [data-aos]{opacity:1!important;transform:none!important;transition:none!important;animation:none!important}
       .feature-block{gap:28px}
-      .iphone-wrap{transform:perspective(700px) rotateY(8deg) translateY(10px)!important;flex-shrink:1;min-width:0}
       .iphone-wrap:hover,.iphone-wrap:last-child:hover,.iphone-wrap.center-phone:hover{transform:inherit!important}
       .feature-iphone,.feature-iphone.side{width:30vw}
       .feature-iphone.center{width:34.5vw}
@@ -457,12 +466,15 @@
       .badge-sep{display:none}
       .badge-text2::before{content:"\00B7\00A0";color:rgba(214,226,226,.45)}
       .hero{padding-bottom:0}
+      .hero-trial{flex-direction:column;max-width:100%;width:100%;padding:0 4%;gap:10px}
+      .hero-trial input[type=email]{border:1px solid rgba(255,255,255,.15);border-radius:var(--radius-full);width:100%;text-align:center}
+      .hero-trial button{border-radius:var(--radius-full);width:100%;text-align:center}
       .store-badges{gap:14px}
       .store-badge img{height:46px}
       .qr-wrap,.download-divider{display:none}
       .download-cta-row{margin-top:30px}
       .phones-row{gap:12px;width:100vw;margin-left:-6%;margin-right:-6%;padding:0;margin-bottom:0;justify-content:center;overflow:visible;align-items:flex-end}
-      .iphone-wrap{transform:perspective(600px) rotateY(10deg) translateY(12px)!important;flex-shrink:0;transition:none!important}
+      .iphone-wrap{transform:perspective(600px) rotateY(10deg) translateY(12px)!important;flex-shrink:0;min-width:0;transition:none!important}
       .iphone-wrap:last-child{transform:perspective(600px) rotateY(-10deg) translateY(12px)!important}
       .iphone-wrap.center-phone{transform:none!important}
       
@@ -518,7 +530,7 @@
   <a href="about.html" onclick="toggleMenu()">About</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
   <a href="support.html" onclick="toggleMenu()">Support</a>
-  <a href="#download" onclick="toggleMenu()" style="color:#F39C12;font-weight:700">Download App &#x2192;</a>
+  <a href="#download" onclick="toggleMenu()" style="color:#F39C12;font-weight:700">Download App</a>
 </div>
 <!-- HERO -->
 <section class="hero" id="home">
@@ -537,11 +549,19 @@
     <span class="risk-chip risk-vhi">Very High</span>
     <span class="risk-bar-label">Instant risk classification on every assessment</span>
   </div>
+  <form class="hero-trial" action="https://formspree.io/f/xnjonlry"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"/>
+    <input type="hidden" name="_subject" value="Ergzo trial request (hero)"/>
+    <input type="hidden" name="source" value="hero"/>
+    <label for="heroEmail" class="sr-only">Work email</label>
+    <input id="heroEmail" type="email" name="email" placeholder="Enter your work email" required maxlength="120" autocomplete="email"/>
+    <button type="submit">Request a free trial</button>
+  </form>
+  <p class="hero-note">Free trial &middot; we&#x2019;ll set up your account and email sign-in details within one business day</p>
+  <p class="hero-have">Already have an account?</p>
   <div class="store-badges hero-badges">
       <a class="store-badge" href="https://apps.apple.com/in/app/ergzo-workplace-ergonomics/id6792673710" target="_blank" rel="noopener"><img src="appstore-badge.svg" width="156" height="52" alt="Download Ergzo on the App Store" decoding="async"/></a>
       <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.ergzo.app" target="_blank" rel="noopener"><img src="googleplay-badge.svg" width="175" height="52" alt="Get Ergzo on Google Play" decoding="async"/></a>
     </div>
-  <p class="hero-note">On iOS and Android &middot; Accounts are set up by our team &mdash; <a href="#contact">request a free trial</a></p>
   <div class="phones-row">
     <div class="iphone-wrap">
       <div class="feature-iphone side"><img class="phone-img" decoding="async" src="phone-dashboard.png" alt="Ergzo dashboard: sessions, assessments, average score and high-risk count"/></div>
@@ -887,6 +907,8 @@ function toggleMenu(){var m=document.getElementById('mobileMenu');var h=document
 document.addEventListener('click',function(e){var m=document.getElementById('mobileMenu');var h=document.querySelector('.hamburger');if(!m.contains(e.target)&&!h.contains(e.target)){m.classList.remove('open');h.setAttribute('aria-expanded','false')}});
 document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var href=this.getAttribute('href');if(href==='#')return;var t=document.querySelector(href);if(!t)return;e.preventDefault();var top=t.getBoundingClientRect().top+window.pageYOffset-68;window.scrollTo({top:top,behavior:'smooth'});document.getElementById('mobileMenu').classList.remove('open')})});
 function handleForm(form,successFn){form.addEventListener('submit',async function(e){e.preventDefault();var btn=form.querySelector('button[type="submit"]');var orig=btn.textContent;btn.textContent='Sending\u2026';btn.disabled=true;try{var r=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});if(r.ok){if(successFn){successFn(form,btn)}else{btn.textContent="You're on the list!";btn.style.background='#27AE60';form.reset();setTimeout(function(){btn.textContent=orig;btn.style.background='';btn.disabled=false},4000)}}else{btn.textContent='Something went wrong';btn.style.background='#E74C3C';setTimeout(function(){btn.textContent=orig;btn.style.background='';btn.disabled=false},3000)}}catch(err){btn.textContent='Network error';btn.style.background='#E74C3C';setTimeout(function(){btn.textContent=orig;btn.style.background='';btn.disabled=false},3000)}})}
+var hf=document.querySelector('.hero-trial');
+if(hf)handleForm(hf,function(form,btn){btn.textContent='Request received \u2713';btn.style.background='#27AE60';btn.style.color='#fff';form.reset();setTimeout(function(){btn.textContent='Request a free trial';btn.style.background='';btn.style.color='';btn.disabled=false},4500)});
 var cf=document.getElementById('contactForm');
 if(cf)handleForm(cf,function(form,btn){form.style.display='none';document.getElementById('contactSuccess').classList.add('visible')});
 </script>
