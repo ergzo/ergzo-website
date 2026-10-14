@@ -184,7 +184,7 @@
       .nav-links{gap:20px}
       .nav-links a{font-size:14px}
       .nav-cta{padding:8px 16px!important;font-size:13px!important}
-      .doc-body,.blog-body{padding-left:5%;padding-right:5%}
+      .doc-body,
       .doc-hero,.blog-hero{padding-left:5%;padding-right:5%}
     }
     @media(max-width:640px){.nav-links{display:none}.hamburger{display:flex}}
@@ -196,7 +196,7 @@
     .blog-hero h1{font-size:var(--text-page-h1);font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.12;margin-bottom:14px;text-wrap:balance}
     .blog-hero .blog-meta{color:rgba(214,226,226,.45);font-size:14px;font-weight:400}
     .blog-body{max-width:var(--container-doc);margin:0 auto;padding:64px 6% 80px}
-    .blog-body h2{font-size:22px;font-weight:800;color:#111621;margin:44px 0 14px;letter-spacing:-.4px;border-left:3px solid #232d42;padding-left:16px}
+    .blog-body h2{font-size:22px;font-weight:800;color:#111621;margin:44px 0 14px;letter-spacing:-.4px;position:relative}.blog-body h2::before{content:"";position:absolute;left:-14px;top:.15em;bottom:.15em;width:3px;background:#232d42;border-radius:2px}
     .blog-body h3{font-size:17px;font-weight:700;color:#232d42;margin:28px 0 10px;letter-spacing:-.2px}
     .blog-body p{font-size:16px;line-height:1.85;color:#3a4a5a;margin-bottom:18px}
     .blog-body ul,.blog-body ol{padding-left:22px;margin-bottom:18px}
@@ -235,8 +235,8 @@
     .formula-box .formula{font-size:16px;font-weight:700;color:#232d42;margin-bottom:8px;line-height:1.6}
     .formula-box .formula-note{font-size:13px;color:#5a6a7a}
     .related-posts{background:var(--white);border:1px solid var(--border-mid);border-left:3px solid var(--indigo);border-radius:16px;padding:24px 26px;margin:40px 0 0}
-    .related-title{font-size:11px!important;font-weight:700!important;color:var(--twilight)!important;letter-spacing:1.2px;text-transform:uppercase;margin:0 0 14px!important;border:none!important;padding:0!important}
-    .related-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+    .blog-body .related-title{font-size:11px!important;font-weight:700!important;color:var(--twilight)!important;letter-spacing:1.2px;text-transform:uppercase;margin:0 0 14px!important;border:none!important;padding:0!important}
+    .blog-body .related-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
     .related-list li{margin:0}
     .related-list a{font-size:15px;color:var(--indigo);text-decoration:none;font-weight:600;line-height:1.5;display:block;transition:color var(--transition)}
     .related-list a:hover{color:var(--twilight);text-decoration:underline}
@@ -258,8 +258,8 @@
       .footer-brand p{max-width:100%}
       .footer-links{flex:1 1 auto;min-width:0;width:100%}
       .footer-bottom{flex-direction:column;align-items:flex-start;gap:6px}
-      .blog-hero{padding:72px 4% 52px}
-      .blog-body{padding:40px 4% 60px}
+      .blog-hero{padding:72px max(16px,4%) 52px}
+      .blog-body{padding:40px max(16px,4%) 60px}
       .step-box{flex-direction:column;gap:10px}
       .stat-grid{grid-template-columns:1fr 1fr}
       .cost-row{flex-direction:column;align-items:flex-start;gap:4px}

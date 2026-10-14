@@ -125,7 +125,7 @@
       .nav-links{gap:20px}
       .nav-links a{font-size:14px}
       .nav-cta{padding:8px 16px!important;font-size:13px!important}
-      .doc-body,.blog-body{padding-left:5%;padding-right:5%}
+      .doc-body,
       .doc-hero,.blog-hero{padding-left:5%;padding-right:5%}
     }
     @media(max-width:640px){.nav-links{display:none}.hamburger{display:flex}}
@@ -163,8 +163,8 @@
       .footer-brand p{max-width:100%}
       .footer-links{flex:1 1 auto;min-width:0;width:100%}
       .footer-bottom{flex-direction:column;align-items:flex-start;gap:6px}
-      .doc-hero{padding:48px 4% 40px}
-      .doc-body{padding:40px 4% 64px}
+      .doc-hero{padding:48px max(16px,4%) 40px}
+      .doc-body{padding:40px max(16px,4%) 64px}
       table{min-width:440px}
     }
     @media(max-width:400px){
@@ -186,7 +186,7 @@
     .dl-feat b{display:block;font-size:14px;font-weight:700;color:var(--indigo);margin-bottom:5px}
     .dl-feat span{font-size:13px;color:var(--text-body);line-height:1.65}
     @media(max-width:860px){.dl-feat{grid-template-columns:1fr}}
-    @media(max-width:640px){.store-badges{gap:14px;justify-content:center}.store-badge img{height:46px}.dl-wrap{padding:40px 5% 56px}.dl-status{text-align:center}}
+    @media(max-width:640px){.store-badges{gap:14px;justify-content:center}.store-badge img{height:46px}.dl-wrap{padding:40px max(16px,5%) 56px}.dl-status{text-align:center}}
 </style>
 </head>
 <body>

@@ -299,6 +299,18 @@
     .tool-full{font-size:10px;color:#8a9aaa;margin-top:4px;line-height:1.4;font-weight:400}
 
     /* DOWNLOAD */
+    .faq-section{background:var(--white);padding:var(--space-section) 6%}
+    .faq-list{max-width:780px;margin:44px auto 0;display:flex;flex-direction:column;gap:12px}
+    .faq-item{background:var(--white);border:1px solid var(--border-mid);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);overflow:hidden;transition:border-color var(--transition)}
+    .faq-item[open]{border-color:var(--border-strong)}
+    .faq-item summary{list-style:none;cursor:pointer;padding:18px 52px 18px 22px;font-size:var(--text-lg);font-weight:700;color:var(--indigo);line-height:1.45;position:relative;font-family:inherit;-webkit-tap-highlight-color:transparent}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary::after{content:"";position:absolute;right:22px;top:50%;width:9px;height:9px;border-right:2px solid var(--text-faint);border-bottom:2px solid var(--text-faint);transform:translateY(-70%) rotate(45deg);transition:transform var(--transition)}
+    .faq-item[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+    .faq-item summary:focus-visible{outline:2px solid var(--indigo);outline-offset:-2px}
+    .faq-a{padding:0 22px 20px}
+    .faq-a p{font-size:var(--text-base);line-height:1.75;color:var(--text-body);margin:0;font-weight:400}
+    @media(max-width:640px){.faq-list{margin-top:32px;gap:10px}.faq-item summary{padding:16px 46px 16px 18px}.faq-a{padding:0 18px 18px}}
     .download-section{background:#232d42;text-align:center}
     .download-section .section-title{color:#fff}
     .download-section>p{color:rgba(214,226,226,.75);font-size:17px;max-width:560px;margin:14px auto 0;line-height:1.7;font-weight:400}
@@ -468,7 +480,7 @@
       .badge-sep{display:none}
       .badge-text2::before{content:"\00B7\00A0";color:rgba(214,226,226,.45)}
       .hero{padding-bottom:0}
-      .hero-trial{flex-direction:column;max-width:100%;width:100%;padding:0 4%;gap:10px}
+      .hero-trial{flex-direction:column;max-width:100%;width:100%;padding:0 max(16px,4%);gap:10px}
       .hero-trial input[type=email]{border:1px solid rgba(255,255,255,.15);border-radius:var(--radius-full);width:100%;text-align:center}
       .hero-trial button{border-radius:var(--radius-full);width:100%;text-align:center}
       .store-badges{gap:14px}
@@ -492,7 +504,7 @@
       .feature-iphone,.feature-iphone.side{width:28.5vw}
       .feature-iphone.center{width:33vw}
       .feature-visual-wrap .feature-iphone{width:100%;max-width:268px}
-      section{padding:64px 4%}
+      section{padding:64px max(16px,4%)}
       .users-grid,.blog-grid,.feat-grid{grid-template-columns:1fr}
       .user-card,.feat-card{padding:24px 18px}
       .blog-body{padding:18px}
@@ -791,6 +803,36 @@ Questionnaire developed by Professor Alan Hedge, Cornell University, USA.
 (<a href="https://ergo.human.cornell.edu/cutools.html" target="_blank"
 rel="noopener noreferrer">https://ergo.human.cornell.edu/cutools.html</a>)
 </p>
+</section>
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="text-center">
+    <span class="section-tag">Common questions</span>
+    <h2 class="section-title">Ergonomic assessment, answered</h2>
+    <p class="section-sub">The questions safety and EHS teams ask us most often before they run their first assessment.</p>
+  </div>
+  <div class="faq-list">
+    <details class="faq-item" open>
+      <summary>What is an ergonomic risk assessment?</summary>
+      <div class="faq-a"><p>An ergonomic risk assessment measures the physical strain a work task places on a worker's body. It scores posture, force, repetition and duration using validated methods such as REBA, RULA or the NIOSH lifting equation, producing a numeric risk level that tells safety teams which tasks need redesign.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>Which ergonomic assessment tools does Ergzo support?</summary>
+      <div class="faq-a"><p>Ergzo includes 15 validated tools: REBA, RULA, ROSA, WISHA, SNOOK, NIOSH, WERA, QEC, CMDQ, JSI, MAC, OCRA, MANTRA, OWAS and PATH.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>Can you do an ergonomic assessment with just a phone?</summary>
+      <div class="faq-a"><p>Yes. Ergzo uses AI pose detection through the phone camera to measure joint angles and body posture, then applies the chosen assessment method. No wearables, sensors or specialist hardware are required, and a full assessment takes about 4 to 8 minutes.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>What is the difference between REBA and RULA?</summary>
+      <div class="faq-a"><p>REBA assesses the whole body and suits dynamic tasks such as lifting, carrying and bending. RULA focuses on the upper limbs and suits static or repetitive tasks such as assembly, typing or sewing.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>Is Ergzo a medical device?</summary>
+      <div class="faq-a"><p>No. Ergzo is a professional workplace screening and risk-analysis tool. It does not provide medical diagnosis or treatment, and its outputs should be reviewed by a qualified ergonomist or safety professional.</p></div>
+    </details>
+  </div>
 </section>
 <!-- DOWNLOAD -->
 <section class="download-section" id="download">
