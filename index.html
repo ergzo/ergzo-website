@@ -965,7 +965,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
    Bot protection: the hidden _gotcha field (bots fill it) and a minimum fill time are checked on the server. */
 var ERGZO_SB_URL='https://xpwzynhogpgvkwtnqmzz.supabase.co';
 var ERGZO_SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhwd3p5bmhvZ3Bndmt3dG5xbXp6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3OTk5MTYsImV4cCI6MjEwNzM3NTkxNn0.QddAaniqEPQRkW4U7kFtxg2m8hchc0hPyAPUmVsxOKc'; /* public key: can only call submit_form */
-var ERGZO_ALSO_FORMSPREE=true; /* set to false once the automatic trial reply runs from Supabase */
+var ERGZO_ALSO_FORMSPREE=false; /* set to false once the automatic trial reply runs from Supabase */
 function ergzoVal(form,sel){var el=form.querySelector(sel);return el&&el.value?String(el.value).trim():''}
 function ergzoPayload(form){var src=ergzoVal(form,'input[name="source"]');return{form_kind:form.querySelector('textarea')?'contact':'trial',email:ergzoVal(form,'input[name="email"]'),name:ergzoVal(form,'input[name="name"]'),company:ergzoVal(form,'input[name="company"]'),role:ergzoVal(form,'select[name="role"]'),phone:ergzoVal(form,'input[name="phone"]'),message:ergzoVal(form,'textarea[name="message"]'),_gotcha:ergzoVal(form,'input[name="_gotcha"]'),elapsed_ms:Date.now()-(form.__ergzoLoaded||Date.now()),page:location.pathname+(src?'#'+src:''),user_agent:navigator.userAgent}}
 function handleForm(form,successFn){form.__ergzoLoaded=Date.now();form.addEventListener('submit',async function(e){e.preventDefault();var btn=form.querySelector('button[type="submit"]');var orig=btn.textContent;btn.textContent='Sending…';btn.disabled=true;
