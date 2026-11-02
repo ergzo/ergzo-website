@@ -97,3 +97,33 @@ not operated by us.
 - Instagram: https://www.instagram.com/ergzohealth
 - Facebook: https://www.facebook.com/ergzo
 - YouTube: https://www.youtube.com/@ergzo
+
+## Common questions
+
+**Is Ergzo free?** Ergzo is free to download on the App Store and Google Play.
+Assessment accounts are provisioned by the Ergzo team rather than by self
+sign-up: request a free trial at https://www.ergzo.com and we set up your
+account and email sign-in details within one business day.
+
+**Does Ergzo work offline?** Yes. Assessments can be captured and scored on
+site without a network connection, and data syncs when the device reconnects.
+
+**What devices does Ergzo run on?** iOS and Android phones and tablets, using
+the standard device camera. No wearables, sensors or specialist hardware.
+
+**How long does an assessment take?** About four to eight minutes, against
+thirty to sixty minutes for the same evaluation scored by hand.
+
+**What reports can Ergzo export?** PDF, Excel and CSV, including the risk
+score, risk level, body-part risk map and corrective action plan.
+
+**Which assessment methods are supported?** Fifteen validated tools: REBA,
+RULA, ROSA, NIOSH, OWAS, Snook, QEC, OCRA, WERA, MAC, JSI, WISHA, CMDQ,
+MANTRA and PATH.
+
+## Assessment method guides
+
+- [REBA vs RULA comparison](https://www.ergzo.com/blog-1.html)
+- [RULA assessment guide](https://www.ergzo.com/rula-assessment.html)
+- [REBA assessment guide](https://www.ergzo.com/reba-assessment.html)
+- [ROSA desk assessment guide](https://www.ergzo.com/blog-4.html)
