@@ -1119,5 +1119,7 @@ if(cf)handleForm(cf,function(form,btn){form.style.display='none';document.getEle
 /* Clickjacking fallback - CSP frame-ancestors is primary defence */
 if (window.top !== window.self) { window.top.location = window.self.location; }
 </script>
+  <!-- Analytics consent gate. Clarity loads only after the visitor accepts. -->
+  <script src="/consent.js" defer></script>
 </body>
 </html>
